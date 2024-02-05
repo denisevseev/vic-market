@@ -42,10 +42,10 @@ const Navigation = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end" sx={{ borderRadius: "8px" }}>
-                <div style={{ borderRadius: "50%" }}>
-                  <SearchIcon style={{ color: "black" }} />
-                </div>
-              </InputAdornment>
+        <div style={{ display: 'flex', alignItems: 'center', borderRadius: "50%" }}>
+          <SearchIcon style={{ color: "black" }} />
+        </div>
+      </InputAdornment>
             ),
           }}
         />
