@@ -1,0 +1,47 @@
+.topCategoriesMainBox {
+  max-width: 245px;
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.topCategoriesBox {
+  background-color: #fff;
+  padding: 16px 12px;
+}
+.topCategoryText {
+  margin-bottom: 8px !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #082f4a !important;
+  line-height: 1.5rem !important;
+}
+.topCategoriesItem {
+  font-weight: 400 !important;
+  color: #4f5f6d !important;
+  font-size: 0.875rem !important;
+  line-height: 1.313rem !important;
+  cursor: pointer !important;
+  margin-top: 0.5rem !important;
+  max-width: 245px !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  transition: all 0.2s !important;
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
+.viewAllCategoriesLink {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5rem !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgb(225, 119, 26) !important;
+  color: rgb(225, 119, 26) !important;
+  cursor: pointer !important;
+  margin-top: 1.5rem !important;
+  transition: all 0.2s !important;
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
