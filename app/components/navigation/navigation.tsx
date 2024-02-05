@@ -27,7 +27,7 @@ const Navigation = () => {
         <TextField
           sx={{
             width: { xs: "90%", md: "60%" },
-            mx: 2,
+            marginRight: 2,
             "& .MuiOutlinedInput-root": {
               borderRadius: "8px",
               "& .MuiInputBase-input::placeholder": {
