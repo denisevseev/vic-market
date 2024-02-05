@@ -60,7 +60,7 @@ const Navigation = () => {
       </div>
       <div className="block right">
         <p className="login-text">Login</p>
-        <Button variant="contained" style={{ backgroundColor: "#2A5182" }}>
+        <Button variant="contained" style={{ backgroundColor: "#2A5182" }} className="sign-up">
           Sign Up
         </Button>
         <MenuIcon className="mr-right-icon" />
