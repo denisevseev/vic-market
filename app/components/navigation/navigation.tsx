@@ -1,4 +1,4 @@
-// components/Navigation.tsx
+"use client";
 import Link from "next/link";
 import "./navigation.scss";
 import Image from "next/image";
@@ -6,8 +6,22 @@ import { Button, InputAdornment, TextField } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import SelectCity from "../shared/select-city/select-city";
+import NavigationPopover from "../navigation-popover/navigation-popover";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
   return (
     <div id="wrapper">
       <div className="block left">
@@ -20,9 +34,8 @@ const Navigation = () => {
         />
       </div>
       <div className="block center">
-        {/* <div>All Cities</div> */}
         <div className="select-city-container">
-        <SelectCity/>
+          <SelectCity />
         </div>
         <TextField
           sx={{
@@ -35,17 +48,22 @@ const Navigation = () => {
                 lineHeight: { xs: "1.25", sm: "1.5" },
               },
             },
-            // ... other styles
           }}
           variant="outlined"
           placeholder="Search for a product, category or service"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end" sx={{ borderRadius: "8px" }}>
-        <div style={{ display: 'flex', alignItems: 'center', borderRadius: "50%" }}>
-          <SearchIcon style={{ color: "black" }} />
-        </div>
-      </InputAdornment>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    borderRadius: "50%",
+                  }}
+                >
+                  <SearchIcon style={{ color: "black" }} />
+                </div>
+              </InputAdornment>
             ),
           }}
         />
@@ -60,10 +78,24 @@ const Navigation = () => {
       </div>
       <div className="block right">
         <p className="login-text">Login</p>
-        <Button variant="contained" style={{ backgroundColor: "#2A5182" }} className="sign-up">
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "#2A5182" }}
+          className="sign-up"
+        >
           Sign Up
         </Button>
-        <MenuIcon className="mr-right-icon" />
+        <MenuIcon
+          className="mr-right-icon"
+          onClick={handleClick}
+          style={{ cursor: "pointer" }}
+        />
+        <NavigationPopover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+        />
       </div>
     </div>
   );
