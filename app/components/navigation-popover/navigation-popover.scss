@@ -1,0 +1,22 @@
+.plan-text-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.boxes-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 83px;;
+  gap: 9px;
+}
+
+.button-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
