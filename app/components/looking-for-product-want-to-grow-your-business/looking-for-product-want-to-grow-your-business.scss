@@ -1,0 +1,125 @@
+.lookingForProductWantToGrowYourBusinessMain {
+  width: 42.42%;
+}
+.lookingForProductWantToGrowYourBusinessMainBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+.lookingForProducMainBox {
+  background-image: url("../../../public/looking-for-product.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 388px;
+  min-width: 163px;
+  height: 258px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.wantToGrowYourBusinessMainBox {
+  background-image: url("../../../public/want-to-grow-your-business.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 388px;
+  min-width: 163px;
+  height: 258px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.lookingForProductText {
+  font-size: 1rem !important;
+  color: rgb(45, 56, 64) !important;
+  margin-bottom: 20px !important;
+}
+.wantToGrowYourBusinessText {
+  font-size: 1rem !important;
+  color: #fff !important;
+  margin-bottom: 20px !important;
+}
+.postByText {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  color: rgb(38, 92, 129) !important;
+  font-weight: 400 !important;
+  padding-right: 5px;
+}
+.requirementText {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  color: rgb(38, 92, 129) !important;
+  font-weight: 600 !important;
+}
+.wantToGrowText {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  padding-right: 5px;
+}
+.trandeIndiaText {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+.lookingForProBtn {
+  border: 1px solid rgb(38, 92, 129) !important;
+  height: 48px;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  transition: all 0.2s !important;
+  &:hover {
+    background-color: rgb(253, 255, 219) !important;
+  }
+}
+.wantToGrowBtn {
+  border: 1px solid #fff !important;
+  height: 48px;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  transition: all 0.2s !important;
+  &:hover {
+    background-color: rgb(159, 18, 18) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .lookingForProBtn {
+    display: none !important;
+  }
+  .wantToGrowBtn {
+    display: none !important;
+  }
+  .lookingForProductWantToGrowYourBusinessMainBox {
+    flex-direction: row !important;
+  }
+  .wantToGrowYourBusinessMainBox {
+    width: 100% !important;
+    height: 166px !important;
+    background-position: bottom !important;
+  }
+  .lookingForProducMainBox {
+    width: 100% !important;
+    height: 166px !important;
+  }
+  .lookingForProductWantToGrowYourBusinessMain {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .wantToGrowYourBusinessMainBox {
+    height: 136px !important;
+    padding: 10px !important;
+  }
+  .lookingForProducMainBox {
+    height: 136px !important;
+    padding: 10px !important;
+  }
+  .lookingForProductWantToGrowYourBusinessMainBox {
+    padding-bottom: 15px;
+  }
+}

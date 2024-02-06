@@ -6,7 +6,7 @@ import MoreValueAddsItem from "./More-value-adds-item";
 
 export default function MoreValueAdds() {
   return (
-    <Box>
+    <Box className="moreValueAddsMainBox">
       <Box>
         <Typography className="moreValueAddsText">More Value Adds</Typography>
       </Box>
