@@ -1,0 +1,56 @@
+.slider-container {
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
+  border-radius: 8px;
+  padding: 1rem 1rem 4px 1rem;
+}
+
+.slick-prev {
+  left: -1.5rem;
+  z-index: 1;
+  margin-right: 1rem;
+}
+
+.slick-dots {
+  transform: translateY(1em);
+}
+
+.slick-dots li button:before {
+  transition: 0.2s;
+  content: "";
+  border-radius: 100%;
+  background: #00bcd4; /* Adjust if you want to change the dot colors */
+}
+
+/* Update slick arrow styles here */
+.slick-arrow {
+  background-color: transparent; /* Make background transparent */
+  color: black; /* Specify the color for the arrow icons */
+  width: 30px;
+  height: 50px;
+  transition: 0.2s;
+}
+
+.slick-arrow:hover,
+.slick-arrow:focus {
+  background-color: transparent; /* Keep background transparent on hover/focus */
+  color: #2a5182; /* Change color on hover/focus if needed */
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: -40px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: inherit; /* Ensure arrow colors inherit from the .slick-arrow class */
+  font-size: 20px; /* Adjust the size of the arrows */
+}
+
+.slick-next {
+  right: -40px;
+}
