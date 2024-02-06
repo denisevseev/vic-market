@@ -20,7 +20,7 @@
 .itemsMainBox {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12.62px;
 }
 .topCategoriesItem {
   font-weight: 400 !important;
@@ -56,4 +56,16 @@
   align-items: center;
   gap: 10px;
   height: 1.938rem;
+}
+
+@media screen and (max-width: 1399px) {
+  .topCategoriesMainBox {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .topCategoriesMainBox {
+    display: none;
+  }
 }

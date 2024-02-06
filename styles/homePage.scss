@@ -1,0 +1,44 @@
+.firstSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.homepageCarouselAndLookingForMainBox {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.carouselLookingForAndMoreValue {
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media screen and (max-width: 1399px) {
+  .carouselLookingForAndMoreValue {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .carouselLookingForAndMoreValue {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .firstSection {
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .homepageCarouselAndLookingForMainBox {
+    flex-direction: column !important;
+  }
+}
+@media screen and (max-width: 630px) {
+  .firstSection {
+    margin-top: 8.5rem !important;
+  }
+}
