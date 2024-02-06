@@ -1,7 +1,6 @@
 "use client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import Slider from "react-slick";
 import "./scrollable-tabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -14,7 +13,6 @@ const Slide = ({ title, imgSrc }: any) => {
           width: "100%",
           height: "200px",
           backgroundColor: "rgba(109, 103, 89, 0.06)",
-          //   boxShadow: "0px 2px 30px 9px rgba(109, 103, 89, 0.06)",
           border: "1px solid rgb(225, 230, 239)",
           borderRadius: "8px",
           display: "flex",
@@ -70,49 +68,49 @@ function VariableWidth({ data, title }: any) {
     slidesToShow: 9,
     responsive: [
       {
-        breakpoint: 1550, // At 600px or below
+        breakpoint: 1550,
         settings: {
-          slidesToShow: 8, // Show 1 slide
+          slidesToShow: 8,
         },
       },
       {
-        breakpoint: 1450, // At 600px or below
+        breakpoint: 1450,
         settings: {
-          slidesToShow: 7, // Show 1 slide
+          slidesToShow: 7,
         },
       },
       {
-        breakpoint: 1300, // At 600px or below
+        breakpoint: 1300,
         settings: {
-          slidesToShow: 6, // Show 1 slide
+          slidesToShow: 6,
         },
       },
       {
-        breakpoint: 1200, // At 600px or below
+        breakpoint: 1200,
         settings: {
-          slidesToShow: 5, // Show 1 slide
+          slidesToShow: 5,
         },
       },
       {
-        breakpoint: 975, // At 600px or below
+        breakpoint: 975,
         settings: {
-          slidesToShow: 4, // Show 1 slide
+          slidesToShow: 4,
         },
       },
       {
-        breakpoint: 750, // At 600px or below
+        breakpoint: 750,
         settings: {
-          slidesToShow: 3, // Show 1 slide
+          slidesToShow: 3,
         },
       },
       {
-        breakpoint: 600, // At 600px or below
+        breakpoint: 600,
         settings: {
-          slidesToShow: 2, // Show 1 slide
+          slidesToShow: 2,
         },
       },
       {
-        breakpoint: 500, // At 600px or below
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
         },

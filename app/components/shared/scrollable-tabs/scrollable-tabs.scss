@@ -18,13 +18,12 @@
   transition: 0.2s;
   content: "";
   border-radius: 100%;
-  background: #00bcd4; /* Adjust if you want to change the dot colors */
+  background: #00bcd4;
 }
 
-/* Update slick arrow styles here */
 .slick-arrow {
-  background-color: transparent; /* Make background transparent */
-  color: black; /* Specify the color for the arrow icons */
+  background-color: transparent;
+  color: black;
   width: 30px;
   height: 50px;
   transition: 0.2s;
@@ -32,8 +31,8 @@
 
 .slick-arrow:hover,
 .slick-arrow:focus {
-  background-color: transparent; /* Keep background transparent on hover/focus */
-  color: #2a5182; /* Change color on hover/focus if needed */
+  background-color: transparent;
+  color: #2a5182;
 }
 
 .slick-prev,
@@ -47,8 +46,8 @@
 
 .slick-prev:before,
 .slick-next:before {
-  color: inherit; /* Ensure arrow colors inherit from the .slick-arrow class */
-  font-size: 20px; /* Adjust the size of the arrows */
+  color: inherit;
+  font-size: 20px;
 }
 
 .slick-next {
