@@ -1,0 +1,144 @@
+.moreValueAddsText {
+  font-size: 1.125rem !important;
+  line-height: 1.875rem !important;
+  margin: 1.5rem 0px 10px !important;
+  color: #082f4a !important;
+  font-weight: 600 !important;
+}
+.addsItemMain {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.addItemSingelMain {
+  background-color: #fff;
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
+  border-radius: 8px;
+  padding: 1rem;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  max-width: 296px !important;
+  height: 117px !important;
+  margin-right: 1.5rem;
+  transition: all 0.2s !important;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(
+      to right,
+      rgb(235, 152, 79) 0%,
+      rgb(255, 185, 122) 100%
+    ) !important;
+    .tradeIndiaText {
+      color: #fff !important;
+    }
+    .learnMoreLink {
+      color: #fff !important;
+    }
+    .catlogsImage {
+      background-image: url("../../../public/catlogs-hover.svg");
+    }
+    .buyLeadsImage {
+      background-image: url("../../../public/buy-leads-hover.svg");
+    }
+    .membershipImage {
+      background-image: url("../../../public/membership-hover.svg");
+    }
+    .bookDomainImage {
+      background-image: url("../../../public/book-domain-hover.svg");
+    }
+    .arrowIconBox {
+      background-color: #fff !important;
+    }
+    .arrowRightIcon {
+      color: #082f4a !important;
+    }
+  }
+}
+.tradeIndiaText {
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  line-height: 1.125rem !important;
+  letter-spacing: 0.375px !important;
+  color: rgb(8, 47, 74) !important;
+}
+.learnMoreLink {
+  color: rgb(225, 119, 26) !important;
+  font-weight: 400 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+.tradeIndiaAndLearnMore {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.catlogsImage {
+  background-image: url("../../../public/catlogs.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 117px;
+  height: 94px;
+  transition: background-image 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.buyLeadsImage {
+  background-image: url("../../../public/buy-leads.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 101px;
+  height: 92px;
+  transition: background-image 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.membershipImage {
+  background-image: url("../../../public/membership.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 117px;
+  height: 94px;
+  transition: background-image 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.bookDomainImage {
+  background-image: url("../../../public/book-domain.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 116px;
+  height: 92px;
+  transition: background-image 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.learnMoreAndIcon {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+}
+.arrowIconBox {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(225, 119, 26) !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrowRightIcon {
+  color: #fff;
+  width: 10px !important;
+  height: 10px !important;
+}

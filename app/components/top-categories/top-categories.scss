@@ -6,14 +6,21 @@
 }
 .topCategoriesBox {
   background-color: #fff;
-  padding: 16px 12px;
+  border-radius: 8px;
+  padding: 1rem 0.75rem;
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
 }
 .topCategoryText {
-  margin-bottom: 8px !important;
+  margin-bottom: 16px !important;
   font-size: 1.125rem !important;
   font-weight: 600 !important;
   color: #082f4a !important;
   line-height: 1.5rem !important;
+}
+.itemsMainBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .topCategoriesItem {
   font-weight: 400 !important;
@@ -21,8 +28,6 @@
   font-size: 0.875rem !important;
   line-height: 1.313rem !important;
   cursor: pointer !important;
-  margin-top: 0.5rem !important;
-  max-width: 245px !important;
   text-overflow: ellipsis !important;
   overflow: hidden !important;
   white-space: nowrap !important;
@@ -44,4 +49,11 @@
   &:hover {
     opacity: 0.7 !important;
   }
+}
+.itemAndImageBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 1.938rem;
 }
