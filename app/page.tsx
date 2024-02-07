@@ -5,6 +5,7 @@ import MoreValueAdds from "./components/more-value-adds/More-value-adds";
 import "../styles/homePage.scss";
 import HomepageImagesCarousel from "./components/homepage-images-carousel/HomepageImagesCarousel";
 import LookingForProductWantToGrowYourBusiness from "./components/looking-for-product-want-to-grow-your-business/looking-for-product-want-to-grow-your-business";
+import FeaturedProducts from "./components/features-products/featured-products";
 
 export default function Home() {
   const slidesData = [
@@ -61,7 +62,7 @@ export default function Home() {
         </Box>
         <div
           style={{
-            width: "90%",
+            width: "98%",
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "4rem",
@@ -70,8 +71,9 @@ export default function Home() {
           <div style={{ marginBottom: "2rem" }}>
             <VariableWidth data={slidesData} title="Trending Categories" />
           </div>
-          <div>
-            <VariableWidth data={slidesData} title="Recent Blogs" />
+
+          <div style={{ marginBottom: "2rem" }}>
+            <FeaturedProducts />
           </div>
         </div>
       </Box>
