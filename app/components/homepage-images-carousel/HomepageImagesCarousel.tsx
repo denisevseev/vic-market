@@ -1,7 +1,7 @@
 "use client";
 import "./homepageImagesCarousel.scss";
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import Image from "next/image";
 import homepageImage1 from "../../../public/homepage-carousel-image.webp";
@@ -25,6 +25,7 @@ const carouselItems = [
 ];
 
 export default function HomepageImagesCarousel() {
+  const smallScreen = useMediaQuery("(max-width: 768px)");
   return (
     <Box className="carouselMainBox">
       <Carousel
@@ -41,8 +42,8 @@ export default function HomepageImagesCarousel() {
         indicatorContainerProps={{
           style: {
             zIndex: 1,
-            bottom: 30,
-            left: 60,
+            bottom: smallScreen ? 15 : 30,
+            left: smallScreen ? 30 : 60,
             position: "absolute",
             width: "auto",
           },
@@ -50,7 +51,6 @@ export default function HomepageImagesCarousel() {
         activeIndicatorIconButtonProps={{
           style: {
             color: "rgb(225, 119, 26)",
-            fontSize: "20px",
           },
         }}
         IndicatorIcon={<RemoveIcon />}
@@ -58,15 +58,14 @@ export default function HomepageImagesCarousel() {
         {carouselItems.map((item, index) => (
           <Box key={"Carousel Item Box" + index}>
             <Image
-               src={item.imageUrl}
-               layout="responsive"
-              //  height={530}
+              src={item.imageUrl}
+              height={532}
+              width={600}
               className="carouselImage"
               style={{
-                objectFit: "cover",
-                width: "100%",
                 borderRadius: "10px",
               }}
+              priority
               alt={`Carousel Item ${index + 1}`}
             />
           </Box>

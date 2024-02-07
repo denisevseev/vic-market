@@ -1,0 +1,153 @@
+{
+  "data": {
+    "categories": {
+      "topCategories": [
+        {
+          "category": "Health & Beauty",
+          "image": "smartphone_image.jpg",
+          "subcategories": [
+            {
+              "category": "Personal Care Products",
+              "image": "smartphone_image.jpg",
+              "subcategories": [
+                {
+                  "category": "Face Mask",
+                  "products": [
+                    {
+                      "image": "smartphone_image.jpg",
+                      "title": "Awesome Smartphone",
+                      "price": 499.99,
+                      "pieces": 100,
+                      "memberSince": "2022-01-01",
+                      "location": "City A",
+                      "moq": "MOQ"
+                    }
+                  ]
+                },
+                {
+                  "category": "Sanitary Napkins",
+                  "products": [
+                    {
+                      "image": "smartphone_image.jpg",
+                      "title": "Awesome Smartphone",
+                      "price": 499.99,
+                      "pieces": 100,
+                      "memberSince": "2022-01-01",
+                      "location": "City A",
+                      "moq": "MOQ"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+      "trendingCategories": [
+        {
+          "category": "Electronics",
+          "image": "smartphone_image.jpg"
+        }
+      ]
+    },
+    "products": {
+      "newArrivals": [
+        {
+          "title": "New Arrivals",
+          "subTitle": "Buy from an exciting collection of our newly added products",
+          "products": [
+            {
+              "title": "New Arrival 1",
+              "image": "smartphone_image.jpg",
+              "price": 79.99,
+              "pieces": 50,
+              "category": "Electronics",
+              "size": "Medium",
+              "units": "pcs",
+              "liters": "Liters",
+              "kilograms": "Kilograms",
+              "meter": "Meter",
+              "square": "Foot/Square Foots"
+            },
+            {
+              "title": "New Arrival 2",
+              "image": "smartphone_image.jpg",
+              "price": 129.99,
+              "pieces": 30,
+              "category": "Fashion",
+              "size": "Large",
+              "units": "pcs",
+              "liters": "Liters",
+              "kilograms": "Kilograms",
+              "meter": "Meter",
+              "square": "Foot/Square Foots"
+            }
+          ]
+        }
+      ],
+      "tradeIndiaTrusted": [
+        {
+          "title": "TradeIndia Trusted",
+          "subTitle": "Buy products from over 4.5 million verified and trusted TradeIndia sellers",
+          "products": [
+            {
+              "title": "Trusted Product 1",
+              "image": "smartphone_image.jpg",
+              "price": 99.99,
+              "pieces": 20,
+              "category": "Electronics",
+              "size": "Small",
+              "units": "pcs",
+              "liters": "Liters",
+              "kilograms": "Kilograms",
+              "meter": "Meter",
+              "square": "Foot/Square Foots"
+            },
+            {
+              "title": "Trusted Product 2",
+              "image": "smartphone_image.jpg",
+              "price": 149.99,
+              "pieces": 25,
+              "category": "Fashion",
+              "size": "Medium",
+              "units": "pcs",
+              "liters": "Liters",
+              "kilograms": "Kilograms",
+              "meter": "Meter",
+              "square": "Foot/Square Foots"
+            }
+          ]
+        }
+      ],
+      "featuredProducts": [
+        {
+          "title": "Featured Product 1",
+          "image": "smartphone_image.jpg",
+          "price": 149.99,
+          "pieces": 15,
+          "category": "Electronics",
+          "size": "Large",
+          "units": "pcs",
+          "liters": "Liters",
+          "kilograms": "Kilograms",
+          "meter": "Meter",
+          "square": "Foot/Square Foots"
+        },
+        {
+          "title": "Featured Product 2",
+          "image": "smartphone_image.jpg",
+          "price": 199.99,
+          "pieces": 10,
+          "category": "Fashion",
+          "size": "XL",
+          "units": "pcs",
+          "liters": "Liters",
+          "kilograms": "Kilograms",
+          "meter": "Meter",
+          "square": "Foot/Square Foots"
+        }
+      ]
+    }
+  }
+}

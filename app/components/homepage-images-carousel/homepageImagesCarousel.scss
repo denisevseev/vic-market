@@ -1,3 +1,19 @@
 .carouselMainBox {
   width: 100%;
 }
+.carouselImage {
+  height: 532px;
+  width: 100%;
+  // object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+  .carouselImage {
+    height: 366px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .carouselImage {
+    height: 236px;
+  }
+}

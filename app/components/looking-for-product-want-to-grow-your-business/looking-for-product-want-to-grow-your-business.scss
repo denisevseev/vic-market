@@ -87,6 +87,12 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .lookingForProBtn {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
 @media screen and (max-width: 767px) {
   .lookingForProBtn {
     display: none !important;
