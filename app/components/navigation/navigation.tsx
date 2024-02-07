@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import "./navigation.scss";
 import Image from "next/image";
 import { Button, InputAdornment, TextField } from "@mui/material";
@@ -21,7 +20,7 @@ const Navigation = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
   return (
     <div id="wrapper">
       <div className="block left">
@@ -31,6 +30,7 @@ const Navigation = () => {
           alt="Logo"
           width={181}
           height={41}
+          priority
         />
       </div>
       <div className="block center">
@@ -49,6 +49,7 @@ const Navigation = () => {
               },
             },
           }}
+          className="searchProductTextField"
           variant="outlined"
           placeholder="Search for a product, category or service"
           InputProps={{

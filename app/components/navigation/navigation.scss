@@ -1,10 +1,10 @@
 #wrapper {
   display: flex;
   width: 100%;
-  //   height: 50px;
+  max-width: 1620px;
+  margin: auto;
   align-items: center;
   text-align: center;
-
   position: sticky;
   top: 0;
   z-index: 100;
@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: start;
   width: 20%;
-  background-color: #efefef;
+  background-color: #fff;
   order: 1;
 }
 
@@ -28,9 +28,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-
   width: 60%;
-  background-color: #efefef;
+  background-color: #fff;
   order: 2;
 }
 
@@ -39,9 +38,8 @@
   align-items: center;
   justify-content: right;
   gap: 10px;
-
   width: 20%;
-  background-color: #efefef;
+  background-color: #fff;
   order: 3;
 }
 
@@ -68,7 +66,7 @@
     justify-content: left;
     @media all and (max-width: 360px) {
       width: 70%;
-   }
+    }
   }
   .right {
     width: 40%;
@@ -78,7 +76,7 @@
 
     @media all and (max-width: 360px) {
       width: 30%;
-   }
+    }
   }
 }
 
@@ -100,9 +98,9 @@
     cursor: pointer;
   }
 
-    @media all and (max-width: 460px) {
-       display: none;
-    }
+  @media all and (max-width: 460px) {
+    display: none;
+  }
 }
 
 .ml-left-logo {
@@ -133,7 +131,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 138px;
-  height: 23px;
+  height: 26px;
   color: red;
   border: 1px solid rgb(178 223 234);
 
@@ -143,13 +141,13 @@
 
   @media all and (max-width: 630px) {
     width: 200px;
- }
- @media all and (max-width: 460px) {
+  }
+  @media all and (max-width: 460px) {
     width: 150px;
- }
- @media all and (max-width: 350px) {
+  }
+  @media all and (max-width: 350px) {
     width: 120px;
- }
+  }
 }
 
 .number-of-users-box {
@@ -160,7 +158,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   width: 138px;
-  height: 23px;
+  height: 26px;
 
   @media all and (min-width: 630px) and (max-width: 900px) {
     margin-right: 1rem;
@@ -168,13 +166,13 @@
 
   @media all and (max-width: 630px) {
     width: 200px;
- }
- @media all and (max-width: 460px) {
+  }
+  @media all and (max-width: 460px) {
     width: 150px;
- }
- @media all and (max-width: 350px) {
+  }
+  @media all and (max-width: 350px) {
     width: 120px;
- }
+  }
 }
 
 .registered-users-text {
@@ -198,9 +196,31 @@
   }
 }
 
-.sign-up{
+.sign-up {
   display: flex;
   @media all and (max-width: 460px) {
     display: none !important;
- }
+  }
+}
+@media screen and (max-width: 630px) {
+  .searchProductTextField {
+    margin-right: 0 !important;
+  }
+  .select-city-container {
+    margin-left: 0;
+  }
+  .reg-users-box {
+    margin-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .number-of-users-box {
+    margin-right: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 }
