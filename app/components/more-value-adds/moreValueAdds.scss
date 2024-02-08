@@ -25,7 +25,7 @@
   position: relative;
   width: 100%;
   max-width: 296px !important;
-  min-width: 237px !important;
+  min-width: 213px !important;
   height: 117px !important;
   transition: all 0.2s !important;
   cursor: pointer;
@@ -149,6 +149,11 @@
   height: 10px !important;
 }
 
+@media screen and (max-width: 1200px) {
+  .addItemSingelMain {
+    min-width: 237px !important;
+  }
+}
 @media screen and (max-width: 1100px) {
   .addsItemMain {
     padding-bottom: 15px;

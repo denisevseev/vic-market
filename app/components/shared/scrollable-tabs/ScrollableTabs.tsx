@@ -1,9 +1,10 @@
 "use client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./scrollable-tabs.scss";
+import "./scrollableTabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { Box } from "@mui/material";
 
 // Slide component
 const SlideBigger = ({
@@ -79,6 +80,7 @@ const SlideBigger = ({
               position: "relative",
               fontSize: "14px",
               marginBottom: "8px",
+              textAlign: "center",
             }}
           >
             {title}
@@ -87,47 +89,101 @@ const SlideBigger = ({
 
           {/* Optional information */}
           {price && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               ${price.toFixed(2)}
             </p>
           )}
           {pieces && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               {pieces} pcs
             </p>
           )}
           {category && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Category: {category}
             </p>
           )}
           {size && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Size: {size}
             </p>
           )}
           {units && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Units: {units}
             </p>
           )}
           {liters && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Liters: {liters}
             </p>
           )}
           {kilograms && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Kilograms: {kilograms}
             </p>
           )}
           {meter && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Meter: {meter}
             </p>
           )}
           {square && (
-            <p style={{ fontSize: "14px", color: "rgba(0, 0, 0, 0.5)" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
               Square: {square}
             </p>
           )}
@@ -154,13 +210,15 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
         }}
       >
         {imgSrc && (
-          <Image
-            src={imgSrc}
-            alt={title}
-            width={100}
-            height={100}
-            // style={{ marginBottom: "16px" }}
-          />
+          <Box style={{ maxHeight: "50%", height: "100%" }}>
+            <Image
+              src={imgSrc}
+              alt={title}
+              width={100}
+              height={100}
+              // style={{ marginBottom: "16px" }}
+            />
+          </Box>
         )}
         {/* Horizontal line */}
         <hr
@@ -178,6 +236,9 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
             zIndex: 2,
             position: "relative",
             fontSize: "14px",
+            textAlign: "center",
+            paddingLeft: "10px",
+            paddingRight: "10px",
           }}
         >
           {title}

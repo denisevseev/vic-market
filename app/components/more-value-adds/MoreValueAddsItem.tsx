@@ -1,5 +1,5 @@
 "use client";
-import "./more-value-adds.scss";
+import "./moreValueAdds.scss";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";

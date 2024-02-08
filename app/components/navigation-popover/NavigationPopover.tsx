@@ -3,9 +3,8 @@ import React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
-import NextPlanIcon from "@mui/icons-material/NextPlan";
-import "./navigation-popover.scss";
-import SmallPopoverBox from "./small-popover-box/small-popover-box";
+import "./navigationPopover.scss";
+import SmallPopoverBox from "./small-popover-box/SmallPopoverBox";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 

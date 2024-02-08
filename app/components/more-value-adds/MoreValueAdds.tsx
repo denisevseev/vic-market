@@ -1,8 +1,8 @@
 "use client";
-import "./more-value-adds.scss";
+import "./moreValueAdds.scss";
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import MoreValueAddsItem from "./More-value-adds-item";
+import MoreValueAddsItem from "./MoreValueAddsItem";
 
 export default function MoreValueAdds() {
   return (

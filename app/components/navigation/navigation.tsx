@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import SelectCity from "../shared/select-city/select-city";
-import NavigationPopover from "../navigation-popover/navigation-popover";
+import SelectCity from "../shared/select-city/SelectCity";
+import NavigationPopover from "../navigation-popover/NavigationPopover";
 import { useState } from "react";
 
 const Navigation = () => {

@@ -8,7 +8,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "./inquiry-modal.scss";
+import "./inquiryModal.scss";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import {
@@ -16,14 +16,8 @@ import {
   Checkbox,
   FormControl,
   FormHelperText,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
-  Select,
 } from "@mui/material";
-import FlagIcon from "@mui/icons-material/Flag";
-import OtpVerification from "./otp-verification/otp-verification";
-import { m } from "framer-motion";
+import OtpVerification from "./otp-verification/OtpVerification";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -53,8 +47,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
     setEmail(value); // Update email state
     setIsValidEmail(validateEmail(value)); // Validate email and update isValidEmail state
   };
-
-  console.log("InquiryModal -> productName", productName);
 
   const [step, setStep] = useState(1);
   const [contact, setContact] = useState("");
@@ -482,7 +474,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 },
               }}
               disabled={
-                !name || !email || !companyName || !city || !isValidEmail || !termsChecked
+                !name ||
+                !email ||
+                !companyName ||
+                !city ||
+                !isValidEmail ||
+                !termsChecked
               } // Button is disabled if any of the fields is empty
             >
               <div className="button-text">
@@ -498,7 +495,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
         {step === 4 && (
           <OtpVerification
             onSubmit={(otp: any) => {
-              console.log("OTP submitted:", otp);
               handleNextStep();
             }}
             onCancel={() => {

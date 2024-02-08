@@ -1,119 +1,35 @@
-import VariableWidth from "./components/shared/scrollable-tabs/scrollable-tabs";
+"use client";
+import VariableWidth from "./components/shared/scrollable-tabs/ScrollableTabs";
 import { Box } from "@mui/material";
-import TopCategories from "./components/top-categories/Top-categories";
-import MoreValueAdds from "./components/more-value-adds/More-value-adds";
+import TopCategories from "./components/top-categories/TopCategories";
+import MoreValueAdds from "./components/more-value-adds/MoreValueAdds";
 import "../styles/homePage.scss";
 import HomepageImagesCarousel from "./components/homepage-images-carousel/HomepageImagesCarousel";
-import LookingForProductWantToGrowYourBusiness from "./components/looking-for-product-want-to-grow-your-business/looking-for-product-want-to-grow-your-business";
-import FeaturedProducts from "./components/features-products/featured-products";
+import LookingForProductWantToGrowYourBusiness from "./components/looking-for-product-want-to-grow-your-business/LookingForProductWantToGrowYourBusiness";
+import FeaturedProducts from "./components/features-products/FeaturedProducts";
 import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequirement";
+import DataJson from "./components/data.json";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const slidesData = [
-    {
-      title: "Common",
-      imgSrc: "/get-distributers.svg",
-      // price: 79.99,
-      // pieces: 50,
-      // category: "Electronics",
-      // size: "Medium",
-      // units: "pcs",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-      // square: "Foot/Square Foots",
-    },
-    {
-      title: "Medical",
-      imgSrc: "/agriculture.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-      // square: "Foot/Square Foots",
-    },
-    {
-      title: "Personal",
-      imgSrc: "/chemicals.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Solar Panels",
-      imgSrc: "/get-distributers.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Common",
-      imgSrc: "/get-distributers.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Medical",
-      imgSrc: "/agriculture.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Personal",
-      imgSrc: "/chemicals.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Solar Panels",
-      imgSrc: "/get-distributers.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    {
-      title: "Common",
-      imgSrc: "/get-distributers.svg",
-      liters: "Liters",
-      kilograms: "Kilograms",
-      meter: "Meter",
-    },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-    { title: "Common", imgSrc: "/get-distributers.svg" },
-    { title: "Medical", imgSrc: "/agriculture.svg" },
-    { title: "Personal", imgSrc: "/chemicals.svg" },
-    { title: "Solar Panels", imgSrc: "/get-distributers.svg" },
-  ];
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    setData(DataJson);
+  }, []);
 
   return (
     <main>
       <Box className="container">
         <Box className="firstSection">
-          <TopCategories />
+          <TopCategories
+            data={
+              data &&
+              data.data &&
+              data.data.categories &&
+              data.data.categories.topCategories
+            }
+          />
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
               <HomepageImagesCarousel />
@@ -131,30 +47,55 @@ export default function Home() {
           }}
         >
           <div style={{ marginBottom: "2rem" }}>
-            <VariableWidth data={slidesData} title="Trending Categories" />
+            <VariableWidth
+              data={
+                data &&
+                data.data &&
+                data.data.categories &&
+                data.data.categories.trendingCategories
+              }
+              title="Trending Categories"
+            />
           </div>
 
           <div style={{ marginBottom: "2rem" }}>
-            <FeaturedProducts />
+            <FeaturedProducts
+              data={
+                data &&
+                data.data &&
+                data.data.products &&
+                data.data.products.featuredProducts
+              }
+            />
           </div>
 
           <div className="arriwals-trusted">
             <div>
               <VariableWidth
-                data={slidesData}
+                data={
+                  data &&
+                  data.data &&
+                  data.data.products &&
+                  data.data.products.newArrivals
+                }
                 title="Trending Categories"
                 isSmallCarousel="true"
               />
             </div>
             <div>
               <VariableWidth
-                data={slidesData}
+                data={
+                  data &&
+                  data.data &&
+                  data.data.products &&
+                  data.data.products.tradeIndiaTrusted
+                }
                 title="Victorum Capital Trusted"
                 isSmallCarousel="true"
               />
             </div>
           </div>
-          <PostBuyRequirement/>
+          <PostBuyRequirement />
         </div>
       </Box>
     </main>

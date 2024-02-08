@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
-import "./looking-for-product-want-to-grow-your-business.scss";
+import "./lookingForProductWantToGrowYourBusiness.scss";
 import React from "react";
 
 export default function LookingForProductWantToGrowYourBusiness() {

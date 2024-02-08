@@ -4,7 +4,7 @@
       "topCategories": [
         {
           "category": "Health & Beauty",
-          "image": "smartphone_image.jpg",
+          "image": "../public/health-beaty.svg",
           "subcategories": [
             {
               "category": "Personal Care Products",
@@ -46,106 +46,157 @@
 
       "trendingCategories": [
         {
-          "category": "Electronics",
-          "image": "smartphone_image.jpg"
+          "title": "Common Medicines & Drugs",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Medical, Diagnostic & Hospital Supplies",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Personal Care Products",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Solar Panels",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Human Hair & Accessories",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Jackets",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Fork Lift Trucks",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Heaters",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Blankets",
+          "imgSrc": "/get-distributers.svg"
+        },
+        {
+          "title": "Packaging Machine",
+          "imgSrc": "/get-distributers.svg"
         }
       ]
     },
     "products": {
       "newArrivals": [
         {
-          "title": "New Arrivals",
-          "subTitle": "Buy from an exciting collection of our newly added products",
-          "products": [
-            {
-              "title": "New Arrival 1",
-              "image": "smartphone_image.jpg",
-              "price": 79.99,
-              "pieces": 50,
-              "category": "Electronics",
-              "size": "Medium",
-              "units": "pcs",
-              "liters": "Liters",
-              "kilograms": "Kilograms",
-              "meter": "Meter",
-              "square": "Foot/Square Foots"
-            },
-            {
-              "title": "New Arrival 2",
-              "image": "smartphone_image.jpg",
-              "price": 129.99,
-              "pieces": 30,
-              "category": "Fashion",
-              "size": "Large",
-              "units": "pcs",
-              "liters": "Liters",
-              "kilograms": "Kilograms",
-              "meter": "Meter",
-              "square": "Foot/Square Foots"
-            }
-          ]
+          "title": "New Arrival 1",
+          "imgSrc": "/get-distributers.svg",
+          "price": 79.99,
+          "pieces": 50,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
         }
       ],
       "tradeIndiaTrusted": [
         {
-          "title": "TradeIndia Trusted",
-          "subTitle": "Buy products from over 4.5 million verified and trusted TradeIndia sellers",
-          "products": [
-            {
-              "title": "Trusted Product 1",
-              "image": "smartphone_image.jpg",
-              "price": 99.99,
-              "pieces": 20,
-              "category": "Electronics",
-              "size": "Small",
-              "units": "pcs",
-              "liters": "Liters",
-              "kilograms": "Kilograms",
-              "meter": "Meter",
-              "square": "Foot/Square Foots"
-            },
-            {
-              "title": "Trusted Product 2",
-              "image": "smartphone_image.jpg",
-              "price": 149.99,
-              "pieces": 25,
-              "category": "Fashion",
-              "size": "Medium",
-              "units": "pcs",
-              "liters": "Liters",
-              "kilograms": "Kilograms",
-              "meter": "Meter",
-              "square": "Foot/Square Foots"
-            }
-          ]
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
+        },
+        {
+          "title": "New Arrival 2",
+          "imgSrc": "/get-distributers.svg",
+          "price": 129.99,
+          "pieces": 30,
+          "units": 5
         }
       ],
       "featuredProducts": [
         {
-          "title": "Featured Product 1",
-          "image": "smartphone_image.jpg",
-          "price": 149.99,
-          "pieces": 15,
-          "category": "Electronics",
-          "size": "Large",
-          "units": "pcs",
-          "liters": "Liters",
-          "kilograms": "Kilograms",
-          "meter": "Meter",
-          "square": "Foot/Square Foots"
+          "title": "4 Open Park For...",
+          "price": "18000",
+          "unit": "Piece/Pieces",
+          "imgSrc": "/get-distributers.svg",
+          "companyName": "4 POWER SPRING GYM"
         },
         {
-          "title": "Featured Product 2",
-          "image": "smartphone_image.jpg",
-          "price": 199.99,
-          "pieces": 10,
-          "category": "Fashion",
-          "size": "XL",
-          "units": "pcs",
-          "liters": "Liters",
-          "kilograms": "Kilograms",
-          "meter": "Meter",
-          "square": "Foot/Square Foots"
+          "title": "4 Open Park For...",
+          "price": "18000",
+          "unit": "Piece/Pieces",
+          "imgSrc": "/get-distributers.svg",
+          "companyName": "4 POWER SPRING GYM"
+        },
+        {
+          "title": "4 Open Park For...",
+          "price": "18000",
+          "unit": "Piece/Pieces",
+          "imgSrc": "/get-distributers.svg",
+          "companyName": "4 POWER SPRING GYM"
+        },
+        {
+          "title": "4 Open Park For...",
+          "price": "18000",
+          "unit": "Piece/Pieces",
+          "imgSrc": "/get-distributers.svg",
+          "companyName": "4 POWER SPRING GYM"
+        },
+        {
+          "title": "4 Open Park For...",
+          "price": "18000",
+          "unit": "Piece/Pieces",
+          "imgSrc": "/get-distributers.svg",
+          "companyName": "4 POWER SPRING GYM"
         }
       ]
     }
