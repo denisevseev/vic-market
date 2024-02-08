@@ -6,6 +6,7 @@ import "../styles/homePage.scss";
 import HomepageImagesCarousel from "./components/homepage-images-carousel/HomepageImagesCarousel";
 import LookingForProductWantToGrowYourBusiness from "./components/looking-for-product-want-to-grow-your-business/looking-for-product-want-to-grow-your-business";
 import FeaturedProducts from "./components/features-products/featured-products";
+import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequirement";
 
 export default function Home() {
   const slidesData = [
@@ -153,6 +154,7 @@ export default function Home() {
               />
             </div>
           </div>
+          <PostBuyRequirement/>
         </div>
       </Box>
     </main>

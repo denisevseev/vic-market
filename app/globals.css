@@ -14,3 +14,27 @@
   align-items: start;
   margin-bottom: 2rem;
 }
+
+.d-flex{
+  display: flex;
+}
+
+.ai-center{
+  align-items: center;
+}
+
+.gap-8{
+  gap: 8px;
+}
+
+.mt-8{
+  margin-top: 8px;
+}
+
+.justify-space-between{
+  justify-content: space-between;
+}
+
+.cp {
+  cursor: pointer;
+}
