@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeRegistry from "@/theme/ThemeRegistry";
-import Navigation from "./components/navigation/navigation";
-
+import Navigation from "./components/navigation/Navigation";
 
 export const metadata: Metadata = {
   title: "Victorum marketplace",
@@ -16,10 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <ThemeRegistry>
-      <body>
-      <Navigation />
-        {children}
+      <ThemeRegistry>
+        <body>
+          <Navigation />
+          {children}
         </body>
       </ThemeRegistry>
     </html>

@@ -1,8 +1,9 @@
 .topCategoriesMainBox {
+  position: relative;
   max-width: 245px;
   width: 100%;
   padding-left: 12px;
-  padding-right: 12px;
+  padding-right: 4px;
 }
 .topCategoriesBox {
   background-color: #fff;
@@ -27,7 +28,6 @@
   color: #4f5f6d !important;
   font-size: 0.875rem !important;
   line-height: 1.313rem !important;
-  cursor: pointer !important;
   text-overflow: ellipsis !important;
   overflow: hidden !important;
   white-space: nowrap !important;
@@ -52,16 +52,31 @@
 }
 .itemAndImageBox {
   display: flex;
+  cursor: pointer !important;
   flex-direction: row;
   align-items: center;
   gap: 10px;
   height: 1.938rem;
 }
+.popupBox {
+  position: absolute;
+  border-radius: 8px;
+  top: 0;
+  width: 650px;
+  height: 620px;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
+  z-index: 99;
+  transform: translate(36%, 8%);
+}
 
 @media screen and (max-width: 1399px) {
   .topCategoriesMainBox {
     padding-left: 0;
-    padding-right: 0;
+  }
+  .popupBox {
+    transform: translate(38%, 8%);
   }
 }
 @media screen and (max-width: 1200px) {

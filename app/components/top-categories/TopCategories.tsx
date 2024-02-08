@@ -1,6 +1,6 @@
 "use client";
-import "./top-categories.scss";
-import React from "react";
+import "./topCategories.scss";
+import React, { useRef, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import HealthBeautyIcon from "../../../public/health-beauty.svg";
 import FashionIcon from "../../../public/apparel-fashion.svg";
@@ -17,54 +17,113 @@ import MineralMetalsIcon from "../../../public/mineral-metals.svg";
 import IndustrialSuppliesIcon from "../../../public/industrial-supplies.svg";
 import PipesTubesFittingsIcon from "../../../public/pipes-tubes-fittings.svg";
 import Image from "next/image";
+import PopoverTopCategories from "./PopoverTopCategories";
 
-export default function TopCategories() {
+interface TopCategoritesProps {
+  data: any[];
+}
+
+const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
+  const [popupVisible, setPopupVisible] = useState<boolean>(false);
+  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+  const topCategoriesRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseEnter = (category: string) => {
+    setCurrentCategory(category);
+    setPopupVisible(true);
+  };
+
+  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (
+      topCategoriesRef.current &&
+      topCategoriesRef.current.contains(event.target as Node)
+    ) {
+      // Mouse is still inside the main box, do not hide the popup
+      return;
+    }
+
+    // If the mouse is leaving the popup or specific areas, hide the popup
+    setPopupVisible(false);
+  };
+
   return (
     <Box className="topCategoriesMainBox">
       <Box className="topCategoriesBox">
         <Box>
           <Typography className="topCategoryText">Top Categories</Typography>
         </Box>
-        <Box className="itemsMainBox">
-          <Box className="itemAndImageBox">
+        <Box className="itemsMainBox" ref={topCategoriesRef}>
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("healthBeauty")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={HealthBeautyIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Health & Beauty
             </Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Apparel")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={FashionIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Apparel & Fashion
             </Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Chemicals")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={ChemicalsIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">Chemicals</Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Machinery")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={MachineryIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">Machinery</Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Construction")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={ConstructionIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Construction & Real Estate
             </Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("electronics")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={ElectronicsIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Electronics & Electrical Supplies
             </Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Hospital")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={MedicalIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Hospital & Medical Supplies
             </Typography>
           </Box>
-          <Box className="itemAndImageBox">
+          <Box
+            className="itemAndImageBox"
+            onMouseEnter={() => handleMouseEnter("Gifts")}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image src={GiftsIcon} alt="Health & Beauty Icon" />
             <Typography className="topCategoriesItem">
               Gifts & Crafts
@@ -109,6 +168,12 @@ export default function TopCategories() {
           </Typography>
         </Box>
       </Box>
+      <PopoverTopCategories
+        popupVisible={popupVisible}
+        currentCategory={currentCategory}
+        onMouseLeave={() => setPopupVisible(false)}
+      />
     </Box>
   );
-}
+};
+export default TopCategories;

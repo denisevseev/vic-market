@@ -1,6 +1,6 @@
 "use client";
-import "./select-city.scss";
-import React, { useState, useMemo, use } from "react";
+import "./selectCity.scss";
+import React, { useState, useMemo } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,

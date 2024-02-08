@@ -2,7 +2,7 @@
 import Image from "next/image";
 import "./product.scss";
 import SendIcon from "@mui/icons-material/Send";
-import InquiryModal from "../inquiry-modal/inquiry-modal";
+import InquiryModal from "../inquiry-modal/InquiryModal";
 import { useState } from "react";
 
 type ProductProps = {
@@ -20,9 +20,9 @@ const ProductCard: React.FC<ProductProps> = ({
   imgSrc,
   companyName,
 }) => {
-    const [isModalOpen, setModalOpen] = useState(false);
-    const handleOpenModal = () => setModalOpen(true);
-    const handleCloseModal = () => setModalOpen(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
   return (
     <div className="productCard">
       <div className="imageWrapper">

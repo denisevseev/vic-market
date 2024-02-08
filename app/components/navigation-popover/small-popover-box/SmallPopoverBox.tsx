@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "./small-popover-box.scss";
+import "./smallPopoverBox.scss";
 import Image from "next/image";
 
 interface SmallPopoverBoxProps {
