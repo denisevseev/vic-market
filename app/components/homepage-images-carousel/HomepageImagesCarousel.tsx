@@ -56,16 +56,17 @@ export default function HomepageImagesCarousel() {
         IndicatorIcon={<RemoveIcon />}
       >
         {carouselItems.map((item, index) => (
-          <Box key={"Carousel Item Box" + index}>
+          <Box key={"Carousel Item Box" + index} className="carouselImageMain">
             <Image
               src={item.imageUrl}
               height={532}
               width={600}
+              layout={smallScreen ? "responsive" : ""}
               className="carouselImage"
               style={{
                 borderRadius: "10px",
               }}
-              priority
+              priority={true}
               alt={`Carousel Item ${index + 1}`}
             />
           </Box>

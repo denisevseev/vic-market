@@ -42,8 +42,9 @@ const PostBuyRequirement = () => {
             <Image
               src="/logo.png"
               alt="Logo"
-              width={120}
+              width={130}
               height={30}
+              style={{ objectFit: "cover" }}
               priority
             />
           </div>
@@ -90,6 +91,7 @@ const PostBuyRequirement = () => {
             <Image
               src="/background.png"
               alt="Logo"
+              className="recordImage"
               width={136}
               height={113}
               priority
@@ -104,17 +106,11 @@ const PostBuyRequirement = () => {
               variant="contained"
               //   onClick={handleNextStep}
               sx={{
-                mt: 6,
-                mb: 5,
-                height: "48px",
-                borderRadius: "8px",
-                backgroundColor: "#2A5182",
-                width: "178px",
-                textDecoration: "none",
                 ".button-text p": {
                   textTransform: "none",
                 },
               }}
+              className="continueFormButton"
             >
               <div className="button-text">
                 <p>Continue</p>
