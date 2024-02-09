@@ -87,6 +87,22 @@
   }
 }
 
+@media screen and (max-width: 1250px) {
+  .lookingForProducMainBox {
+    height: 217px;
+  }
+  .wantToGrowYourBusinessMainBox {
+    height: 217px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .lookingForProducMainBox {
+    height: 192px;
+  }
+  .wantToGrowYourBusinessMainBox {
+    height: 192px;
+  }
+}
 @media screen and (max-width: 800px) {
   .lookingForProBtn {
     padding-left: 10px !important;
@@ -118,12 +134,20 @@
 }
 @media screen and (max-width: 500px) {
   .wantToGrowYourBusinessMainBox {
-    height: 136px !important;
+    height: 106px !important;
     padding: 10px !important;
   }
   .lookingForProducMainBox {
-    height: 136px !important;
+    height: 106px !important;
     padding: 10px !important;
+  }
+  .wantToGrowYourBusinessText {
+    font-size: 15px !important;
+    margin-bottom: 0px !important;
+  }
+  .lookingForProductText {
+    font-size: 15px !important;
+    margin-bottom: 0px !important;
   }
   .lookingForProductWantToGrowYourBusinessMainBox {
     padding-bottom: 15px;

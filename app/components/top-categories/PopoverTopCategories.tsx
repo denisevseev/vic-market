@@ -1,5 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import "./topCategories.scss";
+import Image from "next/image";
+import HealthBeautyIcon from "../../../public/health-beauty.svg";
 
 interface PopoverProps {
   popupVisible: boolean;
@@ -25,7 +28,123 @@ const PopoverTopCategories: React.FC<PopoverProps> = ({
               }
             }}
           >
-            <Typography>{currentCategory}</Typography>
+            <Box sx={{ height: "100%", position: "relative" }}>
+              <Box className="topCategoryNameAndIcon">
+                <Image
+                  src={HealthBeautyIcon}
+                  width={22}
+                  height={22}
+                  alt="Health & Beauty Icon"
+                />
+                <Typography className="topCategoryNamePopup">
+                  {currentCategory}
+                </Typography>
+              </Box>
+
+              <Box className="subCategoriesHeadMain">
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+
+                <Box>
+                  <Box className="subCategoriesHeadMainAndIcon">
+                    <Image
+                      src={HealthBeautyIcon}
+                      width={26}
+                      height={26}
+                      alt="Health & Beauty Icon"
+                    />
+                    <Typography className="subCategoriesHeadText">
+                      Pipes & Pipe Fittings
+                    </Typography>
+                  </Box>
+                  <Box className="subCategoriesHeadItem">Round Pipe</Box>
+                  <Box className="subCategoriesHeadItem">Hex Nipple</Box>
+                </Box>
+                
+              </Box>
+
+              <Box className="viewAllCategoriesLinkBox">
+                <Typography className="viewAllCategoriesText">
+                  View all Categories
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         </Box>
       )}

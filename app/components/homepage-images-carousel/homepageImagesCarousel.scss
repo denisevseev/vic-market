@@ -1,19 +1,48 @@
 .carouselMainBox {
   width: 100%;
 }
+.carouselImageMain {
+  height: 532px;
+  width: 100%;
+}
 .carouselImage {
   height: 532px;
   width: 100%;
   // object-fit: cover;
 }
 
+@media screen and (max-width: 1250px) {
+  .carouselImage {
+    height: 450px;
+  }
+  .carouselImageMain {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .carouselImage {
+    height: 400px;
+  }
+  .carouselImageMain {
+    height: 400px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .carouselImage {
     height: 366px;
+  }
+  .carouselImageMain {
+    height: 366px;
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
   .carouselImage {
     height: 236px;
+  }
+  .carouselImageMain {
+    height: 236px;
+    width: 100%;
   }
 }
