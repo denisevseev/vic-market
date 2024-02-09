@@ -23,6 +23,9 @@ const Footer = () => {
       {isMobile ? (
         <div>
           <Accordion
+           sx={{
+            boxShadow: 'none', // This will remove the box-shadow
+          }}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
@@ -35,16 +38,19 @@ const Footer = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">User Guide</Link>
+              <Link href="/help">Return & Cancellation</Link>
+              <Link href="/help">Policy</Link>
+              <Link href="/help">Shipping & Delivery Policy</Link>
             </AccordionDetails>
           </Accordion>
 
           <Accordion
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
+            sx={{
+              boxShadow: 'none', // This will remove the box-shadow
+            }}
           >
             <AccordionSummary
               expandIcon={
@@ -63,6 +69,9 @@ const Footer = () => {
           </Accordion>
 
           <Accordion
+           sx={{
+            boxShadow: 'none', // This will remove the box-shadow
+          }}
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -83,6 +92,9 @@ const Footer = () => {
           </Accordion>
 
           <Accordion
+           sx={{
+            boxShadow: 'none', // This will remove the box-shadow
+          }}
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
@@ -103,6 +115,9 @@ const Footer = () => {
           </Accordion>
 
           <Accordion
+           sx={{
+            boxShadow: 'none', // This will remove the box-shadow
+          }}
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
@@ -123,6 +138,9 @@ const Footer = () => {
           </Accordion>
 
           <Accordion
+           sx={{
+            boxShadow: 'none', // This will remove the box-shadow
+          }}
             expanded={expanded === "panel6"}
             onChange={handleChange("panel6")}
           >
@@ -141,18 +159,16 @@ const Footer = () => {
               <Link href="/help">Help Center</Link>
             </AccordionDetails>
           </Accordion>
-
-          {/* Repeat for other sections */}
         </div>
       ) : (
         <>
           <div className="footerSection">
             <h3>Customer Support</h3>
             <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
+            <Link href="/help">User Guide</Link>
+            <Link href="/help">Return & Cancellation</Link>
+            <Link href="/help">Policy</Link>
+            <Link href="/help">Shipping & Delivery Policy</Link>
           </div>
           <div className="footerSection">
             <h3>About us</h3>
