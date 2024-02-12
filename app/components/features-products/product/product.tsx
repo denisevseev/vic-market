@@ -26,10 +26,14 @@ const ProductCard: React.FC<ProductProps> = ({
   return (
     <div className="productCard">
       <div className="imageWrapper">
-        <Image src={imgSrc} alt={title} width={80} height={80} />
+        <Image src={imgSrc} alt={title} width={100} height={110} />
       </div>
       <h3 className="title">{title}</h3>
+
+       {price && 
       <p className="price">{price} INR (Approx.)</p>
+       }
+
       <p className="unit">{unit}</p>
       <p className="companyName">{companyName}</p>
       <button className="inquiryButton" onClick={handleOpenModal}>
@@ -39,9 +43,9 @@ const ProductCard: React.FC<ProductProps> = ({
       <InquiryModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        productName={title} // Replace with your actual product name
-        company={companyName} // Replace with your actual company name
-        imgSrc={imgSrc} // Replace with your actual image source
+        productName={title}
+        company={companyName}
+        imgSrc={imgSrc}
       />
     </div>
   );

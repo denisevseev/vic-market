@@ -23,8 +23,16 @@
   align-items: center;
 }
 
+.ai-start{
+  align-items: start;
+}
+
 .gap-8{
   gap: 8px;
+}
+
+.gap-4{
+  gap: 4px;
 }
 
 .mt-8{
@@ -47,4 +55,8 @@
     padding-left: 11rem;
     padding-right: 11rem;
   }
+}
+
+.mb-2rem {
+  margin-bottom: 2rem;
 }

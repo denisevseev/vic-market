@@ -5,6 +5,48 @@ import "./scrollableTabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Box } from "@mui/material";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import EditLocationIcon from "@mui/icons-material/EditLocation";
+
+const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
+  return (
+    <div style={{ padding: "0 8px" }}>
+      <div className="slideUpcoming">
+        {imgSrc && (
+          <div className="imageUpcoming">
+            <Image
+              src={imgSrc}
+              alt={title}
+              width={110}
+              height={80}
+              className="ml-mr-auto"
+            />
+          </div>
+        )}
+
+        <div className="text-part-upcoming">
+          <p className="upcomingElipsis">{title}</p>
+
+          {date && (
+            <div className="d-flex ai-center gap-4">
+              <DateRangeIcon style={{ color: "grey" }} />
+              <p className="upcomingDate">{date}</p>
+            </div>
+          )}
+          {location && (
+            <div className="d-flex ai-center gap-4">
+              <div className="hide-sm">
+                <EditLocationIcon style={{ color: "grey" }} />
+              </div>
+              <p className="upcomingElipsisLoc">{location}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+// upcoming end
 
 // Slide component
 const SlideBigger = ({
@@ -267,54 +309,87 @@ const Slider = dynamic(() => import("react-slick").then((m) => m.default), {
   ssr: false,
 });
 
-function VariableWidth({ data, title, isSmallCarousel }: any) {
+function VariableWidth({
+  data,
+  title,
+  isSmallCarousel,
+  isUpcomingTradeshows,
+}: any) {
   const slickSettings = {
     dots: false,
     infinite: false,
     speed: 1000,
     autoplay: false,
-    slidesToShow: isSmallCarousel === "true" ? 3 : 9,
+    slidesToShow: isUpcomingTradeshows ? 4 : isSmallCarousel ? 3 : 9,
     responsive: [
       {
         breakpoint: 1550,
         settings: {
-          slidesToShow: isSmallCarousel ? 3 : 8,
+          slidesToShow: isUpcomingTradeshows
+            ? 4 // Number of slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 3
+            : 8,
         },
       },
       {
         breakpoint: 1450,
         settings: {
-          slidesToShow: isSmallCarousel ? 2 : 7,
+          slidesToShow: isUpcomingTradeshows
+            ? 3 // Choose the appropriate number for upcoming tradeshows
+            : isSmallCarousel
+            ? 2
+            : 7,
         },
       },
       {
         breakpoint: 1300,
         settings: {
-          slidesToShow: isSmallCarousel ? 2 : 6,
+          slidesToShow: isUpcomingTradeshows
+            ? 3 // Set slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 2
+            : 6,
         },
       },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: isSmallCarousel ? 2 : 5,
+          slidesToShow: isUpcomingTradeshows
+            ? 3 // Set slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 2
+            : 5,
         },
       },
       {
         breakpoint: 975,
         settings: {
-          slidesToShow: isSmallCarousel ? 1 : 4,
+          slidesToShow: isUpcomingTradeshows
+            ? 3 // Set slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 1
+            : 4,
         },
       },
       {
         breakpoint: 750,
         settings: {
-          slidesToShow: isSmallCarousel ? 1 : 3,
+          slidesToShow: isUpcomingTradeshows
+            ? 2 // Set slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 1
+            : 3,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: isSmallCarousel ? 1 : 2,
+          slidesToShow: isUpcomingTradeshows
+            ? 1 // Set slides for upcoming tradeshows
+            : isSmallCarousel
+            ? 1
+            : 2,
         },
       },
       {
@@ -357,6 +432,14 @@ function VariableWidth({ data, title, isSmallCarousel }: any) {
                 meter={slide.meter}
                 square={slide.square}
                 isSmallCarousel={isSmallCarousel}
+              />
+            ) : isUpcomingTradeshows ? (
+              <SlideUpComing
+                key={index}
+                imgSrc={slide.imgSrc}
+                title={slide.title}
+                date={slide.date}
+                location={slide.location}
               />
             ) : (
               <SlideSmaller

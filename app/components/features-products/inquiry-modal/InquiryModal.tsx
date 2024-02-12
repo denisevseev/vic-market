@@ -173,7 +173,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </Typography>
 
             <div className="product-description">
-              <Image src={imgSrc} alt={productName} width={40} height={40} />
+              <Image src={imgSrc} alt={productName} width={60} height={70} />
               <div>
                 <Typography sx={{ fontWeight: "bold", mt: 1 }}>
                   {productName}

@@ -32,7 +32,6 @@ const ContactUs = ({ open, setOpen }: any) => {
     message: false,
   });
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const validateForm = () => {
@@ -78,10 +77,20 @@ const ContactUs = ({ open, setOpen }: any) => {
         aria-describedby="modal-modal-description"
         style={{ borderRadius: "16px" }}
       >
-        <Box sx={style} component="form" onSubmit={handleSubmit} noValidate>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Contact Us
-          </Typography>
+        <Box className="responsiveBox" component="form" onSubmit={handleSubmit} noValidate>
+        <Typography
+              variant="h6"
+              component="h2"
+              className="send-inquiry"
+              sx={{
+                color: "rgb(38, 92, 129);",
+                fontSize: "28px",
+                fontWeight: "600",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Contact Us
+            </Typography>
           <TextField
             fullWidth
             label="Email"
@@ -133,6 +142,7 @@ const ContactUs = ({ open, setOpen }: any) => {
               sx={{
                 ".button-text p": {
                   textTransform: "none",
+                  width:' 80px'
                 },
               }}
               className="submitFormButton"
