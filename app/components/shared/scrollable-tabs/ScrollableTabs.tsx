@@ -230,19 +230,27 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
           }}
         />
         <p
-          style={{
-            color: "rgb(45, 56, 64)",
-            fontWeight: "500",
-            zIndex: 2,
-            position: "relative",
-            fontSize: "14px",
-            textAlign: "center",
-            paddingLeft: "10px",
-            paddingRight: "10px",
-          }}
-        >
-          {title}
-        </p>
+  style={{
+    color: "rgb(45, 56, 64)",
+    fontWeight: "500",
+    zIndex: 2,
+    position: "relative",
+    fontSize: "14px",
+    textAlign: "center",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    height: "40px", // Set a fixed height
+    overflow: "hidden", // Hide overflow
+    textOverflow: "ellipsis", // Show an ellipsis for overflowed text
+    display: "-webkit-box", // Use webkit-box to enable line clamping
+    WebkitLineClamp: 2, // Number of lines to show
+    WebkitBoxOrient: "vertical", // Orient the text vertically
+    lineHeight: "20px", // Set line height to manage spacing between lines
+  }}
+>
+  {title}
+</p>
+
       </div>
     </div>
   );

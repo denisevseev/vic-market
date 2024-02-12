@@ -47,43 +47,43 @@
       "trendingCategories": [
         {
           "title": "Common Medicines & Drugs",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/drugs.png"
         },
         {
-          "title": "Medical, Diagnostic & Hospital Supplies",
-          "imgSrc": "/get-distributers.svg"
+          "title": "Medical, Diagnostic & Hospital Supplies test test ",
+          "imgSrc": "/med.png"
         },
         {
           "title": "Personal Care Products",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/pers.png"
         },
         {
           "title": "Solar Panels",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/sol.png"
         },
         {
           "title": "Human Hair & Accessories",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/per.png"
         },
         {
           "title": "Jackets",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/jac.png"
         },
         {
           "title": "Fork Lift Trucks",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/per.png"
         },
         {
           "title": "Heaters",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/med.png"
         },
         {
           "title": "Blankets",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/sol.png"
         },
         {
           "title": "Packaging Machine",
-          "imgSrc": "/get-distributers.svg"
+          "imgSrc": "/pers.png"
         }
       ]
     },
