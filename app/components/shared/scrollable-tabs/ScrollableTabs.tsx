@@ -44,14 +44,14 @@ const SlideBigger = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: "100px",
+              width: "90px",
               height: "100px",
             }}
           >
             <Image
               src={imgSrc}
               alt={title}
-              width={100}
+              width={110}
               height={80}
               style={{
                 // marginBottom: "16px",
