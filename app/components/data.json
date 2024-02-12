@@ -90,22 +90,22 @@
     "products": {
       "newArrivals": [
         {
-          "title": "New Arrival 1",
-          "imgSrc": "/get-distributers.svg",
-          "price": 79.99,
+          "title": "Black Rectangular Ms Double Bed",
+          "imgSrc": "/1.jpeg",
+          "price": 15000,
           "pieces": 50,
           "units": 5
         },
         {
-          "title": "New Arrival 2",
-          "imgSrc": "/get-distributers.svg",
+          "title": "Pneumatic Contura Pneumatic Contura Pneumatic Contura",
+          "imgSrc": "/2.jpeg",
           "price": 129.99,
           "pieces": 30,
           "units": 5
         },
         {
-          "title": "New Arrival 2",
-          "imgSrc": "/get-distributers.svg",
+          "title": "Blue And White Washing Machine Cleaning Tablet",
+          "imgSrc": "/3.jpeg",
           "price": 129.99,
           "pieces": 30,
           "units": 5
@@ -127,22 +127,22 @@
       ],
       "tradeIndiaTrusted": [
         {
-          "title": "New Arrival 2",
-          "imgSrc": "/get-distributers.svg",
+          "title": "Metal Milk Vat Pasteurizer",
+          "imgSrc": "/tr1.jpeg",
           "price": 129.99,
           "pieces": 30,
           "units": 5
         },
         {
-          "title": "New Arrival 2",
-          "imgSrc": "/get-distributers.svg",
+          "title": "Accumulator Nitrogen Charging Kit Body Material: Steel",
+          "imgSrc": "/tr5.jpeg",
           "price": 129.99,
           "pieces": 30,
           "units": 5
         },
         {
-          "title": "New Arrival 2",
-          "imgSrc": "/get-distributers.svg",
+          "title": "Black Honda 2 Wheeler 5 Mm Nut Insert",
+          "imgSrc": "/tr8.jpeg",
           "price": 129.99,
           "pieces": 30,
           "units": 5
