@@ -78,7 +78,7 @@ export default function Home() {
                   data.data.products &&
                   data.data.products.newArrivals
                 }
-                title="Trending Categories"
+                title="New Arrivals"
                 isSmallCarousel="true"
               />
             </div>

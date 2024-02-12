@@ -27,7 +27,7 @@ const SlideBigger = ({
         style={{
           width: "100%",
           height: isSmallCarousel ? "300px" : "200px",
-          backgroundColor: "rgba(109, 103, 89, 0.06)",
+          backgroundColor: "rgb(255, 255, 255)",
           border: "1px solid rgb(225, 230, 239)",
           borderRadius: "8px",
           display: "flex",
@@ -44,14 +44,14 @@ const SlideBigger = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: "100px",
+              width: "90px",
               height: "100px",
             }}
           >
             <Image
               src={imgSrc}
               alt={title}
-              width={100}
+              width={110}
               height={80}
               style={{
                 // marginBottom: "16px",
@@ -81,6 +81,14 @@ const SlideBigger = ({
               fontSize: "14px",
               marginBottom: "8px",
               textAlign: "center",
+              // Additional styles for fixed height and ellipsis
+              height: "20px", // Set a fixed height based on your design needs
+              overflow: "hidden", // Hide overflow
+              textOverflow: "ellipsis", // Show an ellipsis for overflowed text
+              display: "-webkit-box", // Necessary for the line clamp to work
+              WebkitLineClamp: 1, // Limit the text to 2 lines
+              WebkitBoxOrient: "vertical", // Display content vertically for the clamp to work
+              lineHeight: "20px", // Adjust based on your font size for proper line spacing
             }}
           >
             {title}
@@ -239,6 +247,13 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
             textAlign: "center",
             paddingLeft: "10px",
             paddingRight: "10px",
+            height: "40px", // Set a fixed height
+            overflow: "hidden", // Hide overflow
+            textOverflow: "ellipsis", // Show an ellipsis for overflowed text
+            display: "-webkit-box", // Use webkit-box to enable line clamping
+            WebkitLineClamp: 2, // Number of lines to show
+            WebkitBoxOrient: "vertical", // Orient the text vertically
+            lineHeight: "20px", // Set line height to manage spacing between lines
           }}
         >
           {title}
