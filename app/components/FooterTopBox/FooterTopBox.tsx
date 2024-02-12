@@ -93,13 +93,13 @@ export default function FooterTopBox() {
             }}
           >
             <div className="button-text">
-              <p className="font-size-16">Contact uss</p>
+              <p className="font-size-16">Contact us</p>
               <ArrowForwardIcon />
             </div>
           </Button>
         </div>
-        <ContactUs open={openModal} setOpen={setOpenModal}/>
       </div>
+        <ContactUs open={openModal} setOpen={setOpenModal}/>
 
       <div className="follow-us-down">
         <FacebookIcon />
@@ -111,7 +111,7 @@ export default function FooterTopBox() {
       <div className="btn-container-big">
         <Button
           variant="contained"
-          //   onClick={handleNextStep}
+          onClick={handleOpenModal}
           sx={{
             ".button-text p": {
               textTransform: "none",

@@ -71,7 +71,6 @@ const ContactUs = ({ open, setOpen }: any) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open Modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
