@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import "./footerTopBox.scss";
 import Image from "next/image";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -8,9 +8,16 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Button, useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ContactUs from "../ContactUs/ContactUs";
 
 export default function FooterTopBox() {
   const isMobile = useMediaQuery("(max-width:600px)");
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
 
   const logoWidth = isMobile ? 100 : 181;
   const logoHeight = isMobile ? 27 : 41;
@@ -74,6 +81,7 @@ export default function FooterTopBox() {
         <div className="btn-container">
           <Button
             variant="contained"
+            onClick={handleOpenModal}
             sx={{
               height: "48px",
               borderRadius: "8px",
@@ -85,11 +93,12 @@ export default function FooterTopBox() {
             }}
           >
             <div className="button-text">
-              <p className="font-size-16">Contact us</p>
+              <p className="font-size-16">Contact uss</p>
               <ArrowForwardIcon />
             </div>
           </Button>
         </div>
+        <ContactUs open={openModal} setOpen={setOpenModal}/>
       </div>
 
       <div className="follow-us-down">
