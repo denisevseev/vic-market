@@ -34,16 +34,17 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
   };
 
   const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (
-      topCategoriesRef.current &&
-      topCategoriesRef.current.contains(event.target as Node)
-    ) {
-      // Mouse is still inside the main box, do not hide the popup
-      return;
-    }
+    const isLeavingMainBox = topCategoriesRef.current?.contains(
+      event.relatedTarget as Node
+    );
+    const isLeavingPopover =
+      event.relatedTarget instanceof Element &&
+      event.relatedTarget.classList.contains("popupBoxContainer");
 
-    // If the mouse is leaving the popup or specific areas, hide the popup
-    setPopupVisible(false);
+    if (!isLeavingMainBox && !isLeavingPopover) {
+      // If the mouse is not leaving the main box or the popover, keep it visible
+      setPopupVisible(false);
+    }
   };
 
   return (
@@ -52,8 +53,9 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
         <Box>
           <Typography className="topCategoryText">Top Categories</Typography>
         </Box>
-        <Box className="itemsMainBox" ref={topCategoriesRef}>
+        <Box className="itemsMainBox">
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("healthBeauty")}
             onMouseLeave={handleMouseLeave}
@@ -64,6 +66,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             </Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Apparel")}
             onMouseLeave={handleMouseLeave}
@@ -74,6 +77,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             </Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Chemicals")}
             onMouseLeave={handleMouseLeave}
@@ -82,6 +86,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             <Typography className="topCategoriesItem">Chemicals</Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Machinery")}
             onMouseLeave={handleMouseLeave}
@@ -90,6 +95,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             <Typography className="topCategoriesItem">Machinery</Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Construction")}
             onMouseLeave={handleMouseLeave}
@@ -100,6 +106,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             </Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("electronics")}
             onMouseLeave={handleMouseLeave}
@@ -110,6 +117,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             </Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Hospital")}
             onMouseLeave={handleMouseLeave}
@@ -120,6 +128,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
             </Typography>
           </Box>
           <Box
+            ref={topCategoriesRef}
             className="itemAndImageBox"
             onMouseEnter={() => handleMouseEnter("Gifts")}
             onMouseLeave={handleMouseLeave}

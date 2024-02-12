@@ -1,0 +1,170 @@
+.ourServicesMainBox {
+  max-width: 1620px;
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ourServicesText {
+  font-size: 1.125rem !important;
+  line-height: 1.875rem !important;
+  margin: 1.1rem 0px 10px !important;
+  color: #082f4a !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+.ourServicesItemMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 3rem !important;
+  padding-bottom: 15px;
+}
+.ourServiceItemSingelMain {
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  max-width: 379px !important;
+  min-width: 232px !important;
+  height: 230px !important;
+  cursor: pointer;
+}
+.tradeText {
+  color: rgb(255, 255, 255) !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+}
+.tradeTextBold {
+  color: rgb(255, 255, 255) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+.ourServiceslearnMoreLink {
+  color: #fff !important;
+  font-weight: 400 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+.serviceCard {
+  background-image: url("../../../public/serviceCard.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 379px;
+  min-width: 232px;
+  height: 230px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+}
+.serviceCard2 {
+  background-image: url("../../../public/serviceCard2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 379px;
+  min-width: 232px;
+  height: 230px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+}
+.serviceCard3 {
+  background-image: url("../../../public/serviceCard3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 379px;
+  min-width: 232px;
+  height: 230px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+}
+.serviceCard4 {
+  background-image: url("../../../public/serviceCard4.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 379px;
+  min-width: 232px;
+  height: 230px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+}
+.ourServicesItemText {
+  z-index: 2;
+  position: absolute;
+  top: auto;
+  left: 1.5rem !important;
+  top: 1.5rem !important;
+}
+.ourServicesLearnMoreAndIcon {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 2;
+  position: absolute;
+  top: auto;
+  left: 1.5rem !important;
+  bottom: 1.5rem !important;
+}
+.ourServicesarrowIconBox {
+  width: 24px;
+  height: 24px;
+  background-color: #fff !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ourServicesArrowRightIcon {
+  color: #082f4a;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .ourServiceItemSingelMain {
+    height: 141px !important;
+  }
+  .serviceCard {
+    height: 141px !important;
+  }
+  .serviceCard2 {
+    height: 141px !important;
+  }
+  .serviceCard3 {
+    height: 141px !important;
+  }
+  .serviceCard4 {
+    height: 141px !important;
+  }
+  .tradeText {
+    font-size: 16px !important;
+  }
+  .tradeTextBold {
+    font-size: 16px !important;
+  }
+  .ourServicesItemText {
+    left: 1rem !important;
+    top: 1rem !important;
+  }
+  .ourServicesLearnMoreAndIcon {
+    left: 1rem !important;
+    bottom: 1rem !important
+    ;
+  }
+}
