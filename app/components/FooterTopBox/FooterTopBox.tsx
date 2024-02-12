@@ -59,7 +59,7 @@ export default function FooterTopBox() {
           }}
         >
           <div className="button-text">
-            <p>Contact us</p>
+            <p className="font-size-16">Contact us</p>
             <ArrowForwardIcon />
           </div>
         </Button>
@@ -74,23 +74,21 @@ export default function FooterTopBox() {
       </div>
 
       <div className="btn-container-big">
-        <Button
-          variant="contained"
-          sx={{
-            height: "48px",
-            borderRadius: "8px",
-            backgroundColor: "#2A5182",
-            width: "100%",
-            ".button-text p": {
-              textTransform: "none",
-            },
-          }}
-        >
-          <div className="button-text">
-            <p>Contact us</p>
-            <ArrowForwardIcon />
-          </div>
-        </Button>
+      <Button
+              variant="contained"
+              //   onClick={handleNextStep}
+              sx={{
+                ".button-text p": {
+                  textTransform: "none",
+                },
+              }}
+              className="continueFormButton"
+            >
+              <div className="button-text">
+                <p className="font-size-16">Contact us</p>
+                <ArrowForwardIcon />
+              </div>
+            </Button>
       </div>
     </div>
   );

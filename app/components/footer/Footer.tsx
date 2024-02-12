@@ -23,9 +23,9 @@ const Footer = () => {
       {isMobile ? (
         <div>
           <Accordion
-           sx={{
-            boxShadow: 'none', // This will remove the box-shadow
-          }}
+            sx={{
+              boxShadow: "none",
+            }}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
@@ -34,7 +34,7 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>Customer Support</h3>
+              <h3 className="title-color">Customer Support</h3>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Help Center</Link>
@@ -49,7 +49,7 @@ const Footer = () => {
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
             sx={{
-              boxShadow: 'none', // This will remove the box-shadow
+              boxShadow: "none",
             }}
           >
             <AccordionSummary
@@ -57,21 +57,25 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>About us</h3>
+              <h3 className="title-color">About us</h3>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">About Our Company</Link>
+              <Link href="/help">Success Stories</Link>
+              <Link href="/help">Victorum Blog</Link>
+              <Link href="/help">Victorum in News</Link>
+              <Link href="/help">Jobs & Carrers</Link>
+              <Link href="/help">Contact Us</Link>
+              <Link href="/help">Partnetr with Us</Link>
+              <Link href="/help">Make a Payment</Link>
+              <Link href="/help">Weekly Newsletter</Link>
             </AccordionDetails>
           </Accordion>
 
           <Accordion
-           sx={{
-            boxShadow: 'none', // This will remove the box-shadow
-          }}
+            sx={{
+              boxShadow: "none",
+            }}
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -80,21 +84,21 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>Our services</h3>
+              <h3 className="title-color">Our services</h3>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">Advertise with Us</Link>
+              <Link href="/help">Book domains</Link>
+              <Link href="/help">TI Pay</Link>
+              <Link href="/help">Trade khata</Link>
+              <Link href="/help">Trade Udhaar</Link>
             </AccordionDetails>
           </Accordion>
 
           <Accordion
-           sx={{
-            boxShadow: 'none', // This will remove the box-shadow
-          }}
+            sx={{
+              boxShadow: "none",
+            }}
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
@@ -103,21 +107,19 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>For Sellers</h3>
+              <h3 className="title-color">For Sellers</h3>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">Display New Products</Link>
+              <Link href="/help">Buy Trade Leads</Link>
+              <Link href="/help">Subscribe Buy Trade Alerts</Link>
             </AccordionDetails>
           </Accordion>
 
           <Accordion
-           sx={{
-            boxShadow: 'none', // This will remove the box-shadow
-          }}
+            sx={{
+              boxShadow: "none",
+            }}
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
@@ -126,21 +128,20 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>For Buyers</h3>
+              <h3 className="title-color">For Buyers</h3>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">Post your Requirement</Link>
+              <Link href="/help">Browse Suppliers</Link>
+              <Link href="/help">Subscribe sell Trade Alerts</Link>
               <Link href="/help">Help Center</Link>
             </AccordionDetails>
           </Accordion>
 
           <Accordion
-           sx={{
-            boxShadow: 'none', // This will remove the box-shadow
-          }}
+            sx={{
+              boxShadow: "none",
+            }}
             expanded={expanded === "panel6"}
             onChange={handleChange("panel6")}
           >
@@ -149,14 +150,16 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 style={{ color: "rgb(255, 255, 255);" }}>Directory</h3>
+              <h3 className="title-color">Directory</h3>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/help">Manufacturers</Link>
+              <Link href="/help">Business Services</Link>
+              <Link href="/help">Service Providers</Link>
+              <Link href="/help">Industry Hubs</Link>
+              <Link href="/help">Country Suppliers</Link>
+              <Link href="/help">Featured Products</Link>
+              <Link href="/help">Sitemap</Link>
             </AccordionDetails>
           </Accordion>
         </div>
@@ -172,15 +175,15 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>About us</h3>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">Help Center</Link>
+            <Link href="/help">About Our Company</Link>
+            <Link href="/help">Success Stories</Link>
+            <Link href="/help">Victorum Blog</Link>
+            <Link href="/help">Victorum in News</Link>
+            <Link href="/help">Jobs & Carrers</Link>
+            <Link href="/help">Contact Us</Link>
+            <Link href="/help">Partnetr with Us</Link>
+            <Link href="/help">Make a Payment</Link>
+            <Link href="/help">Weekly Newsletter</Link>
           </div>
           <div className="footerSection">
             <h3>Our Services</h3>
@@ -192,25 +195,26 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>For Sellers</h3>
-            <Link href="/help">Advertise with Us</Link>
-            <Link href="/help">Book Domains</Link>
-            <Link href="/help">Ti Pay</Link>
+            <Link href="/help">Display New Products</Link>
+            <Link href="/help">Buy Trade Leads</Link>
+            <Link href="/help">Subscribe Buy Trade Alerts</Link>
           </div>
           <div className="footerSection">
             <h3>For Buyers</h3>
-            <Link href="/help">Advertise with Us</Link>
-            <Link href="/help">Book Domains</Link>
-            <Link href="/help">Ti Pay</Link>
+            <Link href="/help">Post your Requirement</Link>
+            <Link href="/help">Browse Suppliers</Link>
+            <Link href="/help">Subscribe sell Trade Alerts</Link>
+            <Link href="/help">Help Center</Link>
           </div>
           <div className="footerSection">
             <h3>Directory</h3>
-            <Link href="/help">Advertise with Us</Link>
-            <Link href="/help">Book Domains</Link>
-            <Link href="/help">Ti Pay</Link>
-            <Link href="/help">Advertise with Us</Link>
-            <Link href="/help">Book Domains</Link>
-            <Link href="/help">Ti Pay</Link>
-            <Link href="/help">Ti Pay</Link>
+            <Link href="/help">Manufacturers</Link>
+            <Link href="/help">Business Services</Link>
+            <Link href="/help">Service Providers</Link>
+            <Link href="/help">Industry Hubs</Link>
+            <Link href="/help">Country Suppliers</Link>
+            <Link href="/help">Featured Products</Link>
+            <Link href="/help">Sitemap</Link>
           </div>
         </>
       )}
@@ -243,7 +247,7 @@ const Footer = () => {
       </div>
 
       <div className="footerBottom">
-        <div style={{ marginTop: "18px", marginBottom: "16px" }}>
+        <div className="all-rights-reserved">
           © 1999-2024 Victorum Capital Private Limited. All rights reserved.
         </div>
       </div>
