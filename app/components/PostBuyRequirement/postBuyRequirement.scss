@@ -76,7 +76,7 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     @media screen and (max-width: 500px) {
       font-size: 14px;
@@ -169,4 +169,12 @@
     height: 80px;
     width: 103px;
   }
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
 }

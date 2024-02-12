@@ -74,8 +74,8 @@ const PostBuyRequirement = () => {
             }}
           />
           <div>
-            <p style={{ fontSize: "14px" }}>Personalise your inquiry</p>
-            <p style={{ fontSize: "12px" }}>
+            <p className="font-size-14">Personalise your inquiry</p>
+            <p className="font-size-12">
               Now, record your requirement to communicate clearly & faster with{" "}
               <br /> sellers than ever before.
             </p>
