@@ -141,6 +141,58 @@
     color: rgb(29, 104, 141) !important;
   }
 }
+.topCategoriesSliderMainBox {
+  display: none;
+}
+.itemsSliderMainBox {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 15px;
+}
+.itemSliderAndImageBox {
+  display: flex;
+  cursor: pointer !important;
+  flex-direction: column;
+  align-items: center;
+  max-width: 122px;
+  min-width: 122px;
+}
+.imageSliderBackground {
+  height: 88px;
+  background: rgba(145, 196, 234, 0.1);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+}
+.topCategoriesItemSlider {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100px;
+  height: 46px;
+  white-space: normal;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  color: rgb(79, 95, 109) !important;
+  text-align: center;
+}
+.topCategoriesAndViewAll {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.1rem 0px 10px !important;
+}
 
 @media screen and (max-width: 1399px) {
   .topCategoriesMainBox {
@@ -153,5 +205,16 @@
 @media screen and (max-width: 1200px) {
   .topCategoriesMainBox {
     display: none;
+  }
+  .topCategoriesSliderMainBox {
+    display: block;
+  }
+  .topCategoryText {
+    padding: 0 0 0 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .viewAllCategoriesLink {
+    padding: 0 !important;
+    margin-top: 0 !important;
   }
 }
