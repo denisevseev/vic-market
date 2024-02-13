@@ -37,6 +37,11 @@ const Footer = () => {
             onChange={handleChange("panel1")}
           >
             <AccordionSummary
+             sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
@@ -60,6 +65,11 @@ const Footer = () => {
             }}
           >
             <AccordionSummary
+            sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
@@ -87,6 +97,11 @@ const Footer = () => {
             onChange={handleChange("panel3")}
           >
             <AccordionSummary
+            sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
@@ -110,6 +125,11 @@ const Footer = () => {
             onChange={handleChange("panel4")}
           >
             <AccordionSummary
+            sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
@@ -131,6 +151,11 @@ const Footer = () => {
             onChange={handleChange("panel5")}
           >
             <AccordionSummary
+            sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
@@ -153,6 +178,11 @@ const Footer = () => {
             onChange={handleChange("panel6")}
           >
             <AccordionSummary
+            sx={{
+              '& .MuiAccordionSummary-content': {
+                margin: '0 !important', // Override margin
+              },
+            }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }

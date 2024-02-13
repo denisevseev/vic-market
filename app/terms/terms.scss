@@ -31,23 +31,22 @@
   font-weight: bold;
 }
 
-
 // text details start
 .defined-terms-section {
   margin: 20px;
 }
 
 .section-title {
-  font-size:  17px;
+  font-size: 17px;
   font-weight: bold;
   color: #666;
-  
-
 }
 
 .terms-description {
-  font-size:  17px;
+  font-size: 17px;
   color: #666;
+  text-align: start;
+  margin-left: 20px;
 }
 
 .terms-list {
@@ -67,9 +66,9 @@
 
 .fraud-box {
   border: 1px solid #eee;
-    background: #f8f8f8;
-    margin: 1.25rem 0;
-    padding: 0 0.9375rem;
+  background: #f8f8f8;
+  margin: 1.25rem 0;
+  padding: 0 0.9375rem;
 }
 
 // text details end
