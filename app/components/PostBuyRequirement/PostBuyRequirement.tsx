@@ -3,16 +3,14 @@
 import Image from "next/image";
 import { useState } from "react";
 import { TextField, Button, InputAdornment, Typography } from "@mui/material";
-import { Mic, Phone } from "@mui/icons-material";
-import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
-import "./postBuyRequirement.scss";
+import { Mic } from "@mui/icons-material";
+import "./PostBuyRequirement.scss";
 import { useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SearchIcon from "@mui/icons-material/Search";
 
 const PostBuyRequirement = () => {
   const [mobileNumber, setMobileNumber] = useState("");
-  const [requirement, setRequirement] = useState("");
   const isMobile = useMediaQuery("(max-width:900px)");
 
   const handleSubmit = (e: any) => {

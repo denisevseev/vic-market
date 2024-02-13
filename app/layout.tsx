@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeRegistry from "@/theme/ThemeRegistry";
-import Navigation from "./components/navigation/Navigation";
-import Footer from "./components/footer/Footer";
 import FooterTopBox from "./components/FooterTopBox/FooterTopBox";
+import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Victorum marketplace",

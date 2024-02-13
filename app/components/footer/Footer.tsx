@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import "./footer.scss";
+import "./Footer.scss";
 import {
   Accordion,
   AccordionDetails,

@@ -1,12 +1,12 @@
 "use client";
-import "./navigation.scss";
+import "./Navigation.scss";
 import Image from "next/image";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import SelectCity from "../shared/select-city/SelectCity";
-import NavigationPopover from "../navigation-popover/NavigationPopover";
+import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
+import NavigationPopover from "../NavigationPopover/NavigationPopover";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);

@@ -7,7 +7,7 @@ import {
   Typography,
   Alert,
 } from "@mui/material";
-import "./contactUs.scss";
+import "./ContactUs.scss";
 
 const style = {
   position: "absolute",

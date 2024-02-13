@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "./footerTopBox.scss";
+import "./FooterTopBox.scss";
 import Image from "next/image";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";

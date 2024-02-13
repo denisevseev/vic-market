@@ -1,19 +1,19 @@
 "use client";
-import VariableWidth from "./components/shared/scrollable-tabs/ScrollableTabs";
+import VariableWidth from "./components/shared/ScrollableTabs/ScrollableTabs";
 import { Box } from "@mui/material";
-import TopCategories from "./components/top-categories/TopCategories";
-import MoreValueAdds from "./components/more-value-adds/MoreValueAdds";
-import "../styles/homePage.scss";
-import HomepageImagesCarousel from "./components/homepage-images-carousel/HomepageImagesCarousel";
-import LookingForProductWantToGrowYourBusiness from "./components/looking-for-product-want-to-grow-your-business/LookingForProductWantToGrowYourBusiness";
-import FeaturedProducts from "./components/features-products/FeaturedProducts";
+import TopCategories from "./components/TopCategories/TopCategories";
+import "../styles/HomePage.scss";
 import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequirement";
 import DataJson from "./components/data.json";
 import { useEffect, useState } from "react";
-import DownloadOurApp from "./components/download-our-app/DownloadOurApp";
-import PopularLinks from "./components/shared/popular-links/PopularLinks";
-import OurServices from "./components/our-services/OurServices";
-import TopCategoriesSlider from "./components/top-categories/TopCategoriesSlider";
+import DownloadOurApp from "./components/DownloadOurApp/DownloadOurApp";
+import PopularLinks from "./components/shared/PopularLinks/PopularLinks";
+import OurServices from "./components/OurServices/OurServices";
+import TopCategoriesSlider from "./components/TopCategories/TopCategoriesSlider";
+import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
+import HomepageImagesCarousel from "./components/HomepageImagesCarousel/HomepageImagesCarousel";
+import ProductGrow from "./components/ProductGrow/ProductGrow";
+import MoreValueAdds from "./components/MoreValueAdds/MoreValueAdds";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
@@ -59,7 +59,7 @@ export default function Home() {
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
               <HomepageImagesCarousel />
-              <LookingForProductWantToGrowYourBusiness />
+              <ProductGrow />
             </Box>
             <MoreValueAdds />
             <TopCategoriesSlider
