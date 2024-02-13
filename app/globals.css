@@ -60,3 +60,32 @@
 .mb-2rem {
   margin-bottom: 2rem;
 }
+
+.mt-3-rem {
+  margin-top: 3rem;
+}
+
+.mb-3-rem {
+  margin-bottom: 3rem;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.mb-2rem {
+  margin-bottom: 2rem;
+}
+
+.mt-6rem {
+  margin-top: 4rem;
+
+  @media (max-width: 650px) {
+    margin-top: 10rem;
+  }
+}
+
+.cp {
+  cursor: pointer;
+}
+

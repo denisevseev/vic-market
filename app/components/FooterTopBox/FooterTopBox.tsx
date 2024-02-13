@@ -94,7 +94,7 @@ export default function FooterTopBox() {
           >
             <div className="button-text">
               <p className="font-size-16">Contact us</p>
-              <ArrowForwardIcon />
+              {/* <ArrowForwardIcon /> */}
             </div>
           </Button>
         </div>

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "./Footer.scss";
+import { useRouter } from "next/navigation";
+
 import {
   Accordion,
   AccordionDetails,
@@ -11,6 +13,11 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Footer = () => {
+  const router = useRouter();
+  const handleNavigate = (path: string) => {
+    console.log("path", path);
+    router.push(path);
+  };
   const isMobile = useMediaQuery("(max-width:600px)");
   const [expanded, setExpanded] = useState("");
 
@@ -241,8 +248,10 @@ const Footer = () => {
           <Link href="/terms">Iran</Link>
         </div>
         <div className="terms">
-          <span>Privacy Policy</span>
-          <span>Terms & Conditions</span>
+          <span className="cp">Privacy Policy</span>
+          <span className="cp" onClick={() => handleNavigate("/terms")}>
+            Terms & Conditions
+          </span>
         </div>
       </div>
 

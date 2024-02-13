@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
+import Link from "next/link";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,14 +25,16 @@ const Navigation = () => {
   return (
     <div id="wrapper">
       <div className="block left">
-        <Image
-          src="/logo.png"
-          className="ml-left-logo"
-          alt="Logo"
-          width={181}
-          height={41}
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            className="ml-left-logo"
+            alt="Logo"
+            width={181}
+            height={41}
+            priority
+          />
+        </Link>
       </div>
       <div className="block center">
         <div className="select-city-container">
