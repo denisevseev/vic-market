@@ -10,9 +10,34 @@ import FeaturedProducts from "./components/features-products/FeaturedProducts";
 import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequirement";
 import DataJson from "./components/data.json";
 import { useEffect, useState } from "react";
+import DownloadOurApp from "./components/download-our-app/DownloadOurApp";
+import PopularLinks from "./components/shared/popular-links/PopularLinks";
+import OurServices from "./components/our-services/OurServices";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
+
+  const topCategories = [
+    "Jackets",
+    "T-Shirts",
+    "LED Products",
+    "Consumer Electronics",
+    "Alloy Steel Pipes & Tubes",
+    "Carbon Steel Pipes & Tubes",
+    "Scientific Instruments",
+    "Disposable Products",
+    "Medical & Hospital Disposables",
+  ];
+  const popularProducts = [
+    "Human Hair",
+    "Solar Lights",
+    "Pipe Elbows",
+    "Backhoe Loader",
+    "Carry Bag Making Machine",
+    "Drum Lifter",
+    "Scissor Lifts",
+    "Industrial Vibrating Screen",
+  ];
 
   useEffect(() => {
     setData(DataJson);
@@ -109,6 +134,10 @@ export default function Home() {
               />
             </div>
         </div>
+        <OurServices />
+        <DownloadOurApp />
+        <PopularLinks title="Top Categories" links={topCategories} />
+        <PopularLinks title="Popular Products" links={popularProducts} />
       </Box>
     </main>
   );

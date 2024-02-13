@@ -18,7 +18,7 @@ const PopoverTopCategories: React.FC<PopoverProps> = ({
   return (
     <>
       {popupVisible && currentCategory && (
-        <Box className="popupBoxContainer" onMouseLeave={onMouseLeave}>
+        <Box className="popupBoxContainer">
           <Box
             className="popupBox"
             onMouseLeave={(e) => {
@@ -136,7 +136,6 @@ const PopoverTopCategories: React.FC<PopoverProps> = ({
                   <Box className="subCategoriesHeadItem">Round Pipe</Box>
                   <Box className="subCategoriesHeadItem">Hex Nipple</Box>
                 </Box>
-                
               </Box>
 
               <Box className="viewAllCategoriesLinkBox">
