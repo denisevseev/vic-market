@@ -11,7 +11,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 2rem;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .ai-start{
-  align-items: start;
+  align-items: flex-start;
 }
 
 .gap-8{
