@@ -1,0 +1,196 @@
+.footerContainer {
+  display: grid;
+  grid-gap: 24px;
+  padding: 34px 56px 20px;
+  background-color: rgb(45, 56, 64);
+  color: white;
+  margin-bottom: 60px;
+  border-radius: 8px !important;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.66);
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0px 0px 4px;
+    margin-bottom: 8px;
+    line-height: 26px;
+    font-weight: 300;
+
+    &:hover {
+      color: white;
+    }
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+  }
+}
+
+.footerLink {
+  margin-bottom: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.footerBottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(238, 240, 243, 0.18);
+  padding-top: 18px;
+
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: rgb(129, 149, 165);
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+}
+
+.footerCountries {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(238, 240, 243, 0.18);
+  padding-top: 44px;
+
+  span {
+    margin-top: 3px;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.66);
+    text-decoration: none;
+    font-size: 14px;
+
+    line-height: 26px;
+    font-weight: 300;
+    margin-right: 8px;
+    margin-left: 8px;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .terms {
+    span {
+      font-size: 14px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.66);
+      margin-right: 14px;
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: start;
+    padding-top: 24px;
+
+    .terms {
+      border-top: 1px solid rgba(238, 240, 243, 0.18);
+      padding-top: 24px;
+      width: 100%;
+
+      span {
+        font-size: 12px;
+      }
+    }
+
+    a {
+      font-size: 12px;
+    }
+  }
+
+  .countries {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 1200px) {
+      padding-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    border-top: none;
+  }
+}
+
+.MuiAccordion-root {
+  box-shadow: none;
+
+  .MuiAccordionSummary-root {
+    background-color: rgb(45, 56, 64);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+  }
+
+  .MuiAccordionDetails-root {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: rgb(45, 56, 64);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    a {
+      color: rgba(255, 255, 255, 0.66);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 26px;
+      font-weight: 300;
+      margin-bottom: 8px;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .MuiAccordionDetails-root a:hover {
+    color: white;
+  }
+}
+
+.all-rights-reserved {
+  margin-top: 18px;
+  margin-bottom: 16px;
+}
+
+.title-color {
+  color: rgb(255, 255, 255);
+}
