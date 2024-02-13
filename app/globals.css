@@ -9,7 +9,7 @@
 
 .arriwals-trusted {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   align-items: flex-start;
   margin-bottom: 2rem;
@@ -71,6 +71,10 @@
 
 .ta-center {
   text-align: center;
+}
+
+.ta-start {
+  text-align: start;
 }
 
 .mb-2rem {

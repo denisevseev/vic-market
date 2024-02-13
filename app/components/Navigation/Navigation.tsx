@@ -8,6 +8,7 @@ import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
+import React from "react";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,10 +21,37 @@ const Navigation = () => {
     setAnchorEl(null);
   };
 
+  // scroll start
+  const [navClass, setNavClass] = React.useState("");
+
+  const SCROLL_THRESHOLD_ADD = 70;
+  const SCROLL_THRESHOLD_REMOVE = 10;
+  let lastScrollY = 0;
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (
+      currentScrollY >= SCROLL_THRESHOLD_ADD &&
+      lastScrollY < SCROLL_THRESHOLD_ADD
+    ) {
+      setNavClass("smaller-nav");
+    } else if (
+      currentScrollY <= SCROLL_THRESHOLD_REMOVE &&
+      lastScrollY > SCROLL_THRESHOLD_REMOVE
+    ) {
+      setNavClass("");
+    }
+
+    lastScrollY = currentScrollY;
+  };
+  window.addEventListener("scroll", handleScroll);
+  // scroll end
+
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <div id="wrapper">
+    <div id="wrapper" className={`${navClass}`}>
       <div className="block left">
         <Link href="/">
           <Image
@@ -36,7 +64,7 @@ const Navigation = () => {
           />
         </Link>
       </div>
-      <div className="block center">
+      <div className="block center medium-hide">
         <div className="select-city-container">
           <SelectCity />
         </div>

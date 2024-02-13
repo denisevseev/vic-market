@@ -12,7 +12,7 @@ export default function TermsPage() {
     setValue(newValue);
   };
   return (
-    <Box className="container mt-3-rem mb-3-rem ta-center">
+    <Box className="container mt-6rem mb-3-rem ta-center">
       <h1 className="terms-title">Terms and Conditions</h1>
       <h3 className="terms-subtitle">
         (For any Grievance you may write to Grievance Officer: Mr. Victorum VC.,
@@ -39,12 +39,12 @@ export default function TermsPage() {
             "& .MuiTabs-flexContainer": {
               flexWrap: "wrap",
             },
-            '.MuiTab-root': {
+            ".MuiTab-root": {
               color: "#666 !important",
               fontSize: "18px",
               fontWeight: "bold",
               marginRight: { md: "2rem" },
-              '&.Mui-selected': { // Style for the selected state
+              "&.Mui-selected": {
                 color: "#2A5182 !important",
               },
             },
@@ -79,7 +79,7 @@ export default function TermsPage() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="defined-terms-section">
+        <div className="defined-terms-section ta-start">
           <h2 className="section-title">1. Defined Terms</h2>
           <p className="terms-description">
             Unless repugnant to the subject or context, the words appearing
@@ -148,7 +148,7 @@ export default function TermsPage() {
           </p>
         </div>
         <div className="defined-terms-section">
-          <h2 className="section-title mt-3-rem">
+          <h2 className="section-title mt-3-rem ta-start">
             2. Prohibited Content & Consents
           </h2>
           <p className="terms-description">
