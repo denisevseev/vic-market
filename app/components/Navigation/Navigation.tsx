@@ -8,7 +8,7 @@ import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect} from "react";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -28,24 +28,29 @@ const Navigation = () => {
   const SCROLL_THRESHOLD_REMOVE = 10;
   let lastScrollY = 0;
 
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (
-      currentScrollY >= SCROLL_THRESHOLD_ADD &&
-      lastScrollY < SCROLL_THRESHOLD_ADD
-    ) {
-      setNavClass("smaller-nav");
-    } else if (
-      currentScrollY <= SCROLL_THRESHOLD_REMOVE &&
-      lastScrollY > SCROLL_THRESHOLD_REMOVE
-    ) {
-      setNavClass("");
-    }
-
-    lastScrollY = currentScrollY;
-  };
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window && typeof window !== "undefined") {
+        const currentScrollY = window.scrollY;
+  
+        if (
+          currentScrollY >= SCROLL_THRESHOLD_ADD &&
+          lastScrollY < SCROLL_THRESHOLD_ADD
+        ) {
+          setNavClass("smaller-nav");
+        } else if (
+          currentScrollY <= SCROLL_THRESHOLD_REMOVE &&
+          lastScrollY > SCROLL_THRESHOLD_REMOVE
+        ) {
+          setNavClass("");
+        }
+  
+        lastScrollY = currentScrollY;
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+  }, [])
+  
   // scroll end
 
   const open = Boolean(anchorEl);
