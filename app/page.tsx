@@ -96,6 +96,18 @@ export default function Home() {
             </div>
           </div>
           <PostBuyRequirement />
+          <div className="mb-2rem">
+              <VariableWidth
+                data={
+                  data &&
+                  data.data &&
+                  data.data.products &&
+                  data.data.products.upcomingTradeShows
+                }
+                title="Upcoming Tradeshows"
+                 isUpcomingTradeshows="true"
+              />
+            </div>
         </div>
       </Box>
     </main>

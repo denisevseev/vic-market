@@ -162,41 +162,84 @@
           "units": 5
         }
       ],
+      "upcomingTradeShows": [
+        {
+          "title": "Wire China 2024 1",
+          "imgSrc": "/up1.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Expo Paint & Coatings New Delhi 2024",
+          "imgSrc": "/up2.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Corru Pack Print India 2024",
+          "imgSrc":  "/up3.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Corru Pack Print India 2024",
+          "imgSrc":  "/up4.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Wire China 2024",
+          "imgSrc":  "/up1.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Wire China 2024 1",
+          "imgSrc": "/up1.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        },
+        {
+          "title": "Wire China 2024 2",
+          "imgSrc": "/up2.jpeg",
+          "date": "Wed, 25 Sep, 2024 - Sat, 29 Sep, 2024",
+          "location": "Shangai New International Export Seminar nal Export Seminar"
+        }
+      ],
       "featuredProducts": [
         {
-          "title": "4 Open Park For...",
-          "price": "18000",
-          "unit": "Piece/Pieces",
-          "imgSrc": "/get-distributers.svg",
-          "companyName": "4 POWER SPRING GYM"
+          "title": "Blue Laundry Liquid Detergent - 500ml",
+          "price": "45.00",
+          "unit": "Liter/Liters",
+          "imgSrc": "/f1.jpeg",
+          "companyName": "TRUE ESSENCE FOODS AND WELLNESS PRIVATE LIMITED"
         },
         {
-          "title": "4 Open Park For...",
-          "price": "18000",
-          "unit": "Piece/Pieces",
-          "imgSrc": "/get-distributers.svg",
-          "companyName": "4 POWER SPRING GYM"
+          "title": "Polyelectrolyte Flocculant Chemical",
+          "price": "210",
+          "unit": "Kilograms/Kilograms",
+          "imgSrc": "/f2.jpeg",
+          "companyName": "CHEMTEX SPECIALITY LTD."
         },
         {
-          "title": "4 Open Park For...",
-          "price": "18000",
+          "title": "Top Rated Epoxy Hardener",
           "unit": "Piece/Pieces",
-          "imgSrc": "/get-distributers.svg",
-          "companyName": "4 POWER SPRING GYM"
+          "imgSrc": "/f3.jpeg",
+          "companyName": "NOVEL CHEM"
         },
         {
-          "title": "4 Open Park For...",
-          "price": "18000",
-          "unit": "Piece/Pieces",
-          "imgSrc": "/get-distributers.svg",
-          "companyName": "4 POWER SPRING GYM"
+          "title": "Briquette Crusher By Ecoman",
+          "price": "1100000",
+          "unit": "Meter",
+          "imgSrc": "/f1.jpeg",
+          "companyName": "ECOMAN"
         },
         {
-          "title": "4 Open Park For...",
-          "price": "18000",
+          "title": "Briquette Crusher By Ecoman",
+          "price": "425",
           "unit": "Piece/Pieces",
-          "imgSrc": "/get-distributers.svg",
-          "companyName": "4 POWER SPRING GYM"
+          "imgSrc": "/f2.jpeg",
+          "companyName": "ANANT CREATION"
         }
       ]
     }

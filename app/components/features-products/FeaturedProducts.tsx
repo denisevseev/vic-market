@@ -6,8 +6,6 @@ interface FeaturedProductsProps {
 }
 
 const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ data }) => {
-  // This array would come from your data source, e.g. an API call
-
   return (
     <div>
       <h2>Featured Products</h2>

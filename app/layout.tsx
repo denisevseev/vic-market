@@ -22,7 +22,7 @@ export default function RootLayout({
           <Navigation />
           {children}
           <div className="footer-main">
-          <FooterTopBox/>
+            <FooterTopBox />
             <Footer />
           </div>
         </body>

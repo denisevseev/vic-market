@@ -113,11 +113,12 @@ export default function FooterTopBox() {
           variant="contained"
           onClick={handleOpenModal}
           sx={{
+            width: '100%',
             ".button-text p": {
               textTransform: "none",
             },
           }}
-          className="continueFormButton"
+          className="coontactUsButton"
         >
           <div className="button-text">
             <p className="font-size-16">Contact us</p>

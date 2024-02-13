@@ -4,3 +4,22 @@
   background-color: #2a5182 !important;
   text-decoration: none !important;
 }
+
+.responsiveBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px; /* Default width */
+    background-color: #fff; /* Assuming background.paper refers to white */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjusted for CSS */
+    padding: 16px; /* Assuming p: 4 refers to theme spacing */
+    border-radius: 28px;
+  }
+  
+  @media (max-width: 450px) {
+    .responsiveBox {
+      width: 100%;
+    }
+  }
+  

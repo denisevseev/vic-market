@@ -19,6 +19,13 @@
   font-size: 1rem;
   font-weight: 500;
   margin: 8px 0;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Adjust the number of lines as needed */
+  -webkit-box-orient: vertical;
+  line-height: 20px; /* Adjust based on your font size to fit within 40px height */
 }
 
 .price {
@@ -34,6 +41,12 @@
 .companyName {
   font-weight: bold;
   margin: 8px 0;
+
+  white-space: nowrap; /* Ensure the text stays on one line */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+  max-width: 300px; /* Adjust based on your font size and expected width for 40 characters */
+  display: block;
 }
 
 .inquiryButton {
