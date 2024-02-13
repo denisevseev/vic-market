@@ -17,8 +17,7 @@ export default function DownloadOurApp() {
             <Image
               height={372}
               width={406}
-              style={{ width: "100%" }}
-              objectFit="cover"
+              style={{ width: "100%", objectFit: "cover" }}
               src={DownloadAppMobileImage}
               alt="Download Our New App"
             />
@@ -34,7 +33,7 @@ export default function DownloadOurApp() {
               <Image
                 height={130}
                 width={130}
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
                 src={QRCodeImage}
                 alt="QR Code"
               />
@@ -42,14 +41,14 @@ export default function DownloadOurApp() {
                 <Image
                   height={48}
                   width={160}
-                  objectFit="cover"
+                  style={{ objectFit: "cover" }}
                   src={GooglePlayImage}
                   alt="Google Play Image"
                 />
                 <Image
                   height={48}
                   width={160}
-                  objectFit="cover"
+                  style={{ objectFit: "cover" }}
                   src={AppStoreImage}
                   alt="App Store Image"
                 />
@@ -62,14 +61,14 @@ export default function DownloadOurApp() {
         <Image
           height={48}
           width={160}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           src={GooglePlayImage}
           alt="Google Play Image"
         />
         <Image
           height={48}
           width={160}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           src={AppStoreImage}
           alt="App Store Image"
         />

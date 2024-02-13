@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import DownloadOurApp from "./components/download-our-app/DownloadOurApp";
 import PopularLinks from "./components/shared/popular-links/PopularLinks";
 import OurServices from "./components/our-services/OurServices";
+import TopCategoriesSlider from "./components/top-categories/TopCategoriesSlider";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
@@ -61,6 +62,14 @@ export default function Home() {
               <LookingForProductWantToGrowYourBusiness />
             </Box>
             <MoreValueAdds />
+            <TopCategoriesSlider
+              data={
+                data &&
+                data.data &&
+                data.data.categories &&
+                data.data.categories.topCategories
+              }
+            />
           </Box>
         </Box>
         <div
@@ -122,17 +131,17 @@ export default function Home() {
           </div>
           <PostBuyRequirement />
           <div className="mb-2rem">
-              <VariableWidth
-                data={
-                  data &&
-                  data.data &&
-                  data.data.products &&
-                  data.data.products.upcomingTradeShows
-                }
-                title="Upcoming Tradeshows"
-                 isUpcomingTradeshows="true"
-              />
-            </div>
+            <VariableWidth
+              data={
+                data &&
+                data.data &&
+                data.data.products &&
+                data.data.products.upcomingTradeShows
+              }
+              title="Upcoming Tradeshows"
+              isUpcomingTradeshows="true"
+            />
+          </div>
         </div>
         <OurServices />
         <DownloadOurApp />
