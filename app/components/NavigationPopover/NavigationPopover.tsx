@@ -56,7 +56,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
       </Button>
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
         <Image
-          src={"https://www.tradeindia.com/images/icons/crown.svg"}
+          src={"/crown.svg"}
           alt={"crown"}
           width={16}
           height={12}
@@ -94,7 +94,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
         {/* <NextPlanIcon /> */}
         <Image
-          src={"https://www.tradeindia.com/images/icons/crown.svg"}
+          src={"/crown.svg"}
           alt={"crown"}
           width={16}
           height={12}

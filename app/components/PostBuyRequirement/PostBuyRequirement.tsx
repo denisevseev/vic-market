@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { TextField, Button, InputAdornment, Typography } from "@mui/material";
 import { Mic } from "@mui/icons-material";
-import "./PostBuyRequirement.scss";
+import "./postBuyRequirement.scss";
 import { useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SearchIcon from "@mui/icons-material/Search";
@@ -33,7 +33,7 @@ const PostBuyRequirement = () => {
           <div>
             <h1>Post Buy Requirement</h1>
             <p style={{ marginBottom: "2rem" }}>
-              Get the Best Deals and Exclusive Offers with TradeIndia
+              Get the Best Deals and Exclusive Offers with Victorum Capital
             </p>
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">

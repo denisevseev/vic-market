@@ -24,7 +24,7 @@ export default function ProductGrow() {
           </Typography>
           <Button variant="outlined" className="wantToGrowBtn">
             <Typography className="wantToGrowText">Sell on</Typography>
-            <Typography className="trandeIndiaText">TradeIndia</Typography>
+            <Typography className="trandeIndiaText">Victorum Capital</Typography>
           </Button>
         </Box>
       </Box>

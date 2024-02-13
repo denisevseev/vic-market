@@ -8,10 +8,10 @@ export default function MoreValueAddsItem() {
   return (
     <Box className="addsItemMain">
       <Box className="addItemSingelMain">
-        <Box className="tradeIndiaAndLearnMore">
+        <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="tradeIndiaText">TradeIndia</Typography>
-            <Typography className="tradeIndiaText">Catlogs</Typography>
+            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Catlogs</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
@@ -23,10 +23,10 @@ export default function MoreValueAddsItem() {
         <Box className="catlogsImage"></Box>
       </Box>
       <Box className="addItemSingelMain">
-        <Box className="tradeIndiaAndLearnMore">
+        <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="tradeIndiaText">TradeIndia</Typography>
-            <Typography className="tradeIndiaText">Buy Leads</Typography>
+            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Buy Leads</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
@@ -38,10 +38,10 @@ export default function MoreValueAddsItem() {
         <Box className="buyLeadsImage"></Box>
       </Box>
       <Box className="addItemSingelMain">
-        <Box className="tradeIndiaAndLearnMore">
+        <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="tradeIndiaText">TradeIndia</Typography>
-            <Typography className="tradeIndiaText">Membership Plans</Typography>
+            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Membership Plans</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
@@ -53,10 +53,10 @@ export default function MoreValueAddsItem() {
         <Box className="membershipImage"></Box>
       </Box>
       <Box className="addItemSingelMain">
-        <Box className="tradeIndiaAndLearnMore">
+        <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="tradeIndiaText">TradeIndia</Typography>
-            <Typography className="tradeIndiaText">Book Domain</Typography>
+            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Book Domain</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>

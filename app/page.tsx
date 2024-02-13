@@ -122,7 +122,7 @@ export default function Home() {
                   data &&
                   data.data &&
                   data.data.products &&
-                  data.data.products.tradeIndiaTrusted
+                  data.data.products.victorumCapitalTrusted
                 }
                 title="Victorum Capital Trusted"
                 isSmallCarousel="true"
