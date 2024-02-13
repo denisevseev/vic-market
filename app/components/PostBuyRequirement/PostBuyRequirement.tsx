@@ -12,7 +12,6 @@ import SearchIcon from "@mui/icons-material/Search";
 const PostBuyRequirement = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const isMobile = useMediaQuery("(max-width:900px)");
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
   };
