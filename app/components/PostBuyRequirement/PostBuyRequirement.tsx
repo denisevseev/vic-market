@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { TextField, Button, InputAdornment, Typography } from "@mui/material";
 import { Mic } from "@mui/icons-material";
-import "./postBuyRequirement.scss";
+import "./PostBuyRequirement.scss";
 import { useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SearchIcon from "@mui/icons-material/Search";
