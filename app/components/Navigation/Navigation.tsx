@@ -8,7 +8,7 @@ import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -32,7 +32,7 @@ const Navigation = () => {
     const handleScroll = () => {
       if (window && typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
-  
+
         if (
           currentScrollY >= SCROLL_THRESHOLD_ADD &&
           lastScrollY < SCROLL_THRESHOLD_ADD
@@ -44,13 +44,13 @@ const Navigation = () => {
         ) {
           setNavClass("");
         }
-  
+
         lastScrollY = currentScrollY;
       }
     };
     window.addEventListener("scroll", handleScroll);
-  }, [])
-  
+  }, []);
+
   // scroll end
 
   const open = Boolean(anchorEl);
@@ -60,11 +60,12 @@ const Navigation = () => {
       <div className="block left">
         <Link href="/">
           <Image
-            src="/logo.png"
+            src="/logoTrade2.png"
             className="ml-left-logo"
             alt="Logo"
             width={181}
-            height={41}
+            height={51}
+            style={{ objectFit: "cover" }}
             priority
           />
         </Link>
