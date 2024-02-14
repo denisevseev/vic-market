@@ -37,7 +37,7 @@ const PostBuyRequirement = () => {
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">
             <Image
-              src="/logoTrade.png"
+              src="/logoTrade2.png"
               alt="Logo"
               width={130}
               height={40}

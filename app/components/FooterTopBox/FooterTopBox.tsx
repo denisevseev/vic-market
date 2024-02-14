@@ -21,17 +21,18 @@ export default function FooterTopBox() {
   };
 
   const logoWidth = isMobile ? 100 : 181;
-  const logoHeight = isMobile ? 37 : 51;
+  const logoHeight = isMobile ? 30 : 51;
   const gPartnerHeight = isMobile ? 66 : 100;
   return (
     <div className="main-container-top">
       <div className="top-box-container">
         <div className="two-images">
           <Image
-            src="/logoTrade.png"
+            src="/logoTrade2.png"
             alt="Logo"
             width={logoWidth}
             height={logoHeight}
+            style={{ objectFit: "cover" }}
             priority
           />
           <Image
