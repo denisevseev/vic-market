@@ -21,24 +21,19 @@ export default function FooterTopBox() {
   };
 
   const logoWidth = isMobile ? 100 : 181;
-  const logoHeight = isMobile ? 27 : 41;
+  const logoHeight = isMobile ? 37 : 51;
   const gPartnerHeight = isMobile ? 66 : 100;
   return (
     <div className="main-container-top">
       <div className="top-box-container">
         <div className="two-images">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={logoWidth}
-              height={logoHeight}
-              priority
-              className="cp"
-            />
-          </Link>
-
-          {/* <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="ml-left-logo cp"> */}
+          <Image
+            src="/logoTrade.png"
+            alt="Logo"
+            width={logoWidth}
+            height={logoHeight}
+            priority
+          />
           <Image
             src="/g-partner.svg"
             alt="Logo"
