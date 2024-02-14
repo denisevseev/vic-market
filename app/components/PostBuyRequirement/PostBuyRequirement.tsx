@@ -37,11 +37,11 @@ const PostBuyRequirement = () => {
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">
             <Image
-              src="/logo.png"
+              src="/logoTrade.png"
               alt="Logo"
               width={130}
-              height={30}
-              style={{ objectFit: "cover" }}
+              height={40}
+              style={{ objectFit: "fill" }}
               priority
             />
           </div>
