@@ -9,6 +9,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Button, useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ContactUs from "../ContactUs/ContactUs";
+import Link from "next/link";
 
 export default function FooterTopBox() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -26,21 +27,26 @@ export default function FooterTopBox() {
     <div className="main-container-top">
       <div className="top-box-container">
         <div className="two-images">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={logoWidth}
-            height={logoHeight}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={logoWidth}
+              height={logoHeight}
+              priority
+              className="cp"
+            />
+          </Link>
+
+          {/* <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="ml-left-logo cp"> */}
           <Image
             src="/g-partner.svg"
-            className="ml-left-logo"
             alt="Logo"
             width={logoWidth}
             height={gPartnerHeight}
             priority
           />
+          {/* </a> */}
         </div>
 
         <div className="follow-us">
@@ -99,13 +105,41 @@ export default function FooterTopBox() {
           </Button>
         </div>
       </div>
-        <ContactUs open={openModal} setOpen={setOpenModal}/>
+      <ContactUs open={openModal} setOpen={setOpenModal} />
 
       <div className="follow-us-down">
-        <FacebookIcon />
-        <InstagramIcon />
-        <TwitterIcon />
-        <YouTubeIcon />
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FacebookIcon />
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <InstagramIcon />
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <TwitterIcon />
+        </a>
+        <a
+          href="https://www.youtube.com/c"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <YouTubeIcon />
+        </a>
       </div>
 
       <div className="btn-container-big">
@@ -113,7 +147,7 @@ export default function FooterTopBox() {
           variant="contained"
           onClick={handleOpenModal}
           sx={{
-            width: '100%',
+            width: "100%",
             ".button-text p": {
               textTransform: "none",
             },
