@@ -104,24 +104,24 @@ const Navigation = () => {
             ),
           }}
         />
-        <div className="registered-users-container">
+        {/* <div className="registered-users-container">
           <div className="reg-users-box">
             <p className="registered-users-text black-text">Registered Users</p>
           </div>
           <div className="number-of-users-box">
             <p className="registered-users-text blue-text">1,07,64,614</p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="block right">
-        <p className="login-text">Login</p>
-        <Button
+        {/* <p className="login-text">Login</p> */}
+        {/* <Button
           variant="contained"
           style={{ backgroundColor: "#2A5182" }}
           className="sign-up"
         >
           Sign Up
-        </Button>
+        </Button> */}
         <MenuIcon
           className="mr-right-icon"
           onClick={handleClick}

@@ -130,7 +130,7 @@ export default function Home() {
             </div>
           </div>
           <PostBuyRequirement />
-          <div className="mb-2rem">
+          {/* <div className="mb-2rem">
             <VariableWidth
               data={
                 data &&
@@ -141,7 +141,7 @@ export default function Home() {
               title="Upcoming Tradeshows"
               isUpcomingTradeshows="true"
             />
-          </div>
+          </div> */}
         </div>
         <OurServices />
         <DownloadOurApp />
