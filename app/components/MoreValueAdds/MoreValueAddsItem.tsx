@@ -10,7 +10,7 @@ export default function MoreValueAddsItem() {
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Victorum Trading</Typography>
             <Typography className="victorumCapitalText">Catlogs</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
@@ -25,7 +25,7 @@ export default function MoreValueAddsItem() {
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Victorum Trading</Typography>
             <Typography className="victorumCapitalText">Buy Leads</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
@@ -40,7 +40,7 @@ export default function MoreValueAddsItem() {
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Victorum Trading</Typography>
             <Typography className="victorumCapitalText">Membership Plans</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
@@ -55,7 +55,7 @@ export default function MoreValueAddsItem() {
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
           <Box>
-            <Typography className="victorumCapitalText">Victorum Capital</Typography>
+            <Typography className="victorumCapitalText">Victorum Trading</Typography>
             <Typography className="victorumCapitalText">Book Domain</Typography>
           </Box>
           <Box className="learnMoreAndIcon">

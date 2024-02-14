@@ -32,7 +32,7 @@ const PostBuyRequirement = () => {
           <div>
             <h1>Post Buy Requirement</h1>
             <p style={{ marginBottom: "2rem" }}>
-              Get the Best Deals and Exclusive Offers with Victorum Capital
+              Get the Best Deals and Exclusive Offers with Victorum Trading
             </p>
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">

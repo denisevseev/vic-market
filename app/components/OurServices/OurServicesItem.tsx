@@ -27,7 +27,7 @@ export default function OurServicesItem() {
       <Box className="ourServiceItemSingelMain">
         <Box>
           <Box className="ourServicesItemText">
-            <Typography className="tradeText">Victorum Capital</Typography>
+            <Typography className="tradeText">Victorum Trading</Typography>
             <Typography className="tradeTextBold">
               GetDistributors.com
             </Typography>

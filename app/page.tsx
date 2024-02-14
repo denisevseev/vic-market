@@ -124,7 +124,7 @@ export default function Home() {
                   data.data.products &&
                   data.data.products.victorumCapitalTrusted
                 }
-                title="Victorum Capital Trusted"
+                title="Victorum Trading Trusted"
                 isSmallCarousel="true"
               />
             </div>
