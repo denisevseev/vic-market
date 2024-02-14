@@ -13,17 +13,11 @@ import OurCoreValue3 from "../../public/our-core-value3.jpg";
 import OurCoreValue4 from "../../public/our-core-value4.jpg";
 import OurCoreValue5 from "../../public/our-core-value5.jpg";
 import ConnectImage from "../../public/connect-image.png";
-import Slider from "react-slick";
+import OurJourneySlider from "../components/AboutUsSliders/OurJourneySlider";
+import AutoPlaySlider from "../components/AboutUsSliders/AutoPlaySlider";
 
 export default function AboutUs() {
-  const slickSettings = {
-    dots: false,
-    infinite: false,
-    speed: 1000,
-    autoplay: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-  };
+  const autoPlayImages = ["/testImage.png", "/testImage.png", "/testImage.png"];
   return (
     <main>
       <Box>
@@ -76,26 +70,13 @@ export default function AboutUs() {
               </Typography>
             </Box>
           </Box>
-        </Box>
-        {/* <Box className="sliderAboutUsMain">
-          <Box className="sliderAboutUsItem">
-            <Box className="sliderMrquee">
-              <Box className="sliderListDraggable">
-                <Box className="sliderTrack">
-                  <Box className="sliderItem">
-                    <Image
-                      className="sliderImage"
-                      src={ImageTest}
-                      alt="Image 1"
-                      height={190}
-                      objectFit="cover"
-                    />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
+          {/* <Box className="autoplayMainBox">
+            <AutoPlaySlider images={autoPlayImages} />
+            <AutoPlaySlider images={autoPlayImages} />
+            <AutoPlaySlider images={autoPlayImages} />
           </Box>
-        </Box> */}
+          <Box className="fadeImage"></Box> */}
+        </Box>
 
         {/* SECOND SECTION */}
         <Box className="secondSectionMainAboutUs">
@@ -274,8 +255,10 @@ export default function AboutUs() {
                 <Box className="ourCoreValuesItemImage">
                   <Image
                     src={OurCoreValue}
-                    width={572}
+                    width={509}
                     height={284}
+                    layout="responsive"
+                    style={{ height: "100%" }}
                     alt="Trust and Transparency"
                   />
                 </Box>
@@ -295,7 +278,17 @@ export default function AboutUs() {
                 </Box>
               </Box>
 
-              <Box className="ourCoreValueItems">
+              <Box className="ourCoreValueItems2">
+                <Box className="ourCoreValuesItemImage">
+                  <Image
+                    src={OurCoreValue2}
+                    width={509}
+                    style={{ height: "100%" }}
+                    layout="responsive"
+                    height={284}
+                    alt="Constant Learning"
+                  />
+                </Box>
                 <Box className="ourCoreValuesItemContent">
                   <Typography className="ourCoreValueContentHeading">
                     Constant Learning
@@ -309,21 +302,15 @@ export default function AboutUs() {
                     growth and change as a chance to evolve and excel.
                   </Typography>
                 </Box>
-                <Box className="ourCoreValuesItemImage">
-                  <Image
-                    src={OurCoreValue2}
-                    width={572}
-                    height={284}
-                    alt="Constant Learning"
-                  />
-                </Box>
               </Box>
 
               <Box className="ourCoreValueItems">
                 <Box className="ourCoreValuesItemImage">
                   <Image
                     src={OurCoreValue3}
-                    width={572}
+                    style={{ height: "100%" }}
+                    width={509}
+                    layout="responsive"
                     height={284}
                     alt="Ownership"
                   />
@@ -343,7 +330,17 @@ export default function AboutUs() {
                 </Box>
               </Box>
 
-              <Box className="ourCoreValueItems">
+              <Box className="ourCoreValueItems2">
+                <Box className="ourCoreValuesItemImage">
+                  <Image
+                    src={OurCoreValue4}
+                    style={{ height: "100%" }}
+                    width={509}
+                    layout="responsive"
+                    height={284}
+                    alt="Drive and Deliver"
+                  />
+                </Box>
                 <Box className="ourCoreValuesItemContent">
                   <Typography className="ourCoreValueContentHeading">
                     Drive and Deliver
@@ -356,21 +353,15 @@ export default function AboutUs() {
                     innovation and a sense of purpose.
                   </Typography>
                 </Box>
-                <Box className="ourCoreValuesItemImage">
-                  <Image
-                    src={OurCoreValue4}
-                    width={572}
-                    height={284}
-                    alt="Drive and Deliver"
-                  />
-                </Box>
               </Box>
 
               <Box className="ourCoreValueItems">
                 <Box className="ourCoreValuesItemImage">
                   <Image
                     src={OurCoreValue5}
-                    width={572}
+                    style={{ height: "100%" }}
+                    layout="responsive"
+                    width={509}
                     height={284}
                     alt="One 'TI'"
                   />
@@ -394,15 +385,7 @@ export default function AboutUs() {
           </Box>
         </Box>
         {/* SIXTH SECTION */}
-        <Box className="sicthSectionMain">
-          <Box className="sixthSectionBox">
-            {/* <Typography className="meetOurForceText">Our Journey</Typography> */}
-            {/* <Box>
-              <Slider {...slickSettings}>
-              </Slider>
-            </Box> */}
-          </Box>
-        </Box>
+        <OurJourneySlider />
         {/* SEVENTH SECTION */}
         <Box className="seventhSectionMain">
           <Box className="seventhSectionBox">
@@ -417,6 +400,41 @@ export default function AboutUs() {
                 width={1159}
                 layout="responsive"
               />
+            </Box>
+            <Box className="voiceOfChangeMobItemsBox">
+              <Box className="voiceChangeMobItem">
+                <Box className="voiceChangeMob"></Box>
+                <Box>
+                  <Typography className="voiceChangeMobText">
+                    Seamless Process of deal booking, payment, Logistics and
+                    other value-added services
+                  </Typography>
+                </Box>
+              </Box>
+              <Box className="voiceChangeMobItem">
+                <Box className="voiceChangeMob2"></Box>
+                <Box>
+                  <Typography className="voiceChangeMobText">
+                    Surged Demand
+                  </Typography>
+                </Box>
+              </Box>
+              <Box className="voiceChangeMobItem">
+                <Box className="voiceChangeMob3"></Box>
+                <Box>
+                  <Typography className="voiceChangeMobText">
+                    No Default Risk
+                  </Typography>
+                </Box>
+              </Box>
+              <Box className="voiceChangeMobItem">
+                <Box className="voiceChangeMob4"></Box>
+                <Box>
+                  <Typography className="voiceChangeMobText">
+                    Organized Marketplace
+                  </Typography>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>

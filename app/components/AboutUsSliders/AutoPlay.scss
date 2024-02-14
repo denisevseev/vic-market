@@ -1,0 +1,14 @@
+.sliderAboutUsMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 30%;
+}
+.slick-slide {
+  width: 140px !important;
+}
+.slick-slider {
+  max-height: 550px;
+  overflow: hidden;
+}

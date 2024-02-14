@@ -77,7 +77,7 @@ const Footer = () => {
               <h4 className="title-color">About us</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">About Our Company</Link>
+              <Link href="/about-us">About Our Company</Link>
               <Link href="/help">Success Stories</Link>
               <Link href="/help">Victorum Blog</Link>
               <Link href="/help">Victorum in News</Link>
@@ -212,7 +212,7 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>About us</h3>
-            <Link href="/help">About Our Company</Link>
+            <Link href="/about-us">About Our Company</Link>
             <Link href="/help">Success Stories</Link>
             <Link href="/help">Victorum Blog</Link>
             <Link href="/help">Victorum in News</Link>
