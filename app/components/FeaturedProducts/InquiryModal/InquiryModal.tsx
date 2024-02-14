@@ -77,7 +77,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   // step 3 end
 
   const handleNextStep = () => {
-    setStep(step + 1);
+    if (step < 3) setStep(step + 1);
   };
 
   const handleBackStep = () => {
@@ -92,33 +92,69 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const countries: any[] = [
     {
+      code: "+375",
+      label: "Belarus",
+      phone: "375",
+      icon: "flag",
+    },
+    {
+      code: "+55",
+      label: "Brazil",
+      phone: "55",
+      icon: "flag",
+    },
+    {
+      code: "+1",
+      label: "Canada",
+      phone: "1",
+      icon: "flag",
+    },
+    {
+      code: "+86",
+      label: "China",
+      phone: "86",
+      icon: "flag",
+    },
+    {
       code: "+91",
       label: "India",
       phone: "91",
       icon: "flag",
     },
     {
-      code: "+1",
-      label: "United States",
-      phone: "1",
+      code: "+7",
+      label: "Kazakhstan",
+      phone: "7",
+      icon: "flag",
+    },
+    {
+      code: "+264",
+      label: "Namibia",
+      phone: "264",
+      icon: "flag",
+    },
+    {
+      code: "+234",
+      label: "Nigeria",
+      phone: "234",
+      icon: "flag",
+    },
+    {
+      code: "+7",
+      label: "Russia",
+      phone: "7",
+      icon: "flag",
+    },
+    {
+      code: "+90",
+      label: "Turkey",
+      phone: "90",
       icon: "flag",
     },
     {
       code: "+44",
       label: "United Kingdom",
       phone: "44",
-      icon: "flag",
-    },
-    {
-      code: "+93",
-      label: "Afghanistan",
-      phone: "93",
-      icon: "flag",
-    },
-    {
-      code: "+355",
-      label: "Albania",
-      phone: "355",
       icon: "flag",
     },
   ];
@@ -397,7 +433,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   fontFamily: "Poppins, sans-serif",
                 }}
               >
-                Sign In to Get The Best Deals, Exclusive Offers with Victorum
+                Inquiry
               </Typography>
             </div>
             <TextField
@@ -499,7 +535,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           </>
         )}
         {/* end 3 */}
-        {step === 4 && (
+        {/*step === 4 && (
           <OtpVerification
             onSubmit={(otp: any) => {
               handleNextStep();
@@ -509,7 +545,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             }}
             phone={countryCode + mobileNumber}
           />
-        )}
+        )*/}
       </Box>
     </Modal>
   );
