@@ -20,17 +20,18 @@ export default function FooterTopBox() {
   };
 
   const logoWidth = isMobile ? 100 : 181;
-  const logoHeight = isMobile ? 37 : 51;
+  const logoHeight = isMobile ? 30 : 51;
   const gPartnerHeight = isMobile ? 66 : 100;
   return (
     <div className="main-container-top">
       <div className="top-box-container">
         <div className="two-images">
           <Image
-            src="/logoTrade.png"
+            src="/logoTrade2.png"
             alt="Logo"
             width={logoWidth}
             height={logoHeight}
+            style={{ objectFit: "cover" }}
             priority
           />
           <Image
@@ -99,7 +100,7 @@ export default function FooterTopBox() {
           </Button>
         </div>
       </div>
-        <ContactUs open={openModal} setOpen={setOpenModal}/>
+      <ContactUs open={openModal} setOpen={setOpenModal} />
 
       <div className="follow-us-down">
         <FacebookIcon />
@@ -113,7 +114,7 @@ export default function FooterTopBox() {
           variant="contained"
           onClick={handleOpenModal}
           sx={{
-            width: '100%',
+            width: "100%",
             ".button-text p": {
               textTransform: "none",
             },
