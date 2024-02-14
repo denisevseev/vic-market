@@ -6,7 +6,9 @@ import Box from "@mui/material/Box";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import LockIcon from "../../../../../public/otpLock.png";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import IconButton from "@mui/material/IconButton";
+import "./OtpVerification.scss";
 
 type OtpVerificationProps = {
   onSubmit: (otp: string) => void;
@@ -23,7 +25,6 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
   const [error, setError] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-
   const handleChange = (otp: string) => {
     setOtp(otp);
     setError(false);
@@ -34,10 +35,10 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -55,7 +56,17 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
 
   return (
     <Box sx={{ textAlign: "center" }}>
-        <Image src={LockIcon} alt="Health & Beauty Icon" />
+      <div className="d-flex ai-center">
+        <IconButton onClick={onCancel} aria-label="go back">
+          <ArrowBackIcon />
+        </IconButton>
+        <div
+          className="d-flex-img"
+          style={{ marginLeft: "auto", marginRight: "auto" }}
+        >
+          <Image src={LockIcon} alt="Health & Beauty Icon" />
+        </div>
+      </div>
       <Typography
         variant="h6"
         component="h2"
@@ -79,8 +90,8 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
         numInputs={4}
         shouldAutoFocus={true}
         inputStyle={{
-            width: windowWidth < 500 ? '50px' : '74px',
-            height: windowWidth < 500 ? '52px' : '76px',
+          width: windowWidth < 500 ? "50px" : "74px",
+          height: windowWidth < 500 ? "52px" : "76px",
           margin: "0 0.5rem",
           fontSize: "2rem",
           borderRadius: 4,
@@ -98,7 +109,6 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
       )}
       <Button
         variant="contained"
-        //   onClick={handleNextStep}
         sx={{
           mt: 6,
           mb: 2,
@@ -111,7 +121,6 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
             textTransform: "none",
           },
         }}
-        // Button is disabled if mobileNumber or country is empty
       >
         <div className="button-text">
           <p>Verify And Proceed</p>

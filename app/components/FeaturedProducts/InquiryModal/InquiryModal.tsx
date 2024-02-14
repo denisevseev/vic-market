@@ -11,11 +11,13 @@ import Typography from "@mui/material/Typography";
 import "./InquiryModal.scss";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
   Autocomplete,
   Checkbox,
   FormControl,
   FormHelperText,
+  IconButton,
 } from "@mui/material";
 import OtpVerification from "./OtpVerification/OtpVerification";
 
@@ -37,15 +39,14 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   const [frequency, setFrequency] = useState("one-time");
 
   const validateEmail = (email: any) => {
-    // Regex pattern for email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email); // Returns true if email matches the pattern
+    return emailPattern.test(email);
   };
 
   const handleEmailChange = (e: any) => {
     const { value } = e.target;
-    setEmail(value); // Update email state
-    setIsValidEmail(validateEmail(value)); // Validate email and update isValidEmail state
+    setEmail(value);
+    setIsValidEmail(validateEmail(value));
   };
 
   const [step, setStep] = useState(1);
@@ -59,7 +60,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   //   step 3 start
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(true); // State to track email validity
+  const [isValidEmail, setIsValidEmail] = useState(true);
   const [companyName, setCompanyName] = useState("");
   const [city, setCity] = useState("");
 
@@ -77,6 +78,10 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const handleNextStep = () => {
     setStep(step + 1);
+  };
+
+  const handleBackStep = () => {
+    setStep(step - 1);
   };
 
   const handleMobileNumberChange = (
@@ -116,7 +121,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       phone: "355",
       icon: "flag",
     },
-    // ...add as many countries as needed
   ];
 
   const [country, setCountry] = useState<any | null>(countries[0]);
@@ -155,19 +159,21 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       >
         {step === 1 && (
           <>
-            <Typography
-              variant="h6"
-              component="h2"
-              className="send-inquiry"
-              sx={{
-                color: "rgb(38, 92, 129);",
-                fontSize: "28px",
-                fontWeight: "600",
-                fontFamily: "Poppins, sans-serif",
-              }}
-            >
-              Send Inquiry
-            </Typography>
+            <div className="d-flex ai-center gap-8 cp">
+              <Typography
+                variant="h6"
+                component="h2"
+                className="send-inquiry"
+                sx={{
+                  color: "rgb(38, 92, 129);",
+                  fontSize: "28px",
+                  fontWeight: "600",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
+                Send Inquiry
+              </Typography>
+            </div>
             <Typography sx={{ mt: 2 }}>
               Tell us about your requirement
             </Typography>
@@ -192,7 +198,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               margin="normal"
               sx={{
                 "& .MuiOutlinedInput-root": {
-                  borderRadius: "10px", // This targets the root of the outlined input
+                  borderRadius: "10px",
                   backgroundColor: "rgb(251, 242, 225)",
                 },
                 "& .MuiInputBase-input": {
@@ -255,20 +261,25 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
         {step === 2 && (
           <>
-            <Typography
-              variant="h6"
-              component="h2"
-              className="send-inquiry"
-              sx={{
-                color: "rgb(38, 92, 129);",
-                fontSize: "28px",
-                fontWeight: "600",
-                fontFamily: "Poppins, sans-serif",
-                marginBottom: "2rem",
-              }}
-            >
-              Contact Details
-            </Typography>
+            <div className="d-flex ai-center gap-8 cp mb-2rem">
+              <IconButton onClick={handleBackStep} aria-label="go back">
+                <ArrowBackIcon />
+              </IconButton>
+
+              <Typography
+                variant="h6"
+                component="h2"
+                className="send-inquiry"
+                sx={{
+                  color: "rgb(38, 92, 129);",
+                  fontSize: "28px",
+                  fontWeight: "600",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
+                Contact Details
+              </Typography>
+            </div>
             {/* Additional fields for contact details */}
             <Box
               sx={{
@@ -283,7 +294,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   sx={{
                     borderRadius: "10px",
                     "& .MuiOutlinedInput-input": {
-                      borderRadius: "10px", // Apply border radius to input element
+                      borderRadius: "10px",
                     },
                   }}
                   id="country-code-select"
@@ -298,7 +309,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   onChange={(event, newValue) => {
                     setCountry(newValue);
                     if (newValue) {
-                      setInputValue(newValue.code); // Set the input value to the code
+                      setInputValue(newValue.code);
                     }
                   }}
                   inputValue={inputValue}
@@ -315,12 +326,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                       }}
                       inputProps={{
                         ...params.inputProps,
-                        // autoComplete: "new-password",
                       }}
                       sx={{
                         borderRadius: "10px",
                         "& .MuiOutlinedInput-input": {
-                          borderRadius: "10px", // Apply border radius to input element
+                          borderRadius: "10px",
                         },
                       }}
                     />
@@ -333,9 +343,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 type="number"
                 sx={{
                   flex: 0.6,
-                  "& .MuiOutlinedInput-root": {
-                    // borderRadius: "10px", // Apply border radius to the input field
-                  },
+                  "& .MuiOutlinedInput-root": {},
                 }}
                 id="mobile-number"
                 label="Mobile number"
@@ -359,7 +367,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   textTransform: "none",
                 },
               }}
-              disabled={!mobileNumber || !country} // Button is disabled if mobileNumber or country is empty
+              disabled={!mobileNumber || !country}
             >
               <div className="button-text">
                 <p>Continue</p>
@@ -373,21 +381,25 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
         {/* Step 3 */}
         {step === 3 && (
           <>
-            <Typography
-              variant="h6"
-              component="h2"
-              className="send-inquiry"
-              sx={{
-                color: "rgb(38, 92, 129);",
-                fontSize: "16px",
-                fontWeight: "600",
-                fontFamily: "Poppins, sans-serif",
-                marginBottom: "16px",
-              }}
-            >
-              Sign In to Get The Best Deals, Exclusive Offers with Victorum
-              Market
-            </Typography>
+            <div className="d-flex ai-center gap-8 cp mb-2rem">
+              <IconButton onClick={handleBackStep} aria-label="go back">
+                <ArrowBackIcon />
+              </IconButton>
+
+              <Typography
+                variant="h6"
+                component="h2"
+                className="send-inquiry"
+                sx={{
+                  color: "rgb(38, 92, 129);",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
+                Sign In to Get The Best Deals, Exclusive Offers with Victorum
+              </Typography>
+            </div>
             <TextField
               fullWidth
               margin="normal"
@@ -403,8 +415,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               variant="outlined"
               value={email}
               onChange={handleEmailChange}
-              error={!isValidEmail} // Set error state based on email validity
-              helperText={!isValidEmail && "Please enter a valid email"} // Show helper text if email is invalid
+              error={!isValidEmail}
+              helperText={!isValidEmail && "Please enter a valid email"}
             />
             <TextField
               fullWidth
@@ -438,8 +450,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 />
               </div>
               <div>
-                {/* ... other checkbox for GST Available ... */}
-
                 <FormControlLabel
                   control={
                     <Checkbox
@@ -458,7 +468,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 )}
               </div>
             </div>
-            {/* Continue Button */}
             <Button
               variant="contained"
               onClick={handleNextStep}
@@ -480,7 +489,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 !city ||
                 !isValidEmail ||
                 !termsChecked
-              } // Button is disabled if any of the fields is empty
+              }
             >
               <div className="button-text">
                 <p>Continue</p>
@@ -489,9 +498,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </Button>
           </>
         )}
-
         {/* end 3 */}
-
         {step === 4 && (
           <OtpVerification
             onSubmit={(otp: any) => {

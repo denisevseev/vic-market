@@ -37,16 +37,16 @@ const Footer = () => {
             onChange={handleChange("panel1")}
           >
             <AccordionSummary
-             sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">Customer Support</h3>
+              <h4 className="title-color">Customer Support</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Help Center</Link>
@@ -65,16 +65,16 @@ const Footer = () => {
             }}
           >
             <AccordionSummary
-            sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">About us</h3>
+              <h4 className="title-color">About us</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">About Our Company</Link>
@@ -97,16 +97,16 @@ const Footer = () => {
             onChange={handleChange("panel3")}
           >
             <AccordionSummary
-            sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">Our services</h3>
+              <h4 className="title-color">Our services</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Advertise with Us</Link>
@@ -125,16 +125,16 @@ const Footer = () => {
             onChange={handleChange("panel4")}
           >
             <AccordionSummary
-            sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">For Sellers</h3>
+              <h4 className="title-color">For Sellers</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Display New Products</Link>
@@ -151,16 +151,16 @@ const Footer = () => {
             onChange={handleChange("panel5")}
           >
             <AccordionSummary
-            sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">For Buyers</h3>
+              <h4 className="title-color">For Buyers</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Post your Requirement</Link>
@@ -178,16 +178,16 @@ const Footer = () => {
             onChange={handleChange("panel6")}
           >
             <AccordionSummary
-            sx={{
-              '& .MuiAccordionSummary-content': {
-                margin: '0 !important', // Override margin
-              },
-            }}
+              sx={{
+                "& .MuiAccordionSummary-content": {
+                  margin: "0 !important", // Override margin
+                },
+              }}
               expandIcon={
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h3 className="title-color">Directory</h3>
+              <h4 className="title-color">Directory</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Manufacturers</Link>
@@ -278,7 +278,7 @@ const Footer = () => {
           <Link href="/terms">Iran</Link>
         </div>
         <div className="terms">
-          <span className="cp">Privacy Policy</span>
+          <span className="cp ml-8" onClick={() => handleNavigate("/privacy-policy")}>Privacy Policy</span>
           <span className="cp" onClick={() => handleNavigate("/terms")}>
             Terms & Conditions
           </span>
@@ -286,7 +286,7 @@ const Footer = () => {
       </div>
 
       <div className="footerBottom">
-        <div className="all-rights-reserved">
+        <div className="all-rights-reserved ml-small-screen">
           © 1999-2024 Victorum Capital Private Limited. All rights reserved.
         </div>
       </div>
