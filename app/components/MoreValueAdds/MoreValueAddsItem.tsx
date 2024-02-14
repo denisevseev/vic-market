@@ -11,7 +11,7 @@ export default function MoreValueAddsItem() {
         <Box className="victorumCapitalAndLearnMore">
           <Box>
             <Typography className="victorumCapitalText">Victorum Trading</Typography>
-            <Typography className="victorumCapitalText">Catlogs</Typography>
+            <Typography className="victorumCapitalText">Catalogs</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
