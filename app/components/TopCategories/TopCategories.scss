@@ -33,8 +33,10 @@
   overflow: hidden !important;
   white-space: nowrap !important;
   transition: all 0.2s !important;
+  text-decoration: none;
   &:hover {
     opacity: 0.7 !important;
+    text-decoration: underline;
   }
 }
 .viewAllCategoriesLink {

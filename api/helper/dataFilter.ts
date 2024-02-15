@@ -26,8 +26,35 @@ export const getRandomTopCategoriesWithItems = (
   return categoriesWithRandomizedProducts;
 };
 
+export const getFilteredProductsByCategory = (
+  categoriesWithProducts: any,
+  numberOfProducts: any,
+  filterFields: string[],
+  categoryName: string
+) => {
+  // Process the API response to get categories with their products
+  // Find the category by name
+  const category = categoriesWithProducts.find((cat: any) => cat.categorySlug === categoryName);
+
+  if (!category) {
+    // Return an empty array if the category is not found
+    return [];
+  }
+
+  // Filter products based on the specified fields within the category
+  const filteredProducts = category.products.filter((product: any) =>
+    filterFields.every(field => product[field])
+  );
+
+  // Sort filtered products by id
+  const sortedFilteredProducts = filteredProducts.sort((a: any, b: any) => a.id - b.id);
+
+  // Return the specified number of filtered and sorted products
+  return sortedFilteredProducts.slice(0, numberOfProducts);
+};
+
 export const getFilteredProducts = (
-    categoriesWithProducts: any,
+  categoriesWithProducts: any,
   numberOfProducts: any,
   filterFields: string[]
 ) => {
@@ -55,7 +82,7 @@ export const getFilteredProducts = (
 };
 
 export const getProductsSortedById = (
-    categoriesWithProducts: any,
+  categoriesWithProducts: any,
   numberOfProducts: number
 ) => {
   // Flatten the array of categories into a single array of products
@@ -96,15 +123,24 @@ export const getRandomProducts = (
   return randomProducts;
 };
 
+const getCategorySlug = (name: string) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+};
 export const processApiResponse = (apiResponse: any) => {
   const categoriesMap: any = {};
 
   apiResponse.forEach((item: any) => {
     const categoryName = item.categoryName;
+    const categorySlug = getCategorySlug(item.categoryName);
     const productId = item.id;
     if (!categoriesMap[categoryName]) {
       categoriesMap[categoryName] = {
         categoryName: categoryName,
+        categorySlug: categorySlug,
         products: [],
       };
     }

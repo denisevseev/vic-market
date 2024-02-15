@@ -31,8 +31,6 @@ export default function Home() {
   useEffect(() => {
     if(marketData){
       const formated = processApiResponse(marketData);
-
-      console.log(formated);
       setCategories(formated);
       setFeaturedProducts(getRandomProducts(formated,10));
       setNewArrivals(getProductsSortedById(formated,10));

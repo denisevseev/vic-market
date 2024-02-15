@@ -57,7 +57,6 @@ const SlideBigger = (item: any) => {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
   const data = item.data ?? null;
-  console.log("slider bigger", item);
   return (
     <div style={{ padding: "0 8px" }}>
       <div

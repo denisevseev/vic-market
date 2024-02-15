@@ -15,7 +15,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const Footer = () => {
   const router = useRouter();
   const handleNavigate = (path: string) => {
-    console.log("path", path);
     router.push(path);
   };
   const isMobile = useMediaQuery("(max-width:600px)");

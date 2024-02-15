@@ -19,6 +19,7 @@ import PipesTubesFittingsIcon from "../../../public/pipes-tubes-fittings.svg";
 import Image from "next/image";
 import PopoverTopCategories from "./PopoverTopCategories";
 import { MarketRead } from "@/api/types/types";
+import Link from "next/link";
 
 interface TopCategoritesProps {
   data: MarketRead[] | undefined;
@@ -29,8 +30,6 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
   const [popupVisible, setPopupVisible] = useState<boolean>(false);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const topCategoriesRef = useRef<HTMLDivElement>(null);
-
-
 
   const handleMouseEnter = (category: string) => {
     setCurrentCategory(category);
@@ -65,15 +64,17 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
                   key={"categorySide" + dataKey}
                   ref={topCategoriesRef}
                   className="itemAndImageBox"
-                  onMouseEnter={() => handleMouseEnter(dataItem.categoryName)}
-                  onMouseLeave={handleMouseLeave}
+                  //onMouseEnter={() => handleMouseEnter(dataItem.categoryName)}
+                  //onMouseLeave={handleMouseLeave}
                 >
                   {dataItem.categoryIcon && (
                     <Image src={HealthBeautyIcon} alt={dataItem.categoryName} />
                   )}
-                  <Typography className="topCategoriesItem">
-                    {dataItem.categoryName}
-                  </Typography>
+                  <Link className="topCategoriesItem" href={"/category/" + dataItem.categorySlug}>
+                    <Typography className="topCategoriesItem">
+                      {dataItem.categoryName}
+                    </Typography>
+                  </Link>
                 </Box>
               );
             })}
