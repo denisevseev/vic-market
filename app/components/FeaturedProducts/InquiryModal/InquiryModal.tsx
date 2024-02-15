@@ -12,6 +12,7 @@ import "./InquiryModal.scss";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Autocomplete,
   Checkbox,
@@ -195,7 +196,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       >
         {step === 1 && (
           <>
-            <div className="d-flex ai-center gap-8 cp">
+            <div className="d-flex ai-center gap-8 justify-space-between">
               <Typography
                 variant="h6"
                 component="h2"
@@ -209,6 +210,17 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               >
                 Send Inquiry
               </Typography>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
             </div>
             <Typography sx={{ mt: 2 }}>
               Tell us about your requirement
@@ -297,24 +309,37 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
         {step === 2 && (
           <>
-            <div className="d-flex ai-center gap-8 cp mb-2rem">
-              <IconButton onClick={handleBackStep} aria-label="go back">
-                <ArrowBackIcon />
-              </IconButton>
+            <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
+              <div className="d-flex ai-center gap-8">
+                <IconButton onClick={handleBackStep} aria-label="go back">
+                  <ArrowBackIcon />
+                </IconButton>
 
-              <Typography
-                variant="h6"
-                component="h2"
-                className="send-inquiry"
-                sx={{
-                  color: "rgb(38, 92, 129);",
-                  fontSize: "28px",
-                  fontWeight: "600",
-                  fontFamily: "Poppins, sans-serif",
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className="send-inquiry"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "28px",
+                    fontWeight: "600",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Contact Details
+                </Typography>
+              </div>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
                 }}
               >
-                Contact Details
-              </Typography>
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
             </div>
             {/* Additional fields for contact details */}
             <Box
@@ -417,24 +442,37 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
         {/* Step 3 */}
         {step === 3 && (
           <>
-            <div className="d-flex ai-center gap-8 cp mb-2rem">
-              <IconButton onClick={handleBackStep} aria-label="go back">
-                <ArrowBackIcon />
-              </IconButton>
+            <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
+              <div className="d-flex ai-center gap-8">
+                <IconButton onClick={handleBackStep} aria-label="go back">
+                  <ArrowBackIcon />
+                </IconButton>
 
-              <Typography
-                variant="h6"
-                component="h2"
-                className="send-inquiry"
-                sx={{
-                  color: "rgb(38, 92, 129);",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  fontFamily: "Poppins, sans-serif",
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className="send-inquiry"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "28px",
+                    fontWeight: "600",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Inquiry
+                </Typography>
+              </div>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
                 }}
               >
-                Inquiry
-              </Typography>
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
             </div>
             <TextField
               fullWidth

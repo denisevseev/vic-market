@@ -1,7 +1,7 @@
 #wrapper {
   display: flex;
   width: 100%;
-  max-width: 1620px;
+  // max-width: 1620px;
   margin: auto;
   align-items: center;
   text-align: center;
@@ -15,7 +15,7 @@
   transition: max-height 0.5s ease-out;
 
   .medium-hide {
-    max-height: 150px;
+    max-height: 110px;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
   }

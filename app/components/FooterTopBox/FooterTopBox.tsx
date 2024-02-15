@@ -27,21 +27,29 @@ export default function FooterTopBox() {
     <div className="main-container-top">
       <div className="top-box-container">
         <div className="two-images">
-          <Image
-            src="/logoTrade2.png"
-            alt="Logo"
-            width={logoWidth}
-            height={logoHeight}
-            style={{ objectFit: "cover" }}
-            priority
-          />
-          <Image
-            src="/g-partner.svg"
-            alt="Logo"
-            width={logoWidth}
-            height={gPartnerHeight}
-            priority
-          />
+          <a href="/">
+            <Image
+              src="/logoTrade2.png"
+              alt="Logo"
+              width={logoWidth}
+              height={logoHeight}
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </a>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/g-partner.svg"
+              alt="Logo"
+              width={logoWidth}
+              height={gPartnerHeight}
+              priority
+            />
+          </a>
           {/* </a> */}
         </div>
 
