@@ -14,9 +14,30 @@ import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
 import HomepageImagesCarousel from "./components/HomepageImagesCarousel/HomepageImagesCarousel";
 import ProductGrow from "./components/ProductGrow/ProductGrow";
 import MoreValueAdds from "./components/MoreValueAdds/MoreValueAdds";
+import { useMarketData } from "./hooks/useMarketData";
+import { getFilteredProducts, getProductsSortedById, getRandomProducts, getRandomTopCategoriesWithItems, processApiResponse } from "@/api/helper/dataFilter";
+
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
+  const [featuredProducts, setFeaturedProducts] = useState<any>([]);
+  const [newArrivals, setNewArrivals] = useState<any>([]);
+  const [tradingTrusted, setTradingTrusted] = useState<any>([]);
+  
+  const [categories, setCategories] = useState<any>(null);
+
+  const {data: marketData, isLoading} = useMarketData()
+  
+  useEffect(() => {
+    if(marketData){
+      const formated = processApiResponse(marketData);
+      setCategories(formated);
+      setFeaturedProducts(getRandomProducts(formated,10));
+      setNewArrivals(getProductsSortedById(formated,10));
+      setTradingTrusted(getFilteredProducts(formated,10, ['description', 'quantity', 'manufacturerName', 'currency', 'productPrice']));
+    }
+  }, [marketData]);
+
 
   const topCategories = [
     "Jackets",
@@ -42,6 +63,7 @@ export default function Home() {
 
   useEffect(() => {
     setData(DataJson);
+    //handleMarketData();
   }, []);
 
   return (
@@ -49,12 +71,7 @@ export default function Home() {
       <Box className="container">
         <Box className="firstSection">
           <TopCategories
-            data={
-              data &&
-              data.data &&
-              data.data.categories &&
-              data.data.categories.topCategories
-            }
+            data={categories}
           />
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
@@ -63,12 +80,7 @@ export default function Home() {
             </Box>
             <MoreValueAdds />
             <TopCategoriesSlider
-              data={
-                data &&
-                data.data &&
-                data.data.categories &&
-                data.data.categories.topCategories
-              }
+              data={categories}
             />
           </Box>
         </Box>
@@ -80,50 +92,24 @@ export default function Home() {
             marginTop: "4rem",
           }}
         >
-          <div style={{ marginBottom: "2rem" }}>
-            <VariableWidth
-              data={
-                data &&
-                data.data &&
-                data.data.categories &&
-                data.data.categories.trendingCategories
-              }
-              title="Trending Categories"
-            />
-          </div>
 
           <div style={{ marginBottom: "2rem" }}>
             <FeaturedProducts
-              data={
-                data &&
-                data.data &&
-                data.data.products &&
-                data.data.products.featuredProducts
-              }
+              data={featuredProducts}
             />
           </div>
 
           <div className="arriwals-trusted">
             <div>
               <VariableWidth
-                data={
-                  data &&
-                  data.data &&
-                  data.data.products &&
-                  data.data.products.newArrivals
-                }
+                data={newArrivals}
                 title="New Arrivals"
                 isSmallCarousel="true"
               />
             </div>
             <div>
               <VariableWidth
-                data={
-                  data &&
-                  data.data &&
-                  data.data.products &&
-                  data.data.products.victorumCapitalTrusted
-                }
+                data={tradingTrusted}
                 title="Victorum Trading Trusted"
                 isSmallCarousel="true"
               />

@@ -4,9 +4,12 @@ import "slick-carousel/slick/slick-theme.css";
 import "./ScrollableTabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
+import SendIcon from "@mui/icons-material/Send";
+import { useState } from "react";
+import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
 
 const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
   return (
@@ -49,26 +52,17 @@ const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
 // upcoming end
 
 // Slide component
-const SlideBigger = ({
-  title,
-  imgSrc,
-  price,
-  pieces,
-  category,
-  size,
-  units,
-  liters,
-  kilograms,
-  meter,
-  square,
-  isSmallCarousel,
-}: any) => {
+const SlideBigger = (item: any) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+  const data = item.data ?? null;
   return (
     <div style={{ padding: "0 8px" }}>
       <div
         style={{
           width: "100%",
-          height: isSmallCarousel ? "300px" : "200px",
+          height: item.isSmallCarousel ? "300px" : "200px",
           backgroundColor: "rgb(255, 255, 255)",
           border: "1px solid rgb(225, 230, 239)",
           borderRadius: "8px",
@@ -79,7 +73,7 @@ const SlideBigger = ({
           padding: "16px",
         }}
       >
-        {imgSrc && (
+        {data.productImage && (
           <div
             style={{
               marginBottom: "16px",
@@ -91,8 +85,8 @@ const SlideBigger = ({
             }}
           >
             <Image
-              src={imgSrc}
-              alt={title}
+              src={data.productImage}
+              alt={data.productName}
               width={110}
               height={80}
               style={{
@@ -113,132 +107,45 @@ const SlideBigger = ({
           }}
         />
 
+        <p className="productNameText">{data.productName} naziv</p>
+        {/* Horizontal line */}
         <div className="text-part">
-          <p
-            style={{
-              color: "rgb(45, 56, 64)",
-              fontWeight: "500",
-              zIndex: 2,
-              position: "relative",
-              fontSize: "14px",
-              marginBottom: "8px",
-              textAlign: "center",
-              // Additional styles for fixed height and ellipsis
-              height: "20px", // Set a fixed height based on your design needs
-              overflow: "hidden", // Hide overflow
-              textOverflow: "ellipsis", // Show an ellipsis for overflowed text
-              display: "-webkit-box", // Necessary for the line clamp to work
-              WebkitLineClamp: 1, // Limit the text to 2 lines
-              WebkitBoxOrient: "vertical", // Display content vertically for the clamp to work
-              lineHeight: "20px", // Adjust based on your font size for proper line spacing
-            }}
-          >
-            {title}
-          </p>
-          {/* Horizontal line */}
-
           {/* Optional information */}
-          {price && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              ${price.toFixed(2)}
-            </p>
+          {data.productPrice && (
+            <p className="productInfoText">${data.productPrice.toFixed(2)}</p>
           )}
-          {pieces && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              {pieces} pcs
-            </p>
+          {data.quantity && (
+            <p className="productInfoText">{data.quantity} QTY</p>
           )}
-          {category && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Category: {category}
-            </p>
+          {/* {data.categoryName && (
+            <p className="productInfoText">Category: {data.categoryName}</p>
+          )} */}
+
+          {data.size && <p className="productInfoText">Size: {data.size}</p>}
+          {data.units && <p className="productInfoText">Units: {data.units}</p>}
+          {data.liters && (
+            <p className="productInfoText">Liters: {data.liters}</p>
           )}
-          {size && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Size: {size}
-            </p>
+          {data.kilograms && (
+            <p className="productInfoText">Kilograms: {data.kilograms}</p>
           )}
-          {units && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Units: {units}
-            </p>
-          )}
-          {liters && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Liters: {liters}
-            </p>
-          )}
-          {kilograms && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Kilograms: {kilograms}
-            </p>
-          )}
-          {meter && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Meter: {meter}
-            </p>
-          )}
-          {square && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Square: {square}
-            </p>
+          {data.meter && <p className="productInfoText">Meter: {data.meter}</p>}
+          {data.square && (
+            <p className="productInfoText">Square: {data.square}</p>
           )}
         </div>
       </div>
+      <button className="inquiryButtonProductSlider" onClick={handleOpenModal}>
+        <Typography>Send Inquiry</Typography>
+        <SendIcon />
+      </button>
+      <InquiryModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        productName={data.productName}
+        company={data.categoryName}
+        imgSrc={data.productImage ?? "/get-distributers.svg"}
+      />
     </div>
   );
 };
@@ -279,27 +186,7 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
             margin: "10px 0",
           }}
         />
-        <p
-          style={{
-            color: "rgb(45, 56, 64)",
-            fontWeight: "500",
-            zIndex: 2,
-            position: "relative",
-            fontSize: "14px",
-            textAlign: "center",
-            paddingLeft: "10px",
-            paddingRight: "10px",
-            height: "40px", // Set a fixed height
-            overflow: "hidden", // Hide overflow
-            textOverflow: "ellipsis", // Show an ellipsis for overflowed text
-            display: "-webkit-box", // Use webkit-box to enable line clamping
-            WebkitLineClamp: 2, // Number of lines to show
-            WebkitBoxOrient: "vertical", // Orient the text vertically
-            lineHeight: "20px", // Set line height to manage spacing between lines
-          }}
-        >
-          {title}
-        </p>
+        <p className="productNameText">{title}</p>
       </div>
     </div>
   );
@@ -420,32 +307,22 @@ function VariableWidth({
             isSmallCarousel ? (
               <SlideBigger
                 key={index}
-                title={slide.title}
-                imgSrc={slide.imgSrc}
-                price={slide.price}
-                pieces={slide.pieces}
-                category={slide.category}
-                size={slide.size}
-                units={slide.units}
-                liters={slide.liters}
-                kilograms={slide.kilograms}
-                meter={slide.meter}
-                square={slide.square}
+                data={slide}
                 isSmallCarousel={isSmallCarousel}
               />
             ) : isUpcomingTradeshows ? (
               <SlideUpComing
                 key={index}
-                imgSrc={slide.imgSrc}
-                title={slide.title}
-                date={slide.date}
-                location={slide.location}
+                imgSrc={slide.productImage}
+                title={slide.productName}
+                date={null}
+                location={null}
               />
             ) : (
               <SlideSmaller
                 key={index}
-                title={slide.title}
-                imgSrc={slide.imgSrc}
+                title={slide.productName}
+                imgSrc={slide.productImage}
               />
             )
           )}

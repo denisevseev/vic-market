@@ -18,12 +18,15 @@ import IndustrialSuppliesIcon from "../../../public/industrial-supplies.svg";
 import PipesTubesFittingsIcon from "../../../public/pipes-tubes-fittings.svg";
 import Image from "next/image";
 import PopoverTopCategories from "./PopoverTopCategories";
+import { MarketRead } from "@/api/types/types";
+import Link from "next/link";
 
 interface TopCategoritesProps {
-  data: any[];
+  data: MarketRead[] | undefined;
 }
 
 const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
+  //const [categoryData, setCategoryData] = useState<any>([]);
   const [popupVisible, setPopupVisible] = useState<boolean>(false);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const topCategoriesRef = useRef<HTMLDivElement>(null);
@@ -54,122 +57,27 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
           <Typography className="topCategoryText">Top Categories</Typography>
         </Box>
         <Box className="itemsMainBox">
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("healthBeauty")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={HealthBeautyIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Health & Beauty
-            </Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Apparel")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={FashionIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Apparel & Fashion
-            </Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Chemicals")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={ChemicalsIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">Chemicals</Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Machinery")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={MachineryIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">Machinery</Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Construction")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={ConstructionIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Construction & Real Estate
-            </Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("electronics")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={ElectronicsIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Electronics & Electrical Supplies
-            </Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Hospital")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={MedicalIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Hospital & Medical Supplies
-            </Typography>
-          </Box>
-          <Box
-            ref={topCategoriesRef}
-            className="itemAndImageBox"
-            onMouseEnter={() => handleMouseEnter("Gifts")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Image src={GiftsIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Gifts & Crafts
-            </Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={PackagingIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Packaging & Paper
-            </Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={AgricultureIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">Agriculture</Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={HomeSuppliesIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">Home Supplies</Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={MineralMetalsIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Mineral & Metals
-            </Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={IndustrialSuppliesIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Industrial Supplies
-            </Typography>
-          </Box>
-          <Box className="itemAndImageBox">
-            <Image src={PipesTubesFittingsIcon} alt="Health & Beauty Icon" />
-            <Typography className="topCategoriesItem">
-              Pipes, Tubes & Fittings
-            </Typography>
-          </Box>
+          {data &&
+            data.map((dataItem, dataKey) => {
+              return (
+                <Box
+                  key={"categorySide" + dataKey}
+                  ref={topCategoriesRef}
+                  className="itemAndImageBox"
+                  //onMouseEnter={() => handleMouseEnter(dataItem.categoryName)}
+                  //onMouseLeave={handleMouseLeave}
+                >
+                  {dataItem.categoryIcon && (
+                    <Image src={HealthBeautyIcon} alt={dataItem.categoryName} />
+                  )}
+                  <Link className="topCategoriesItem" href={"/category/" + dataItem.categorySlug}>
+                    <Typography className="topCategoriesItem">
+                      {dataItem.categoryName}
+                    </Typography>
+                  </Link>
+                </Box>
+              );
+            })}
         </Box>
         <Box>
           <Typography className="viewAllCategoriesLink">
