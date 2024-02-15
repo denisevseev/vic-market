@@ -428,7 +428,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 className="send-inquiry"
                 sx={{
                   color: "rgb(38, 92, 129);",
-                  fontSize: "16px",
+                  fontSize: "28px",
                   fontWeight: "600",
                   fontFamily: "Poppins, sans-serif",
                 }}
