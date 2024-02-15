@@ -4,38 +4,25 @@ import "./Product.scss";
 import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../InquiryModal/InquiryModal";
+import { MarketRead } from "@/api/types/types";
 
-type ProductProps = {
-  title: string;
-  price: string;
-  unit: string;
-  imgSrc: string;
-  companyName: string;
-};
-
-const ProductCard: React.FC<ProductProps> = ({
-  title,
-  price,
-  unit,
-  imgSrc,
-  companyName,
-}) => {
+const ProductCard: React.FC<MarketRead> = (product) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
   return (
     <div className="productCard">
       <div className="imageWrapper">
-        <Image src={imgSrc} alt={title} width={100} height={110} />
+        <Image src={product.productImage ?? '/get-distributers.svg'} alt={product.productName} width={100} height={110} />
       </div>
-      <h3 className="title">{title}</h3>
+      <h3 className="title">{product.productName}</h3>
 
-       {price && 
-      <p className="price">{price} INR (Approx.)</p>
+       {product.productPrice && 
+      <p className="price">{product.productPrice} {product.currency ?? ''}</p>
        }
 
-      <p className="unit">{unit}</p>
-      <p className="companyName">{companyName}</p>
+      <p className="unit">{'unit'}</p>
+      <p className="companyName">{product.manufacturerName}</p>
       <button className="inquiryButton" onClick={handleOpenModal}>
         <p>Send Inquiry</p>
         <SendIcon />
@@ -43,9 +30,9 @@ const ProductCard: React.FC<ProductProps> = ({
       <InquiryModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        productName={title}
-        company={companyName}
-        imgSrc={imgSrc}
+        productName={product.productName}
+        company={product.manufacturerName}
+        imgSrc={product.productImage ?? '/get-distributers.svg'}
       />
     </div>
   );

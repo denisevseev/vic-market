@@ -4,6 +4,7 @@ import ThemeRegistry from "@/theme/ThemeRegistry";
 import FooterTopBox from "./components/FooterTopBox/FooterTopBox";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
+import { ProvidersReactQuery } from "./providersReactQuery";
 
 export const metadata: Metadata = {
   title: "Victorum marketplace",
@@ -19,12 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <ThemeRegistry>
         <body>
-          <Navigation />
-          {children}
-          <div className="footer-main">
-            <FooterTopBox />
-            <Footer />
-          </div>
+          <ProvidersReactQuery>
+            <Navigation />
+            {children}
+            <div className="footer-main">
+              <FooterTopBox />
+              <Footer />
+            </div>
+          </ProvidersReactQuery>
         </body>
       </ThemeRegistry>
     </html>

@@ -49,26 +49,15 @@ const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
 // upcoming end
 
 // Slide component
-const SlideBigger = ({
-  title,
-  imgSrc,
-  price,
-  pieces,
-  category,
-  size,
-  units,
-  liters,
-  kilograms,
-  meter,
-  square,
-  isSmallCarousel,
-}: any) => {
+const SlideBigger = (item: any) => {
+  const data = item.data ?? null;
+  console.log("slider bigger", item);
   return (
     <div style={{ padding: "0 8px" }}>
       <div
         style={{
           width: "100%",
-          height: isSmallCarousel ? "300px" : "200px",
+          height: item.isSmallCarousel ? "300px" : "200px",
           backgroundColor: "rgb(255, 255, 255)",
           border: "1px solid rgb(225, 230, 239)",
           borderRadius: "8px",
@@ -79,7 +68,7 @@ const SlideBigger = ({
           padding: "16px",
         }}
       >
-        {imgSrc && (
+        {data.productImage && (
           <div
             style={{
               marginBottom: "16px",
@@ -91,8 +80,8 @@ const SlideBigger = ({
             }}
           >
             <Image
-              src={imgSrc}
-              alt={title}
+              src={data.productImage}
+              alt={data.productName}
               width={110}
               height={80}
               style={{
@@ -133,12 +122,12 @@ const SlideBigger = ({
               lineHeight: "20px", // Adjust based on your font size for proper line spacing
             }}
           >
-            {title}
+            {data.productName} naziv
           </p>
           {/* Horizontal line */}
 
           {/* Optional information */}
-          {price && (
+          {data.productPrice && (
             <p
               style={{
                 fontSize: "14px",
@@ -146,10 +135,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              ${price.toFixed(2)}
+              ${data.productPrice.toFixed(2)}
             </p>
           )}
-          {pieces && (
+          {data.quantity && (
             <p
               style={{
                 fontSize: "14px",
@@ -157,10 +146,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              {pieces} pcs
+              {data.quantity} QTY
             </p>
           )}
-          {category && (
+          {/*data.categoryName && (
             <p
               style={{
                 fontSize: "14px",
@@ -168,10 +157,22 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Category: {category}
+              Category: {data.categoryName}
+            </p>
+          )*/}
+
+          {data.size && (
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
+              Size: {data.size}
             </p>
           )}
-          {size && (
+          {data.units && (
             <p
               style={{
                 fontSize: "14px",
@@ -179,10 +180,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Size: {size}
+              Units: {data.units}
             </p>
           )}
-          {units && (
+          {data.liters && (
             <p
               style={{
                 fontSize: "14px",
@@ -190,10 +191,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Units: {units}
+              Liters: {data.liters}
             </p>
           )}
-          {liters && (
+          {data.kilograms && (
             <p
               style={{
                 fontSize: "14px",
@@ -201,10 +202,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Liters: {liters}
+              Kilograms: {data.kilograms}
             </p>
           )}
-          {kilograms && (
+          {data.meter && (
             <p
               style={{
                 fontSize: "14px",
@@ -212,10 +213,10 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Kilograms: {kilograms}
+              Meter: {data.meter}
             </p>
           )}
-          {meter && (
+          {data.square && (
             <p
               style={{
                 fontSize: "14px",
@@ -223,18 +224,7 @@ const SlideBigger = ({
                 textAlign: "center",
               }}
             >
-              Meter: {meter}
-            </p>
-          )}
-          {square && (
-            <p
-              style={{
-                fontSize: "14px",
-                color: "rgba(0, 0, 0, 0.5)",
-                textAlign: "center",
-              }}
-            >
-              Square: {square}
+              Square: {data.square}
             </p>
           )}
         </div>
@@ -420,32 +410,22 @@ function VariableWidth({
             isSmallCarousel ? (
               <SlideBigger
                 key={index}
-                title={slide.title}
-                imgSrc={slide.imgSrc}
-                price={slide.price}
-                pieces={slide.pieces}
-                category={slide.category}
-                size={slide.size}
-                units={slide.units}
-                liters={slide.liters}
-                kilograms={slide.kilograms}
-                meter={slide.meter}
-                square={slide.square}
+                data={slide}
                 isSmallCarousel={isSmallCarousel}
               />
             ) : isUpcomingTradeshows ? (
               <SlideUpComing
                 key={index}
-                imgSrc={slide.imgSrc}
-                title={slide.title}
-                date={slide.date}
-                location={slide.location}
+                imgSrc={slide.productImage}
+                title={slide.productName}
+                date={null}
+                location={null}
               />
             ) : (
               <SlideSmaller
                 key={index}
-                title={slide.title}
-                imgSrc={slide.imgSrc}
+                title={slide.productName}
+                imgSrc={slide.productImage}
               />
             )
           )}
