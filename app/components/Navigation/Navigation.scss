@@ -14,6 +14,7 @@
   max-height: 150px;
   transition: max-height 0.5s ease-out;
 
+
   .medium-hide {
     max-height: 110px;
     overflow: hidden;
@@ -43,6 +44,38 @@
   width: 20%;
   background-color: #fff;
   order: 1;
+
+  @media all and (min-width: 1250px) {
+    width: 30%;
+    padding-left:0%;
+  }
+
+  @media all and (min-width: 1400px) {
+    width: 30%;
+    padding-left:1%;
+  }
+
+  @media all and (min-width: 1600px) {
+    width: 30%;
+    padding-left:2%;
+  }
+
+  @media all and (min-width: 1700px) {
+    width: 30%;
+    padding-left:3%;
+  }
+
+  @media all and (min-width: 1850px) {
+    width: 30%;
+    padding-left:8%;
+  }
+
+  @media all and (min-width: 1950px) {
+    width: 30%;
+    padding-left:10%;
+  }
+
+
 }
 
 .center {
@@ -63,6 +96,37 @@
   width: 10%;
   background-color: #fff;
   order: 3;
+
+  @media all and (min-width: 1250px) {
+    width: 30%;
+    padding-right:0%;
+  }
+
+  @media all and (min-width: 1400px) {
+    width: 30%;
+    padding-right:1%;
+  }
+
+
+  @media all and (min-width: 1600px) {
+    width: 30%;
+    padding-right:2%;
+  }
+
+  @media all and (min-width: 1700px) {
+    width: 30%;
+    padding-right:3%;
+  }
+
+  @media all and (min-width: 1850px) {
+    width: 30%;
+    padding-right:8%;
+  }
+
+  @media all and (min-width: 1950px) {
+    width: 30%;
+    padding-right:10%;
+  }
 }
 
 @media all and (max-width: 1020px) {
