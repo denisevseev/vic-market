@@ -70,7 +70,10 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
                   {dataItem.categoryIcon && (
                     <Image src={HealthBeautyIcon} alt={dataItem.categoryName} />
                   )}
-                  <Link className="topCategoriesItem" href={"/category/" + dataItem.categorySlug}>
+                  <Link
+                    className="topCategoriesItem"
+                    href={"/category/" + dataItem.categorySlug}
+                  >
                     <Typography className="topCategoriesItem">
                       {dataItem.categoryName}
                     </Typography>

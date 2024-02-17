@@ -34,7 +34,9 @@ export const getFilteredProductsByCategory = (
 ) => {
   // Process the API response to get categories with their products
   // Find the category by name
-  const category = categoriesWithProducts.find((cat: any) => cat.categorySlug === categoryName);
+  const category = categoriesWithProducts.find(
+    (cat: any) => cat.categorySlug === categoryName
+  );
 
   if (!category) {
     // Return an empty array if the category is not found
@@ -43,11 +45,13 @@ export const getFilteredProductsByCategory = (
 
   // Filter products based on the specified fields within the category
   const filteredProducts = category.products.filter((product: any) =>
-    filterFields.every(field => product[field])
+    filterFields.every((field) => product[field])
   );
 
   // Sort filtered products by id
-  const sortedFilteredProducts = filteredProducts.sort((a: any, b: any) => a.id - b.id);
+  const sortedFilteredProducts = filteredProducts.sort(
+    (a: any, b: any) => a.id - b.id
+  );
 
   // Return the specified number of filtered and sorted products
   return sortedFilteredProducts.slice(0, numberOfProducts);
@@ -130,6 +134,13 @@ const getCategorySlug = (name: string) => {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 };
+export const getProductSlug = (name: string) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+};
 export const processApiResponse = (apiResponse: any) => {
   const categoriesMap: any = {};
 
@@ -137,6 +148,8 @@ export const processApiResponse = (apiResponse: any) => {
     const categoryName = item.categoryName;
     const categorySlug = getCategorySlug(item.categoryName);
     const productId = item.id;
+    const productSlug = item.productSlug || getProductSlug(item.productName);
+
     if (!categoriesMap[categoryName]) {
       categoriesMap[categoryName] = {
         categoryName: categoryName,
@@ -144,30 +157,39 @@ export const processApiResponse = (apiResponse: any) => {
         products: [],
       };
     }
+
     const existingProduct = categoriesMap[categoryName].products.find(
       (product: any) => product.id === productId
     );
+
     if (!existingProduct) {
-      let newItem = item;
+      let newItem = {
+        ...item,
+        productSlug: productSlug,
+        categorySlug: categorySlug,
+      };
+
       if (item.files && item.files.length > 0) {
         if (item.files[0] && item.files[0].link) {
-          let imageLink = item.files[0] && item.files[0].link;
-          if (imageLink.includes("unsplash")) {
-            imageLink = imageLink + "/" + item.id;
+          let productLink = item.files[0] && item.files[0].link;
+          if (productLink.includes("unsplash")) {
+            productLink = productLink + "/" + item.id;
           }
           if (
-            (imageLink && imageLink.includes("xls")) ||
-            imageLink.includes("pdf") ||
-            imageLink.includes("doc")
-          )
-            imageLink = null;
+            (productLink && productLink.includes("xls")) ||
+            productLink.includes("pdf") ||
+            productLink.includes("doc")
+          ) {
+            productLink = null;
+          }
 
           newItem = {
             ...newItem,
-            productImage: imageLink,
+            productImage: productLink,
           };
         }
       }
+
       categoriesMap[categoryName].products.push(newItem);
     }
 
@@ -182,8 +204,9 @@ export const processApiResponse = (apiResponse: any) => {
             (categoryLink && categoryLink.includes("xls")) ||
             categoryLink.includes("pdf") ||
             categoryLink.includes("doc")
-          )
+          ) {
             categoryLink = null;
+          }
           categoriesMap[categoryName].categoryIcon = categoryLink;
         }
       }
@@ -205,4 +228,17 @@ export const processApiResponse = (apiResponse: any) => {
   );
 
   return categoriesWithProducts;
+};
+export const getProductBySlug = (categoriesWithProducts: any, slug: string) => {
+  for (const category of categoriesWithProducts) {
+    const product = category.products.find(
+      (product: any) => product.productSlug === slug
+    );
+
+    if (product) {
+      return product;
+    }
+  }
+
+  return null;
 };

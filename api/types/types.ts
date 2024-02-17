@@ -9,6 +9,7 @@ export interface MarketRead {
   sale_price: number;
   quantity: number;
   productName: string;
+  productSlug?: string;
   manufacturerName: string;
   categoryId: number;
   categoryName: string;

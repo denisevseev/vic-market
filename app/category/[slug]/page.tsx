@@ -14,6 +14,7 @@ import {
 } from "@/api/helper/dataFilter";
 import VariableWidth from "../../../app/components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
+
 export default function Category({ params }: any) {
   const slug = params && params.slug ? params.slug : null;
   const [categoryName, setCategoryName] = useState<any>(null);
@@ -24,7 +25,10 @@ export default function Category({ params }: any) {
     if (marketData) {
       const formated = processApiResponse(marketData);
       if (formated) {
-        const category: any = formated.find((cat: any) => cat.categorySlug === slug);
+        const category: any = formated.find(
+          (cat: any) => cat.categorySlug === slug
+        );
+
         if (category && category.categoryName) {
           setCategoryName(category.categoryName);
         }
@@ -50,7 +54,11 @@ export default function Category({ params }: any) {
             className="other-page-wrap-start"
             style={{ marginBottom: "2rem" }}
           >
-            <FeaturedProducts backAction={true} title={categoryName ?? ""} data={featuredProducts} />
+            <FeaturedProducts
+              backAction={true}
+              title={categoryName ?? ""}
+              data={featuredProducts}
+            />
           </div>
         </div>
       </Box>

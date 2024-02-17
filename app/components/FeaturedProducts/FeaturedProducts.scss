@@ -1,5 +1,6 @@
-.products-contianer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    grid-gap: 24px;
-  }
+.itemGrid {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

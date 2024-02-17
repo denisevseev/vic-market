@@ -1,0 +1,181 @@
+.sellerDetailsText {
+  color: rgb(19, 73, 108);
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  margin-bottom: 16px !important;
+}
+.seller-details {
+  background-color: #f4f6f8;
+  color: #212b36;
+  padding: 24px 20px;
+  height: auto;
+  position: relative;
+}
+.mainInfoAndIconBox {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  gap: 8px;
+}
+.addressAndViewMapBox {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.mainInfoSellerHead {
+  font-weight: 500 !important;
+  color: rgb(45, 56, 64);
+  font-size: 16px !important;
+  line-height: 22px !important;
+}
+.mainInfoSellerText {
+  color: rgb(94, 115, 132);
+  font-size: 14px !important;
+  line-height: 20px !important;
+  margin-top: 4px !important;
+}
+.mainInfoBox {
+  margin-bottom: 16px !important;
+}
+.viewContactBtnsBox {
+  display: flex;
+  //   position: absolute;
+  justify-content: space-between;
+  //   bottom: 24px;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.viewBtn {
+  height: 48px !important;
+  padding: 0px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgb(38, 92, 129) !important;
+  background: none !important;
+  width: 100% !important;
+  transition: all 0.2s !important;
+  color: rgb(38, 92, 129) !important;
+
+  &:hover {
+    background-color: rgb(38, 92, 129) !important;
+    color: #fff !important;
+  }
+}
+.viewBtnText {
+  display: flex;
+  align-items: center;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+.contactBtn {
+  height: 48px !important;
+  padding: 0px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgb(38, 92, 129) !important;
+  background: none !important;
+  width: 100% !important;
+  transition: all 0.2s !important;
+  color: rgb(38, 92, 129) !important;
+
+  &:hover {
+    background-color: rgb(38, 92, 129) !important;
+    color: #fff !important;
+  }
+}
+.contactBtnText {
+  display: flex;
+  align-items: center;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+.viewOnMap {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgb(225, 119, 26) !important;
+  color: rgb(225, 119, 26) !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
+.trusted-premium {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.rating {
+  background-color: #ffd700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  width: fit-content;
+}
+.gstAndGstText {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px !important;
+}
+.gstText {
+  color: black;
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+.gstInfo {
+  color: rgb(94, 115, 132);
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+.gst-rating {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.sellerImageAndNameBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.nameSeller {
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  line-height: 24px !important;
+  color: black;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1332px) {
+  .viewContactBtnsBox {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 991px) {
+  .viewContactBtnsBox {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 500px) {
+  .nameSeller {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 422px) {
+  .viewContactBtnsBox {
+    flex-direction: column;
+  }
+  .mainInfoSellerHead {
+    font-size: 14px !important;
+  }
+  .mainInfoSellerText {
+    font-size: 13px !important;
+  }
+}

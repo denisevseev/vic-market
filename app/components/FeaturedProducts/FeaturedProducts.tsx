@@ -1,7 +1,7 @@
 import ProductCard from "./Product/Product";
 import "./FeaturedProducts.scss"; // Assuming you have CSS modules set up
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { IconButton, Typography } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -32,11 +32,22 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
       )}
 
       <h2>{title ?? "Featured Products"}</h2>
-      <div className="products-contianer">
+      <Grid container spacing={3}>
         {data?.map((product, index) => (
-          <ProductCard key={index} {...product} />
+          <Grid
+            item
+            key={index}
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            xl={2.4}
+            className="itemGrid"
+          >
+            <ProductCard {...product} />
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };
