@@ -15,29 +15,41 @@ import HomepageImagesCarousel from "./components/HomepageImagesCarousel/Homepage
 import ProductGrow from "./components/ProductGrow/ProductGrow";
 import MoreValueAdds from "./components/MoreValueAdds/MoreValueAdds";
 import { useMarketData } from "./hooks/useMarketData";
-import { getFilteredProducts, getProductsSortedById, getRandomProducts, getRandomTopCategoriesWithItems, processApiResponse } from "@/api/helper/dataFilter";
-
+import {
+  getFilteredProducts,
+  getProductsSortedById,
+  getRandomProducts,
+  getRandomTopCategoriesWithItems,
+  processApiResponse,
+} from "@/api/helper/dataFilter";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [newArrivals, setNewArrivals] = useState<any>([]);
   const [tradingTrusted, setTradingTrusted] = useState<any>([]);
-  
+
   const [categories, setCategories] = useState<any>(null);
 
-  const {data: marketData, isLoading} = useMarketData()
-  
+  const { data: marketData, isLoading } = useMarketData();
+
   useEffect(() => {
-    if(marketData){
+    if (marketData) {
       const formated = processApiResponse(marketData);
       setCategories(formated);
-      setFeaturedProducts(getRandomProducts(formated,10));
-      setNewArrivals(getProductsSortedById(formated,10));
-      setTradingTrusted(getFilteredProducts(formated,10, ['description', 'quantity', 'manufacturerName', 'currency', 'productPrice']));
+      setFeaturedProducts(getRandomProducts(formated, 10));
+      setNewArrivals(getProductsSortedById(formated, 10));
+      setTradingTrusted(
+        getFilteredProducts(formated, 10, [
+          "description",
+          "quantity",
+          "manufacturerName",
+          "currency",
+          "productPrice",
+        ])
+      );
     }
   }, [marketData]);
-
 
   const topCategories = [
     "Jackets",
@@ -70,18 +82,14 @@ export default function Home() {
     <main>
       <Box className="container">
         <Box className="firstSection">
-          <TopCategories
-            data={categories}
-          />
+          <TopCategories data={categories} />
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
               <HomepageImagesCarousel />
               <ProductGrow />
             </Box>
             <MoreValueAdds />
-            <TopCategoriesSlider
-              data={categories}
-            />
+            <TopCategoriesSlider data={categories} />
           </Box>
         </Box>
         <div
@@ -92,11 +100,8 @@ export default function Home() {
             marginTop: "4rem",
           }}
         >
-
           <div style={{ marginBottom: "2rem" }}>
-            <FeaturedProducts
-              data={featuredProducts}
-            />
+            <FeaturedProducts data={featuredProducts} />
           </div>
 
           <div className="arriwals-trusted">
