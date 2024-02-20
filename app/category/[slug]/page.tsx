@@ -24,6 +24,9 @@ export default function Category({ params }: any) {
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
+
+      console.log("formated", formated);
+
       if (formated) {
         const category: any = formated.find(
           (cat: any) => cat.categorySlug === slug
@@ -33,6 +36,17 @@ export default function Category({ params }: any) {
           setCategoryName(category.categoryName);
         }
       }
+
+      console.log("formated", formated);
+      console.log(
+        "slug",
+       slug
+      );
+      console.log(
+        "slug",
+        getFilteredProductsByCategory(formated, 100, [], slug)
+      );
+
       setFeaturedProducts(
         getFilteredProductsByCategory(formated, 100, [], slug)
       );
