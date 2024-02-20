@@ -28,10 +28,9 @@ type Product = {
 };
 
 const Navigation = () => {
-  const { data: marketData, isLoading } = useMarketData();
+  const { data: marketData } = useMarketData();
   const [anchorEl, setAnchorEl] = useState(null);
   const [products, setProducts] = useState<Product[]>([]);
-  const [inputValue, setInputValue] = useState("");
   const [navClass, setNavClass] = React.useState("");
 
   const router = useRouter();
@@ -44,14 +43,28 @@ const Navigation = () => {
     setAnchorEl(null);
   };
 
-  const handleInputChange = (event: any, value: any) => {
-    setInputValue(value);
+  const handleOptionSelect = (
+    event: React.SyntheticEvent<Element, Event>,
+    value: Product | null
+  ) => {
+    if (value) {
+      const selectedProductName = value.productName;
+      const selectedProduct = products.find(
+        (product) => product.productName === selectedProductName
+      );
+
+      if (selectedProduct) {
+        router.push(
+          `/product/${selectedProduct.productSlug}/${selectedProduct.id}`
+        );
+      }
+    }
   };
 
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
-      setProducts(getRandomProducts(formated, 100));
+      setProducts(getRandomProducts(formated, 25));
     }
   }, [marketData]);
 
@@ -108,36 +121,14 @@ const Navigation = () => {
         </div> */}
 
         <Autocomplete
+          disablePortal
+          id="combo-box-demo"
           options={products}
+          isOptionEqualToValue={(option, value) =>
+            option.productName === value.productName
+          }
           getOptionLabel={(option) => `${option.productName}`}
-          renderOption={(props, option: Product) => (
-            // <Link
-            //   className="productLinkSearch"
-            //   key={option.id}
-            //   href={`/product/${option.productSlug}/${option.id}`}
-            // >
-            <Box
-              key={option.id}
-              className="autocompleteSingleOptionBox"
-              onClick={() =>
-                router.push(`/product/${option.productSlug}/${option.id}`)
-              }
-            >
-              <img
-                src={option.productImage ?? "/get-distributers.svg"}
-                alt={`Image for ${option.productName}`}
-                style={{
-                  objectFit: "cover",
-                  minHeight: "45px",
-                  maxHeight: "45px",
-                  minWidth: "45px",
-                  maxWidth: "45px",
-                }}
-              />
-              <Typography>{option.productName}</Typography>
-            </Box>
-            // </Link>
-          )}
+          onChange={handleOptionSelect}
           sx={{
             width: { xs: "90%", md: "60%" },
             marginRight: 2,
@@ -150,6 +141,25 @@ const Navigation = () => {
               },
             },
           }}
+          renderOption={(props, option) => (
+            <li
+              {...props}
+              key={"Option" + option.id}
+              className="autocompleteSingleOptionLi"
+            >
+              <Box
+                key={"Option" + option.id}
+                className="autocompleteSingleOptionBox"
+              >
+                <img
+                  src={option.productImage ?? "/get-distributers.svg"}
+                  alt={`Image for ${option.productName}`}
+                  className="imageProductSearch"
+                />
+                <Typography textAlign={"left"}>{option.productName}</Typography>
+              </Box>
+            </li>
+          )}
           className="searchProductTextField"
           renderInput={(params) => (
             <TextField
@@ -174,7 +184,6 @@ const Navigation = () => {
               }}
             />
           )}
-          onInputChange={handleInputChange}
         />
 
         {/* <div className="registered-users-container">

@@ -285,15 +285,17 @@
   }
 }
 .autocompleteSingleOptionBox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.autocompleteSingleOptionLi {
   min-height: 40px;
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px solid #d6d6d6;
   transition: all 0.2s !important;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
   &:hover {
     background-color: #eee;
   }
@@ -303,6 +305,14 @@
   text-decoration: none !important;
   color: #2d3840 !important;
 }
+.imageProductSearch {
+  object-fit: cover;
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 45px;
+}
+
 @media screen and (max-width: 630px) {
   .searchProductTextField {
     margin-right: 0 !important;
