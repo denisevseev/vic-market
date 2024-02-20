@@ -1,17 +1,39 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import "./Navigation.scss";
 import Image from "next/image";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Box,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import SelectCity from "../shared/SelectCity/SelectCity";
 import { useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { getRandomProducts, processApiResponse } from "@/api/helper/dataFilter";
+import { useMarketData } from "@/app/hooks/useMarketData";
+import { useRouter } from "next/navigation";
+
+type Product = {
+  productName: string;
+  categoryName: string;
+  productImage: string;
+  productSlug: string;
+  id: number;
+};
 
 const Navigation = () => {
+  const { data: marketData } = useMarketData();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [navClass, setNavClass] = React.useState("");
+
+  const router = useRouter();
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -21,9 +43,32 @@ const Navigation = () => {
     setAnchorEl(null);
   };
 
-  // scroll start
-  const [navClass, setNavClass] = React.useState("");
+  const handleOptionSelect = (
+    event: React.SyntheticEvent<Element, Event>,
+    value: Product | null
+  ) => {
+    if (value) {
+      const selectedProductName = value.productName;
+      const selectedProduct = products.find(
+        (product) => product.productName === selectedProductName
+      );
 
+      if (selectedProduct) {
+        router.push(
+          `/product/${selectedProduct.productSlug}/${selectedProduct.id}`
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (marketData) {
+      const formated = processApiResponse(marketData);
+      setProducts(getRandomProducts(formated, 25));
+    }
+  }, [marketData]);
+
+  // scroll start
   const SCROLL_THRESHOLD_ADD = 70;
   const SCROLL_THRESHOLD_REMOVE = 10;
   let lastScrollY = 0;
@@ -71,14 +116,24 @@ const Navigation = () => {
         </Link>
       </div>
       <div className="block center medium-hide">
-        <div className="select-city-container">
+        {/* <div className="select-city-container">
           <SelectCity />
-        </div>
-        <TextField
+        </div> */}
+
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={products}
+          isOptionEqualToValue={(option, value) =>
+            option.productName === value.productName
+          }
+          getOptionLabel={(option) => `${option.productName}`}
+          onChange={handleOptionSelect}
           sx={{
             width: { xs: "90%", md: "60%" },
             marginRight: 2,
             "& .MuiOutlinedInput-root": {
+              paddingRight: "15px !important",
               borderRadius: "8px",
               "& .MuiInputBase-input::placeholder": {
                 fontSize: { xs: "10px", sm: "12px" },
@@ -86,25 +141,51 @@ const Navigation = () => {
               },
             },
           }}
+          renderOption={(props, option) => (
+            <li
+              {...props}
+              key={"Option" + option.id}
+              className="autocompleteSingleOptionLi"
+            >
+              <Box
+                key={"Option" + option.id}
+                className="autocompleteSingleOptionBox"
+              >
+                <img
+                  src={option.productImage ?? "/get-distributers.svg"}
+                  alt={`Image for ${option.productName}`}
+                  className="imageProductSearch"
+                />
+                <Typography textAlign={"left"}>{option.productName}</Typography>
+              </Box>
+            </li>
+          )}
           className="searchProductTextField"
-          variant="outlined"
-          placeholder="Search for a product, category or service"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end" sx={{ borderRadius: "8px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    borderRadius: "50%",
-                  }}
-                >
-                  <SearchIcon style={{ color: "black" }} />
-                </div>
-              </InputAdornment>
-            ),
-          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              variant="outlined"
+              placeholder="Search for a product"
+              InputProps={{
+                ...params.InputProps,
+                endAdornment: (
+                  <InputAdornment position="end" sx={{ borderRadius: "8px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <SearchIcon style={{ color: "black" }} />
+                    </div>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
         />
+
         {/* <div className="registered-users-container">
           <div className="reg-users-box">
             <p className="registered-users-text black-text">Registered Users</p>

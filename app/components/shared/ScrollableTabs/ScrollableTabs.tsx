@@ -10,6 +10,7 @@ import EditLocationIcon from "@mui/icons-material/EditLocation";
 import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
+import Link from "next/link";
 
 const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
   return (
@@ -84,18 +85,20 @@ const SlideBigger = (item: any) => {
               height: "100px",
             }}
           >
-            <Image
-              src={data.productImage}
-              alt={data.productName}
-              width={110}
-              height={80}
-              style={{
-                // marginBottom: "16px",
-                marginLeft: "auto",
-                marginRight: "auto",
-                // marginTop: "5px",
-              }}
-            />
+            <Link href={`/product/${data.productSlug}/${data.id}`}>
+              <Image
+                src={data.productImage}
+                alt={data.productName}
+                width={110}
+                height={80}
+                style={{
+                  // marginBottom: "16px",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  // marginTop: "5px",
+                }}
+              />
+            </Link>
           </div>
         )}
         <hr
@@ -107,7 +110,12 @@ const SlideBigger = (item: any) => {
           }}
         />
 
-        <p className="productNameText">{data.productName} naziv</p>
+        <Link
+          className="productNameLink"
+          href={`/product/${data.productSlug}/${data.id}`}
+        >
+          <p className="productNameText">{data.productName}</p>
+        </Link>
         {/* Horizontal line */}
         <div className="text-part">
           {/* Optional information */}

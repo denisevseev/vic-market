@@ -33,12 +33,8 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
         <Typography className="sellerDetailsText">Seller Details</Typography>
       </Box>
       <Box className="sellerImageAndNameBox">
-        <Image
-          src={Default}
-          alt="Seller Image"
-          width={48}
-          height={48}
-          style={{ cursor: "pointer" }}
+        <PersonOutlineOutlinedIcon
+          style={{ width: "48px", height: "48px", color: "#5E676E" }}
         />
         <Typography className="nameSeller">{name}</Typography>
       </Box>
