@@ -40,10 +40,20 @@ export default function Product({ params }: any) {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
+  // related
+  const [categoryName, setCategoryName] = useState<any>(null);
+  const [categorySlug, setCategorySlug] = useState<any>(null);
+
+  const excludeProductById = (products: any[], excludedId: number) => {
+    return products.filter((product) => product.id !== excludedId);
+  };
+
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
       const product = getProductBySlug(formated, slug);
+
+      console.log("Product", product);
 
       if (product && product.productName) {
         setProductName(product.productName);
@@ -65,6 +75,31 @@ export default function Product({ params }: any) {
       ];
 
       setBreadcrumbs(generatedBreadcrumbs);
+
+      //  related products start
+      if (formated) {
+        const category: any = formated.find(
+          (cat: any) => cat.categorySlug === slug
+        );
+
+        if (category && category.categoryName) {
+          setCategoryName(category.categoryName);
+        }
+      }
+
+      setCategorySlug(product?.categorySlug);
+
+      if (formated && product && categorySlug) {
+        let products = getFilteredProductsByCategory(
+          formated,
+          4,
+          [],
+          categorySlug
+        );
+        products = excludeProductById(products, product.id);
+        setRelatedProducts(products);
+      }
+      // related products end
     }
   }, [marketData, slug, productName]);
 
