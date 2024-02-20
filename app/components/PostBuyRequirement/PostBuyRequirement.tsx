@@ -8,23 +8,33 @@ import "./PostBuyRequirement.scss";
 import { useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SearchIcon from "@mui/icons-material/Search";
+import AudioRecorder from "../shared/AudioRecorder/AudioRecorder";
+import InquiryModal from "../FeaturedProducts/InquiryModal/InquiryModal";
 
 const PostBuyRequirement = () => {
-  const [mobileNumber, setMobileNumber] = useState("");
+  const [productName, setProductName] = useState("");
   const isMobile = useMediaQuery("(max-width:900px)");
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [audioData, setAudioData] = useState(null);
+  const handleCloseModal = () => setModalOpen(false);
+  const handleOpenModal = () => setModalOpen(true);
   const handleSubmit = (e: any) => {
     e.preventDefault();
+  };
+
+  const testna = (data: any) => {
+    console.log(data);
+    setAudioData(data);
   };
 
   return (
     <div className="container-banner">
       <div className="image-section">
-        {/* Assuming the left part is a static image */}
         <Image
-          src="/pbr-banner.webp"
+          src="/big-photo.webp"
           alt="Background"
-          height={isMobile ? 200 : 324} // Example mobile height
-          width={isMobile ? 300 : 400} // Example mobile width
+          height={isMobile ? 200 : 324}
+          width={isMobile ? 300 : 400}
         />
       </div>
       <div className="form-section">
@@ -52,8 +62,8 @@ const PostBuyRequirement = () => {
           </div>
           <TextField
             placeholder="Enter the product you are looking for..."
-            value={mobileNumber}
-            onChange={(e) => setMobileNumber(e.target.value)}
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
             variant="outlined"
             InputProps={{
               startAdornment: (
@@ -78,13 +88,9 @@ const PostBuyRequirement = () => {
             </p>
           </div>
           <div className="record-section">
-            <div>
-              <div className="d-flex ai-center gap-8 mb-8">
-                <Mic />
-                <span>Record</span>
-              </div>
-              <span className="mt-8 cp">click here to record</span>
-            </div>
+            <AudioRecorder
+              onAudioRecorded={testna}
+            />
             <Image
               src="/background.png"
               alt="Logo"
@@ -93,21 +99,23 @@ const PostBuyRequirement = () => {
               height={113}
               priority
             />
-            {/* <Mic />
-            <span>Record</span>
-            <span>click here to record</span> */}
           </div>
 
           <div style={{ textAlign: "end" }}>
             <Button
               variant="contained"
-              //   onClick={handleNextStep}
+              onClick={handleOpenModal}
               sx={{
+                mt: 6,
+                mb: 5,
+                height: "48px",
+                borderRadius: "8px",
+                backgroundColor: "#2A5182",
                 ".button-text p": {
                   textTransform: "none",
                 },
               }}
-              className="continueFormButton"
+              disabled={!productName}
             >
               <div className="button-text">
                 <p>Continue</p>
@@ -115,6 +123,16 @@ const PostBuyRequirement = () => {
               </div>
             </Button>
           </div>
+
+          {isModalOpen && (
+            <InquiryModal
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              productName={productName}
+              isAudio={true}
+              audioData={audioData}
+            />
+          )}
         </form>
       </div>
     </div>
