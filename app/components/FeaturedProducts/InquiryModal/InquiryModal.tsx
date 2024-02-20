@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -26,8 +26,10 @@ type InquiryModalProps = {
   isOpen: boolean;
   onClose: () => void;
   productName: string;
-  company: string;
-  imgSrc: string;
+  company?: string;
+  imgSrc?: string;
+  isAudio?: boolean;
+  audioData?: any;
 };
 
 const InquiryModal: React.FC<InquiryModalProps> = ({
@@ -36,8 +38,14 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   productName,
   company,
   imgSrc,
+  isAudio,
+  audioData,
 }) => {
   const [frequency, setFrequency] = useState("one-time");
+
+  console.log("productName", productName);
+
+  console.log("audioData", audioData);
 
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -78,6 +86,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   // step 3 end
 
   const handleNextStep = () => {
+    if (isAudio && step === 3) {
+      console.log("audioData", audioData);
+      setStep(step + 1);
+      return;
+    }
     if (step < 3) setStep(step + 1);
   };
 
@@ -170,6 +183,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
     onClose();
   };
 
+  // useEffect(() => {
+  //   if (isAudio) {
+  //     setStep(2);
+  //   }
+  // }, [isAudio]);
+
   const handleInquiryMessageChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -226,17 +245,21 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               Tell us about your requirement
             </Typography>
 
-            <div className="product-description">
-              <Image src={imgSrc} alt={productName} width={60} height={70} />
-              <div>
-                <Typography sx={{ fontWeight: "bold", mt: 1 }}>
-                  {productName}
-                </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
-                  {company}
-                </Typography>
+            {/* hide this section if audioData is present */}
+            {!audioData && imgSrc && (
+              <div className="product-description">
+                <Image src={imgSrc} alt={productName} width={60} height={70} />
+                <div>
+                  <Typography sx={{ fontWeight: "bold", mt: 1 }}>
+                    {productName}
+                  </Typography>
+                  <Typography variant="caption" display="block" gutterBottom>
+                    {company}
+                  </Typography>
+                </div>
               </div>
-            </div>
+            )}
+
             <TextField
               fullWidth
               multiline
@@ -248,10 +271,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
                   backgroundColor: "rgb(251, 242, 225)",
-                },
-                "& .MuiInputBase-input": {
-                  //   backgroundColor: "rgb(251, 242, 225)",
-                  //   borderRadius: "10px",
                 },
               }}
             />
@@ -437,8 +456,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </Button>
           </>
         )}
-
-        {/* start 3 */}
         {/* Step 3 */}
         {step === 3 && (
           <>
@@ -584,6 +601,159 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             phone={countryCode + mobileNumber}
           />
         )*/}
+        {step === 4 && (
+          <>
+            <div className="d-flex ai-center gap-8 justify-space-between">
+              <div className="d-flex ai-center gap-8">
+                <IconButton onClick={handleBackStep} aria-label="go back">
+                  <ArrowBackIcon />
+                </IconButton>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className="send-inquiry"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "28px",
+                    fontWeight: "600",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Summary
+                </Typography>
+              </div>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
+            </div>
+            <Typography className="blue-color" sx={{ mt: 2 }}>
+              Details of your inquiry
+            </Typography>
+
+            {/* hide this section if audioData is present */}
+            {!audioData && imgSrc && (
+              <div className="product-description">
+                <Image src={imgSrc} alt={productName} width={60} height={70} />
+                <div>
+                  <Typography sx={{ fontWeight: "bold", mt: 1 }}>
+                    {productName}
+                  </Typography>
+                  <Typography variant="caption" display="block" gutterBottom>
+                    {company}
+                  </Typography>
+                </div>
+              </div>
+            )}
+
+            <TextField
+              fullWidth
+              multiline
+              rows={4}
+              value={inquiryMessage}
+              onChange={handleInquiryMessageChange}
+              margin="normal"
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "10px",
+                  backgroundColor: "rgb(251, 242, 225)",
+                },
+              }}
+            />
+
+            <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
+              Phone Number:{" "}
+              <b className="blue-color">
+                ({inputValue}) {mobileNumber}
+              </b>
+            </Typography>
+            <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
+              Name: <b className="blue-color">{name}</b>
+            </Typography>
+            <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
+              Email: <b className="blue-color">{email}</b>
+            </Typography>
+            <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
+              Company Name: <b className="blue-color">{companyName}</b>
+            </Typography>
+            <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
+              City: <b className="blue-color">{city}</b>
+            </Typography>
+
+            {/* <RadioGroup
+              aria-label="requirement-frequency"
+              value={frequency}
+              onChange={(e) => setFrequency(e.target.value)}
+              row
+            >
+              <FormControlLabel
+                value="one-time"
+                control={<Radio />}
+                label="One-Time"
+              />
+              <FormControlLabel
+                value="recurring"
+                control={<Radio />}
+                label="Recurring"
+              />
+            </RadioGroup> */}
+
+            {audioData && (
+              <div
+                className="custom-audio-player"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "32px",
+                }}
+              >
+                <audio src={audioData} controls />
+              </div>
+            )}
+
+            <div
+              className="summary-section"
+            >
+              <Button
+                variant="contained"
+                onClick={handleNextStep}
+                disabled={
+                  !inquiryMessage ||
+                  !mobileNumber ||
+                  !name ||
+                  !email ||
+                  !companyName ||
+                  !city ||
+                  !isValidEmail ||
+                  !termsChecked
+                }
+                sx={{
+                  mt: 5,
+                  mb: 3,
+                  height: "48px",
+                  borderRadius: "8px",
+                  backgroundColor: "#2A5182",
+                  width: "100%",
+                  ".button-text p": {
+                    textTransform: "none",
+                  },
+                }}
+              >
+                <div className="button-text">
+                  <p>Submit</p>
+                  <ArrowForwardIcon />
+                </div>
+              </Button>
+            </div>
+          </>
+        )}
       </Box>
     </Modal>
   );

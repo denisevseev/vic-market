@@ -3,7 +3,7 @@ import "./DownloadOurApp.scss";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import DownloadAppMobileImage from "../../../public/downloadOurNewApp.png";
+import DownloadAppMobileImage from "../../../public/twophones.webp";
 import QRCodeImage from "../../../public/qrCodeMobileAppImage.jpg";
 import GooglePlayImage from "../../../public/googlePlayImage.svg";
 import AppStoreImage from "../../../public/appStoreImage.svg";
