@@ -28,7 +28,6 @@ export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [newArrivals, setNewArrivals] = useState<any>([]);
   const [tradingTrusted, setTradingTrusted] = useState<any>([]);
-  console.log(tradingTrusted, "trading:");
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
 

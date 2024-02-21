@@ -53,8 +53,6 @@ export default function Product({ params }: any) {
       const formated = processApiResponse(marketData);
       const product = getProductBySlug(formated, slug);
 
-      console.log("Product", product);
-
       if (product && product.productName) {
         setProductName(product.productName);
       }
