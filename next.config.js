@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   distDir: "build",
   images: {
+    unoptimized: true,
     domains: ["source.unsplash.com", "crm.victorum-group.com"]
   },
   modularizeImports: {
