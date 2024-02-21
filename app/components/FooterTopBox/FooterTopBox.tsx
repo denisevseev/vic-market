@@ -20,8 +20,8 @@ export default function FooterTopBox() {
     setOpenModal(true);
   };
 
-  const logoWidth = isMobile ? 100 : 181;
-  const logoHeight = isMobile ? 30 : 51;
+  const logoWidth = isMobile ? 106 : 181;
+  const logoHeight = isMobile ? 28 : 48;
   const gPartnerHeight = isMobile ? 66 : 100;
   return (
     <div className="main-container-top">
