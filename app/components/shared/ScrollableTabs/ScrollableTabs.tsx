@@ -11,6 +11,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
   return (
@@ -58,6 +59,7 @@ const SlideBigger = (item: any) => {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
   const data = item.data ?? null;
+  const router = useRouter();
   return (
     <div style={{ padding: "0 8px" }}>
       <div
@@ -85,20 +87,20 @@ const SlideBigger = (item: any) => {
               height: "100px",
             }}
           >
-            <Link href={`/product/${data.productSlug}/${data.id}`}>
-              <Image
-                src={data.productImage}
-                alt={data.productName}
-                width={110}
-                height={80}
-                style={{
-                  // marginBottom: "16px",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  // marginTop: "5px",
-                }}
-              />
-            </Link>
+            <Image
+              onClick={() =>
+                router.push(`/product/${data.productSlug}/${data.id}`)
+              }
+              src={data.productImage}
+              alt={data.productName}
+              width={110}
+              height={80}
+              style={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                cursor: "pointer",
+              }}
+            />
           </div>
         )}
         <hr
