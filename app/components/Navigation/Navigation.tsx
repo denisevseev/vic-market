@@ -105,12 +105,11 @@ const Navigation = () => {
       <div className="block left">
         <Link href="/">
           <Image
-            src="/logoTrade2.png"
+            src="/logoTrade.png"
             className="ml-left-logo"
             alt="Logo"
             width={181}
             height={51}
-            style={{ objectFit: "cover" }}
             priority
           />
         </Link>

@@ -9,8 +9,10 @@ export default function MoreValueAddsItem() {
     <Box className="addsItemMain">
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
-          <Box>
-            <Typography className="victorumCapitalText">Victorum Trading</Typography>
+          <Box sx={{ zIndex: 9 }}>
+            <Typography className="victorumCapitalText">
+              Victorum Trading
+            </Typography>
             <Typography className="victorumCapitalText">Catalogs</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
@@ -24,8 +26,10 @@ export default function MoreValueAddsItem() {
       </Box>
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
-          <Box>
-            <Typography className="victorumCapitalText">Victorum Trading</Typography>
+          <Box sx={{ zIndex: 9 }}>
+            <Typography className="victorumCapitalText">
+              Victorum Trading
+            </Typography>
             <Typography className="victorumCapitalText">Buy Leads</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
@@ -39,9 +43,13 @@ export default function MoreValueAddsItem() {
       </Box>
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
-          <Box>
-            <Typography className="victorumCapitalText">Victorum Trading</Typography>
-            <Typography className="victorumCapitalText">Membership Plans</Typography>
+          <Box sx={{ zIndex: 9 }}>
+            <Typography className="victorumCapitalText">
+              Victorum Trading
+            </Typography>
+            <Typography className="victorumCapitalText">
+              Membership Plans
+            </Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
@@ -54,8 +62,10 @@ export default function MoreValueAddsItem() {
       </Box>
       <Box className="addItemSingelMain">
         <Box className="victorumCapitalAndLearnMore">
-          <Box>
-            <Typography className="victorumCapitalText">Victorum Trading</Typography>
+          <Box sx={{ zIndex: 9 }}>
+            <Typography className="victorumCapitalText">
+              Victorum Trading
+            </Typography>
             <Typography className="victorumCapitalText">Book Domain</Typography>
           </Box>
           <Box className="learnMoreAndIcon">

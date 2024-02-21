@@ -29,11 +29,10 @@ export default function FooterTopBox() {
         <div className="two-images">
           <a href="/">
             <Image
-              src="/logoTrade2.png"
+              src="/logoTrade.png"
               alt="Logo"
               width={logoWidth}
               height={logoHeight}
-              style={{ objectFit: "cover" }}
               priority
             />
           </a>

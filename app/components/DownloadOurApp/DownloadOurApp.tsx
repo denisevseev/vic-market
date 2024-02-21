@@ -3,7 +3,7 @@ import "./DownloadOurApp.scss";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import DownloadAppMobileImage from "../../../public/twophones.webp";
+import DownloadAppMobileImage from "../../../public/downloadOurNewApp.png";
 import QRCodeImage from "../../../public/qrCodeMobileAppImage.jpg";
 import GooglePlayImage from "../../../public/googlePlayImage.svg";
 import AppStoreImage from "../../../public/appStoreImage.svg";
@@ -24,10 +24,10 @@ export default function DownloadOurApp() {
           </Box>
           <Box className="downloadOurAppBox">
             <Typography className="downloadOurAppText">
-              Download Our New App
+              Download Our Payment App
             </Typography>
             <Typography className="scanTheQrCodeText">
-              Scan the QR Code to download the app on your smartphone
+              Scan the QR code to download our payment app to your smartphone
             </Typography>
             <Box className="qrCodeStoresImageBox">
               <Image

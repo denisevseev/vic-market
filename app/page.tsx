@@ -7,7 +7,6 @@ import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequireme
 import DataJson from "./components/data.json";
 import { useEffect, useState } from "react";
 import DownloadOurApp from "./components/DownloadOurApp/DownloadOurApp";
-import PopularLinks from "./components/shared/PopularLinks/PopularLinks";
 import OurServices from "./components/OurServices/OurServices";
 import TopCategoriesSlider from "./components/TopCategories/TopCategoriesSlider";
 import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
@@ -19,18 +18,18 @@ import {
   getFilteredProducts,
   getProductsSortedById,
   getRandomProducts,
-  getRandomTopCategoriesWithItems,
   processApiResponse,
 } from "@/api/helper/dataFilter";
+import TopCategoriesLinks from "./components/shared/PopularLinks/TopCategoriesLinks";
+import PopularProductsLink from "./components/shared/PopularLinks/PopularProductsLinks";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [newArrivals, setNewArrivals] = useState<any>([]);
   const [tradingTrusted, setTradingTrusted] = useState<any>([]);
-
+  console.log(tradingTrusted, "trading:");
   const [categories, setCategories] = useState<any>(null);
-
   const { data: marketData, isLoading } = useMarketData();
 
   useEffect(() => {
@@ -50,28 +49,6 @@ export default function Home() {
       );
     }
   }, [marketData]);
-
-  const topCategories = [
-    "Jackets",
-    "T-Shirts",
-    "LED Products",
-    "Consumer Electronics",
-    "Alloy Steel Pipes & Tubes",
-    "Carbon Steel Pipes & Tubes",
-    "Scientific Instruments",
-    "Disposable Products",
-    "Medical & Hospital Disposables",
-  ];
-  const popularProducts = [
-    "Human Hair",
-    "Solar Lights",
-    "Pipe Elbows",
-    "Backhoe Loader",
-    "Carry Bag Making Machine",
-    "Drum Lifter",
-    "Scissor Lifts",
-    "Industrial Vibrating Screen",
-  ];
 
   useEffect(() => {
     setData(DataJson);
@@ -136,8 +113,8 @@ export default function Home() {
         </div>
         <OurServices />
         <DownloadOurApp />
-        <PopularLinks title="Top Categories" links={topCategories} />
-        <PopularLinks title="Popular Products" links={popularProducts} />
+        <TopCategoriesLinks data={categories} />
+        <PopularProductsLink data={tradingTrusted} />
       </Box>
     </main>
   );

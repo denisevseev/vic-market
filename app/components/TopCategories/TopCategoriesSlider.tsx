@@ -17,6 +17,7 @@ import MineralMetalsIcon from "../../../public/mineral-metals-slider.png";
 import IndustrialSuppliesIcon from "../../../public/industrial-supplies-slider.png";
 import PipesTubesFittingsIcon from "../../../public/pipes-tubes-slider.png";
 import Image from "next/image";
+import Link from "next/link";
 
 interface TopCategoritesProps {
   data: any[];
@@ -42,16 +43,21 @@ const TopCategoriesSlider: React.FC<TopCategoritesProps> = ({ data }) => {
                   key={"categorySlide" + dataKey}
                   className="itemSliderAndImageBox"
                 >
-                  <Box className="imageSliderBackground">
-                    {dataItem.categoryIcon && (
-                      <Image
-                        src={dataItem.categoryIcon}
-                        alt="Health & Beauty Icon"
-                        width={64}
-                        height={64}
-                      />
-                    )}
-                  </Box>
+                  <Link
+                    className="imageSliderBackground"
+                    href={"/category/" + dataItem.categorySlug}
+                  >
+                    <Box className="imageSliderBackground">
+                      {dataItem.categoryIcon && (
+                        <Image
+                          src={dataItem.categoryIcon}
+                          alt="Health & Beauty Icon"
+                          width={64}
+                          height={64}
+                        />
+                      )}
+                    </Box>
+                  </Link>
                   <Typography className="topCategoriesItemSlider">
                     {dataItem.categoryName}
                   </Typography>
