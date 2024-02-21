@@ -22,3 +22,23 @@
   align-items: center;
   gap: 8px;
 }
+
+.blue-color {
+  color: rgb(38, 92, 129);
+}
+
+.custom-audio-player audio {
+  /* Styles for the audio element itself */
+}
+
+.custom-audio-player audio::-webkit-media-controls-panel {
+  background-color: #e5e5e5 !important;
+  color: yellow !important;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: end;
+  margin-Top: "auto";
+}
+
