@@ -49,8 +49,8 @@ const PostBuyRequirement = () => {
             <Image
               src="/logoTrade.png"
               alt="Logo"
-              width={130}
-              height={40}
+              width={139}
+              height={37}
               priority
             />
           </div>

@@ -109,7 +109,7 @@ const Navigation = () => {
             className="ml-left-logo"
             alt="Logo"
             width={181}
-            height={51}
+            height={48}
             priority
           />
         </Link>
