@@ -43,10 +43,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 }) => {
   const [frequency, setFrequency] = useState("one-time");
 
-  console.log("productName", productName);
-
-  console.log("audioData", audioData);
-
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
@@ -87,7 +83,6 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const handleNextStep = () => {
     if (isAudio && step === 3) {
-      console.log("audioData", audioData);
       setStep(step + 1);
       return;
     }
@@ -718,9 +713,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               </div>
             )}
 
-            <div
-              className="summary-section"
-            >
+            <div className="summary-section">
               <Button
                 variant="contained"
                 onClick={handleNextStep}

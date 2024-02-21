@@ -31,7 +31,7 @@ const PostBuyRequirement = () => {
     <div className="container-banner">
       <div className="image-section">
         <Image
-          src="/big-photo.webp"
+          src="/pbr-banner.webp"
           alt="Background"
           height={isMobile ? 200 : 324}
           width={isMobile ? 300 : 400}
@@ -47,11 +47,10 @@ const PostBuyRequirement = () => {
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">
             <Image
-              src="/logoTrade2.png"
+              src="/logoTrade.png"
               alt="Logo"
               width={130}
               height={40}
-              style={{ objectFit: "fill" }}
               priority
             />
           </div>
