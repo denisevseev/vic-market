@@ -6,25 +6,27 @@ import { useState } from "react";
 import InquiryModal from "../InquiryModal/InquiryModal";
 import { MarketRead } from "@/api/types/types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const ProductCard: React.FC<MarketRead> = (product) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
+  const router = useRouter();
+
   return (
     <div className="productCard">
-      <Link
-        className="imageWrapper"
-        href={`/product/${product.productSlug}/${product.id}`}
-      >
-        <Image
-          src={product.productImage ?? "/get-distributers.svg"}
-          alt={product.productName}
-          width={100}
-          height={110}
-        />
-      </Link>
+      <Image
+        src={product.productImage ?? "/get-distributers.svg"}
+        alt={product.productName}
+        width={100}
+        height={110}
+        onClick={() =>
+          router.push(`/product/${product.productSlug}/${product.id}`)
+        }
+        style={{ cursor: "pointer", margin: "auto" }}
+      />
       <Link
         className="titleLink"
         href={`/product/${product.productSlug}/${product.id}`}
