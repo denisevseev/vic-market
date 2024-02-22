@@ -17,7 +17,10 @@ import { useRef, useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { getRandomProducts, processApiResponse } from "@/api/helper/dataFilter";
+import {
+  getAllProductsInCategories,
+  processApiResponse,
+} from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import { useRouter } from "next/navigation";
 
@@ -33,15 +36,17 @@ const Overlay = styled("div")({});
 
 const Navigation = () => {
   const { data: marketData } = useMarketData();
-  // const isMobile = useMediaQuery("(max-width: 1021px)");
+  const isMobile = useMediaQuery("(max-width: 1021px)");
   const [anchorEl, setAnchorEl] = useState(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [navClass, setNavClass] = React.useState("");
   const [inputValue, setInputValue] = useState<string>("");
-  const inputRef = useRef<HTMLInputElement | null>(null);
   const [isFocused, setIsFocused] = useState(false);
 
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -76,22 +81,22 @@ const Navigation = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (isMobile && inputValue.length >= 3) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "";
-  //   }
+  useEffect(() => {
+    if (isMobile && isFocused) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //   };
-  // }, [inputValue]);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobile, isFocused]);
 
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
-      setProducts(getRandomProducts(formated, 20));
+      setProducts(getAllProductsInCategories(formated));
     }
   }, [marketData]);
 
@@ -124,13 +129,9 @@ const Navigation = () => {
   }, []);
 
   // scroll end
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-
   return (
     <div id="wrapper" className={`${navClass}`}>
-      {/* {isMobile && inputValue.length >= 3 && (
+      {isMobile && isFocused && (
         <Overlay
           style={{
             position: "fixed",
@@ -139,10 +140,10 @@ const Navigation = () => {
             width: "100%",
             height: "100%",
             backgroundColor: "rgba(0, 0, 0, 0.2)",
+            zIndex: 6,
           }}
-          sx={{ zIndex: (theme) => (theme?.zIndex.modal + 1)}}
         />
-      )} */}
+      )}
       <div className="block left">
         <Link href="/">
           <Image
@@ -161,6 +162,7 @@ const Navigation = () => {
         </div> */}
 
         <Autocomplete
+          noOptionsText="Oops! No products found."
           disablePortal
           id="combo-box-demo"
           options={products}
@@ -186,7 +188,7 @@ const Navigation = () => {
               paddingRight: "15px !important",
               borderRadius: "8px",
               "& .MuiInputBase-input::placeholder": {
-                fontSize: { xs: "10px", sm: "12px" },
+                fontSize: { xs: "12px", sm: "14px" },
                 lineHeight: { xs: "1.25", sm: "1.5" },
               },
             },
