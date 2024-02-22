@@ -242,3 +242,15 @@ export const getProductBySlug = (categoriesWithProducts: any, slug: string) => {
 
   return null;
 };
+export const getAllProductsInCategories = (categoriesWithProducts: any) => {
+  // Flatten the array of categories into a single array of products
+  const allProducts: any = categoriesWithProducts.reduce(
+    (acc: any, category: any) => {
+      acc.push(...category.products);
+      return acc;
+    },
+    []
+  );
+
+  return allProducts;
+};
