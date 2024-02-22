@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./ScrollableTabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
 import SendIcon from "@mui/icons-material/Send";
@@ -212,96 +212,78 @@ function VariableWidth({
   isSmallCarousel,
   isUpcomingTradeshows,
 }: any) {
+  const isLargeScreen = useMediaQuery("(min-width: 1550px)");
+  const isMediumScreen = useMediaQuery(
+    "(max-width: 1549px) and (min-width: 1450px)"
+  );
+  const isSmallScreen = useMediaQuery(
+    "(max-width: 1449px) and (min-width: 1300px)"
+  );
+  const isXSmallScreen = useMediaQuery(
+    "(max-width: 1299px) and (min-width: 1200px)"
+  );
+  const isXXSmallScreen = useMediaQuery(
+    "(max-width: 1199px) and (min-width: 975px)"
+  );
+  const isXXXSmallScreen = useMediaQuery(
+    "(max-width: 974px) and (min-width: 750px)"
+  );
+  const isXXXXSmallScreen = useMediaQuery(
+    "(max-width: 749px) and (min-width: 600px)"
+  );
+  const isXXXXXSmallScreen = useMediaQuery(
+    "(max-width: 599px) and (min-width: 500px)"
+  );
   const slickSettings = {
     dots: false,
     infinite: false,
     speed: 1000,
     autoplay: false,
-    slidesToShow: isUpcomingTradeshows ? 4 : isSmallCarousel ? 3 : 9,
-    responsive: [
-      {
-        breakpoint: 1550,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 4 // Number of slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 3
-            : 8,
-        },
-      },
-      {
-        breakpoint: 1450,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 3 // Choose the appropriate number for upcoming tradeshows
-            : isSmallCarousel
-            ? 2
-            : 7,
-        },
-      },
-      {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 3 // Set slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 2
-            : 6,
-            infinite: true,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 3 // Set slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 2
-            : 5,
-            infinite: true,
-        },
-      },
-      {
-        breakpoint: 975,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 3 // Set slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 1
-            : 4,
-            infinite: true,
-        },
-      },
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 2 // Set slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 1
-            : 3,
-            infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: isUpcomingTradeshows
-            ? 1 // Set slides for upcoming tradeshows
-            : isSmallCarousel
-            ? 1
-            : 2,
-            infinite: true,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          infinite: true,
-        },
-      },
-    ],
+    slidesToShow: isLargeScreen
+      ? isUpcomingTradeshows
+        ? 4
+        : isSmallCarousel
+        ? 3
+        : 8
+      : isMediumScreen
+      ? isUpcomingTradeshows
+        ? 3
+        : isSmallCarousel
+        ? 2
+        : 7
+      : isSmallScreen
+      ? isUpcomingTradeshows
+        ? 3
+        : isSmallCarousel
+        ? 2
+        : 6
+      : isXSmallScreen
+      ? isUpcomingTradeshows
+        ? 3
+        : isSmallCarousel
+        ? 2
+        : 5
+      : isXXSmallScreen
+      ? isUpcomingTradeshows
+        ? 3
+        : isSmallCarousel
+        ? 1
+        : 4
+      : isXXXSmallScreen
+      ? isUpcomingTradeshows
+        ? 2
+        : isSmallCarousel
+        ? 1
+        : 3
+      : isXXXXSmallScreen
+      ? isUpcomingTradeshows
+        ? 1
+        : isSmallCarousel
+        ? 1
+        : 2
+      : isXXXXXSmallScreen
+      ? 1
+      : 1,
   };
 
   return (
