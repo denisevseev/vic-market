@@ -247,6 +247,7 @@ function VariableWidth({
             : isSmallCarousel
             ? 2
             : 6,
+            infinite: true,
         },
       },
       {
@@ -257,6 +258,7 @@ function VariableWidth({
             : isSmallCarousel
             ? 2
             : 5,
+            infinite: true,
         },
       },
       {
@@ -267,6 +269,7 @@ function VariableWidth({
             : isSmallCarousel
             ? 1
             : 4,
+            infinite: true,
         },
       },
       {
@@ -277,6 +280,7 @@ function VariableWidth({
             : isSmallCarousel
             ? 1
             : 3,
+            infinite: true,
         },
       },
       {
@@ -287,12 +291,14 @@ function VariableWidth({
             : isSmallCarousel
             ? 1
             : 2,
+            infinite: true,
         },
       },
       {
         breakpoint: 500,
         settings: {
           slidesToShow: 1,
+          infinite: true,
         },
       },
     ],
