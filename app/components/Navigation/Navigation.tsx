@@ -8,10 +8,12 @@ import {
   InputAdornment,
   TextField,
   Typography,
+  styled,
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavigationPopover from "../NavigationPopover/NavigationPopover";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -27,11 +29,17 @@ type Product = {
   id: number;
 };
 
+const Overlay = styled("div")({});
+
 const Navigation = () => {
   const { data: marketData } = useMarketData();
+  // const isMobile = useMediaQuery("(max-width: 1021px)");
   const [anchorEl, setAnchorEl] = useState(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [navClass, setNavClass] = React.useState("");
+  const [inputValue, setInputValue] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   const router = useRouter();
 
@@ -41,6 +49,10 @@ const Navigation = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<{}>, value: string) => {
+    setInputValue(value);
   };
 
   const handleOptionSelect = (
@@ -58,13 +70,28 @@ const Navigation = () => {
           `/product/${selectedProduct.productSlug}/${selectedProduct.id}`
         );
       }
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
     }
   };
+
+  // useEffect(() => {
+  //   if (isMobile && inputValue.length >= 3) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "";
+  //   }
+
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //   };
+  // }, [inputValue]);
 
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
-      setProducts(getRandomProducts(formated, 25));
+      setProducts(getRandomProducts(formated, 20));
     }
   }, [marketData]);
 
@@ -100,8 +127,22 @@ const Navigation = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
   return (
     <div id="wrapper" className={`${navClass}`}>
+      {/* {isMobile && inputValue.length >= 3 && (
+        <Overlay
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+          }}
+          sx={{ zIndex: (theme) => (theme?.zIndex.modal + 1)}}
+        />
+      )} */}
       <div className="block left">
         <Link href="/">
           <Image
@@ -128,6 +169,16 @@ const Navigation = () => {
           }
           getOptionLabel={(option) => `${option.productName}`}
           onChange={handleOptionSelect}
+          inputValue={inputValue}
+          onInputChange={handleInputChange}
+          ref={(node) => {
+            if (node) {
+              inputRef.current = (node as any).querySelector("input");
+            }
+          }}
+          open={inputValue.length >= 3 && products.length > 0 && isFocused}
+          onBlur={() => setIsFocused(false)}
+          onFocus={() => setIsFocused(true)}
           sx={{
             width: { xs: "90%", md: "60%" },
             marginRight: 2,
@@ -140,6 +191,15 @@ const Navigation = () => {
               },
             },
           }}
+          filterOptions={(options, state) =>
+            state.inputValue.length < 3
+              ? []
+              : options.filter((option) =>
+                  option.productName
+                    .toLowerCase()
+                    .includes(state.inputValue.toLowerCase())
+                )
+          }
           renderOption={(props, option) => (
             <li
               {...props}
@@ -163,6 +223,9 @@ const Navigation = () => {
           renderInput={(params) => (
             <TextField
               {...params}
+              inputRef={(node) => {
+                inputRef.current = node;
+              }}
               variant="outlined"
               placeholder="Search for a product"
               InputProps={{
