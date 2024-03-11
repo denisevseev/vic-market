@@ -37,9 +37,9 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
           marginBottom: "16px",
         }}
       >
-        VM Products & Services
+        VICTORUM TRADE ON A GLANCE
       </Typography>
-      <Button
+      {/* <Button
         variant="contained"
         fullWidth
         sx={{
@@ -53,14 +53,9 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
           <p>Post Buy Requiremenet</p>
           <ArrowForwardIcon />
         </div>
-      </Button>
+      </Button> */}
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
-        <Image
-          src={"/crown.svg"}
-          alt={"crown"}
-          width={16}
-          height={12}
-        />
+        <Image src={"/crown.svg"} alt={"crown"} width={16} height={12} />
         <Typography
           sx={{
             fontFamily: "Helvetica, Arial, sans-serif",
@@ -68,7 +63,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
             fontWeight: 600,
           }}
         >
-          Try our Pocket-friendly Plans
+          VICTORUM TRADE ON A GLANCE
         </Typography>
       </div>
 
@@ -76,29 +71,24 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/Ti-Landing.svg"
           text="Buy Leads"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/Ti-Pay.svg"
           text="Subscription Plans"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/g-bus-listing.svg"
           text="Google Business Listing"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
       </div>
 
       {/* second block start */}
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
         {/* <NextPlanIcon /> */}
-        <Image
-          src={"/crown.svg"}
-          alt={"crown"}
-          width={16}
-          height={12}
-        />
+        <Image src={"/crown.svg"} alt={"crown"} width={16} height={12} />
         <Typography
           sx={{
             fontFamily: "Helvetica, Arial, sans-serif",
@@ -106,7 +96,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
             fontWeight: 600,
           }}
         >
-          Our Exclusive Services
+          EXCLUSIVE VICTORUM SERVICES
         </Typography>
       </div>
 
@@ -114,34 +104,34 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/Ti-Landing.svg"
           text="Trade Udhaar"
-          redirectUrl="https://www.google.com"
+          redirectUrl="https://www.victorum-capital.com/"
         />
         <SmallPopoverBox
           imgSrc="/Ti-Pay.svg"
           text="Ti_Pay"
-          redirectUrl="https://www.google.com"
+          redirectUrl="https://vicpayments.com/"
         />
         <SmallPopoverBox
           imgSrc="/Tradekhata.svg"
           text="Tradekhata"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
       </div>
       <div className="boxes-container">
         <SmallPopoverBox
           imgSrc="/make-payment.svg"
           text="Make Payment"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/trade-shows.svg"
           text="Trade Shows"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/get-distributers.svg"
           text="GetDistributors .com"
-          redirectUrl="https://www.google.com"
+          // redirectUrl="https://www.google.com"
         />
       </div>
       {/* second block end */}
