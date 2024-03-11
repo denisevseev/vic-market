@@ -35,6 +35,7 @@ export default function Home() {
     if (marketData) {
       const formated = processApiResponse(marketData);
       setCategories(formated);
+      console.log(formated);
       setFeaturedProducts(getRandomProducts(formated, 10));
       setNewArrivals(getProductsSortedById(formated, 10));
       setTradingTrusted(
@@ -76,6 +77,18 @@ export default function Home() {
             marginTop: "4rem",
           }}
         >
+           {/* <div className="mb-2rem">
+            <VariableWidth
+              data={
+                data &&
+                data.data &&
+                data.data.products &&
+                data.data.products.upcomingTradeShows
+              }
+              title="Latest Trends"
+              isUpcomingTradeshows="true"
+            />
+          </div> */}
           <div style={{ marginBottom: "2rem" }}>
             <FeaturedProducts data={featuredProducts} />
           </div>
@@ -97,18 +110,6 @@ export default function Home() {
             </div>
           </div>
           <PostBuyRequirement />
-          {/* <div className="mb-2rem">
-            <VariableWidth
-              data={
-                data &&
-                data.data &&
-                data.data.products &&
-                data.data.products.upcomingTradeShows
-              }
-              title="Upcoming Tradeshows"
-              isUpcomingTradeshows="true"
-            />
-          </div> */}
         </div>
         <OurServices />
         <DownloadOurApp />

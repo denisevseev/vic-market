@@ -9,22 +9,22 @@ export default function ProductGrow() {
       <Box className="lookingForProductWantToGrowYourBusinessMainBox">
         <Box className="lookingForProducMainBox">
           <Typography className="lookingForProductText">
-            Looking <br />
-            for a Product
+          You are looking <br />
+            for a Product?
           </Typography>
           <Button variant="outlined" className="lookingForProBtn">
-            <Typography className="postByText">Post Buy</Typography>
-            <Typography className="requirementText">Requirment</Typography>
+            <Typography className="postByText">Post the Product you are <br/> searching for here!</Typography>
+            <Typography className="requirementText"></Typography>
           </Button>
         </Box>
         <Box className="wantToGrowYourBusinessMainBox">
           <Typography className="wantToGrowYourBusinessText">
-            Want to grow your <br />
-            business 10X Faster
+          You offer products or goods and <br />
+          want to extend your business?
           </Typography>
           <Button variant="outlined" className="wantToGrowBtn">
-            <Typography className="wantToGrowText">Sell on</Typography>
-            <Typography className="trandeIndiaText">Victorum Trading</Typography>
+            <Typography className="wantToGrowText">Click here to get new clients!</Typography>
+            <Typography className="trandeIndiaText"></Typography>
           </Button>
         </Box>
       </Box>

@@ -31,7 +31,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
         </Link>
       )}
 
-      <h2>{title ?? "Featured Products"}</h2>
+      <h2>{title ?? "Top Products"}</h2>
       <Grid container spacing={3}>
         {data?.map((product, index) => (
           <Grid

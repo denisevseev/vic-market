@@ -19,7 +19,7 @@ const TopCategoriesLinks: React.FC<TopCategoriesLinksProps> = ({ data }) => {
     <Box>
       <Box className="popularLinksMainBox">
         <Box>
-          <Typography className="titleText">Top Categories</Typography>
+          <Typography className="titleText">Product Categories</Typography>
         </Box>
         <Box>
           {data &&
