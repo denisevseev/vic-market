@@ -28,6 +28,7 @@ export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [newArrivals, setNewArrivals] = useState<any>([]);
   const [tradingTrusted, setTradingTrusted] = useState<any>([]);
+  const [latestTrands, setLatestTrands] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
 
@@ -38,6 +39,7 @@ export default function Home() {
       console.log(formated);
       setFeaturedProducts(getRandomProducts(formated, 10));
       setNewArrivals(getProductsSortedById(formated, 10));
+      setLatestTrands(getFilteredProducts(formated, 10, ["description"]));
       setTradingTrusted(
         getFilteredProducts(formated, 10, [
           "description",
@@ -77,18 +79,14 @@ export default function Home() {
             marginTop: "4rem",
           }}
         >
-           {/* <div className="mb-2rem">
+          <div className="mb-2rem">
             <VariableWidth
-              data={
-                data &&
-                data.data &&
-                data.data.products &&
-                data.data.products.upcomingTradeShows
-              }
+              data={latestTrands}
               title="Latest Trends"
-              isUpcomingTradeshows="true"
+              //  isUpcomingTradeshows="false"
+              // isSmallCarousel="true"
             />
-          </div> */}
+          </div>
           <div style={{ marginBottom: "2rem" }}>
             <FeaturedProducts data={featuredProducts} />
           </div>
