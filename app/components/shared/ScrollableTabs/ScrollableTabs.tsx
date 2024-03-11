@@ -244,25 +244,25 @@ function VariableWidth({
         ? 4
         : isSmallCarousel
         ? 3
-        : 8
+        : 6
       : isMediumScreen
       ? isUpcomingTradeshows
         ? 3
         : isSmallCarousel
         ? 2
-        : 7
+        : 4
       : isSmallScreen
       ? isUpcomingTradeshows
         ? 3
         : isSmallCarousel
         ? 2
-        : 6
+        : 4
       : isXSmallScreen
       ? isUpcomingTradeshows
         ? 3
         : isSmallCarousel
         ? 2
-        : 5
+        : 4
       : isXXSmallScreen
       ? isUpcomingTradeshows
         ? 3
@@ -288,7 +288,7 @@ function VariableWidth({
 
   return (
     <div className="slider-container">
-      <p
+      <h2
         style={{
           textAlign: "start",
           marginLeft: "2rem",
@@ -297,8 +297,8 @@ function VariableWidth({
           fontStyle: "Helvetica",
         }}
       >
-        {title}
-      </p>
+        {title} 
+      </h2>
       <div style={{ margin: "20px" }}>
         <Slider {...slickSettings}>
           {data?.map((slide: any, index: any) =>

@@ -54,7 +54,7 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
     <Box className="topCategoriesMainBox">
       <Box className="topCategoriesBox">
         <Box>
-          <Typography className="topCategoryText">Top Categories</Typography>
+          <Typography className="topCategoryText">Product Categories</Typography>
         </Box>
         <Box className="itemsMainBox">
           {data &&

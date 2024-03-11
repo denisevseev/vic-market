@@ -17,7 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 const containsText = (text: any, searchText: any) =>
   text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 
-const allOptions = ["All Cities", "Delhi", "Mumbai", "Chennai"];
+const allOptions = ["All Regions", "Delhi", "Mumbai", "Chennai"];
 
 export default function SelectCity() {
   const [selectedOption, setSelectedOption] = useState(allOptions[0]);

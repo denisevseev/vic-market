@@ -23,6 +23,7 @@ import {
 } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import { useRouter } from "next/navigation";
+import SelectCity from "../shared/SelectCity/SelectCity";
 
 type Product = {
   productName: string;
@@ -157,9 +158,9 @@ const Navigation = () => {
         </Link>
       </div>
       <div className="block center medium-hide">
-        {/* <div className="select-city-container">
+        <div className="select-city-container">
           <SelectCity />
-        </div> */}
+        </div>
 
         <Autocomplete
           noOptionsText="Oops! No products found."
@@ -229,7 +230,7 @@ const Navigation = () => {
                 inputRef.current = node;
               }}
               variant="outlined"
-              placeholder="Search for a product"
+              placeholder="Search here for products, categories, services or countries"
               InputProps={{
                 ...params.InputProps,
                 endAdornment: (

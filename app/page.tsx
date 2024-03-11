@@ -28,6 +28,7 @@ export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [newArrivals, setNewArrivals] = useState<any>([]);
   const [tradingTrusted, setTradingTrusted] = useState<any>([]);
+  const [latestTrands, setLatestTrands] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
 
@@ -35,8 +36,10 @@ export default function Home() {
     if (marketData) {
       const formated = processApiResponse(marketData);
       setCategories(formated);
+      console.log(formated);
       setFeaturedProducts(getRandomProducts(formated, 10));
       setNewArrivals(getProductsSortedById(formated, 10));
+      setLatestTrands(getFilteredProducts(formated, 10, ["description"]));
       setTradingTrusted(
         getFilteredProducts(formated, 10, [
           "description",
@@ -76,6 +79,14 @@ export default function Home() {
             marginTop: "4rem",
           }}
         >
+          <div className="mb-2rem">
+            <VariableWidth
+              data={latestTrands}
+              title="Latest Trends"
+              //  isUpcomingTradeshows="false"
+              // isSmallCarousel="true"
+            />
+          </div>
           <div style={{ marginBottom: "2rem" }}>
             <FeaturedProducts data={featuredProducts} />
           </div>
@@ -97,18 +108,6 @@ export default function Home() {
             </div>
           </div>
           <PostBuyRequirement />
-          {/* <div className="mb-2rem">
-            <VariableWidth
-              data={
-                data &&
-                data.data &&
-                data.data.products &&
-                data.data.products.upcomingTradeShows
-              }
-              title="Upcoming Tradeshows"
-              isUpcomingTradeshows="true"
-            />
-          </div> */}
         </div>
         <OurServices />
         <DownloadOurApp />

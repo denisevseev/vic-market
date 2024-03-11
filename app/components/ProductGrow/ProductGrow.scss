@@ -75,6 +75,10 @@
   &:hover {
     background-color: rgb(253, 255, 219) !important;
   }
+
+  @media screen and (max-width: 960px){
+    display: none !important;
+  }
 }
 .wantToGrowBtn {
   border: 1px solid #fff !important;
