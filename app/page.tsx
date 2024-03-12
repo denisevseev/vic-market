@@ -95,7 +95,7 @@ export default function Home() {
             <div>
               <VariableWidth
                 data={newArrivals}
-                title="New Arrivals"
+                title="New in Stock"
                 isSmallCarousel="true"
               />
             </div>

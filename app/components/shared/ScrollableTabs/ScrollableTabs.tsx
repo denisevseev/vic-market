@@ -243,7 +243,7 @@ function VariableWidth({
       ? isUpcomingTradeshows
         ? 4
         : isSmallCarousel
-        ? 3
+        ? 2 //3
         : 6
       : isMediumScreen
       ? isUpcomingTradeshows
@@ -297,7 +297,7 @@ function VariableWidth({
           fontStyle: "Helvetica",
         }}
       >
-        {title} 
+        {title}
       </h2>
       <div style={{ margin: "20px" }}>
         <Slider {...slickSettings}>
