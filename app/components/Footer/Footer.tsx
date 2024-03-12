@@ -28,7 +28,7 @@ const Footer = () => {
     <footer className="footerContainer">
       {isMobile ? (
         <div>
-          <Accordion
+          {/* <Accordion
             sx={{
               boxShadow: "none",
             }}
@@ -54,7 +54,7 @@ const Footer = () => {
               <Link href="/help">Policy</Link>
               <Link href="/help">Shipping & Delivery Policy</Link>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
 
           <Accordion
             expanded={expanded === "panel2"}
@@ -73,18 +73,13 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">About us</h4>
+              <h4 className="title-color">About Victorum</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/about-us">About Our Company</Link>
               <Link href="/help">Success Stories</Link>
               <Link href="/help">Victorum Blog</Link>
               <Link href="/help">Victorum in News</Link>
-              <Link href="/help">Jobs & Carrers</Link>
-              <Link href="/help">Contact Us</Link>
-              <Link href="/help">Partnetr with Us</Link>
-              <Link href="/help">Make a Payment</Link>
-              <Link href="/help">Weekly Newsletter</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -105,14 +100,13 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">Our services</h4>
+              <h4 className="title-color">Services & Benefits</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Advertise with Us</Link>
               <Link href="/help">Book domains</Link>
               <Link href="/help">TI Pay</Link>
               <Link href="/help">Trade khata</Link>
-              <Link href="/help">Trade Udhaar</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -133,12 +127,13 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">For Sellers</h4>
+              <h4 className="title-color">You wanna sell?</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Display New Products</Link>
               <Link href="/help">Buy Trade Leads</Link>
               <Link href="/help">Subscribe Buy Trade Alerts</Link>
+              <Link href="/help">Subscribe Online</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -159,7 +154,7 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">For Buyers</h4>
+              <h4 className="title-color">You wanna buy?</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/help">Post your Requirement</Link>
@@ -169,7 +164,7 @@ const Footer = () => {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion
+          {/* <Accordion
             sx={{
               boxShadow: "none",
             }}
@@ -197,52 +192,47 @@ const Footer = () => {
               <Link href="/help">Featured Products</Link>
               <Link href="/help">Sitemap</Link>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
         </div>
       ) : (
         <>
-          <div className="footerSection">
+          {/* <div className="footerSection">
             <h3>Customer Support</h3>
             <Link href="/help">Help Center</Link>
             <Link href="/help">User Guide</Link>
             <Link href="/help">Return & Cancellation</Link>
             <Link href="/help">Policy</Link>
             <Link href="/help">Shipping & Delivery Policy</Link>
-          </div>
+          </div> */}
           <div className="footerSection">
-            <h3>About us</h3>
+            <h3>About Victorum</h3>
             <Link href="/about-us">About Our Company</Link>
             <Link href="/help">Success Stories</Link>
             <Link href="/help">Victorum Blog</Link>
             <Link href="/help">Victorum in News</Link>
-            <Link href="/help">Jobs & Carrers</Link>
-            <Link href="/help">Contact Us</Link>
-            <Link href="/help">Partnetr with Us</Link>
-            <Link href="/help">Make a Payment</Link>
-            <Link href="/help">Weekly Newsletter</Link>
           </div>
           <div className="footerSection">
-            <h3>Our Services</h3>
+            <h3>Services & Benefits</h3>
             <Link href="/help">Advertise with Us</Link>
             <Link href="/help">Book Domains</Link>
             <Link href="/help">Ti Pay</Link>
             <Link href="/help">Trade Khata</Link>
-            <Link href="/help">Trade Udhaar</Link>
           </div>
           <div className="footerSection">
-            <h3>For Sellers</h3>
+            <h3>You wanna sell?</h3>
             <Link href="/help">Display New Products</Link>
             <Link href="/help">Buy Trade Leads</Link>
             <Link href="/help">Subscribe Buy Trade Alerts</Link>
+            <Link href="/help">Subscribe Online</Link>
           </div>
           <div className="footerSection">
-            <h3>For Buyers</h3>
+            <h3>You wanna buy?</h3>
             <Link href="/help">Post your Requirement</Link>
             <Link href="/help">Browse Suppliers</Link>
             <Link href="/help">Subscribe sell Trade Alerts</Link>
             <Link href="/help">Help Center</Link>
           </div>
-          <div className="footerSection">
+          {/* <div className="footerSection">
             <h3>Directory</h3>
             <Link href="/help">Manufacturers</Link>
             <Link href="/help">Business Services</Link>
@@ -251,7 +241,7 @@ const Footer = () => {
             <Link href="/help">Country Suppliers</Link>
             <Link href="/help">Featured Products</Link>
             <Link href="/help">Sitemap</Link>
-          </div>
+          </div> */}
         </>
       )}
 
