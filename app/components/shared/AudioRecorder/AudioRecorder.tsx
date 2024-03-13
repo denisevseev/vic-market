@@ -76,31 +76,42 @@ const AudioRecorder = ({ onAudioRecorded }: any) => {
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
 
   useEffect(() => {
-    // Request access to the microphone
-    async function getMicrophoneAccess() {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      // Create a new MediaRecorder instance
-      const mediaRecorder: any = new MediaRecorder(stream);
-      setRecorder(mediaRecorder);
-    }
+    // Cleanup function to stop the tracks when the component is unmounted
+    return () => {
+      if (recorder) {
+        recorder.stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [recorder])
 
-    getMicrophoneAccess();
-  }, []);
 
-  const startRecording = () => {
-    if (recorder !== null) {
-      recorder.start();
-      setIsRecording(true);
-      recorder.ondataavailable = (e) => {
-        setAudioURL(URL.createObjectURL(e.data));
-      };
-    }
-  };
+
+const startRecording = async () => {
+  // Check if the recorder exists and is not in the "inactive" state
+  if (recorder && recorder.state === "inactive") {
+    recorder.start();
+    setIsRecording(true);
+  } else {
+    // Get access to the microphone again and create a new MediaRecorder
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const newRecorder = new MediaRecorder(stream);
+    setRecorder(newRecorder);
+    newRecorder.ondataavailable = (e) => {
+      setAudioURL(URL.createObjectURL(e.data));
+    };
+    newRecorder.start();
+    setIsRecording(true);
+  }
+};
 
   const stopRecording = () => {
     if (recorder !== null) {
       recorder.stop();
       setIsRecording(false);
+      recorder.onstop = () => {
+        // Stop the tracks to release the microphone
+        recorder.stream.getTracks().forEach(track => track.stop());
+      };
       recorder.ondataavailable = (e) => {
         setAudioURL(URL.createObjectURL(e.data));
         setAudioBlob(e.data);
@@ -112,6 +123,15 @@ const AudioRecorder = ({ onAudioRecorded }: any) => {
   const deleteAudio = () => {
     setAudioURL("");
     onAudioRecorded(null);
+    if (recorder) {
+      // When deleting the audio, stop the recorder and release the media stream
+      if (recorder.state !== "inactive") {
+        recorder.stop();
+      }
+      recorder.stream.getTracks().forEach(track => track.stop());
+      // Set recorder to null to allow for a fresh start next time
+      setRecorder(null);
+    }
   };
 
   return (

@@ -155,6 +155,7 @@ const SlideBigger = (item: any) => {
         productName={data.productName}
         company={data.categoryName}
         imgSrc={data.productImage ?? "/get-distributers.svg"}
+        slug={data.productSlug}
       />
     </div>
   );
