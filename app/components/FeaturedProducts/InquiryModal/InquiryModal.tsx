@@ -13,6 +13,8 @@ import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
+
 import {
   Autocomplete,
   Checkbox,
@@ -30,6 +32,7 @@ type InquiryModalProps = {
   imgSrc?: string;
   isAudio?: boolean;
   audioData?: any;
+  slug?: string;
 };
 
 const InquiryModal: React.FC<InquiryModalProps> = ({
@@ -40,6 +43,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   imgSrc,
   isAudio,
   audioData,
+  slug,
 }) => {
   const [frequency, setFrequency] = useState("one-time");
 
@@ -86,7 +90,34 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       setStep(step + 1);
       return;
     }
-    if (step < 3) setStep(step + 1);
+    if (step < 3) {
+      setStep(step + 1);
+    } else {
+      buy();
+    }
+  };
+
+  const buy = async () => {
+    const payload = {
+      country_id: 1, // or country if you have a country variable
+      phone: mobileNumber,
+      client_name: name,
+      email: email,
+      company_name: companyName,
+      city: city,
+      productSlug: slug,
+      // Add other fields as necessary
+    };
+
+    try {
+      const response = await axios.post("api/market/buy", payload);
+
+      console.log("Data successfully sent to the backend.");
+      console.log(response.data);
+    } catch (error) {
+      // Error handling with axios
+      console.error("Error sending data to the backend: ", error);
+    }
   };
 
   const handleBackStep = () => {

@@ -275,6 +275,7 @@ export default function Product({ params }: any) {
                       productName={product.productName}
                       company={product.manufacturerName}
                       imgSrc={product.productImage ?? "/get-distributers.svg"}
+                      slug={product.productSlug}
                     />
                   </>
                 ))}
