@@ -1,7 +1,7 @@
 // Import necessary components from MUI or another UI library if you're using one
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TextField, Button, InputAdornment, Typography } from "@mui/material";
 import { Mic } from "@mui/icons-material";
 import "./PostBuyRequirement.scss";
@@ -16,6 +16,8 @@ const PostBuyRequirement = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
   const [isModalOpen, setModalOpen] = useState(false);
   const [audioData, setAudioData] = useState(null);
+  const textFieldRef = useRef<HTMLDivElement>(null);
+
   const handleCloseModal = () => setModalOpen(false);
   const handleOpenModal = () => setModalOpen(true);
   const handleSubmit = (e: any) => {

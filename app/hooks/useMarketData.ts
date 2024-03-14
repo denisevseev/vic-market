@@ -7,6 +7,7 @@ export const useMarketData = () => {
     queryKey: ["market/read"],
     queryFn: async () => {
       const userRes = await axios.get("/api/market/read");
+      console.log(userRes.data);
       return userRes.data;
     },
   });

@@ -32,7 +32,7 @@ type InquiryModalProps = {
   imgSrc?: string;
   isAudio?: boolean;
   audioData?: any;
-  slug?: string;
+  id?: any;
 };
 
 const InquiryModal: React.FC<InquiryModalProps> = ({
@@ -43,7 +43,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   imgSrc,
   isAudio,
   audioData,
-  slug,
+  id,
 }) => {
   const [frequency, setFrequency] = useState("one-time");
 
@@ -99,13 +99,13 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const buy = async () => {
     const payload = {
-      country_id: 1, // or country if you have a country variable
-      phone: mobileNumber,
+      country_id: 21, // or country if you have a country variable
+      phone: `${inputValue}${mobileNumber}`,
       client_name: name,
       email: email,
       company_name: companyName,
       city: city,
-      productSlug: slug,
+      id: id,
       // Add other fields as necessary
     };
 
@@ -114,6 +114,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
       console.log("Data successfully sent to the backend.");
       console.log(response.data);
+      handleCloseModal();
     } catch (error) {
       // Error handling with axios
       console.error("Error sending data to the backend: ", error);
