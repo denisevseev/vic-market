@@ -22,14 +22,14 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
       sx={{
         ".MuiPopover-paper": {
           width: "312px",
-          height: "464px",
+          // height: "464px",
           padding: "16px 16px 16px 16px",
           borderRadius: "8px",
           marginTop: "12px",
         },
       }}
     >
-      <Typography
+      {/* <Typography
         sx={{
           fontFamily: "Helvetica, Arial, sans-serif",
           fontSize: "16px",
@@ -38,7 +38,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         }}
       >
         VICTORUM TRADE ON A GLANCE
-      </Typography>
+      </Typography> */}
       {/* <Button
         variant="contained"
         fullWidth
@@ -103,29 +103,29 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
       <div className="boxes-container" style={{ marginBottom: "8px" }}>
         <SmallPopoverBox
           imgSrc="/Ti-Landing.svg"
-          text="Trade Udhaar"
+          text="Victorum Capital"
           redirectUrl="https://www.victorum-capital.com/"
         />
         <SmallPopoverBox
           imgSrc="/Ti-Pay.svg"
-          text="Ti_Pay"
+          text="VicPay"
           redirectUrl="https://vicpayments.com/"
         />
-        <SmallPopoverBox
+        {/* <SmallPopoverBox
           imgSrc="/Tradekhata.svg"
           text="Tradekhata"
           // redirectUrl="https://www.google.com"
-        />
+        /> */}
       </div>
       <div className="boxes-container">
-        <SmallPopoverBox
+        {/* <SmallPopoverBox
           imgSrc="/make-payment.svg"
           text="Make Payment"
           // redirectUrl="https://www.google.com"
-        />
+        /> */}
         <SmallPopoverBox
           imgSrc="/trade-shows.svg"
-          text="Trade Shows"
+          text="Trade Fairs & Exhibitions"
           // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox

@@ -5,7 +5,7 @@ import TopCategories from "./components/TopCategories/TopCategories";
 import "../styles/HomePage.scss";
 import PostBuyRequirement from "./components/PostBuyRequirement/PostBuyRequirement";
 import DataJson from "./components/data.json";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DownloadOurApp from "./components/DownloadOurApp/DownloadOurApp";
 import OurServices from "./components/OurServices/OurServices";
 import TopCategoriesSlider from "./components/TopCategories/TopCategoriesSlider";
@@ -22,6 +22,7 @@ import {
 } from "@/api/helper/dataFilter";
 import TopCategoriesLinks from "./components/shared/PopularLinks/TopCategoriesLinks";
 import PopularProductsLink from "./components/shared/PopularLinks/PopularProductsLinks";
+import { useCountryData } from "./hooks/useCountryData";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
@@ -31,6 +32,19 @@ export default function Home() {
   const [latestTrands, setLatestTrands] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
+  // const { data: countryData } = useCountryData();
+  // console.log(countryData);
+  const postBuyRequirementRef = useRef<HTMLDivElement>(null);
+
+
+
+
+  const scrollToPostBuyRequirement = () => {
+    if (postBuyRequirementRef.current) {
+      postBuyRequirementRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 
   useEffect(() => {
     if (marketData) {
@@ -65,7 +79,7 @@ export default function Home() {
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
               <HomepageImagesCarousel />
-              <ProductGrow />
+              <ProductGrow scrollToPostBuyRequirement={scrollToPostBuyRequirement}/>
             </Box>
             <MoreValueAdds />
             <TopCategoriesSlider data={categories} />
@@ -107,7 +121,9 @@ export default function Home() {
               />
             </div>
           </div>
+          <div ref={postBuyRequirementRef}>
           <PostBuyRequirement />
+          </div>
         </div>
         <OurServices />
         <DownloadOurApp />
