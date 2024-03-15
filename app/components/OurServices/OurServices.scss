@@ -49,8 +49,7 @@
   cursor: pointer;
 }
 .serviceCard {
-  // background-image: url("../../../public/serviceCard.webp");
-  background-color: #6985a7;
+  background-color: #2a5182;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -64,8 +63,7 @@
   border-radius: 8px;
 }
 .serviceCard2 {
-  // background-image: url("../../../public/serviceCard2.webp");
-  background-color: #54739b;
+  background-color: #253a55;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,8 +77,7 @@
   border-radius: 8px;
 }
 .serviceCard3 {
-  // background-image: url("../../../public/serviceCard3.webp");
-  background-color: #3f628e;
+  background-color: #254875;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,8 +91,7 @@
   border-radius: 8px;
 }
 .serviceCard4 {
-  // background-image: url("../../../public/serviceCard4.webp");
-  background-color: #2a5182;
+  background-color: #21344c;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -127,9 +123,18 @@
   z-index: 2;
   position: absolute;
   // right: 1rem;
+  top: 5.4rem !important;
+  width: 100%;
+}
+
+.ourServicesItemImageEasy {
+  z-index: 2;
+  position: absolute;
+  right: 1rem;
   top: 6.4rem !important;
   width: 100%;
 }
+
 .ourServicesLearnMoreAndIcon {
   display: flex;
   align-items: center;
@@ -195,12 +200,55 @@
     z-index: 2;
     position: absolute;
     // right: 1rem; /* Positions the element 2rem from the right edge of its positioned ancestor */
-    top: 4rem !important; /* Positions the element 7rem from the top of its positioned ancestor */
+    top: 3.5rem !important; /* Positions the element 7rem from the top of its positioned ancestor */
     width: 100%;
   }
   .ourServicesLearnMoreAndIcon {
     left: 1rem !important;
     bottom: 1rem !important
     ;
+  }
+
+  .ourServicesItemImageEasy {
+    z-index: 2;
+    position: absolute;
+    right: 1rem;
+    top: 4.1rem !important;
+    width: 100%;
+  }
+}
+
+.imageContainer-logo {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  padding-right: 1rem;
+
+  @media screen and (max-width: 1200px) {
+    width: 90px;
+    height: 35px;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  padding-right: 1rem;
+
+  @media screen and (max-width: 1200px) {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.imageContainer-last {
+  position: relative;
+  width: 55px;
+  height: 55px;
+
+  @media screen and (max-width: 1200px) {
+    width: 35px;
+    height: 35px;
   }
 }

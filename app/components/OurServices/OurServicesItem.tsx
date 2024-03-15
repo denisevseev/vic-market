@@ -22,19 +22,27 @@ export default function OurServicesItem() {
           </Box>
 
           <Box className="ourServicesItemImage">
-            <Box
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              className="imageContainer-logo"
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
               <Image
-                src="/viccap.png"
+                src="/bl-capital.png"
                 alt="Victorum Capital"
-                width={isSmallScreen ? 80 : 140} // Example: half size on small screens
-                height={isSmallScreen ? 30 : 50}
+                layout="fill"
+                objectFit="contain"
               />
-            </Box>
+            </div>
+          </Box>
           </Box>
 
           <Box
@@ -61,18 +69,26 @@ export default function OurServicesItem() {
 
           <Box className="ourServicesItemImage">
             <Box
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              className="imageContainer-logo"
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
               <Image
-                src="/viccap.png"
+                src="/bl-trade.png"
                 alt="Victorum Capital"
-                width={isSmallScreen ? 80 : 140} // Example: half size on small screens
-                height={isSmallScreen ? 30 : 50}
+                layout="fill"
+                objectFit="contain"
               />
-            </Box>
+            </div>
+          </Box>
           </Box>
           <Box
             className="ourServicesLearnMoreAndIcon"
@@ -99,16 +115,24 @@ export default function OurServicesItem() {
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
-                // backgroundColor: "white", // Set the background color to white
-                padding: "10px",
+                paddingRight: "1rem",
               }}
             >
-              <Image
-                src="/trdcap.webp"
-                alt="Victorum Capital"
-                width={isSmallScreen ? 80 : 140} // Example: half size on small screens
-                height={isSmallScreen ? 30 : 50}
-              />
+              <div
+                className="imageContainer"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  paddingLeft: "1rem",
+                }}
+              >
+                <Image
+                  src="/frs.webp"
+                  alt="Victorum Capital"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
             </Box>
           </Box>
           <Box
@@ -133,21 +157,30 @@ export default function OurServicesItem() {
             </Typography>
             <Typography className="tradeTextBold">VicPay</Typography>
           </Box>
-          <Box className="ourServicesItemImageLast">
-            <Box
+          <Box className="ourServicesItemImageEasy">
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              className="imageContainer-last"
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
               <Image
-                src="/vicpay.png"
+                src="/cardd.png"
                 alt="Victorum Capital"
-                width={isSmallScreen ? 80 : 140} // Example: half size on small screens
-                height={isSmallScreen ? 30 : 45}
+                layout="fill"
+                objectFit="contain"
               />
-            </Box>
+            </div>
           </Box>
+          </Box>
+
           <Box
             className="ourServicesLearnMoreAndIcon"
             onClick={() => handleRedirect("https://vicpayments.com/login")}
