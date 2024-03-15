@@ -29,8 +29,8 @@ export default function OurServicesItem() {
               }}
             >
               <Image
-                src="/viccap.png"
-                alt="Victorum Capital"
+                src="/bl-capital.png"
+                alt="bI-capital"
                 width={isSmallScreen ? 80 : 140} // Example: half size on small screens
                 height={isSmallScreen ? 30 : 50}
               />
@@ -67,8 +67,8 @@ export default function OurServicesItem() {
               }}
             >
               <Image
-                src="/viccap.png"
-                alt="Victorum Capital"
+                src="/bl-capital.png"
+                alt="bI-capital"
                 width={isSmallScreen ? 80 : 140} // Example: half size on small screens
                 height={isSmallScreen ? 30 : 50}
               />
