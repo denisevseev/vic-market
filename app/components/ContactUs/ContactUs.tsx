@@ -58,9 +58,6 @@ const ContactUs = ({ open, setOpen }: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validateForm()) {
-      // Here you would handle the submission of the form data
-      console.log("Form submitted:", { email, subject, message });
-      // Reset form and close modal
       setEmail("");
       setSubject("");
       setMessage("");

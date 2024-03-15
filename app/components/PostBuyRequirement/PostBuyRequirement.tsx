@@ -25,7 +25,6 @@ const PostBuyRequirement = () => {
   };
 
   const testna = (data: any) => {
-    console.log(data);
     setAudioData(data);
   };
 
