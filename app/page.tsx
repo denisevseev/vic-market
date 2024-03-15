@@ -33,10 +33,7 @@ export default function Home() {
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
   // const { data: countryData } = useCountryData();
-  // console.log(countryData);
   const postBuyRequirementRef = useRef<HTMLDivElement>(null);
-
-
 
 
   const scrollToPostBuyRequirement = () => {
@@ -50,7 +47,6 @@ export default function Home() {
     if (marketData) {
       const formated = processApiResponse(marketData);
       setCategories(formated);
-      console.log(formated);
       setFeaturedProducts(getRandomProducts(formated, 10));
       setNewArrivals(getProductsSortedById(formated, 10));
       setLatestTrands(getFilteredProducts(formated, 10, ["description"]));

@@ -45,7 +45,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   audioData,
   id,
 }) => {
-  const [frequency, setFrequency] = useState("one-time");
+  const [frequency, setFrequency] = useState("One-Time");
 
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,21 +99,19 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const buy = async () => {
     const payload = {
-      country_id: 21, // or country if you have a country variable
+      country_id: 21,
       phone: `${inputValue}${mobileNumber}`,
       client_name: name,
       email: email,
       company_name: companyName,
       city: city,
-      id: id,
-      // Add other fields as necessary
+      product_id: id,
+      requirement_frequency: frequency,
+      comment: inquiryMessage,
     };
 
     try {
       const response = await axios.post("api/market/buy", payload);
-
-      console.log("Data successfully sent to the backend.");
-      console.log(response.data);
       handleCloseModal();
     } catch (error) {
       // Error handling with axios
@@ -310,12 +308,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               row
             >
               <FormControlLabel
-                value="one-time"
+                value="One-Time"
                 control={<Radio />}
                 label="One-Time"
               />
               <FormControlLabel
-                value="recurring"
+                value="Recurring"
                 control={<Radio />}
                 label="Recurring"
               />
@@ -721,12 +719,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               row
             >
               <FormControlLabel
-                value="one-time"
+                value="One-Time"
                 control={<Radio />}
                 label="One-Time"
               />
               <FormControlLabel
-                value="recurring"
+                value="Recurring"
                 control={<Radio />}
                 label="Recurring"
               />
