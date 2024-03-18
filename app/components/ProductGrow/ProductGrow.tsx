@@ -1,9 +1,16 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
 import "./ProductGrow.scss";
-import React from "react";
+import React, { useState } from "react";
+import SellProductModal from "../SellProductModal/SellProductModal";
 
 export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handleCloseModal = () => setModalOpen(false);
+
+  const handleOpenModal = () => setModalOpen(true);
+
+
   return (
     <Box className="lookingForProductWantToGrowYourBusinessMain">
       <Box className="lookingForProductWantToGrowYourBusinessMainBox">
@@ -26,10 +33,17 @@ export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
             You offer products or goods and <br />
             want to extend your business?
           </Typography>
-          <Button variant="outlined" className="wantToGrowBtn">
+          <Button variant="outlined" className="wantToGrowBtn" onClick={handleOpenModal}>
             <Typography className="wantToGrowText">Get new clients!</Typography>
             <Typography className="trandeIndiaText"></Typography>
           </Button>
+          {isModalOpen && (
+            <SellProductModal
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              isAudio={true}
+            />
+          )}
         </Box>
       </Box>
     </Box>
