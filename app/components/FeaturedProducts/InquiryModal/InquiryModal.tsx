@@ -21,8 +21,11 @@ import {
   FormControl,
   FormHelperText,
   IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@mui/material";
-import OtpVerification from "./OtpVerification/OtpVerification";
+import { useCountryData } from "@/app/hooks/useCountryData";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -46,6 +49,15 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   id,
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
+
+  // country start
+  const { data: countryData } = useCountryData();
+  const [userCountry, setUserCountry] = useState("");
+
+  const handleChangeCountry = (event: any) => {
+    setUserCountry(event.target.value);
+  };
+  // country end
 
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -98,23 +110,27 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   };
 
   const buy = async () => {
-    const payload = {
-      country_id: 21,
+    let payload: any = {
+      country_id: userCountry,
       phone: `${inputValue}${mobileNumber}`,
       client_name: name,
       email: email,
       company_name: companyName,
       city: city,
-      product_id: id,
       requirement_frequency: frequency,
       comment: inquiryMessage,
     };
+
+    if (id) {
+      payload.product_id = id;
+    } else {
+      payload.client_requirements = productName;
+    }
 
     try {
       const response = await axios.post("api/market/buy", payload);
       handleCloseModal();
     } catch (error) {
-      // Error handling with axios
       console.error("Error sending data to the backend: ", error);
     }
   };
@@ -542,14 +558,44 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
             />
-            <TextField
-              fullWidth
-              margin="normal"
-              label="City"
-              variant="outlined"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            />
+            <div style={{ marginTop: "8px" }}>
+              <InputLabel
+                style={{ marginBottom: "6px" }}
+                id="demo-simple-select-label"
+              >
+                Select Country
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                fullWidth
+                id="demo-simple-select"
+                value={userCountry}
+                onChange={handleChangeCountry}
+                placeholder="Select Category"
+                sx={{
+                  height: "3.5rem",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderRadius: "10px",
+                  },
+                }}
+              >
+                {countryData?.map((country) => (
+                  <MenuItem key={country.id} value={country.id}>
+                    {country.fallback_name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
+            <div style={{ marginTop: "8px" }}>
+              <TextField
+                fullWidth
+                margin="normal"
+                label="City"
+                variant="outlined"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
 
             <div>
               <div>

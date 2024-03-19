@@ -27,6 +27,9 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import { useCountryData } from "@/app/hooks/useCountryData";
+import { processApiResponse } from "@/api/helper/dataFilter";
+import { useMarketData } from "@/app/hooks/useMarketData";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -68,6 +71,28 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
   const [inputValue, setInputValue] = useState("");
 
+  // country start
+  const { data: countryData } = useCountryData();
+  const [userCountry, setUserCountry] = useState("");
+
+  const handleChangeCountry = (event: any) => {
+    setUserCountry(event.target.value);
+  };
+  // country end
+
+  // categories start
+  const { data: marketData, isLoading } = useMarketData();
+  const [categories, setCategories] = useState<any>(null);
+
+  useEffect(() => {
+    const formated = processApiResponse(marketData);
+    if (formated) {
+      console.log(formated);
+      setCategories(formated);
+    }
+  }, [marketData]); // Add marketData as a dependency
+  // categories end
+
   //   step 3 start
   const [name, setName] = useState("");
   const [productName, setProductName] = useState("");
@@ -101,6 +126,20 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   };
   // image end
 
+  // video start
+  const [video, setVideo] = useState<string | null>(null);
+
+  const handleVideoChange = (e: any) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedVideo = e.target.files[0];
+      setVideo(URL.createObjectURL(selectedVideo));
+    }
+  };
+  const handleDeleteVideo = () => {
+    setVideo(null);
+  };
+  // video end
+
   const handleGstChange = (event: any) => {
     setGstChecked(event.target.checked);
   };
@@ -123,7 +162,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
   const sell = async () => {
     const payload = {
-      country_id: 21,
+      country_id: userCountry,
       phone: `${inputValue}${mobileNumber}`,
       client_name: name,
       email: email,
@@ -133,7 +172,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
       requirement_frequency: frequency,
       comment: productDetails,
       price: productPrice,
-      category: "Food and Drink",
+      category: category,
     };
 
     try {
@@ -241,6 +280,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
       <Box
+      className="custom-scrollbar"
         sx={{
           position: "absolute",
           top: "50%",
@@ -250,6 +290,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
             xs: "100%",
             sm: 480,
           },
+          maxHeight: "90vh", // Sets the maximum height
+          overflowY: "auto",
           bgcolor: "background.paper",
           boxShadow: 24,
           padding: "20px",
@@ -411,11 +453,87 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               <input
                 id="imageInput"
                 type="file"
+                accept="image/png, image/jpeg, image/gif"
                 onChange={handleImageChange}
                 style={{ display: "none" }}
               />
             </div>
             {/* imag end */}
+
+            {/* video start */}
+            <div style={{ marginTop: "20px" }}>
+              {video ? (
+                <div
+                  style={{
+                    height: "113px",
+                    border: "0.5px solid black",
+                    cursor: "pointer",
+                    padding: "8px",
+                    borderRadius: "10px",
+                    borderColor: "rgb(38, 92, 129)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                  }}
+                >
+                  <video
+                    width="auto"
+                    height="100px"
+                    controls
+                    src={video}
+                    style={{ borderRadius: "10px" }}
+                  />
+                  <DeleteIcon
+                    onClick={handleDeleteVideo}
+                    style={{
+                      position: "absolute",
+                      top: "5px",
+                      right: "5px",
+                      cursor: "pointer",
+                      color: "#b30000",
+                    }}
+                  />
+                </div>
+              ) : (
+                <div
+                  onClick={() => document.getElementById("videoInput")?.click()}
+                  style={{
+                    height: "113px",
+                    border: "0.5px solid black",
+                    cursor: "pointer",
+                    padding: "8px",
+                    borderRadius: "10px",
+                    borderColor: "rgb(38, 92, 129)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    className="send-inquiry"
+                    sx={{
+                      color: "rgb(38, 92, 129);",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      fontFamily: "Poppins, sans-serif",
+                    }}
+                  >
+                    Click to upload video
+                  </Typography>
+                </div>
+              )}
+              <input
+                id="videoInput"
+                type="file"
+                accept="video/mp4,video/x-m4v,video/*"
+                onChange={handleVideoChange}
+                style={{ display: "none" }}
+              />
+            </div>
+            {/* video end */}
 
             <div style={{ marginTop: "6px" }}>
               <TextField
@@ -453,7 +571,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               />
             </RadioGroup> */}
 
-            <div style={{ marginTop: "14px" }}>
+            <div style={{ marginTop: "3px" }}>
               <InputLabel
                 style={{ marginBottom: "6px" }}
                 id="demo-simple-select-label"
@@ -466,16 +584,26 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 id="demo-simple-select"
                 value={category}
                 onChange={handleChangeCategory}
-                placeholder="Select Category"
+                displayEmpty // This prop makes the placeholder visible
                 sx={{
-                  borderRadius: "10px",
+                  height: "3.5rem",
                   "& .MuiOutlinedInput-notchedOutline": {
                     borderRadius: "10px",
                   },
                 }}
+                inputProps={{ "aria-label": "Without label" }} // Required for placeholder to work without label
               >
-                <MenuItem value={"option1"}>Option 1</MenuItem>
-                <MenuItem value={"option2"}>Option 2</MenuItem>
+                <MenuItem value="" disabled>
+                  Select Category
+                </MenuItem>
+                {categories?.map((categoryItem: any) => (
+                  <MenuItem
+                    key={categoryItem.categoryName}
+                    value={categoryItem.categoryName}
+                  >
+                    {categoryItem.categoryName}
+                  </MenuItem>
+                ))}
               </Select>
             </div>
 
@@ -704,6 +832,34 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
             />
+            <div style={{ marginTop: "8px" }}>
+              <InputLabel
+                style={{ marginBottom: "6px" }}
+                id="demo-simple-select-label"
+              >
+                Select Country
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                fullWidth
+                id="demo-simple-select"
+                value={userCountry}
+                onChange={handleChangeCountry}
+                placeholder="Select Category"
+                sx={{
+                  height: "3.5rem",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderRadius: "10px",
+                  },
+                }}
+              >
+                {countryData?.map((country) => (
+                  <MenuItem key={country.id} value={country.id}>
+                    {country.fallback_name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
             <TextField
               fullWidth
               margin="normal"
