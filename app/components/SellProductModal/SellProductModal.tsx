@@ -173,6 +173,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
       comment: productDetails,
       price: productPrice,
       category: category,
+      description: productDetails,
     };
 
     try {
@@ -295,7 +296,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           bgcolor: "background.paper",
           boxShadow: 24,
           padding: "20px",
-          borderRadius: 7,
+          borderRadius: 4,
         }}
       >
         {step === 1 && (

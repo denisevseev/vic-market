@@ -119,6 +119,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       city: city,
       requirement_frequency: frequency,
       comment: inquiryMessage,
+      description: inquiryMessage,
     };
 
     if (id) {
