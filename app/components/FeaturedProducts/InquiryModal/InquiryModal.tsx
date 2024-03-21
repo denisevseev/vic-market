@@ -1,7 +1,6 @@
 "use client";
 import React, { use, useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -14,6 +13,9 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 import {
   Autocomplete,
@@ -49,6 +51,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   id,
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
+  const [isLoading, setIsLoading] = useState(false); // Replace this with your actual loading state
 
   // country start
   const { data: countryData } = useCountryData();
@@ -99,40 +102,52 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const handleNextStep = () => {
     if (isAudio && step === 3) {
+      console.log("block 0", step);
       setStep(step + 1);
       return;
     }
     if (step < 3) {
       setStep(step + 1);
+      console.log("block 1", step);
     } else {
+      console.log("block 2", step);
       buy();
     }
   };
 
   const buy = async () => {
-    let payload: any = {
-      country_id: userCountry,
-      phone: `${inputValue}${mobileNumber}`,
-      client_name: name,
-      email: email,
-      company_name: companyName,
-      city: city,
-      requirement_frequency: frequency,
-      comment: inquiryMessage,
-      description: inquiryMessage,
-    };
+    setIsLoading(true);
+    setStep(6);
+    let payload = new FormData(); // Use FormData to handle file upload
+    payload.append("country_id", userCountry);
+    payload.append("phone", `${inputValue}${mobileNumber}`);
+    payload.append("client_name", name);
+    payload.append("email", email);
+    payload.append("company_name", companyName);
+    payload.append("city", city);
+    payload.append("requirement_frequency", frequency);
+    payload.append("description", inquiryMessage);
 
     if (id) {
-      payload.product_id = id;
+      payload.append("product_id", id);
     } else {
-      payload.client_requirements = productName;
+      payload.append("client_requirements", productName);
+    }
+
+    if (audioData) {
+      const file = await fetch(audioData).then((r) => r.blob()); // Convert the Blob URL to a Blob
+      payload.append("file1", file, "audio_message.wav"); // Append the file to the payload, providing a filename
     }
 
     try {
-      const response = await axios.post("api/market/buy", payload);
-      handleCloseModal();
+      const response = await axios.post("api/market/buy", payload, {
+        headers: { "Content-Type": "multipart/form-data" }, // Set the content type for file upload
+      });
+      setIsLoading(false);
+      // handleCloseModal();
     } catch (error) {
       console.error("Error sending data to the backend: ", error);
+      setIsLoading(false);
     }
   };
 
@@ -824,6 +839,116 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </div>
           </>
         )}
+
+        {/* step = 5 start*/}
+        {step === 6 && (
+          <>
+            <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
+              <div className="d-flex ai-center gap-8">
+                {/* <IconButton onClick={handleBackStep} aria-label="go back">
+                  <ArrowBackIcon />
+                </IconButton> */}
+
+                {/* <Typography
+                  variant="h6"
+                  component="h2"
+                  className="send-inquiry"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "28px",
+                    fontWeight: "600",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Submission
+                </Typography> */}
+              </div>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
+            </div>
+            {/* Additional fields for contact details */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100px", // Set a height so the box doesn't collapse when the content changes
+                }}
+              >
+                {isLoading ? (
+                  <CircularProgress />
+                ) : (
+                  <div
+                    className="icon-and-text"
+                    style={{ display: "flex", alignItems: "center", flexDirection: "column"}}
+                  >
+                    <CheckCircleOutlineIcon
+                      sx={{
+                        fontSize: "48px", // Set the icon size
+                        color: "green",
+                      }}
+                    />
+                    <Typography
+                      variant="h6"
+                      component="h2"
+                      className="send-inquiry"
+                      sx={{
+                        color: "green",
+                        fontSize: "28px",
+                        fontWeight: "600",
+                        fontFamily: "Poppins, sans-serif",
+                      }}
+                    >
+                      Successfully Submitted
+                    </Typography>
+                  </div>
+                )}
+              </Box>
+            </Box>
+            <Button
+              variant="contained"
+              onClick={handleCloseModal}
+              sx={{
+                mt: 6,
+                mb: 5,
+                height: "48px",
+                borderRadius: "8px",
+                backgroundColor: "#2A5182",
+                width: "100%",
+                textDecoration: "none",
+                ".button-text p": {
+                  textTransform: "none",
+                },
+              }}
+              disabled={!mobileNumber || !country}
+            >
+              <div className="button-text">
+                <p>Close Modal</p>
+                <CloseIcon />
+              </div>
+            </Button>
+          </>
+        )}
+
+        {/* step 6 start */}
       </Box>
     </Modal>
   );

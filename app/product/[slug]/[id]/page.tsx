@@ -111,6 +111,8 @@ export default function Product({ params }: any) {
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
 
+  console.log(singleProduct);
+
   return (
     <main>
       <Box className="container">
@@ -190,10 +192,11 @@ export default function Product({ params }: any) {
                             <Box>
                               <Box className="subInfoBox">
                                 <Typography className="subInfoHead">
-                                  Manufacturer:{" "}
+                                  Seller detail:{" "}
                                 </Typography>
                                 <Typography className="subInfo">
-                                  {product.manufacturerName}{" "}
+                                  {/* {product.manufacturerName}{" "} */}
+                                  Victorum {product?.countryName}
                                 </Typography>
                               </Box>
                             </Box>
@@ -202,23 +205,29 @@ export default function Product({ params }: any) {
                                 <Typography className="subInfoHead">
                                   Delivery Time:{" "}
                                 </Typography>
-                                <Typography className="subInfo">- </Typography>
+                                <Typography className="subInfo">
+                                  1 - 90 days
+                                </Typography>
                               </Box>
                             </Box>
                             <Box>
                               <Box className="subInfoBox">
                                 <Typography className="subInfoHead">
-                                  Supply Ability:{" "}
+                                  Income Terms:{" "}
                                 </Typography>
-                                <Typography className="subInfo">- </Typography>
+                                <Typography className="subInfo">
+                                  {product?.incoterms}
+                                </Typography>
                               </Box>
                             </Box>
                             <Box>
                               <Box className="subInfoBox">
                                 <Typography className="subInfoHead">
-                                  Sample Available :{" "}
+                                  Minimal Parity:
                                 </Typography>
-                                <Typography className="subInfo">- </Typography>
+                                <Typography className="subInfo">
+                                  {product.minimal_quantity}
+                                </Typography>
                               </Box>
                             </Box>
                             <Box>
@@ -241,7 +250,9 @@ export default function Product({ params }: any) {
                           rating={sellerInfo.rating}
                           proprietor={sellerInfo.proprietor}
                           memberSince={sellerInfo.memberSince}
-                          address={sellerInfo.address}
+                          address={product?.address}
+                          country={product?.countryName}
+                          tnvedCode={product?.tnvedCode}
                         />
                       </Box>
                     </Box>
@@ -266,7 +277,9 @@ export default function Product({ params }: any) {
                         rating={sellerInfo.rating}
                         proprietor={sellerInfo.proprietor}
                         memberSince={sellerInfo.memberSince}
-                        address={sellerInfo.address}
+                        address={product?.address}
+                        country={product?.countryName}
+                        tnvedCode={product?.tnvedCode}
                       />
                     </Box>
                     <InquiryModal

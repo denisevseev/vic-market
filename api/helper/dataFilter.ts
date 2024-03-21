@@ -144,7 +144,7 @@ export const getProductSlug = (name: string) => {
 export const processApiResponse = (apiResponse: any) => {
   const categoriesMap: any = {};
 
-  apiResponse.forEach((item: any) => {
+  apiResponse?.forEach((item: any) => {
     const categoryName = item.categoryName;
     const categorySlug = getCategorySlug(item.categoryName);
     const productId = item.id;

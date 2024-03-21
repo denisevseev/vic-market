@@ -112,17 +112,21 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   };
 
   //   image start
-  const [image, setImage] = useState<string | null>(null);
+  // const [image, setImage] = useState<string | null>(null);
+  const [images, setImages] = useState([]);
 
   const handleImageChange = (e: any) => {
-    if (e.target.files && e.target.files[0]) {
-      const selectedImage = e.target.files[0];
-      setImage(URL.createObjectURL(selectedImage));
-    }
+    const selectedFiles: any = Array.from(e.target.files);
+    const newImageUrls: any = selectedFiles.map((file: any) =>
+      URL.createObjectURL(file)
+    );
+    setImages((prevImages): any => [...prevImages, ...newImageUrls]);
   };
 
-  const handleDeleteImage = () => {
-    setImage(null);
+  const handleDeleteImage = (imageToDelete: any) => {
+    setImages((prevImages: any) =>
+      prevImages.filter((image: any) => image !== imageToDelete)
+    );
   };
   // image end
 
@@ -281,7 +285,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
       <Box
-      className="custom-scrollbar"
+        className="custom-scrollbar"
         sx={{
           position: "absolute",
           top: "50%",
@@ -379,82 +383,69 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
             {/* start image */}
             <div style={{ marginTop: "13px" }}>
-              {image ? (
-                <div
-                  style={{
-                    // width: "200px",
-                    height: "113px",
-                    border: "0.5px solid black",
-                    cursor: "pointer",
-                    padding: "8px",
-                    borderRadius: "10px",
-                    borderColor: "rgb(38, 92, 129)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    className="imageContainer-logo-s"
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                    }}
-                  >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  marginBottom: "13px",
+                }}
+              >
+                {images.map((imageSrc, index) => (
+                  <div key={index} style={{ position: "relative" }}>
                     <Image
-                      src={image}
-                      alt="Victorum Capital"
-                      layout="fill"
-                      objectFit="contain"
+                      src={imageSrc}
+                      alt={`Uploaded image ${index + 1}`}
+                      width={100} // Adjust the size as needed
+                      height={100}
+                      style={{ borderRadius: "10px" }}
+                    />
+                    <DeleteIcon
+                      onClick={() => handleDeleteImage(imageSrc)}
+                      style={{
+                        position: "absolute",
+                        top: "5px",
+                        right: "5px",
+                        cursor: "pointer",
+                        color: "#b30000",
+                      }}
                     />
                   </div>
-                  <DeleteIcon
-                    onClick={handleDeleteImage}
-                    style={{
-                      position: "absolute",
-                      top: "5px",
-                      right: "5px",
-                      cursor: "pointer",
-                      color: "#b30000",
-                    }}
-                  />
-                </div>
-              ) : (
-                <div
-                  onClick={() => document.getElementById("imageInput")?.click()}
-                  style={{
-                    // width: "200px",
-                    height: "113px",
-                    border: "0.5px solid black",
-                    cursor: "pointer",
-                    padding: "8px",
-                    borderRadius: "10px",
-                    borderColor: "rgb(38, 92, 129)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                ))}
+              </div>
+              <div
+                onClick={() => document.getElementById("imageInput")?.click()}
+                style={{
+                  height: "33px",
+                  border: "0.5px solid black",
+                  cursor: "pointer",
+                  padding: "8px",
+                  borderRadius: "10px",
+                  borderColor: "rgb(38, 92, 129)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "14px",
+                    fontWeight: "400",
+                    fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    component="h2"
-                    className="send-inquiry"
-                    sx={{
-                      color: "rgb(38, 92, 129);",
-                      fontSize: "14px",
-                      fontWeight: "400",
-                      fontFamily: "Poppins, sans-serif",
-                    }}
-                  >
-                    Click to upload product image
-                  </Typography>
-                </div>
-              )}
+                  Click to upload product images
+                </Typography>
+              </div>
               <input
                 id="imageInput"
                 type="file"
-                accept="image/png, image/jpeg, image/gif"
+                accept="image/*"
+                multiple // Allows multiple file selections
                 onChange={handleImageChange}
                 style={{ display: "none" }}
               />
@@ -619,7 +610,10 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 variant="contained"
                 onClick={handleNextStep}
                 disabled={
-                  !productDetails || !productName || !image || !productPrice
+                  !productDetails ||
+                  !productName ||
+                  !images.length ||
+                  !productPrice
                 }
                 sx={{
                   mt: 6,
