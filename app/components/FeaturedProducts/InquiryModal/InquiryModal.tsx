@@ -102,15 +102,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const handleNextStep = () => {
     if (isAudio && step === 3) {
-      console.log("block 0", step);
       setStep(step + 1);
       return;
     }
     if (step < 3) {
       setStep(step + 1);
-      console.log("block 1", step);
     } else {
-      console.log("block 2", step);
       buy();
     }
   };
@@ -898,7 +895,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 ) : (
                   <div
                     className="icon-and-text"
-                    style={{ display: "flex", alignItems: "center", flexDirection: "column"}}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
                   >
                     <CheckCircleOutlineIcon
                       sx={{

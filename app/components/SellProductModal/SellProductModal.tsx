@@ -16,6 +16,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import "./SellProductModal.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
+import CircularProgress from "@mui/material/CircularProgress";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 import {
   Autocomplete,
@@ -52,6 +54,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
 
+  const [isLoadingSell, setIsLoadingSell] = useState(false);
+
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
@@ -87,7 +91,6 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   useEffect(() => {
     const formated = processApiResponse(marketData);
     if (formated) {
-      console.log(formated);
       setCategories(formated);
     }
   }, [marketData]); // Add marketData as a dependency
@@ -106,6 +109,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const [termsChecked, setTermsChecked] = React.useState(true);
 
   const [category, setCategory] = useState("");
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [videoPreview, setVideoPreview] = useState<string | null>(null);
 
   const handleChangeCategory = (event: any) => {
     setCategory(event.target.value);
@@ -116,16 +121,23 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const [images, setImages] = useState([]);
 
   const handleImageChange = (e: any) => {
-    const selectedFiles: any = Array.from(e.target.files);
-    const newImageUrls: any = selectedFiles.map((file: any) =>
+    const selectedFiles = Array.from(e.target.files);
+    // Save the actual File objects for upload
+    setImages((prevImages): any => [...prevImages, ...selectedFiles]);
+    // Create blob URLs for local preview if necessary
+    const newImageUrls = selectedFiles.map((file: any) =>
       URL.createObjectURL(file)
     );
-    setImages((prevImages): any => [...prevImages, ...newImageUrls]);
+    // Assuming you have a separate state to hold these for preview
+    setImagePreviews((prevImageUrls) => [...prevImageUrls, ...newImageUrls]);
   };
 
   const handleDeleteImage = (imageToDelete: any) => {
     setImages((prevImages: any) =>
       prevImages.filter((image: any) => image !== imageToDelete)
+    );
+    setImagePreviews((prevImageUrls: any) =>
+      prevImageUrls.filter((url: any) => url !== imageToDelete)
     );
   };
   // image end
@@ -136,11 +148,14 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const handleVideoChange = (e: any) => {
     if (e.target.files && e.target.files[0]) {
       const selectedVideo = e.target.files[0];
-      setVideo(URL.createObjectURL(selectedVideo));
+      setVideo(selectedVideo);
+      setVideoPreview(URL.createObjectURL(selectedVideo));
     }
   };
+
   const handleDeleteVideo = () => {
     setVideo(null);
+    setVideoPreview(null);
   };
   // video end
 
@@ -158,34 +173,50 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
       setStep(step + 1);
       return;
     }
-    console.log("step", step);
     if (step === 3) {
       sell();
     }
   };
 
   const sell = async () => {
-    const payload = {
-      country_id: userCountry,
-      phone: `${inputValue}${mobileNumber}`,
-      client_name: name,
-      email: email,
-      company_name: companyName,
-      city: city,
-      product_name: productName,
-      requirement_frequency: frequency,
-      comment: productDetails,
-      price: productPrice,
-      category: category,
-      description: productDetails,
-    };
+    setIsLoadingSell(true);
+    setStep(6);
+
+    // Create a FormData instance to hold the files
+    const formData = new FormData();
+    formData.append("country_id", userCountry);
+    formData.append("phone", `${inputValue}${mobileNumber}`);
+    formData.append("client_name", name);
+    formData.append("email", email);
+    formData.append("company_name", companyName);
+    formData.append("city", city);
+    formData.append("product_name", productName);
+    formData.append("requirement_frequency", frequency);
+    formData.append("comment", productDetails);
+    formData.append("price", productPrice);
+    formData.append("category", category);
+    formData.append("description", productDetails);
+
+    images.forEach((file, index) => {
+      formData.append(`file${index + 2}`, file); // 'file' should be a File object
+    });
+    if (video) {
+      formData.append("file10", video); // 'video' should be a File object
+    }
 
     try {
-      const response = await axios.post("api/market/sell", payload);
-      handleCloseModal();
+      const response = await axios.post("api/market/sell", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      // Handle successful response
+      setIsLoadingSell(false);
+      // ... rest of your success logic
     } catch (error) {
-      // Error handling with axios
       console.error("Error sending data to the backend: ", error);
+      setIsLoadingSell(false);
+      // ... rest of your error handling logic
     }
   };
 
@@ -392,15 +423,25 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   marginBottom: "13px",
                 }}
               >
-                {images.map((imageSrc, index) => (
+                {imagePreviews.map((imageSrc, index) => (
                   <div key={index} style={{ position: "relative" }}>
-                    <Image
-                      src={imageSrc}
-                      alt={`Uploaded image ${index + 1}`}
-                      width={100} // Adjust the size as needed
-                      height={100}
-                      style={{ borderRadius: "10px" }}
-                    />
+                    <div
+                      style={{
+                        borderRadius: "10px",
+                        overflow: "hidden",
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <Image
+                        src={imageSrc}
+                        alt={`Uploaded image ${index + 1}`}
+                        width={100}
+                        height={100}
+                        layout="responsive"
+                        objectFit="cover"
+                      />
+                    </div>
                     <DeleteIcon
                       onClick={() => handleDeleteImage(imageSrc)}
                       style={{
@@ -473,8 +514,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     width="auto"
                     height="100px"
                     controls
-                    src={video}
                     style={{ borderRadius: "10px" }}
+                    {...(videoPreview ? { src: videoPreview } : {})}
                   />
                   <DeleteIcon
                     onClick={handleDeleteVideo}
@@ -1075,6 +1116,102 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
             </div>
           </>
         )}
+
+        {/* step 6 start */}
+        {step === 6 && (
+          <>
+            <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
+              <div className="d-flex ai-center gap-8"></div>
+
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <CloseIcon style={{ color: "grey" }} />
+              </button>
+            </div>
+            {/* Additional fields for contact details */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100px", // Set a height so the box doesn't collapse when the content changes
+                }}
+              >
+                {isLoadingSell ? (
+                  <CircularProgress />
+                ) : (
+                  <div
+                    className="icon-and-text"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <CheckCircleOutlineIcon
+                      sx={{
+                        fontSize: "48px", // Set the icon size
+                        color: "green",
+                      }}
+                    />
+                    <Typography
+                      variant="h6"
+                      component="h2"
+                      className="send-inquiry"
+                      sx={{
+                        color: "green",
+                        fontSize: "28px",
+                        fontWeight: "600",
+                        fontFamily: "Poppins, sans-serif",
+                      }}
+                    >
+                      Successfully Submitted
+                    </Typography>
+                  </div>
+                )}
+              </Box>
+            </Box>
+            <Button
+              variant="contained"
+              onClick={handleCloseModal}
+              sx={{
+                mt: 6,
+                mb: 5,
+                height: "48px",
+                borderRadius: "8px",
+                backgroundColor: "#2A5182",
+                width: "100%",
+                textDecoration: "none",
+                ".button-text p": {
+                  textTransform: "none",
+                },
+              }}
+              disabled={!mobileNumber || !country}
+            >
+              <div className="button-text">
+                <p>Close Modal</p>
+                <CloseIcon />
+              </div>
+            </Button>
+          </>
+        )}
+
+        {/* step 6 start */}
       </Box>
     </Modal>
   );

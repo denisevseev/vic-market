@@ -31,6 +31,10 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
   country,
   tnvedCode,
 }) => {
+  const addressTest =
+    "Belarus' - 220053, g. Minsk, ul. Orlovskaya 40, 3j etazh, of. 19";
+  const encodedAddress = encodeURIComponent(addressTest);
+
   return (
     <Box className="seller-details">
       <Box>

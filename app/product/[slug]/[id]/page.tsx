@@ -110,9 +110,6 @@ export default function Product({ params }: any) {
     address:
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
-
-  console.log(singleProduct);
-
   return (
     <main>
       <Box className="container">
