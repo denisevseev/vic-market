@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getRandomTopCategoriesWithItems = (
   categoriesWithProducts: any,
   numberOfCategories: number,
@@ -25,6 +27,12 @@ export const getRandomTopCategoriesWithItems = (
   // Return the top categories with their products
   return categoriesWithRandomizedProducts;
 };
+
+export const getProductByID = async (productID: string) => {
+  const response = await axios.get(`/api/market/product/${productID}`);
+  return response.data;
+}
+
 
 export const getFilteredProductsByCategory = (
   categoriesWithProducts: any,

@@ -69,15 +69,18 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
         />
         <Image src={PremiumImage} height={32} width={64} alt="Premium Seller" />
       </Box>
-      <Box className="mainInfoBox">
-        <Box className="mainInfoAndIconBox">
-          <PersonOutlineOutlinedIcon
-            sx={{ width: "24px", height: "24px", color: "#5E676E" }}
-          />{" "}
-          <Typography className="mainInfoSellerHead">Proprietor</Typography>
+      {proprietor && (
+        <Box className="mainInfoBox">
+          <Box className="mainInfoAndIconBox">
+            <PersonOutlineOutlinedIcon
+              sx={{ width: "24px", height: "24px", color: "#5E676E" }}
+            />{" "}
+            <Typography className="mainInfoSellerHead">Proprietor</Typography>
+          </Box>
+          <Typography className="mainInfoSellerText">{proprietor}</Typography>
         </Box>
-        <Typography className="mainInfoSellerText">{proprietor}</Typography>
-      </Box>
+      )}
+
       {/* <Box className="mainInfoBox">
         <Box className="mainInfoAndIconBox">
           <CalendarTodayOutlinedIcon
