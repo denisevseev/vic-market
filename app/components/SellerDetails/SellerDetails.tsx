@@ -31,9 +31,7 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
   country,
   tnvedCode,
 }) => {
-  const addressTest =
-    "Belarus' - 220053, g. Minsk, ul. Orlovskaya 40, 3j etazh, of. 19";
-  const encodedAddress = encodeURIComponent(addressTest);
+  const encodedAddress = encodeURIComponent(address);
 
   return (
     <Box className="seller-details">
@@ -91,20 +89,29 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
           {memberSince} Years
         </Typography>
       </Box> */}
-      <Box className="mainInfoBox">
-        <Box className="mainInfoAndIconBox">
-          <FmdGoodOutlinedIcon
-            sx={{ width: "24px", height: "24px", color: "#5E676E" }}
-          />{" "}
-          <Box className="addressAndViewMapBox">
-            <Typography className="mainInfoSellerHead">Address</Typography>
-            <Box>
-              <Typography className="viewOnMap">View on Map</Typography>
+      {address && (
+        <Box className="mainInfoBox">
+          <Box className="mainInfoAndIconBox">
+            <FmdGoodOutlinedIcon
+              sx={{ width: "24px", height: "24px", color: "#5E676E" }}
+            />{" "}
+            <Box className="addressAndViewMapBox">
+              <Typography className="mainInfoSellerHead">Address</Typography>
+              <Box>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Typography className="viewOnMap">View on Map</Typography>
+                </a>
+              </Box>
             </Box>
           </Box>
+          <Typography className="mainInfoSellerText">{address}</Typography>
         </Box>
-        <Typography className="mainInfoSellerText">{address}</Typography>
-      </Box>
+      )}
       {/* <Box className="viewContactBtnsBox">
         <Button className="viewBtn">
           <Typography className="viewBtnText">

@@ -207,26 +207,30 @@ export default function Product({ params }: any) {
                                 </Typography>
                               </Box>
                             </Box>
-                            <Box>
-                              <Box className="subInfoBox">
-                                <Typography className="subInfoHead">
-                                  Income Terms:{" "}
-                                </Typography>
-                                <Typography className="subInfo">
-                                  {product?.incoterms}
-                                </Typography>
+                            {product?.incoterms && (
+                              <Box>
+                                <Box className="subInfoBox">
+                                  <Typography className="subInfoHead">
+                                    Income Terms:{" "}
+                                  </Typography>
+                                  <Typography className="subInfo">
+                                    {product?.incoterms}
+                                  </Typography>
+                                </Box>
                               </Box>
-                            </Box>
-                            <Box>
-                              <Box className="subInfoBox">
-                                <Typography className="subInfoHead">
-                                  Minimal Parity:
-                                </Typography>
-                                <Typography className="subInfo">
-                                  {product.minimal_quantity}
-                                </Typography>
+                            )}
+                            {product?.minimal_quantity && (
+                              <Box>
+                                <Box className="subInfoBox">
+                                  <Typography className="subInfoHead">
+                                    Minimal Parity:
+                                  </Typography>
+                                  <Typography className="subInfo">
+                                    {product.minimal_quantity}
+                                  </Typography>
+                                </Box>
                               </Box>
-                            </Box>
+                            )}
                             <Box>
                               {" "}
                               <button
