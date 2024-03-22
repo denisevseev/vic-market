@@ -10,8 +10,10 @@ import "../../../../styles/SingleProduct.scss";
 import { useEffect, useState } from "react";
 import {
   getFilteredProductsByCategory,
+  getProductByID,
   getProductBySlug,
   processApiResponse,
+
 } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Link from "next/link";
@@ -27,6 +29,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Product({ params }: any) {
   const { data: marketData, isLoading } = useMarketData();
+  const [productFromBE, setProductFromBE] = useState<any | null>(null);
+
 
   const slug = params && params.slug ? params.slug : null;
 
@@ -73,8 +77,6 @@ export default function Product({ params }: any) {
       ];
 
       setBreadcrumbs(generatedBreadcrumbs);
-
-      //  related products start
       if (formated) {
         const category: any = formated.find(
           (cat: any) => cat.categorySlug === slug
@@ -97,9 +99,30 @@ export default function Product({ params }: any) {
         products = excludeProductById(products, product.id);
         setRelatedProducts(products);
       }
-      // related products end
     }
   }, [marketData, slug, productName]);
+
+
+  // fetchprod start
+  const fetchProduct = async (slug: string) => {
+    try {
+      const response = await getProductByID(params.id);
+      setProductFromBE(response);
+    } catch (error) {
+      console.error("Failed to fetch product", error);
+      // Handle errors appropriately
+    }
+  };
+
+  useEffect(() => {
+    fetchProduct(slug);
+  }, []);
+
+
+
+
+
+  // fetchprod end
 
   const sellerInfo = {
     name: "nanda fluorine corporation",
@@ -152,13 +175,13 @@ export default function Product({ params }: any) {
                 {singleProduct.map((product: any) => (
                   <>
                     <Box
-                      key={"Single product" + product.id}
+                      key={"Single product" + productFromBE?.id}
                       className="productInfoMainSellerDetailsMain"
                     >
                       <Box className="productInfoMainBox">
                         <Box className="productImagesContainer">
                           <Image
-                            src={product?.productImage || Default}
+                            src={productFromBE?.files[0].link || Default}
                             width={100}
                             height={100}
                             alt="Product Image"
@@ -174,14 +197,14 @@ export default function Product({ params }: any) {
                           </Box>
                           <Box className="productTitleBox">
                             <Typography className="productTitle">
-                              {product.productName}
+                              {productFromBE?.productName}
                             </Typography>
                           </Box>
                           <Divider sx={{ color: "rgb(238, 240, 243);" }} />
                           <Box className="productPriceBox">
                             {" "}
                             <Typography className="productPrice">
-                              Price: {product.productPrice} {product.currency}
+                              Price: {productFromBE?.productPrice} {productFromBE?.currency}
                             </Typography>
                           </Box>
                           <Divider sx={{ color: "rgb(238, 240, 243);" }} />
@@ -193,7 +216,7 @@ export default function Product({ params }: any) {
                                 </Typography>
                                 <Typography className="subInfo">
                                   {/* {product.manufacturerName}{" "} */}
-                                  Victorum {product?.countryName}
+                                  Victorum {productFromBE?.countryName}
                                 </Typography>
                               </Box>
                             </Box>
@@ -207,26 +230,26 @@ export default function Product({ params }: any) {
                                 </Typography>
                               </Box>
                             </Box>
-                            {product?.incoterms && (
+                            {productFromBE?.incoterms && (
                               <Box>
                                 <Box className="subInfoBox">
                                   <Typography className="subInfoHead">
                                     Income Terms:{" "}
                                   </Typography>
                                   <Typography className="subInfo">
-                                    {product?.incoterms}
+                                    {productFromBE?.incoterms}
                                   </Typography>
                                 </Box>
                               </Box>
                             )}
-                            {product?.minimal_quantity && (
+                            {productFromBE?.minimal_quantity && (
                               <Box>
                                 <Box className="subInfoBox">
                                   <Typography className="subInfoHead">
                                     Minimal Parity:
                                   </Typography>
                                   <Typography className="subInfo">
-                                    {product.minimal_quantity}
+                                    {productFromBE.minimal_quantity}
                                   </Typography>
                                 </Box>
                               </Box>
@@ -251,9 +274,9 @@ export default function Product({ params }: any) {
                           rating={sellerInfo.rating}
                           proprietor={sellerInfo.proprietor}
                           memberSince={sellerInfo.memberSince}
-                          address={product?.address}
-                          country={product?.countryName}
-                          tnvedCode={product?.tnvedCode}
+                          address={productFromBE?.Address}
+                          country={productFromBE?.countryName}
+                          tnvedCode={productFromBE?.tnvedCode}
                         />
                       </Box>
                     </Box>
@@ -266,7 +289,7 @@ export default function Product({ params }: any) {
                         </Box>
                         <Box>
                           <Typography className="productDescText">
-                            {product.description}
+                            {productFromBE?.description}
                           </Typography>
                         </Box>
                       </Box>
@@ -278,18 +301,18 @@ export default function Product({ params }: any) {
                         rating={sellerInfo.rating}
                         proprietor={sellerInfo.proprietor}
                         memberSince={sellerInfo.memberSince}
-                        address={product?.address}
-                        country={product?.countryName}
-                        tnvedCode={product?.tnvedCode}
+                        address={productFromBE?.Address}
+                        country={productFromBE?.countryName}
+                        tnvedCode={productFromBE?.tnvedCode}
                       />
                     </Box>
                     <InquiryModal
                       isOpen={isModalOpen}
                       onClose={handleCloseModal}
-                      productName={product.productName}
-                      company={product.manufacturerName}
-                      imgSrc={product.productImage ?? "/get-distributers.svg"}
-                      id={product.id}
+                      productName={productFromBE?.productName}
+                      company={productFromBE?.manufacturerName}
+                      imgSrc={productFromBE?.files[0]?.link ?? "/get-distributers.svg"}
+                      id={productFromBE?.id}
                     />
                   </>
                 ))}
