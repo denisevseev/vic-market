@@ -110,7 +110,6 @@ export default function Product({ params }: any) {
     address:
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
-
   return (
     <main>
       <Box className="container">
@@ -190,10 +189,11 @@ export default function Product({ params }: any) {
                             <Box>
                               <Box className="subInfoBox">
                                 <Typography className="subInfoHead">
-                                  Manufacturer:{" "}
+                                  Seller detail:{" "}
                                 </Typography>
                                 <Typography className="subInfo">
-                                  {product.manufacturerName}{" "}
+                                  {/* {product.manufacturerName}{" "} */}
+                                  Victorum {product?.countryName}
                                 </Typography>
                               </Box>
                             </Box>
@@ -202,25 +202,35 @@ export default function Product({ params }: any) {
                                 <Typography className="subInfoHead">
                                   Delivery Time:{" "}
                                 </Typography>
-                                <Typography className="subInfo">- </Typography>
-                              </Box>
-                            </Box>
-                            <Box>
-                              <Box className="subInfoBox">
-                                <Typography className="subInfoHead">
-                                  Supply Ability:{" "}
+                                <Typography className="subInfo">
+                                  1 - 90 days
                                 </Typography>
-                                <Typography className="subInfo">- </Typography>
                               </Box>
                             </Box>
-                            <Box>
-                              <Box className="subInfoBox">
-                                <Typography className="subInfoHead">
-                                  Sample Available :{" "}
-                                </Typography>
-                                <Typography className="subInfo">- </Typography>
+                            {product?.incoterms && (
+                              <Box>
+                                <Box className="subInfoBox">
+                                  <Typography className="subInfoHead">
+                                    Income Terms:{" "}
+                                  </Typography>
+                                  <Typography className="subInfo">
+                                    {product?.incoterms}
+                                  </Typography>
+                                </Box>
                               </Box>
-                            </Box>
+                            )}
+                            {product?.minimal_quantity && (
+                              <Box>
+                                <Box className="subInfoBox">
+                                  <Typography className="subInfoHead">
+                                    Minimal Parity:
+                                  </Typography>
+                                  <Typography className="subInfo">
+                                    {product.minimal_quantity}
+                                  </Typography>
+                                </Box>
+                              </Box>
+                            )}
                             <Box>
                               {" "}
                               <button
@@ -241,7 +251,9 @@ export default function Product({ params }: any) {
                           rating={sellerInfo.rating}
                           proprietor={sellerInfo.proprietor}
                           memberSince={sellerInfo.memberSince}
-                          address={sellerInfo.address}
+                          address={product?.address}
+                          country={product?.countryName}
+                          tnvedCode={product?.tnvedCode}
                         />
                       </Box>
                     </Box>
@@ -266,7 +278,9 @@ export default function Product({ params }: any) {
                         rating={sellerInfo.rating}
                         proprietor={sellerInfo.proprietor}
                         memberSince={sellerInfo.memberSince}
-                        address={sellerInfo.address}
+                        address={product?.address}
+                        country={product?.countryName}
+                        tnvedCode={product?.tnvedCode}
                       />
                     </Box>
                     <InquiryModal

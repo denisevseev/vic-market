@@ -39,12 +39,31 @@
 .summary-section {
   display: flex;
   justify-content: end;
-  margin-Top: "auto";
+  margin-top: "auto";
 }
 
-.icon-and-text {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.imageContainer-logo-s {
+  position: relative;
+  width: 200px;
+  height: 67px;
 }
+
+.custom-scrollbar {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #2a5182 #2a5182; /* thumb and track color */
+}
+
+.custom-scrollbar ::-webkit-scrollbar {
+  width: 6px; /* Adjust this value to make the scrollbar thinner */
+}
+
+.custom-scrollbar ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar ::-webkit-scrollbar-thumb {
+  background: #2a5182;
+  border-radius: 3px; /* Optional: To make the thumb rounded */
+}
+
 

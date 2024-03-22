@@ -18,6 +18,8 @@ type SellerDetailsProps = {
   proprietor: string;
   memberSince: number;
   address: string;
+  country: string;
+  tnvedCode: string;
 };
 export const SellerDetails: React.FC<SellerDetailsProps> = ({
   name,
@@ -26,22 +28,34 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
   proprietor,
   memberSince,
   address,
+  country,
+  tnvedCode,
 }) => {
+  const encodedAddress = encodeURIComponent(address);
+
   return (
     <Box className="seller-details">
       <Box>
         <Typography className="sellerDetailsText">Seller Details</Typography>
       </Box>
       <Box className="sellerImageAndNameBox">
-        <PersonOutlineOutlinedIcon
+        {/* <PersonOutlineOutlinedIcon
           style={{ width: "48px", height: "48px", color: "#5E676E" }}
+        /> */}
+        <Image
+          src="/logoTrade.png"
+          className=""
+          alt="Logo"
+          width={90}
+          height={24}
+          priority
         />
-        <Typography className="nameSeller">{name}</Typography>
+        <Typography className="nameSeller">Victorum {country}</Typography>
       </Box>
       <Box className="gst-rating">
         <Box className="gstAndGstText">
-          <Typography className="gstText">GST</Typography>
-          <Typography className="gstInfo">{gst}</Typography>
+          {/* <Typography className="gstText">GST</Typography> */}
+          <Typography className="gstInfo">{tnvedCode}</Typography>
         </Box>
         <Typography className="rating">{rating} ★</Typography>
       </Box>
@@ -64,7 +78,7 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
         </Box>
         <Typography className="mainInfoSellerText">{proprietor}</Typography>
       </Box>
-      <Box className="mainInfoBox">
+      {/* <Box className="mainInfoBox">
         <Box className="mainInfoAndIconBox">
           <CalendarTodayOutlinedIcon
             sx={{ width: "22px", height: "22px", color: "#5E676E" }}
@@ -74,22 +88,31 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
         <Typography className="mainInfoSellerText">
           {memberSince} Years
         </Typography>
-      </Box>
-      <Box className="mainInfoBox">
-        <Box className="mainInfoAndIconBox">
-          <FmdGoodOutlinedIcon
-            sx={{ width: "24px", height: "24px", color: "#5E676E" }}
-          />{" "}
-          <Box className="addressAndViewMapBox">
-            <Typography className="mainInfoSellerHead">Address</Typography>
-            <Box>
-              <Typography className="viewOnMap">View on Map</Typography>
+      </Box> */}
+      {address && (
+        <Box className="mainInfoBox">
+          <Box className="mainInfoAndIconBox">
+            <FmdGoodOutlinedIcon
+              sx={{ width: "24px", height: "24px", color: "#5E676E" }}
+            />{" "}
+            <Box className="addressAndViewMapBox">
+              <Typography className="mainInfoSellerHead">Address</Typography>
+              <Box>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Typography className="viewOnMap">View on Map</Typography>
+                </a>
+              </Box>
             </Box>
           </Box>
+          <Typography className="mainInfoSellerText">{address}</Typography>
         </Box>
-        <Typography className="mainInfoSellerText">{address}</Typography>
-      </Box>
-      <Box className="viewContactBtnsBox">
+      )}
+      {/* <Box className="viewContactBtnsBox">
         <Button className="viewBtn">
           <Typography className="viewBtnText">
             View Number <ChevronRightOutlinedIcon />
@@ -100,7 +123,7 @@ export const SellerDetails: React.FC<SellerDetailsProps> = ({
             Contact Seller <ChevronRightOutlinedIcon />
           </Typography>
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

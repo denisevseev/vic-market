@@ -1,6 +1,6 @@
 "use client";
 import "./SelectCity.scss";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
@@ -13,20 +13,30 @@ import {
   InputAdornment,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useCountryData } from "@/app/hooks/useCountryData";
 
 const containsText = (text: any, searchText: any) =>
   text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 
-const allOptions = ["All Regions", "Delhi", "Mumbai", "Chennai"];
-
 export default function SelectCity() {
-  const [selectedOption, setSelectedOption] = useState(allOptions[0]);
+  const { data: countryData }: any = useCountryData();
+  const [selectedOption, setSelectedOption] = useState('All Regions');
 
   const [searchText, setSearchText] = useState("");
-  const displayedOptions = useMemo(
-    () => allOptions.filter((option) => containsText(option, searchText)),
-    [searchText]
-  );
+  const [filteredOptions, setFilteredOptions] = useState(countryData || []);
+
+  useEffect(() => {
+    if (searchText) {
+      const filtered =
+        countryData?.filter((option: any) =>
+          containsText(option.fallback_name, searchText)
+        ) || [];
+      setFilteredOptions(filtered);
+    } else {
+      setFilteredOptions(countryData);
+    }
+  }, [searchText, countryData]);
+
 
   return (
     <Box>
@@ -82,13 +92,13 @@ export default function SelectCity() {
                 }}
               />
             </ListSubheader>
-            {displayedOptions.map((option, i) => (
-              <MenuItem key={i} value={option}>
+            {filteredOptions?.map((option: any, i: number) => (
+              <MenuItem key={i} value={option.fallback_name}>
                 <div className="select-option">
                   <LocationOnIcon
                     sx={{ color: "rgb(129 149 165)", marginRight: "16px" }}
                   />
-                  <div>{option}</div>
+                  <div>{option.fallback_name}</div>
                 </div>
               </MenuItem>
             ))}

@@ -14,6 +14,8 @@ import HomepageImagesCarousel from "./components/HomepageImagesCarousel/Homepage
 import ProductGrow from "./components/ProductGrow/ProductGrow";
 import MoreValueAdds from "./components/MoreValueAdds/MoreValueAdds";
 import { useMarketData } from "./hooks/useMarketData";
+import CircularProgress from "@mui/material/CircularProgress";
+
 import {
   getFilteredProducts,
   getProductsSortedById,
@@ -35,13 +37,11 @@ export default function Home() {
   // const { data: countryData } = useCountryData();
   const postBuyRequirementRef = useRef<HTMLDivElement>(null);
 
-
   const scrollToPostBuyRequirement = () => {
     if (postBuyRequirementRef.current) {
-      postBuyRequirementRef.current.scrollIntoView({ behavior: 'smooth' });
+      postBuyRequirementRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
 
   useEffect(() => {
     if (marketData) {
@@ -75,7 +75,9 @@ export default function Home() {
           <Box className="carouselLookingForAndMoreValue">
             <Box className="homepageCarouselAndLookingForMainBox">
               <HomepageImagesCarousel />
-              <ProductGrow scrollToPostBuyRequirement={scrollToPostBuyRequirement}/>
+              <ProductGrow
+                scrollToPostBuyRequirement={scrollToPostBuyRequirement}
+              />
             </Box>
             <MoreValueAdds />
             <TopCategoriesSlider data={categories} />
@@ -118,7 +120,7 @@ export default function Home() {
             </div>
           </div>
           <div ref={postBuyRequirementRef}>
-          <PostBuyRequirement />
+            <PostBuyRequirement />
           </div>
         </div>
         <OurServices />

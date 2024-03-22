@@ -272,10 +272,11 @@
 
 .select-city-container {
   width: 130px;
-  margin-right: 1rem;
+  margin-right: 4rem;
 
   @media all and (max-width: 900px) {
     margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 

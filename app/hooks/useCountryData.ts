@@ -6,6 +6,8 @@ interface CountryDataType {
     // Example properties, adjust according to your actual data structure
     id: number;
     name: string;
+    fallback_name: string;
+
   }
   export const useCountryData = (): UseQueryResult<CountryDataType[], unknown> => {
     return useQuery<CountryDataType[], unknown>({

@@ -1,20 +1,22 @@
 "use client";
 import React, { use, useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "./InquiryModal.scss";
+import "./SellProductModal.scss";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
+import "./SellProductModal.scss";
+import DeleteIcon from "@mui/icons-material/Delete";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 import {
@@ -28,11 +30,12 @@ import {
   Select,
 } from "@mui/material";
 import { useCountryData } from "@/app/hooks/useCountryData";
+import { processApiResponse } from "@/api/helper/dataFilter";
+import { useMarketData } from "@/app/hooks/useMarketData";
 
 type InquiryModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  productName: string;
   company?: string;
   imgSrc?: string;
   isAudio?: boolean;
@@ -40,10 +43,9 @@ type InquiryModalProps = {
   id?: any;
 };
 
-const InquiryModal: React.FC<InquiryModalProps> = ({
+const SellProductModal: React.FC<InquiryModalProps> = ({
   isOpen,
   onClose,
-  productName,
   company,
   imgSrc,
   isAudio,
@@ -51,16 +53,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   id,
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
-  const [isLoading, setIsLoading] = useState(false); // Replace this with your actual loading state
 
-  // country start
-  const { data: countryData } = useCountryData();
-  const [userCountry, setUserCountry] = useState("");
-
-  const handleChangeCountry = (event: any) => {
-    setUserCountry(event.target.value);
-  };
-  // country end
+  const [isLoadingSell, setIsLoadingSell] = useState(false);
 
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,8 +75,31 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const [inputValue, setInputValue] = useState("");
 
+  // country start
+  const { data: countryData } = useCountryData();
+  const [userCountry, setUserCountry] = useState("");
+
+  const handleChangeCountry = (event: any) => {
+    setUserCountry(event.target.value);
+  };
+  // country end
+
+  // categories start
+  const { data: marketData, isLoading } = useMarketData();
+  const [categories, setCategories] = useState<any>(null);
+
+  useEffect(() => {
+    const formated = processApiResponse(marketData);
+    if (formated) {
+      setCategories(formated);
+    }
+  }, [marketData]); // Add marketData as a dependency
+  // categories end
+
   //   step 3 start
   const [name, setName] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productPrice, setProductPrice] = useState("");
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [companyName, setCompanyName] = useState("");
@@ -90,6 +107,57 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
   const [gstChecked, setGstChecked] = React.useState(false);
   const [termsChecked, setTermsChecked] = React.useState(true);
+
+  const [category, setCategory] = useState("");
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [videoPreview, setVideoPreview] = useState<string | null>(null);
+
+  const handleChangeCategory = (event: any) => {
+    setCategory(event.target.value);
+  };
+
+  //   image start
+  // const [image, setImage] = useState<string | null>(null);
+  const [images, setImages] = useState([]);
+
+  const handleImageChange = (e: any) => {
+    const selectedFiles = Array.from(e.target.files);
+    // Save the actual File objects for upload
+    setImages((prevImages): any => [...prevImages, ...selectedFiles]);
+    // Create blob URLs for local preview if necessary
+    const newImageUrls = selectedFiles.map((file: any) =>
+      URL.createObjectURL(file)
+    );
+    // Assuming you have a separate state to hold these for preview
+    setImagePreviews((prevImageUrls) => [...prevImageUrls, ...newImageUrls]);
+  };
+
+  const handleDeleteImage = (imageToDelete: any) => {
+    setImages((prevImages: any) =>
+      prevImages.filter((image: any) => image !== imageToDelete)
+    );
+    setImagePreviews((prevImageUrls: any) =>
+      prevImageUrls.filter((url: any) => url !== imageToDelete)
+    );
+  };
+  // image end
+
+  // video start
+  const [video, setVideo] = useState<string | null>(null);
+
+  const handleVideoChange = (e: any) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedVideo = e.target.files[0];
+      setVideo(selectedVideo);
+      setVideoPreview(URL.createObjectURL(selectedVideo));
+    }
+  };
+
+  const handleDeleteVideo = () => {
+    setVideo(null);
+    setVideoPreview(null);
+  };
+  // video end
 
   const handleGstChange = (event: any) => {
     setGstChecked(event.target.checked);
@@ -101,50 +169,54 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   // step 3 end
 
   const handleNextStep = () => {
-    if (isAudio && step === 3) {
+    if (step < 3) {
       setStep(step + 1);
       return;
     }
-    if (step < 3) {
-      setStep(step + 1);
-    } else {
-      buy();
+    if (step === 3) {
+      sell();
     }
   };
 
-  const buy = async () => {
-    setIsLoading(true);
+  const sell = async () => {
+    setIsLoadingSell(true);
     setStep(6);
-    let payload = new FormData(); // Use FormData to handle file upload
-    payload.append("country_id", userCountry);
-    payload.append("phone", `${inputValue}${mobileNumber}`);
-    payload.append("client_name", name);
-    payload.append("email", email);
-    payload.append("company_name", companyName);
-    payload.append("city", city);
-    payload.append("requirement_frequency", frequency);
-    payload.append("description", inquiryMessage);
 
-    if (id) {
-      payload.append("product_id", id);
-    } else {
-      payload.append("client_requirements", productName);
-    }
+    // Create a FormData instance to hold the files
+    const formData = new FormData();
+    formData.append("country_id", userCountry);
+    formData.append("phone", `${inputValue}${mobileNumber}`);
+    formData.append("client_name", name);
+    formData.append("email", email);
+    formData.append("company_name", companyName);
+    formData.append("city", city);
+    formData.append("product_name", productName);
+    formData.append("requirement_frequency", frequency);
+    formData.append("comment", productDetails);
+    formData.append("price", productPrice);
+    formData.append("category", category);
+    formData.append("description", productDetails);
 
-    if (audioData) {
-      const file = await fetch(audioData).then((r) => r.blob()); // Convert the Blob URL to a Blob
-      payload.append("file1", file, "audio_message.wav"); // Append the file to the payload, providing a filename
+    images.forEach((file, index) => {
+      formData.append(`file${index + 2}`, file); // 'file' should be a File object
+    });
+    if (video) {
+      formData.append("file10", video); // 'video' should be a File object
     }
 
     try {
-      const response = await axios.post("api/market/buy", payload, {
-        headers: { "Content-Type": "multipart/form-data" }, // Set the content type for file upload
+      const response = await axios.post("api/market/sell", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
-      setIsLoading(false);
-      // handleCloseModal();
+      // Handle successful response
+      setIsLoadingSell(false);
+      // ... rest of your success logic
     } catch (error) {
       console.error("Error sending data to the backend: ", error);
-      setIsLoading(false);
+      setIsLoadingSell(false);
+      // ... rest of your error handling logic
     }
   };
 
@@ -228,30 +300,23 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   ];
 
   const [country, setCountry] = useState<any | null>(countries[0]);
-  const [inquiryMessage, setInquiryMessage] = useState(
-    `Hi, I am interested in ${productName}.`
-  );
+  const [productDetails, setProductDetails] = useState("");
 
   const handleCloseModal = () => {
     setStep(1);
     onClose();
   };
 
-  // useEffect(() => {
-  //   if (isAudio) {
-  //     setStep(2);
-  //   }
-  // }, [isAudio]);
-
   const handleInquiryMessageChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setInquiryMessage(event.target.value);
+    setProductDetails(event.target.value);
   };
 
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
       <Box
+        className="custom-scrollbar"
         sx={{
           position: "absolute",
           top: "50%",
@@ -261,10 +326,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             xs: "100%",
             sm: 480,
           },
+          maxHeight: "90vh", // Sets the maximum height
+          overflowY: "auto",
           bgcolor: "background.paper",
           boxShadow: 24,
           padding: "20px",
-          borderRadius: 7,
+          borderRadius: 4,
         }}
       >
         {step === 1 && (
@@ -281,7 +348,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   fontFamily: "Poppins, sans-serif",
                 }}
               >
-                Send Inquiry
+                Sell Product
               </Typography>
 
               <button
@@ -295,8 +362,23 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 <CloseIcon style={{ color: "grey" }} />
               </button>
             </div>
+
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Product Name"
+              variant="outlined"
+              value={productName}
+              onChange={(e) => setProductName(e.target.value)}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "10px", // Set the border radius here
+                },
+              }}
+            />
+
             <Typography sx={{ mt: 2 }}>
-              Tell us about your requirement
+              Describe your product and we will help you find the right buyers.
             </Typography>
 
             {/* hide this section if audioData is present */}
@@ -317,8 +399,9 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             <TextField
               fullWidth
               multiline
+              placeholder="Enter the product details..."
               rows={4}
-              value={inquiryMessage}
+              value={productDetails}
               onChange={handleInquiryMessageChange}
               margin="normal"
               sx={{
@@ -329,7 +412,180 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               }}
             />
 
-            <Typography sx={{ mt: 2, mb: 1 }}>Requirement Frequency</Typography>
+            {/* start image */}
+            <div style={{ marginTop: "13px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  marginBottom: "13px",
+                }}
+              >
+                {imagePreviews.map((imageSrc, index) => (
+                  <div key={index} style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        borderRadius: "10px",
+                        overflow: "hidden",
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <Image
+                        src={imageSrc}
+                        alt={`Uploaded image ${index + 1}`}
+                        width={100}
+                        height={100}
+                        layout="responsive"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <DeleteIcon
+                      onClick={() => handleDeleteImage(imageSrc)}
+                      style={{
+                        position: "absolute",
+                        top: "5px",
+                        right: "5px",
+                        cursor: "pointer",
+                        color: "#b30000",
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div
+                onClick={() => document.getElementById("imageInput")?.click()}
+                style={{
+                  height: "33px",
+                  border: "0.5px solid black",
+                  cursor: "pointer",
+                  padding: "8px",
+                  borderRadius: "10px",
+                  borderColor: "rgb(38, 92, 129)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  sx={{
+                    color: "rgb(38, 92, 129);",
+                    fontSize: "14px",
+                    fontWeight: "400",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Click to upload product images
+                </Typography>
+              </div>
+              <input
+                id="imageInput"
+                type="file"
+                accept="image/*"
+                multiple // Allows multiple file selections
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              />
+            </div>
+            {/* imag end */}
+
+            {/* video start */}
+            <div style={{ marginTop: "20px" }}>
+              {video ? (
+                <div
+                  style={{
+                    height: "113px",
+                    border: "0.5px solid black",
+                    cursor: "pointer",
+                    padding: "8px",
+                    borderRadius: "10px",
+                    borderColor: "rgb(38, 92, 129)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                  }}
+                >
+                  <video
+                    width="auto"
+                    height="100px"
+                    controls
+                    style={{ borderRadius: "10px" }}
+                    {...(videoPreview ? { src: videoPreview } : {})}
+                  />
+                  <DeleteIcon
+                    onClick={handleDeleteVideo}
+                    style={{
+                      position: "absolute",
+                      top: "5px",
+                      right: "5px",
+                      cursor: "pointer",
+                      color: "#b30000",
+                    }}
+                  />
+                </div>
+              ) : (
+                <div
+                  onClick={() => document.getElementById("videoInput")?.click()}
+                  style={{
+                    height: "113px",
+                    border: "0.5px solid black",
+                    cursor: "pointer",
+                    padding: "8px",
+                    borderRadius: "10px",
+                    borderColor: "rgb(38, 92, 129)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    className="send-inquiry"
+                    sx={{
+                      color: "rgb(38, 92, 129);",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      fontFamily: "Poppins, sans-serif",
+                    }}
+                  >
+                    Click to upload video
+                  </Typography>
+                </div>
+              )}
+              <input
+                id="videoInput"
+                type="file"
+                accept="video/mp4,video/x-m4v,video/*"
+                onChange={handleVideoChange}
+                style={{ display: "none" }}
+              />
+            </div>
+            {/* video end */}
+
+            <div style={{ marginTop: "6px" }}>
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Product Price"
+                variant="outlined"
+                type="number"
+                value={productPrice}
+                onChange={(e) => setProductPrice(e.target.value)}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "10px",
+                  },
+                }}
+              />
+            </div>
+
+            {/* <Typography sx={{ mt: 2, mb: 1 }}>Requirement Frequency</Typography>
             <RadioGroup
               aria-label="requirement-frequency"
               value={frequency}
@@ -346,7 +602,43 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 control={<Radio />}
                 label="Recurring"
               />
-            </RadioGroup>
+            </RadioGroup> */}
+
+            <div style={{ marginTop: "3px" }}>
+              <InputLabel
+                style={{ marginBottom: "6px" }}
+                id="demo-simple-select-label"
+              >
+                Select Category
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                fullWidth
+                id="demo-simple-select"
+                value={category}
+                onChange={handleChangeCategory}
+                displayEmpty // This prop makes the placeholder visible
+                sx={{
+                  height: "3.5rem",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderRadius: "10px",
+                  },
+                }}
+                inputProps={{ "aria-label": "Without label" }} // Required for placeholder to work without label
+              >
+                <MenuItem value="" disabled>
+                  Select Category
+                </MenuItem>
+                {categories?.map((categoryItem: any) => (
+                  <MenuItem
+                    key={categoryItem.categoryName}
+                    value={categoryItem.categoryName}
+                  >
+                    {categoryItem.categoryName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
 
             <div
               style={{
@@ -358,7 +650,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               <Button
                 variant="contained"
                 onClick={handleNextStep}
-                disabled={!inquiryMessage}
+                disabled={
+                  !productDetails ||
+                  !productName ||
+                  !images.length ||
+                  !productPrice
+                }
                 sx={{
                   mt: 6,
                   mb: 3,
@@ -530,7 +827,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                     fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  Inquiry
+                  Contact Details
                 </Typography>
               </div>
 
@@ -599,16 +896,14 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 ))}
               </Select>
             </div>
-            <div style={{ marginTop: "8px" }}>
-              <TextField
-                fullWidth
-                margin="normal"
-                label="City"
-                variant="outlined"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
+            <TextField
+              fullWidth
+              margin="normal"
+              label="City"
+              variant="outlined"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
 
             <div>
               <div>
@@ -722,26 +1017,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               Details of your inquiry
             </Typography>
 
-            {/* hide this section if audioData is present */}
-            {!audioData && imgSrc && (
-              <div className="product-description">
-                <Image src={imgSrc} alt={productName} width={60} height={70} />
-                <div>
-                  <Typography sx={{ fontWeight: "bold", mt: 1 }}>
-                    {productName}
-                  </Typography>
-                  <Typography variant="caption" display="block" gutterBottom>
-                    {company}
-                  </Typography>
-                </div>
-              </div>
-            )}
-
             <TextField
               fullWidth
               multiline
               rows={4}
-              value={inquiryMessage}
+              value={productDetails}
               onChange={handleInquiryMessageChange}
               margin="normal"
               sx={{
@@ -807,7 +1087,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 variant="contained"
                 onClick={handleNextStep}
                 disabled={
-                  !inquiryMessage ||
+                  !productDetails ||
                   !mobileNumber ||
                   !name ||
                   !email ||
@@ -837,29 +1117,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           </>
         )}
 
-        {/* step = 5 start*/}
+        {/* step 6 start */}
         {step === 6 && (
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
-              <div className="d-flex ai-center gap-8">
-                {/* <IconButton onClick={handleBackStep} aria-label="go back">
-                  <ArrowBackIcon />
-                </IconButton> */}
-
-                {/* <Typography
-                  variant="h6"
-                  component="h2"
-                  className="send-inquiry"
-                  sx={{
-                    color: "rgb(38, 92, 129);",
-                    fontSize: "28px",
-                    fontWeight: "600",
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                >
-                  Submission
-                </Typography> */}
-              </div>
+              <div className="d-flex ai-center gap-8"></div>
 
               <button
                 onClick={handleCloseModal}
@@ -890,7 +1152,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   height: "100px", // Set a height so the box doesn't collapse when the content changes
                 }}
               >
-                {isLoading ? (
+                {isLoadingSell ? (
                   <CircularProgress />
                 ) : (
                   <div
@@ -955,4 +1217,4 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   );
 };
 
-export default InquiryModal;
+export default SellProductModal;
