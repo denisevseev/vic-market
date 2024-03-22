@@ -272,7 +272,7 @@ export default function Product({ params }: any) {
                           name={sellerInfo.name}
                           gst={sellerInfo.gst}
                           rating={sellerInfo.rating}
-                          proprietor={sellerInfo.proprietor}
+                          proprietor={productFromBE?.createdBy}
                           memberSince={sellerInfo.memberSince}
                           address={productFromBE?.Address}
                           country={productFromBE?.countryName}
