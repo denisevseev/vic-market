@@ -45,7 +45,6 @@ export default function Home() {
 
   useEffect(() => {
     if (marketData) {
-      console.log("upalii", marketData);
       const formated = processApiResponse(marketData);
       setCategories(formated);
       setFeaturedProducts(getRandomProducts(formated, 10));

@@ -20,8 +20,6 @@ const containsText = (text: any, searchText: any) =>
 
 export default function SelectCity() {
   const { data: countryData }: any = useCountryData();
-  console.log("countryData", countryData);
-
   const [selectedOption, setSelectedOption] = useState('All Regions');
 
   const [searchText, setSearchText] = useState("");
