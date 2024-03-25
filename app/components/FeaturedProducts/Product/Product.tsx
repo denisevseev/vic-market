@@ -25,7 +25,14 @@ const ProductCard: React.FC<MarketRead> = (product) => {
         onClick={() =>
           router.push(`/product/${product.productSlug}/${product.id}`)
         }
-        style={{ cursor: "pointer", margin: "auto" }}
+        style={{
+          cursor: "pointer",
+          margin: "auto",
+          maxHeight: "110px",
+          maxWidth: "100px",
+          width: "auto",
+          height: "auto",
+        }}
       />
       <Link
         className="titleLink"
