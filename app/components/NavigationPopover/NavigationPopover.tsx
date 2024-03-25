@@ -130,7 +130,7 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         />
         <SmallPopoverBox
           imgSrc="/get-distributers.svg"
-          text="GetDistributors .com"
+          text="Victorum Trading"
           // redirectUrl="https://www.google.com"
         />
       </div>

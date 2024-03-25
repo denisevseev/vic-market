@@ -1201,7 +1201,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   textTransform: "none",
                 },
               }}
-              disabled={!mobileNumber || !country}
+              disabled={isLoadingSell }
             >
               <div className="button-text">
                 <p>Close</p>
