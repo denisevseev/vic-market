@@ -138,11 +138,11 @@ const PopoverTopCategories: React.FC<PopoverProps> = ({
                 </Box>
               </Box>
 
-              <Box className="viewAllCategoriesLinkBox">
+              {/* <Box className="viewAllCategoriesLinkBox">
                 <Typography className="viewAllCategoriesText">
                   View all Categories
                 </Typography>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Box>
