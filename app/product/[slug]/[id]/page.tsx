@@ -44,6 +44,8 @@ export default function Product({ params }: any) {
 
   // related
   const [categoryName, setCategoryName] = useState<any>(null);
+  console.log(categoryName, "categoryname:");
+
   const [categorySlug, setCategorySlug] = useState<any>(null);
 
   const excludeProductById = (products: any[], excludedId: number) => {
@@ -63,7 +65,7 @@ export default function Product({ params }: any) {
       const generatedBreadcrumbs = [
         { label: "Victorum trade", href: "/" },
         {
-          label: `${product?.categorySlug}`,
+          label: `${product?.categoryName}`,
           href: `/category/[slug]`,
           as: `/category/${product?.categorySlug}`,
         },
