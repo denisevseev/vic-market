@@ -22,27 +22,27 @@ export default function OurServicesItem() {
           </Box>
 
           <Box className="ourServicesItemImage">
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div
-              className="imageContainer-logo"
+            <Box
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
-              <Image
-                src="/bl-capital.png"
-                alt="Victorum Capital"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </Box>
+              <div
+                className="imageContainer-logo"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Image
+                  src="/bl-capital.png"
+                  alt="Victorum Capital"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </Box>
           </Box>
 
           <Box
@@ -63,32 +63,32 @@ export default function OurServicesItem() {
       <Box className="ourServiceItemSingelMain">
         <Box>
           <Box className="ourServicesItemText">
-            <Typography className="tradeText">Victorum Trading</Typography>
-            <Typography className="tradeTextBold">GetD.com</Typography>
+            <Typography className="tradeText">Victorum</Typography>
+            <Typography className="tradeTextBold">Trading</Typography>
           </Box>
 
           <Box className="ourServicesItemImage">
             <Box
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div
-              className="imageContainer-logo"
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
-              <Image
-                src="/bl-trade.png"
-                alt="Victorum Capital"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </Box>
+              <div
+                className="imageContainer-logo"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Image
+                  src="/bl-trade.png"
+                  alt="Victorum Capital"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </Box>
           </Box>
           <Box
             className="ourServicesLearnMoreAndIcon"
@@ -158,27 +158,27 @@ export default function OurServicesItem() {
             <Typography className="tradeTextBold">VicPay</Typography>
           </Box>
           <Box className="ourServicesItemImageEasy">
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div
-              className="imageContainer-last"
+            <Box
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
-              <Image
-                src="/cardd.png"
-                alt="Victorum Capital"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </Box>
+              <div
+                className="imageContainer-last"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Image
+                  src="/cardd.png"
+                  alt="Victorum Capital"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </Box>
           </Box>
 
           <Box
