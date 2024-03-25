@@ -47,7 +47,7 @@ const ProductCard: React.FC<MarketRead> = (product) => {
         </p>
       )}
 
-      <p className="unit">{"unit"}</p>
+      {/* <p className="unit">{"unit"}</p> */}
       <p className="companyName">{product.manufacturerName}</p>
       <button className="inquiryButton" onClick={handleOpenModal}>
         <p>Send Inquiry</p>
