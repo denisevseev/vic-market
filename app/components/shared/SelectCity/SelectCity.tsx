@@ -21,6 +21,8 @@ const containsText = (text: any, searchText: any) =>
 export default function SelectCity() {
   const { data: countryData }: any = useCountryData();
   const [selectedOption, setSelectedOption] = useState("All Regions");
+  const [isUserSelected, setIsUserSelected] = useState(false);
+
 
   const [searchText, setSearchText] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(countryData || []);
@@ -38,27 +40,53 @@ export default function SelectCity() {
       setFilteredOptions([{ id: 'all', fallback_name: 'All Regions' }, ...(countryData ?? [])]);
     }
   }, [searchText, countryData]);
+
+
   
 
   useEffect(() => {
-    if (
-      window.location.hash === "#India" ||
-      window.location.hash === "#Russian%20Federation" ||
-      window.location.hash === "#Belarus" ||
-      window.location.hash === "#China" ||
-      window.location.hash === "#Hong%20Kong" ||
-      window.location.hash === "#Kazakhstan" ||
-      window.location.hash === "#Turkey" ||
-      window.location.hash === "#India" ||
-      window.location.hash === "#Nigeria" ||
-      window.location.hash === "#Namibia" ||
-      window.location.hash === "#Brazil"
-    ) {
-      setSelectedOption(
-        decodeURIComponent(window.location.hash.replace("#", ""))
-      );
+    const hashValue = decodeURIComponent(window.location.hash.replace("#", ""));
+    // List of valid country hashes
+    const validHashes = [
+      "India",
+      "Russian Federation",
+      "Belarus",
+      "China",
+      "Hong Kong",
+      "Kazakhstan",
+      "Turkey",
+      "Nigeria",
+      "Namibia",
+      "Brazil",
+    ];
+  
+    if (validHashes.includes(hashValue)) {
+      setSelectedOption(hashValue);
     }
   }, []);
+
+
+  useEffect(() => {
+    if (isUserSelected) {
+      // Logic to update URL based on selectedOption, but only if it's user-selected
+      if (selectedOption === 'All Regions') {
+        window.history.pushState({}, '', '/');
+      } else {
+        const hashValue = encodeURIComponent(selectedOption);
+        window.history.pushState({}, '', `/#${hashValue}`);
+      }
+      setIsUserSelected(false); // Reset the flag after handling
+    }
+  }, [selectedOption, isUserSelected]);
+
+
+  const handleSelectionChange = (event:any) => {
+    const { value } = event.target;
+    setSelectedOption(value);
+    setIsUserSelected(true); // Indicate that this change was triggered by user interaction
+  };
+
+  
 
   return (
     <Box>
@@ -83,7 +111,8 @@ export default function SelectCity() {
             id="search-select"
             value={selectedOption}
             label="Options"
-            onChange={(e) => setSelectedOption(e.target.value)}
+            onChange={handleSelectionChange}
+
             onClose={() => setSearchText("")}
             // This prevents rendering empty string in Select's value
             // if search text would exclude currently selected option.

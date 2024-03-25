@@ -17,8 +17,16 @@ const PostBuyRequirement = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [audioData, setAudioData] = useState(null);
   const textFieldRef = useRef<HTMLDivElement>(null);
+  const [resetAudioKey, setResetAudioKey] = useState(0); // New state for controlling the reset
 
-  const handleCloseModal = () => setModalOpen(false);
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setProductName("");
+    setAudioData(null);
+    setResetAudioKey(prevKey => prevKey + 1); // Increment key to force remount
+  };
+  
   const handleOpenModal = () => setModalOpen(true);
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -89,6 +97,7 @@ const PostBuyRequirement = () => {
           </div>
           <div className="record-section">
             <AudioRecorder
+             key={resetAudioKey}
               onAudioRecorded={testna}
             />
             <Image
