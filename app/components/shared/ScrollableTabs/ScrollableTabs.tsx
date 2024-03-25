@@ -228,7 +228,7 @@ const SlideSmaller = (item: any) => {
           }}
         />
         <Link
-          className="titleLink"
+          className="productNameText"
           href={`/product/${data.productSlug}/${data.id}`}
         >
           <p className="productNameText">{data.productName}</p>
