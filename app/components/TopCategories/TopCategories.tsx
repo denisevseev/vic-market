@@ -54,7 +54,9 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
     <Box className="topCategoriesMainBox">
       <Box className="topCategoriesBox">
         <Box>
-          <Typography className="topCategoryText">Product Categories</Typography>
+          <Typography className="topCategoryText">
+            Product Categories
+          </Typography>
         </Box>
         <Box className="itemsMainBox">
           {data &&
@@ -82,11 +84,11 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
               );
             })}
         </Box>
-        <Box>
+        {/* <Box>
           <Typography className="viewAllCategoriesLink">
             View all Categories
           </Typography>
-        </Box>
+        </Box> */}
       </Box>
       <PopoverTopCategories
         popupVisible={popupVisible}
