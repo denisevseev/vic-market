@@ -250,7 +250,10 @@ export const getProductBySlug = (categoriesWithProducts: any, slug: string) => {
 
   return null;
 };
-export const getAllProductsInCategories = (categoriesWithProducts: any) => {
+export const getAllProductsInCategories = (
+  categoriesWithProducts: any,
+  countryName: string = ""
+) => {
   // Flatten the array of categories into a single array of products
   const allProducts: any = categoriesWithProducts.reduce(
     (acc: any, category: any) => {
@@ -260,5 +263,12 @@ export const getAllProductsInCategories = (categoriesWithProducts: any) => {
     []
   );
 
+  if (countryName) {
+    return allProducts.filter(
+      (product: any) => product.countryName === countryName
+    );
+  }
+
   return allProducts;
 };
+
