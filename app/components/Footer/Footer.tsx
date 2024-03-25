@@ -11,9 +11,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useCountryData } from "@/app/hooks/useCountryData";
 
 const Footer = () => {
   const router = useRouter();
+  const { data: countryData } = useCountryData();
   const handleNavigate = (path: string) => {
     router.push(path);
   };
@@ -73,13 +75,14 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">About Victorum</h4>
+              <h4 className="title-color">About us</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/about-us">About Our Company</Link>
-              <Link href="/help">Success Stories</Link>
-              <Link href="/help">Victorum Blog</Link>
-              <Link href="/help">Victorum in News</Link>
+              <p>Our Company</p>
+              <a>Victorum Group</a>
+              <a>We are hiring</a>
+              <a>News</a>
+              <a>Press</a>
             </AccordionDetails>
           </Accordion>
 
@@ -100,13 +103,14 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">Services & Benefits</h4>
+              <h4 className="title-color">Our Services</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Advertise with Us</Link>
-              <Link href="/help">Book domains</Link>
-              <Link href="/help">TI Pay</Link>
-              <Link href="/help">Trade khata</Link>
+              <Link href="/#post-buy-request">Post Buy Request</Link>
+              <Link href="/#post-sell-request">Post Sell Request</Link>
+              <a>Market Research</a>
+              <a>Get Our Newsletter</a>
+              <a href="/help">Payments? VicPay!</a>
             </AccordionDetails>
           </Accordion>
 
@@ -127,13 +131,14 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">You wanna sell?</h4>
+              <h4 className="title-color">For Sellers</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Display New Products</Link>
-              <Link href="/help">Buy Trade Leads</Link>
-              <Link href="/help">Subscribe Buy Trade Alerts</Link>
-              <Link href="/help">Subscribe Online</Link>
+              <Link href="/#post-sell-request">Post Sell Request</Link>
+              <a>Market Research</a>
+              <a>Contact Sellers´ Desk</a>
+              <Link href="/#services">Browse Our Categories</Link>
+              <Link href="/help">Whitepaper</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -154,22 +159,23 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">You wanna buy?</h4>
+              <h4 className="title-color">For Buyers</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Post your Requirement</Link>
-              <Link href="/help">Browse Suppliers</Link>
-              <Link href="/help">Subscribe sell Trade Alerts</Link>
-              <Link href="/help">Help Center</Link>
+              <Link href="/#post-buy-request">Post Buy Request</Link>
+              <a>Market Research</a>
+              <a>Contact Buyers´ Desk</a>
+              <Link href="/#post-sell-request">Browse Our Categories</Link>
+              <Link href="/help">Buyer´s Guide to Success</Link>
             </AccordionDetails>
           </Accordion>
 
-          {/* <Accordion
+          <Accordion
             sx={{
               boxShadow: "none",
             }}
-            expanded={expanded === "panel6"}
-            onChange={handleChange("panel6")}
+            expanded={expanded === "panel5"}
+            onChange={handleChange("panel5")}
           >
             <AccordionSummary
               sx={{
@@ -181,93 +187,93 @@ const Footer = () => {
                 <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
               }
             >
-              <h4 className="title-color">Directory</h4>
+              <h4 className="title-color">Legal</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/help">Manufacturers</Link>
-              <Link href="/help">Business Services</Link>
-              <Link href="/help">Service Providers</Link>
-              <Link href="/help">Industry Hubs</Link>
-              <Link href="/help">Country Suppliers</Link>
-              <Link href="/help">Featured Products</Link>
+              <a>Terms of Use</a>
+              <a>T&Cs</a>
+              <a>Privacy Policy</a>
+              <a>Contact</a>
               <Link href="/help">Sitemap</Link>
             </AccordionDetails>
-          </Accordion> */}
+          </Accordion>
         </div>
       ) : (
         <>
-          {/* <div className="footerSection">
-            <h3>Customer Support</h3>
-            <Link href="/help">Help Center</Link>
-            <Link href="/help">User Guide</Link>
-            <Link href="/help">Return & Cancellation</Link>
-            <Link href="/help">Policy</Link>
-            <Link href="/help">Shipping & Delivery Policy</Link>
-          </div> */}
           <div className="footerSection">
-            <h3>About Victorum</h3>
-            <Link href="/about-us">About Our Company</Link>
-            <Link href="/help">Success Stories</Link>
-            <Link href="/help">Victorum Blog</Link>
-            <Link href="/help">Victorum in News</Link>
+            <h3>About us</h3>
+            <a>Our Company</a>
+            <a>Victorum Group</a>
+            <a>We are hiring</a>
+            <a>News</a>
+            <a>Press</a>
           </div>
           <div className="footerSection">
-            <h3>Services & Benefits</h3>
-            <Link href="/help">Advertise with Us</Link>
-            <Link href="/help">Book Domains</Link>
-            <Link href="/help">Ti Pay</Link>
-            <Link href="/help">Trade Khata</Link>
+            <h3>Our Services</h3>
+            <Link href="/#post-buy-request">Post Buy Request</Link>
+            <Link href="/#post-sell-request">Post Sell Request</Link>
+            <a>Market Research</a>
+            <a>Get Our Newsletter</a>
+            <a>Payments? VicPay!</a>
           </div>
           <div className="footerSection">
-            <h3>You wanna sell?</h3>
-            <Link href="/help">Display New Products</Link>
-            <Link href="/help">Buy Trade Leads</Link>
-            <Link href="/help">Subscribe Buy Trade Alerts</Link>
-            <Link href="/help">Subscribe Online</Link>
+            <h3>For Sellers</h3>
+            <Link href="/#post-sell-request">Post Sell Request</Link>
+            <a>Market Research</a>
+            <a>Contact Sellers´ Desk</a>
+            <Link href="/#services">Browse Our Categories</Link>
+            <Link href="/help">Whitepaper</Link>
           </div>
           <div className="footerSection">
-            <h3>You wanna buy?</h3>
-            <Link href="/help">Post your Requirement</Link>
-            <Link href="/help">Browse Suppliers</Link>
-            <Link href="/help">Subscribe sell Trade Alerts</Link>
-            <Link href="/help">Help Center</Link>
+            <h3>For Buyers</h3>
+            <Link href="/#post-buy-request">Post Buy Request</Link>
+            <a>Market Research</a>
+            <a>Contact Buyers´ Desk</a>
+            <Link href="/#post-sell-request">Browse Our Categories</Link>
+            <Link href="/help">Buyer´s Guide to Success</Link>
           </div>
-          {/* <div className="footerSection">
-            <h3>Directory</h3>
-            <Link href="/help">Manufacturers</Link>
-            <Link href="/help">Business Services</Link>
-            <Link href="/help">Service Providers</Link>
-            <Link href="/help">Industry Hubs</Link>
-            <Link href="/help">Country Suppliers</Link>
-            <Link href="/help">Featured Products</Link>
+          <div className="footerSection">
+            <h3>Legal</h3>
+            <a>Terms of Use</a>
+            <a>T&Cs</a>
+            <a>Privacy Policy</a>
+            <a>Contact</a>
             <Link href="/help">Sitemap</Link>
-          </div> */}
+          </div>
         </>
       )}
 
       <div className="footerCountries">
-        <div className="countries">
-          <Link href="/privacy">Japan</Link>
-          <span>|</span>
-          <Link href="/terms">China</Link>
-          <span>|</span>
-          <Link href="/privacy">Taiwan</Link>
-          <span>|</span>
-          <Link href="/terms">Thailand</Link>
-          <span>|</span>
-          <Link href="/privacy">Malaysia</Link>
-          <span>|</span>
+      <div className="countries">
+  {countryData &&
+    countryData.map((country) => (
+      <React.Fragment key={country.id}>
+        {/* Use an anchor tag for the full page reload */}
+        <a 
+          href={`#${country.fallback_name}`}
+          onClick={(e) => {
+            // Prevent the default anchor link behavior
+            e.preventDefault();
+            // Change the location hash manually
+            window.location.hash = country.fallback_name;
+            // Reload the window
+            window.location.reload();
+          }}
+        >
+          {country.fallback_name}
+        </a>
+        <span>|</span>
+      </React.Fragment>
+    ))}
+</div>
 
-          <Link href="/privacy">UAE</Link>
-          <span>|</span>
-          <Link href="/terms">Saudi Arabia</Link>
-          <span>|</span>
-          <Link href="/privacy">USA</Link>
-          <span>|</span>
-          <Link href="/terms">Iran</Link>
-        </div>
         <div className="terms">
-          <span className="cp ml-8" onClick={() => handleNavigate("/privacy-policy")}>Privacy Policy</span>
+          <span
+            className="cp ml-8"
+            onClick={() => handleNavigate("/privacy-policy")}
+          >
+            Privacy Policy
+          </span>
           <span className="cp" onClick={() => handleNavigate("/terms")}>
             Terms & Conditions
           </span>

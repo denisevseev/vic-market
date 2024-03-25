@@ -34,14 +34,48 @@ export default function Home() {
   const [latestTrands, setLatestTrands] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
   const { data: marketData, isLoading } = useMarketData();
-  // const { data: countryData } = useCountryData();
+  const { data: countryData } = useCountryData();
   const postBuyRequirementRef = useRef<HTMLDivElement>(null);
+  const postSellRequirementRef = useRef<HTMLDivElement>(null);
+  const serivesRef = useRef<HTMLDivElement>(null);
 
   const scrollToPostBuyRequirement = () => {
     if (postBuyRequirementRef.current) {
       postBuyRequirementRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const scrollToPostSellRequirement = () => {
+    if (postSellRequirementRef.current) {
+      postSellRequirementRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToServices = () => {
+    if (serivesRef.current) {
+      serivesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // scroll starts
+  useEffect(() => {
+    if (window.location.hash === "#post-buy-request") {
+      scrollToPostBuyRequirement();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === "#post-sell-request") {
+      scrollToPostSellRequirement();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === "#services") {
+      scrollToServices();
+    }
+  }, []);
+  // scroll ends
 
   useEffect(() => {
     if (marketData) {
@@ -77,6 +111,8 @@ export default function Home() {
               <HomepageImagesCarousel />
               <ProductGrow
                 scrollToPostBuyRequirement={scrollToPostBuyRequirement}
+                ref={postSellRequirementRef}
+                id="post-sell-request"
               />
             </Box>
             <MoreValueAdds />
@@ -119,11 +155,13 @@ export default function Home() {
               />
             </div>
           </div>
-          <div ref={postBuyRequirementRef}>
+          <div ref={postBuyRequirementRef} id="post-buy-request">
             <PostBuyRequirement />
           </div>
         </div>
-        <OurServices />
+        <div ref={serivesRef} id="services">
+          <OurServices />
+        </div>
         <DownloadOurApp />
         <TopCategoriesLinks data={categories} />
         <PopularProductsLink data={tradingTrusted} />

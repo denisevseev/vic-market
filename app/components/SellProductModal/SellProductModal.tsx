@@ -1204,7 +1204,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               disabled={!mobileNumber || !country}
             >
               <div className="button-text">
-                <p>Close Modal</p>
+                <p>Close</p>
                 <CloseIcon />
               </div>
             </Button>
