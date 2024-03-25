@@ -24,6 +24,12 @@ const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
               alt={title}
               width={110}
               height={80}
+              style={{
+                maxWidth: "110px",
+                maxHeight: "80px",
+                height: "auto",
+                width: "auto",
+              }}
               className="ml-mr-auto"
             />
           </div>
@@ -96,6 +102,10 @@ const SlideBigger = (item: any) => {
               width={110}
               height={80}
               style={{
+                width: "auto",
+                height: "auto",
+                maxWidth: "110px",
+                maxHeight: "80px",
                 marginLeft: "auto",
                 marginRight: "auto",
                 cursor: "pointer",
@@ -181,7 +191,15 @@ const SlideSmaller = (item: any) => {
         }}
       >
         {data.productImage && (
-          <Box style={{ maxHeight: "50%", height: "100%" }}>
+          <Box
+            style={{
+              maxHeight: "50%",
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Image
               onClick={() =>
                 router.push(`/product/${data.productSlug}/${data.id}`)
@@ -192,6 +210,10 @@ const SlideSmaller = (item: any) => {
               height={100}
               style={{
                 cursor: "pointer",
+                width: "auto",
+                height: "auto",
+                maxWidth: "100px",
+                maxHeight: "100px",
               }}
             />
           </Box>
