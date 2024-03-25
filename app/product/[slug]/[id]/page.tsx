@@ -13,7 +13,6 @@ import {
   getProductByID,
   getProductBySlug,
   processApiResponse,
-
 } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Link from "next/link";
@@ -30,7 +29,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 export default function Product({ params }: any) {
   const { data: marketData, isLoading } = useMarketData();
   const [productFromBE, setProductFromBE] = useState<any | null>(null);
-
 
   const slug = params && params.slug ? params.slug : null;
 
@@ -65,7 +63,7 @@ export default function Product({ params }: any) {
       const generatedBreadcrumbs = [
         { label: "Victorum trade", href: "/" },
         {
-          label: `${product?.category_fallback_name}`,
+          label: `${product?.categorySlug}`,
           href: `/category/[slug]`,
           as: `/category/${product?.categorySlug}`,
         },
@@ -102,7 +100,6 @@ export default function Product({ params }: any) {
     }
   }, [marketData, slug, productName]);
 
-
   // fetchprod start
   const fetchProduct = async (slug: string) => {
     try {
@@ -117,10 +114,6 @@ export default function Product({ params }: any) {
   useEffect(() => {
     fetchProduct(slug);
   }, []);
-
-
-
-
 
   // fetchprod end
 
@@ -204,7 +197,8 @@ export default function Product({ params }: any) {
                           <Box className="productPriceBox">
                             {" "}
                             <Typography className="productPrice">
-                              Price: {productFromBE?.productPrice} {productFromBE?.currency}
+                              Price: {productFromBE?.productPrice}{" "}
+                              {productFromBE?.currency}
                             </Typography>
                           </Box>
                           <Divider sx={{ color: "rgb(238, 240, 243);" }} />
@@ -311,7 +305,9 @@ export default function Product({ params }: any) {
                       onClose={handleCloseModal}
                       productName={productFromBE?.productName}
                       company={productFromBE?.manufacturerName}
-                      imgSrc={productFromBE?.files[0]?.link ?? "/get-distributers.svg"}
+                      imgSrc={
+                        productFromBE?.files[0]?.link ?? "/get-distributers.svg"
+                      }
                       id={productFromBE?.id}
                     />
                   </>
