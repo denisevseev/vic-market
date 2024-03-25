@@ -161,7 +161,10 @@ const SlideBigger = (item: any) => {
   );
 };
 
-const SlideSmaller = ({ title, imgSrc }: any) => {
+const SlideSmaller = (item: any) => {
+  const router = useRouter();
+  const data = item.data ?? null;
+
   return (
     <div style={{ padding: "0 8px" }}>
       <div
@@ -177,14 +180,19 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
           justifyContent: "center",
         }}
       >
-        {imgSrc && (
+        {data.productImage && (
           <Box style={{ maxHeight: "50%", height: "100%" }}>
             <Image
-              src={imgSrc}
-              alt={title}
+              onClick={() =>
+                router.push(`/product/${data.productSlug}/${data.id}`)
+              }
+              src={data.productImage}
+              alt={data.productName}
               width={100}
               height={100}
-              // style={{ marginBottom: "16px" }}
+              style={{
+                cursor: "pointer",
+              }}
             />
           </Box>
         )}
@@ -197,7 +205,12 @@ const SlideSmaller = ({ title, imgSrc }: any) => {
             margin: "10px 0",
           }}
         />
-        <p className="productNameText">{title}</p>
+        <Link
+          className="titleLink"
+          href={`/product/${data.productSlug}/${data.id}`}
+        >
+          <p className="productNameText">{data.productName}</p>
+        </Link>
       </div>
     </div>
   );
@@ -318,11 +331,7 @@ function VariableWidth({
                 location={null}
               />
             ) : (
-              <SlideSmaller
-                key={index}
-                title={slide.productName}
-                imgSrc={slide.productImage}
-              />
+              <SlideSmaller key={index} data={slide} />
             )
           )}
         </Slider>
