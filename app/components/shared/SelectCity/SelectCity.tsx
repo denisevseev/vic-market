@@ -20,23 +20,45 @@ const containsText = (text: any, searchText: any) =>
 
 export default function SelectCity() {
   const { data: countryData }: any = useCountryData();
-  const [selectedOption, setSelectedOption] = useState('All Regions');
+  const [selectedOption, setSelectedOption] = useState("All Regions");
 
   const [searchText, setSearchText] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(countryData || []);
 
+
   useEffect(() => {
     if (searchText) {
-      const filtered =
-        countryData?.filter((option: any) =>
-          containsText(option.fallback_name, searchText)
-        ) || [];
-      setFilteredOptions(filtered);
+      const filtered = countryData?.filter((option: any) =>
+        containsText(option.fallback_name, searchText)
+      ) || [];
+      // Prepend "All Regions" when setting filtered options
+      setFilteredOptions([{ id: 'all', fallback_name: 'All Regions' }, ...filtered]);
     } else {
-      setFilteredOptions(countryData);
+      // Ensure "All Regions" is included when no searchText is present
+      setFilteredOptions([{ id: 'all', fallback_name: 'All Regions' }, ...(countryData ?? [])]);
     }
   }, [searchText, countryData]);
+  
 
+  useEffect(() => {
+    if (
+      window.location.hash === "#India" ||
+      window.location.hash === "#Russian%20Federation" ||
+      window.location.hash === "#Belarus" ||
+      window.location.hash === "#China" ||
+      window.location.hash === "#Hong%20Kong" ||
+      window.location.hash === "#Kazakhstan" ||
+      window.location.hash === "#Turkey" ||
+      window.location.hash === "#India" ||
+      window.location.hash === "#Nigeria" ||
+      window.location.hash === "#Namibia" ||
+      window.location.hash === "#Brazil"
+    ) {
+      setSelectedOption(
+        decodeURIComponent(window.location.hash.replace("#", ""))
+      );
+    }
+  }, []);
 
   return (
     <Box>
