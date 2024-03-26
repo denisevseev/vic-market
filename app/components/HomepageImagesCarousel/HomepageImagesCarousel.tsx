@@ -4,9 +4,8 @@ import React from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import Image from "next/image";
-import homepageImage1 from "../../../public/homepage-carousel-image.webp";
-import homepageImage2 from "../../../public/homepage-carousel-image2.jpg";
-import homepageImage3 from "../../../public/homepage-carousel-image3.jpg";
+import homepageImage1 from "../../../public/sliderfirst.jpg";
+import homepageImage2 from "../../../public/slidersecond.jpg";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const carouselItems = [
@@ -17,10 +16,6 @@ const carouselItems = [
   {
     imageUrl: homepageImage2,
     caption: "Caption 2",
-  },
-  {
-    imageUrl: homepageImage3,
-    caption: "Caption 3",
   },
 ];
 
