@@ -10,11 +10,11 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 const carouselItems = [
   {
-    imageUrl: homepageImage1,
+    imageUrl: homepageImage2,
     caption: "Caption 1",
   },
   {
-    imageUrl: homepageImage2,
+    imageUrl: homepageImage1,
     caption: "Caption 2",
   },
 ];
