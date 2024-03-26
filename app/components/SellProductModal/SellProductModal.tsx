@@ -197,11 +197,15 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
     formData.append("category", category);
     formData.append("description", productDetails);
 
-    images.forEach((file, index) => {
-      formData.append(`file${index + 2}`, file); // 'file' should be a File object
+    let fileIndex = 1;
+
+    images.forEach((file) => {
+      formData.append(`file${fileIndex}`, file);
+      fileIndex++;
     });
+
     if (video) {
-      formData.append("file10", video); // 'video' should be a File object
+      formData.append(`file${fileIndex}`, video);
     }
 
     try {
@@ -210,13 +214,10 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           "Content-Type": "multipart/form-data",
         },
       });
-      // Handle successful response
       setIsLoadingSell(false);
-      // ... rest of your success logic
     } catch (error) {
       console.error("Error sending data to the backend: ", error);
       setIsLoadingSell(false);
-      // ... rest of your error handling logic
     }
   };
 
@@ -1201,7 +1202,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   textTransform: "none",
                 },
               }}
-              disabled={isLoadingSell }
+              disabled={isLoadingSell}
             >
               <div className="button-text">
                 <p>Close</p>
