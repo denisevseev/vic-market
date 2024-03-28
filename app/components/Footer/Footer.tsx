@@ -136,7 +136,7 @@ const Footer = () => {
             <AccordionDetails>
               <Link href="/#post-sell-request">Post Sell Request</Link>
               <a>Market Research</a>
-              <a>Contact Sellers´ Desk</a>
+              <Link href="/#contact-us">Contact Sellers´ Desk</Link>
               <Link href="/#services">Browse Our Categories</Link>
               <Link href="/help">Whitepaper</Link>
             </AccordionDetails>
@@ -220,7 +220,7 @@ const Footer = () => {
             <h3>For Sellers</h3>
             <Link href="/#post-sell-request">Post Sell Request</Link>
             <a>Market Research</a>
-            <a>Contact Sellers´ Desk</a>
+            <Link href="/contact-us">Contact Sellers´ Desk</Link>
             <Link href="/#services">Browse Our Categories</Link>
             <Link href="/help">Whitepaper</Link>
           </div>

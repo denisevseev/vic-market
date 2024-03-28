@@ -16,8 +16,8 @@ export default function FooterTopBox() {
 
   const [openModal, setOpenModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleNavigateToContactUs = () => {
+    window.location.href = "/contact-us";
   };
 
   const logoWidth = isMobile ? 106 : 181;
@@ -90,7 +90,7 @@ export default function FooterTopBox() {
         <div className="btn-container">
           <Button
             variant="contained"
-            onClick={handleOpenModal}
+            onClick={handleNavigateToContactUs}
             sx={{
               height: "48px",
               borderRadius: "8px",
@@ -148,7 +148,7 @@ export default function FooterTopBox() {
       <div className="btn-container-big">
         <Button
           variant="contained"
-          onClick={handleOpenModal}
+          onClick={handleNavigateToContactUs}
           sx={{
             width: "100%",
             ".button-text p": {
@@ -159,7 +159,7 @@ export default function FooterTopBox() {
         >
           <div className="button-text">
             <p className="font-size-16">Contact us</p>
-            <ArrowForwardIcon />
+            {/* <ArrowForwardIcon /> */}
           </div>
         </Button>
       </div>
