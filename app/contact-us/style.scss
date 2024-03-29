@@ -1,0 +1,859 @@
+.aboutUsMainBox {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.firstSectionAboutUs {
+  width: 68%;
+  padding: 70px 0px;
+  position: relative;
+  z-index: 2;
+}
+.badgeAboutUs {
+  display: inline-flex;
+  background: #d2dae0;
+  border-radius: 37px;
+  -moz-border-radius: 37px;
+  -webkit-border-radius: 37px;
+  padding: 10px 25px;
+  margin-bottom: 30px;
+}
+.badgeAboutUsText {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840;
+}
+.mainHeadingAboutUs {
+  display: block;
+  margin: 0px;
+  padding: 0;
+}
+.mainHeadingAboutUsText {
+  font-weight: 600 !important;
+  font-size: 56px !important;
+  line-height: 70px !important;
+}
+.digitallySakshamTextsBox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.mainHeadingContent {
+  padding-top: 25px;
+}
+.mainHeadingContentText {
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  color: #2d3840;
+  font-family: "__Poppins_fc943e", "__Poppins_Fallback_fc943e" !important;
+}
+.mainHeadingContentTextBold {
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  color: #2d3840;
+  font-family: "__Poppins_fc943e", "__Poppins_Fallback_fc943e" !important;
+}
+.secondSectionMainAboutUs {
+  background-size: cover;
+  padding: 50px 0 0 0px;
+}
+.secondSectionBox {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.secondSectionItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+.secondSectionSingleItemMain {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.secondSectionNumbers {
+  display: flex;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  line-height: 44px !important;
+  color: #404d57;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.secondSectionIconTexts {
+  font-size: 18px !important;
+  color: #5e7384;
+  line-height: 24px !important;
+}
+.aboutUsThirdSectionMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ourMissionAndVisionText {
+  padding-bottom: 15px;
+  font-weight: 600 !important;
+  font-size: 36px !important;
+  line-height: 44px !important;
+  color: #c95b5b;
+}
+.letsEnableSMEsText {
+  display: block;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 30px !important;
+  color: #404d57;
+  padding-bottom: 16px;
+}
+.ourMissionAndVisionDesc {
+  font-weight: 400;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  color: #5e7384;
+  padding-bottom: 25px;
+}
+.ourMissionBoxMain {
+  width: 48%;
+}
+.fourthSectionMain {
+  margin-bottom: 326px;
+  display: flex;
+  padding: 50px 0px;
+  background: #f9f2ec;
+  height: 420px;
+}
+.fourthSectionSec {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.fourthSectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
+.meetOurForceText {
+  font-weight: 600 !important;
+  font-size: 36px !important;
+  line-height: 44px !important;
+  color: #2a5182;
+  padding-bottom: 35px;
+}
+.leadersItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 65px auto 50px auto;
+}
+.leadersItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 32%;
+  background: #ffffff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 30px;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+}
+.leadersImage {
+  width: 226px;
+  height: 226px;
+  border: 6px solid #eef0f3;
+  background-color: #eee;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  margin: 0 auto 10px auto;
+  margin-top: -100px;
+  background: url(../../public/leader1.jpg) no-repeat center top #eee;
+  background-size: cover;
+}
+.leadersImage2 {
+  width: 226px;
+  height: 226px;
+  border: 6px solid #eef0f3;
+  background-color: #eee;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  margin: 0 auto 10px auto;
+  margin-top: -100px;
+  background: url(../../public/leader2.jpg) no-repeat center top #eee;
+  background-size: cover;
+}
+.leadersImage3 {
+  width: 226px;
+  height: 226px;
+  border: 6px solid #eef0f3;
+  background-color: #eee;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  margin: 0 auto 10px auto;
+  margin-top: -100px;
+  background: url(../../public/leader3.jpg) no-repeat center top #eee;
+  background-size: cover;
+}
+.leadersName {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #082f4a;
+  padding-bottom: 5px;
+}
+.leadersPosition {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #1d678d;
+  padding-bottom: 10px;
+}
+.leadersDesc {
+  font-weight: 300 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #5e7384;
+}
+.fifthSectionMain {
+  display: flex;
+  padding: 50px 0px;
+  background: url(../../public/our-core-background.png) no-repeat;
+  background-size: cover;
+  min-height: 420px;
+}
+.fifthSectionBox {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.fifthSectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ourCoreValueText {
+  font-weight: 600 !important;
+  font-size: 36px !important;
+  line-height: 44px !important;
+  color: #c95b5b;
+  padding-bottom: 35px;
+}
+.ourCoreValueItems {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.ourCoreValueItems2 {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.ourCoreValuesItemImage {
+  width: 49%;
+}
+
+.flag-image {
+  width: 6%;
+}
+.ourCoreValuesItemContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 49%;
+  background: #ffffff;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 5px;
+  padding: 20px 45px;
+}
+.ourCoreValueContentHeading {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #404d57;
+  padding-bottom: 16px;
+}
+.ourCoreValueContentDesc {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #5e7384;
+}
+.sixthSectionBox {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 20px 0 20px;
+}
+.sixthSectionBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.seventhSectionMain {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 20px 0 20px;
+}
+.seventhSectionBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.connectImage {
+  width: 100%;
+}
+.voiceOfChangeMobItemsBox {
+  width: 100%;
+  display: none;
+}
+.voiceChangeMobItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: linear-gradient(40.27deg, #4084ad -16.4%, #265c81 118.06%);
+  border-radius: 16px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -o-border-radius: 16px;
+  padding: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.voiceChangeMob {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+  background: url(), #ffffff;
+  border: 2px solid #eef0f3;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -o-border-radius: 100px;
+  margin-right: 10px;
+  background: url(../../public/voice-of-change-mob.png) no-repeat center top
+    #fff;
+  background-size: 70px;
+}
+.voiceChangeMob2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+  background: url(), #ffffff;
+  border: 2px solid #eef0f3;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -o-border-radius: 100px;
+  margin-right: 10px;
+  background: url(../../public/voice-of-change-mob2.png) no-repeat center top
+    #fff;
+  background-size: 70px;
+}
+.voiceChangeMob3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+  background: url(), #ffffff;
+  border: 2px solid #eef0f3;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -o-border-radius: 100px;
+  margin-right: 10px;
+  background: url(../../public/voice-of-change-mob3.png) no-repeat center top
+    #fff;
+  background-size: 70px;
+}
+.voiceChangeMob4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+  background: url(), #ffffff;
+  border: 2px solid #eef0f3;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -o-border-radius: 100px;
+  margin-right: 10px;
+  background: url(../../public/voice-of-change-mob4.png) no-repeat center top
+    #fff;
+  background-size: 70px;
+}
+.voiceChangeMobText {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: #ffffff;
+}
+.ourJourneySlideItems {
+  display: flex !important;
+  flex-direction: row;
+  border-bottom: 2px dashed #98a8b6;
+  width: 100%;
+  list-style: none;
+  justify-content: space-around;
+  margin: 170px 0px;
+}
+.ourJourneySingleItem {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ourJourneyDot {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  background: linear-gradient(270deg, #db6818 12.5%, #e7861d 97.27%);
+  position: relative;
+  top: 13px;
+}
+.ourJourneyTextBox {
+  width: 256px;
+  position: absolute;
+  bottom: -124px;
+}
+.ourJourneyText {
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  text-align: center;
+  color: #2d3840;
+}
+.ourJourneyYearBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  box-shadow: 3px 31px 40px rgba(187, 194, 205, 0.25);
+  border-radius: 100px;
+  position: absolute;
+  top: -166px;
+}
+.ourJourneyYear {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: #082f4a;
+}
+.ourJourneyLine {
+  border: 1px solid #082f4a;
+  transform: rotate(90deg);
+  width: 96px;
+  position: absolute;
+  top: -40px;
+}
+.ourJourneyBoxUp {
+  width: 256px;
+  position: absolute;
+  top: -100px;
+  bottom: auto;
+}
+.ourJourneyTextUp {
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  text-align: center;
+  color: #2d3840;
+}
+.ourJourneyYearDownBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 100px;
+  position: absolute;
+  bottom: -191px;
+  top: auto;
+  box-shadow: 2px -18px 19px rgb(187 194 205 / 25%);
+}
+.ourJourneyLineDown {
+  border: 1px solid #082f4a;
+  transform: rotate(90deg);
+  width: 96px;
+  position: absolute;
+  top: auto;
+  bottom: -67px;
+}
+.fadeImage {
+  content: "";
+  background: url(/_next/static/media/fade-about-us.e061c884.png) no-repeat
+    center bottom;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  height: 150px;
+  width: 100%;
+  z-index: 2;
+}
+.autoplayMainBox {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  transform: rotate(10deg);
+}
+
+@media screen and (max-width: 1024px) {
+  .sixthSectionBox {
+    display: none;
+  }
+  .secondSectionItem {
+    grid-template-columns: 1fr 1fr;
+  }
+  .firstSectionAboutUs {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .fourthSectionMain {
+    height: auto;
+    margin-bottom: 0;
+    padding-top: 40px;
+  }
+  .leadersItems {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .leadersItem {
+    width: 100%;
+    margin-bottom: 110px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .ourJourneySlideItems {
+    display: inline-flex;
+    flex-direction: column;
+    border-bottom: 0;
+    border-left: 2px dashed #98a8b6;
+    width: 2px;
+    margin: 0 auto;
+    height: 600px;
+  }
+  .ourJourneySingleItem {
+    display: inline-flex;
+    padding: 30px 0px;
+    position: relative;
+  }
+  .ourCoreValueItems {
+    flex-direction: column;
+    gap: 0;
+  }
+  .ourCoreValueItems2 {
+    flex-direction: column;
+    gap: 0;
+  }
+  .ourCoreValuesItemImage {
+    width: 100%;
+  }
+  .ourCoreValuesItemContent {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-top: -6px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .mainHeadingAboutUsText {
+    font-size: 46px !important;
+    line-height: 60px !important;
+  }
+  .mainHeadingContentText {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .mainHeadingContentTextBold {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .secondSectionNumbers {
+    font-size: 22px !important;
+    line-height: 33px !important;
+  }
+  .secondSectionIconTexts {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  .ourMissionAndVisionText {
+    font-size: 38px !important;
+    line-height: 48px !important;
+  }
+  .ourMissionAndVisionDesc {
+    font-size: 16px !important;
+  }
+  .meetOurForceText {
+    font-size: 38px !important;
+    line-height: 48px !important;
+  }
+  .ourCoreValueContentHeading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .ourCoreValueContentDesc {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    text-align: center;
+  }
+  .ourMissionBoxMain {
+    width: 100%;
+  }
+  .aboutUsThirdSectionMain {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .connectImage {
+    display: none;
+  }
+  .voiceOfChangeMobItemsBox {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .firstSectionAboutUs {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .seventhSectionMain {
+    padding: 50px 20px 0 20px !important;
+  }
+  .badgeAboutUsText {
+    font-size: 18px !important;
+    line-height: 28px !important;
+  }
+  .secondSectionMainAboutUs {
+    padding: 0 0 0 0 !important;
+  }
+  .mainHeadingAboutUsText {
+    font-size: 38px !important;
+    line-height: 48px !important;
+  }
+  .digitallySakshamTextsBox {
+    gap: 6px !important;
+  }
+  .mainHeadingContentText {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .mainHeadingContentTextBold {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .secondSectionNumbers {
+    text-align: center !important;
+    font-size: 22px !important;
+    line-height: 33px !important;
+  }
+  .secondSectionIconTexts {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  .ourMissionAndVisionText {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+  .ourCoreValuesItemContent {
+    padding: 20px 25px !important;
+  }
+  .letsEnableSMEsText {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+  .ourMissionAndVisionDesc {
+    font-size: 16px !important;
+  }
+  .meetOurForceText {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+  .ourCoreValueContentHeading {
+    display: flex;
+    justify-content: center;
+  }
+  .ourCoreValueContentDesc {
+    font-size: 14px !important;
+    line-height: 22px !important;
+  }
+}
+@media screen and (max-width: 385px) {
+  .leadersImage {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  .leadersImage2 {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  .leadersImage3 {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  .voiceChangeMobText {
+    font-size: 12px !important;
+  }
+  .badgeAboutUsText {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .mainHeadingAboutUsText {
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
+  .digitallySakshamTextsBox {
+    gap: 4px !important;
+  }
+  .mainHeadingContentText {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+  .mainHeadingContentTextBold {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+  .secondSectionNumbers {
+    font-size: 20px !important;
+    line-height: 31px !important;
+  }
+  .secondSectionIconTexts {
+    font-size: 12px !important;
+    line-height: 20px !important;
+    text-align: center;
+  }
+  .ourMissionAndVisionText {
+    font-size: 28px !important;
+    line-height: 38px !important;
+  }
+  .ourCoreValuesItemContent {
+    padding: 20px 25px !important;
+  }
+  .letsEnableSMEsText {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .ourMissionAndVisionDesc {
+    font-size: 14px !important;
+  }
+  .meetOurForceText {
+    font-size: 28px !important;
+    line-height: 38px !important;
+  }
+  .ourCoreValueContentHeading {
+    display: flex;
+    justify-content: center;
+  }
+  .ourCoreValueContentDesc {
+    font-size: 14px !important;
+    line-height: 22px !important;
+  }
+}
+@media screen and (max-width: 340px) {
+  .digitallySakshamTextsBox {
+    flex-direction: column !important;
+  }
+  .badgeAboutUsText {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+  .mainHeadingAboutUsText {
+    font-size: 28px !important;
+    line-height: 38px !important;
+  }
+  .digitallySakshamTextsBox {
+    gap: 4px !important;
+  }
+  .secondSectionNumbers {
+    font-size: 16px !important;
+    line-height: 28px !important;
+  }
+  .ourMissionAndVisionText {
+    font-size: 24px !important;
+    line-height: 34px !important;
+  }
+  .letsEnableSMEsText {
+    font-size: 18px !important;
+    line-height: 24px !important;
+  }
+  .meetOurForceText {
+    font-size: 24px !important;
+    line-height: 34px !important;
+  }
+}
+
+.flag-text {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
