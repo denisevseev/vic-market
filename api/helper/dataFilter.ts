@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const getRandomTopCategoriesWithItems = (
   categoriesWithProducts: any,
   numberOfCategories: number,
@@ -270,5 +271,17 @@ export const getAllProductsInCategories = (
   }
 
   return allProducts;
+};
+
+export const subscribeToNewsletter = async (email:any) => {
+  try {
+    const response = await axios.post('/api/subscribeUser', {
+      email: email,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error subscribing to newsletter:', error);
+    throw new Error('Failed to subscribe to newsletter.');
+  }
 };
 
