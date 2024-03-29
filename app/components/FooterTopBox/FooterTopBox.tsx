@@ -10,15 +10,21 @@ import { Button, useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ContactUs from "../ContactUs/ContactUs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function FooterTopBox() {
   const isMobile = useMediaQuery("(max-width:600px)");
+  const router = useRouter();
+
 
   const [openModal, setOpenModal] = useState(false);
 
   const handleNavigateToContactUs = () => {
-    window.location.href = "/contact-us";
+    const url = '/contact-us?from=top-box';
+    router.push(url);
   };
+  
+  
 
   const logoWidth = isMobile ? 106 : 181;
   const logoHeight = isMobile ? 28 : 48;

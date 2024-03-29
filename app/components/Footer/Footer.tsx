@@ -136,7 +136,15 @@ const Footer = () => {
             <AccordionDetails>
               <Link href="/#post-sell-request">Post Sell Request</Link>
               <a>Market Research</a>
-              <Link href="/#contact-us">Contact Sellers´ Desk</Link>
+              {/* <Link href="/#contact-us">Contact Sellers´ Desk</Link> */}
+              <Link
+                href={{
+                  pathname: "/contact-us",
+                  query: { from: "seller-details" },
+                }}
+              >
+                Contact Sellers´ Desk
+              </Link>
               <Link href="/#services">Browse Our Categories</Link>
               <Link href="/help">Whitepaper</Link>
             </AccordionDetails>
@@ -220,7 +228,15 @@ const Footer = () => {
             <h3>For Sellers</h3>
             <Link href="/#post-sell-request">Post Sell Request</Link>
             <a>Market Research</a>
-            <Link href="/contact-us">Contact Sellers´ Desk</Link>
+            <Link
+              href={{
+                pathname: "/contact-us",
+                query: { from: "seller-details" },
+              }}
+            >
+              Contact Sellers´ Desk
+            </Link>
+
             <Link href="/#services">Browse Our Categories</Link>
             <Link href="/help">Whitepaper</Link>
           </div>
@@ -244,28 +260,28 @@ const Footer = () => {
       )}
 
       <div className="footerCountries">
-      <div className="countries">
-  {countryData &&
-    countryData.map((country) => (
-      <React.Fragment key={country.id}>
-        {/* Use an anchor tag for the full page reload */}
-        <a 
-          href={`#${country.fallback_name}`}
-          onClick={(e) => {
-            // Prevent the default anchor link behavior
-            e.preventDefault();
-            // Change the location hash manually
-            window.location.hash = country.fallback_name;
-            // Reload the window
-            window.location.reload();
-          }}
-        >
-          {country.fallback_name}
-        </a>
-        <span>|</span>
-      </React.Fragment>
-    ))}
-</div>
+        <div className="countries">
+          {countryData &&
+            countryData.map((country) => (
+              <React.Fragment key={country.id}>
+                {/* Use an anchor tag for the full page reload */}
+                <a
+                  href={`#${country.fallback_name}`}
+                  onClick={(e) => {
+                    // Prevent the default anchor link behavior
+                    e.preventDefault();
+                    // Change the location hash manually
+                    window.location.hash = country.fallback_name;
+                    // Reload the window
+                    window.location.reload();
+                  }}
+                >
+                  {country.fallback_name}
+                </a>
+                <span>|</span>
+              </React.Fragment>
+            ))}
+        </div>
 
         <div className="terms">
           <span

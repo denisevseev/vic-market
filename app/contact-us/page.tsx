@@ -18,10 +18,16 @@ import OurJourneySlider from "../components/AboutUsSliders/OurJourneySlider";
 import AutoPlaySlider from "../components/AboutUsSliders/AutoPlaySlider";
 import UsaFlag from "../../public/usa.png";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import { useSearchParams } from "next/navigation";
+
+type FromType = "top-box" | "seller-details";
 
 export default function ContactUs() {
   const autoPlayImages = ["/testImage.png", "/testImage.png", "/testImage.png"];
   const formRef = useRef<HTMLDivElement>(null);
+
+  const searchParams = useSearchParams();
+  const from = searchParams.get("from");
 
   const scrollToForm = () => {
     if (formRef.current) {
@@ -38,28 +44,31 @@ export default function ContactUs() {
             <Box className="badgeAboutUs">
               <Typography className="badgeAboutUsText">Contact Us</Typography>
             </Box>
+
             <Box className="mainHeadingAboutUs">
               <Typography className="mainHeadingAboutUsText" color={"#21130d"}>
-                Get in Touch
+                {from === "top-box" ? "Get in Touch" : "Don't miss it!"}
               </Typography>
-              <Box className="digitallySakshamTextsBox">
-                <Typography
-                  className="mainHeadingAboutUsText"
-                  color={"#2a5182"}
-                >
-                  We are Here
-                </Typography>
-                <Typography
-                  color={"#21130d"}
-                  className="mainHeadingAboutUsText"
-                >
-                  {" "}
-                  to Help!
-                </Typography>
-              </Box>
+
+              {from !== "seller-details" && (
+                <Box className="digitallySakshamTextsBox">
+                  <Typography
+                    className="mainHeadingAboutUsText"
+                    color={"#2a5182"}
+                  >
+                    We are Here
+                  </Typography>
+                  <Typography
+                    color={"#21130d"}
+                    className="mainHeadingAboutUsText"
+                  >
+                    to Help!
+                  </Typography>
+                </Box>
+              )}
             </Box>
-            <Box className="mainHeadingContent">
-            </Box>
+
+            <Box className="mainHeadingContent"></Box>
           </Box>
         </Box>
 
@@ -86,20 +95,37 @@ export default function ContactUs() {
                     Customer Service
                   </Typography>
 
-                  <Typography
-                    className="ourCoreValueContentDesc"
-                    sx={{
-                      marginBottom: "16px",
-                    }}
-                  >
-                    If you have a customer service question, please select your
-                    local Victorum Service Number from the list below.
-                  </Typography>
+                  {from === "top-box" ? (
+                    <Typography
+                      className="ourCoreValueContentDesc"
+                      sx={{
+                        marginBottom: "16px",
+                      }}
+                    >
+                      If you have a customer service question, please select
+                      your local Victorum Service Number from the list below.
+                    </Typography>
+                  ) : (
+                    <Typography
+                      className="ourCoreValueContentDesc"
+                      sx={{
+                        marginBottom: "16px",
+                      }}
+                    >
+                      If you have any questions about products and services
+                      relating to everything to do with purchasing processes at
+                      Victorum, you have come to the right place! Our helpdesk
+                      is available around the clock, 7 days a week. Call us on
+                      <b style={{ marginLeft: "3px" }}> 123 XXX XXX.</b>
+                    </Typography>
+                  )}
 
-                  <Typography className="ourCoreValueContentDesc">
-                    If you are not a client yet, you can dial 00000000 in order
-                    to reach our support desk.
-                  </Typography>
+                  {from === "top-box" ? (
+                    <Typography className="ourCoreValueContentDesc">
+                      If you are not a client yet, you can dial 00000000 in
+                      order to reach our support desk.
+                    </Typography>
+                  ) : null}
                 </Box>
               </Box>
 
@@ -114,22 +140,50 @@ export default function ContactUs() {
                     alt="Constant Learning"
                   />
                 </Box>
-                <Box className="ourCoreValuesItemContent">
-                  <Typography className="ourCoreValueContentHeading">
-                    Email and Working Hours
-                  </Typography>
-                  <Typography className="ourCoreValueContentDesc">
-                    You can also write us a message to support@xxxxx or use the 
-                    <span
-                      style={{ cursor: "pointer", textDecoration: "underline", marginLeft: "6px"}}
-                      onClick={scrollToForm}
-                    >
-                      contact form below
-                    </span>
-                    {" - our support desk is available "}
-                    <b>Monday to Friday from 08h till 18h.</b>
-                  </Typography>
-                </Box>
+
+                {from === "top-box" ? (
+                  <Box className="ourCoreValuesItemContent">
+                    <Typography className="ourCoreValueContentHeading">
+                      Email and Working Hours
+                    </Typography>
+                    <Typography className="ourCoreValueContentDesc">
+                      You can also write us a message to support@xxxxx or use
+                      the
+                      <span
+                        style={{
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                          marginLeft: "6px",
+                        }}
+                        onClick={scrollToForm}
+                      >
+                        contact form below
+                      </span>
+                      {" - our support desk is available "}
+                      <b>Monday to Friday from 08h till 18h.</b>
+                    </Typography>
+                  </Box>
+                ) : (
+                  <Box className="ourCoreValuesItemContent">
+                    <Typography className="ourCoreValueContentHeading">
+                      Contact Email
+                    </Typography>
+                    <Typography className="ourCoreValueContentDesc">
+                      You can also write us a message to{" "}
+                      <b>sellers-desk@ghhjjhg </b>or use the
+                      <span
+                        style={{
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                          marginLeft: "6px",
+                        }}
+                        onClick={scrollToForm}
+                      >
+                        contact form below.
+                      </span>
+                    </Typography>
+                  </Box>
+                )}
               </Box>
             </Box>
           </Box>
