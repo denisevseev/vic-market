@@ -80,9 +80,9 @@ const Footer = () => {
             <AccordionDetails>
               <p>Our Company</p>
               <a>Victorum Group</a>
-              <a>We are hiring</a>
-              <a>News</a>
-              <a>Press</a>
+              <a href="/careers">Careers</a>
+              <a href="/news">News</a>
+              <a href="/press">Press</a>
             </AccordionDetails>
           </Accordion>
 
@@ -212,9 +212,9 @@ const Footer = () => {
             <h3>About us</h3>
             <a>Our Company</a>
             <a>Victorum Group</a>
-            <a>We are hiring</a>
-            <a>News</a>
-            <a>Press</a>
+            <a href="/careers">Careers</a>
+            <a href="/news">News</a>
+            <a href="/press">Press</a>
           </div>
           <div className="footerSection">
             <h3>Our Services</h3>
