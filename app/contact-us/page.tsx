@@ -1,33 +1,28 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.scss";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import CategoryRank from "../../public/category-rank.svg";
-import ProductCategory from "../../public/product-category.svg";
-import RegUsers from "../../public/reg-users.svg";
-import InquiriesEveryYear from "../../public/inquiries-every-year.svg";
-import AboutUsBuildingImage from "../../public/about-us-buildings.jpg";
 import OurCoreValue from "../../public/service-num.jpeg";
 import OurCoreValue2 from "../../public/email-logo-2.png";
-import OurCoreValue3 from "../../public/our-core-value3.jpg";
-import OurCoreValue4 from "../../public/our-core-value4.jpg";
-import OurCoreValue5 from "../../public/our-core-value5.jpg";
-import ConnectImage from "../../public/connect-image.png";
-import OurJourneySlider from "../components/AboutUsSliders/OurJourneySlider";
-import AutoPlaySlider from "../components/AboutUsSliders/AutoPlaySlider";
-import UsaFlag from "../../public/usa.png";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
-import { useSearchParams } from "next/navigation";
-
-type FromType = "top-box" | "seller-details";
 
 export default function ContactUs() {
-  const autoPlayImages = ["/testImage.png", "/testImage.png", "/testImage.png"];
   const formRef = useRef<HTMLDivElement>(null);
 
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from");
+  const [from, setFrom] = useState<"top-box" | "seller-details" | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const fromParam = searchParams.get("from");
+      if (fromParam === "top-box" || fromParam === "seller-details") {
+        setFrom(fromParam);
+      } else {
+        setFrom(null);
+      }
+    }
+  }, []);
 
   const scrollToForm = () => {
     if (formRef.current) {
