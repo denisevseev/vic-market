@@ -1,9 +1,9 @@
 "use client";
 import { Box } from "@mui/material";
 import "../../../styles/HomePage.scss";
-import DataJson from "../../../app/components/data.json";
+import DataJson from "../../components/data.json";
 import { useEffect, useState } from "react";
-import FeaturedProducts from "../../../app/components/FeaturedProducts/FeaturedProducts";
+import FeaturedProducts from "../../components/FeaturedProducts/FeaturedProducts";
 import {
   getFilteredProducts,
   getFilteredProductsByCategory,
@@ -12,7 +12,7 @@ import {
   getRandomTopCategoriesWithItems,
   processApiResponse,
 } from "@/api/helper/dataFilter";
-import VariableWidth from "../../../app/components/shared/ScrollableTabs/ScrollableTabs";
+import VariableWidth from "../../components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
 
 export default function Category({ params }: any) {
