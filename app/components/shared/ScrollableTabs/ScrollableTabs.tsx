@@ -247,6 +247,7 @@ function VariableWidth({
   title,
   isSmallCarousel,
   isUpcomingTradeshows,
+  isCategory,
 }: any) {
   const isLargeScreen = useMediaQuery("(min-width: 1550px)");
   const isMediumScreen = useMediaQuery(
@@ -337,25 +338,53 @@ function VariableWidth({
       </h2>
       <div style={{ margin: "20px" }}>
         <Slider {...slickSettings}>
-          {data?.map((slide: any, index: any) =>
-            isSmallCarousel ? (
-              <SlideBigger
-                key={index}
-                data={slide}
-                isSmallCarousel={isSmallCarousel}
-              />
-            ) : isUpcomingTradeshows ? (
-              <SlideUpComing
-                key={index}
-                imgSrc={slide.productImage}
-                title={slide.productName}
-                date={null}
-                location={null}
-              />
-            ) : (
-              <SlideSmaller key={index} data={slide} />
-            )
-          )}
+          {isCategory
+            ? data?.map((category: any, index: number) => (
+                <div key={index}>
+                  <div style={{ padding: "0 8px" }}>
+                    <div className="slideCategory">
+                      <div
+                        className="text-part-upcoming"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          height: "100%",
+                        }}
+                      >
+                        {" "}
+                        <Link
+                          className="productNameLink"
+                          href={`/category/${category.categorySlug}`}
+                        >
+                          <p className="productNameText">
+                            {category.categoryName}
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            : data?.map((slide: any, index: any) =>
+                isSmallCarousel ? (
+                  <SlideBigger
+                    key={index}
+                    data={slide}
+                    isSmallCarousel={isSmallCarousel}
+                  />
+                ) : isUpcomingTradeshows ? (
+                  <SlideUpComing
+                    key={index}
+                    imgSrc={slide.productImage}
+                    title={slide.productName}
+                    date={null}
+                    location={null}
+                  />
+                ) : (
+                  <SlideSmaller key={index} data={slide} />
+                )
+              )}
         </Slider>
       </div>
     </div>

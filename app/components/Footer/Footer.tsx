@@ -149,7 +149,7 @@ const Footer = () => {
               >
                 Contact Sellers´ Desk
               </Link>
-              <Link href="/#services">Browse Our Categories</Link>
+              <Link href="/categories">Browse Our Categories</Link>
               <Link href="/help">Whitepaper</Link>
             </AccordionDetails>
           </Accordion>
@@ -177,7 +177,7 @@ const Footer = () => {
               <Link href="/#post-buy-request">Post Buy Request</Link>
               <a>Market Research</a>
               <a>Contact Buyers´ Desk</a>
-              <Link href="/#post-sell-request">Browse Our Categories</Link>
+              <Link href="/categories">Browse Our Categories</Link>
               <Link href="/help">Buyer´s Guide to Success</Link>
             </AccordionDetails>
           </Accordion>
@@ -252,7 +252,7 @@ const Footer = () => {
               Contact Sellers´ Desk
             </Link>
 
-            <Link href="/#services">Browse Our Categories</Link>
+            <Link href="/categories">Browse Our Categories</Link>
             <Link href="/help">Whitepaper</Link>
           </div>
           <div className="footerSection">
@@ -260,7 +260,7 @@ const Footer = () => {
             <Link href="/#post-buy-request">Post Buy Request</Link>
             <a>Market Research</a>
             <a>Contact Buyers´ Desk</a>
-            <Link href="/#post-sell-request">Browse Our Categories</Link>
+            <Link href="/categories">Browse Our Categories</Link>
             <Link href="/help">Buyer´s Guide to Success</Link>
           </div>
           <div className="footerSection">
