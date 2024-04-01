@@ -79,7 +79,9 @@ const Footer = () => {
             </AccordionSummary>
             <AccordionDetails>
               <p>Our Company</p>
-              <a>Victorum Group</a>
+              <a href="https://www.victorum-group.com/" target="_blank">
+                Victorum Group
+              </a>
               <a href="/careers">Careers</a>
               <a href="/news">News</a>
               <a href="/press">Press</a>
@@ -109,8 +111,10 @@ const Footer = () => {
               <Link href="/#post-buy-request">Post Buy Request</Link>
               <Link href="/#post-sell-request">Post Sell Request</Link>
               <a>Market Research</a>
-              <a>Get Our Newsletter</a>
-              <a href="/help">Payments? VicPay!</a>
+              <a href="/newsletter">Get Our Newsletter</a>
+              <a href="http://vicpayments.com/" target="_blank">
+                Payments? VicPay!
+              </a>
             </AccordionDetails>
           </Accordion>
 
@@ -201,7 +205,14 @@ const Footer = () => {
               {/* <a>Terms of Use</a> */}
               <a href="/terms">T&Cs</a>
               <a href="/privacy-policy">Privacy Policy</a>
-              <a>Contact</a>
+              <Link
+                href={{
+                  pathname: "/contact-us",
+                  query: { from: "seller-details" },
+                }}
+              >
+                Contact
+              </Link>
               <Link href="/help">Sitemap</Link>
             </AccordionDetails>
           </Accordion>
@@ -211,7 +222,9 @@ const Footer = () => {
           <div className="footerSection">
             <h3>About us</h3>
             <a>Our Company</a>
-            <a>Victorum Group</a>
+            <a href="https://www.victorum-group.com/" target="_blank">
+              Victorum Group
+            </a>
             <a href="/careers">Careers</a>
             <a href="/news">News</a>
             <a href="/press">Press</a>
@@ -221,8 +234,10 @@ const Footer = () => {
             <Link href="/#post-buy-request">Post Buy Request</Link>
             <Link href="/#post-sell-request">Post Sell Request</Link>
             <a>Market Research</a>
-            <a>Get Our Newsletter</a>
-            <a>Payments? VicPay!</a>
+            <a href="/newsletter">Get Our Newsletter</a>
+            <a href="http://vicpayments.com/" target="_blank">
+              Payments? VicPay!
+            </a>
           </div>
           <div className="footerSection">
             <h3>For Sellers</h3>
@@ -253,7 +268,14 @@ const Footer = () => {
             {/* <a>Terms of Use</a> */}
             <a href="/terms">T&Cs</a>
             <a href="/privacy-policy">Privacy Policy</a>
-            <a>Contact</a>
+            <Link
+              href={{
+                pathname: "/contact-us",
+                query: { from: "seller-details" },
+              }}
+            >
+              Contact
+            </Link>
             <Link href="/help">Sitemap</Link>
           </div>
         </>
