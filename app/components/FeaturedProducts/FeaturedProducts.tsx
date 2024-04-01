@@ -1,7 +1,7 @@
 import ProductCard from "./Product/Product";
 import "./FeaturedProducts.scss"; // Assuming you have CSS modules set up
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -23,12 +23,12 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
   return (
     <div>
       {backAction && (
-        <Link href="/" style={{ color: "#000", textDecoration: "none" }}>
-          <IconButton aria-label="go back">
+        <Box style={{ color: "#000", textDecoration: "none" }}>
+          <IconButton aria-label="go back" onClick={() => router.back()}>
             <ArrowBackIcon />
           </IconButton>
           Back
-        </Link>
+        </Box>
       )}
 
       <h2>{title ?? "Top Products"}</h2>
