@@ -127,18 +127,17 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
     if (id) {
       payload.append("product_id", id);
-    } else {
-      payload.append("client_requirements", productName);
     }
+    payload.append("client_requirements", productName);
 
     if (audioData) {
-      const file = await fetch(audioData).then((r) => r.blob()); // Convert the Blob URL to a Blob
-      payload.append("file1", file, "audio_message.wav"); // Append the file to the payload, providing a filename
+      const file = await fetch(audioData).then((r) => r.blob());
+      payload.append("file1", file, "audio_message.wav");
     }
 
     try {
       const response = await axios.post("api/market/buy", payload, {
-        headers: { "Content-Type": "multipart/form-data" }, // Set the content type for file upload
+        headers: { "Content-Type": "multipart/form-data" },
       });
       setIsLoading(false);
       // handleCloseModal();
