@@ -14,8 +14,6 @@ export default function Category({ params }: any) {
   const [categoryName, setCategoryName] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
-  console.log(featuredProducts, "products:");
-  console.log(selectedCountry, "selected country:");
 
   const { data: marketData, isLoading } = useMarketData();
 
@@ -24,7 +22,6 @@ export default function Category({ params }: any) {
     if (savedCountry) {
       setSelectedCountry(savedCountry);
     }
-    console.log(savedCountry, "saved country:");
   }, [selectedCountry]);
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const getRandomTopCategoriesWithItems = (
   categoriesWithProducts: any,
   numberOfCategories: number,
@@ -32,7 +31,7 @@ export const getRandomTopCategoriesWithItems = (
 export const getProductByID = async (productID: string) => {
   const response = await axios.get(`/api/market/product/${productID}`);
   return response.data;
-}
+};
 
 export const getFilteredProductsByCategoryAndCountry = (
   categoriesWithProducts: any,
@@ -41,38 +40,55 @@ export const getFilteredProductsByCategoryAndCountry = (
   categoryName: string,
   selectedCountry: string
 ) => {
-  // Process the API response to get categories with their products
-  // Find the category by name
   const category = categoriesWithProducts.find(
     (cat: any) => cat.categorySlug === categoryName
   );
 
   if (!category) {
-    // Return an empty array if the category is not found
     return [];
   }
 
-  // Filter products based on the specified fields within the category
   let filteredProducts = category.products.filter((product: any) =>
     filterFields.every((field) => product[field])
   );
 
-  // Filter products based on selected country
   if (selectedCountry && selectedCountry !== "All Regions") {
     filteredProducts = filteredProducts.filter(
       (product: any) => product.countryName === selectedCountry
     );
   }
 
-  // Sort filtered products by id
   const sortedFilteredProducts = filteredProducts.sort(
     (a: any, b: any) => a.id - b.id
   );
 
-  // Return the specified number of filtered and sorted products
   return sortedFilteredProducts.slice(0, numberOfProducts);
 };
 
+export const getFilteredProductsByCountry = (
+  categoriesWithProducts: any,
+  numberOfProducts: any,
+  selectedCountry: string
+) => {
+  let filteredProducts: any[] = [];
+
+  categoriesWithProducts.forEach((category: any) => {
+    if (selectedCountry && selectedCountry !== "All Regions") {
+      const productsInCountry = category.products.filter(
+        (product: any) => product.countryName === selectedCountry
+      );
+      filteredProducts = filteredProducts.concat(productsInCountry);
+    } else {
+      filteredProducts = filteredProducts.concat(category.products);
+    }
+  });
+
+  const sortedFilteredProducts = filteredProducts.sort(
+    (a: any, b: any) => a.id - b.id
+  );
+
+  return sortedFilteredProducts.slice(0, numberOfProducts);
+};
 
 export const getFilteredProductsByCategory = (
   categoriesWithProducts: any,
@@ -312,15 +328,14 @@ export const getAllProductsInCategories = (
   return allProducts;
 };
 
-export const subscribeToNewsletter = async (email:any) => {
+export const subscribeToNewsletter = async (email: any) => {
   try {
-    const response = await axios.post('/api/subscribeUser', {
+    const response = await axios.post("/api/subscribeUser", {
       email: email,
     });
     return response.data;
   } catch (error) {
-    console.error('Error subscribing to newsletter:', error);
-    throw new Error('Failed to subscribe to newsletter.');
+    console.error("Error subscribing to newsletter:", error);
+    throw new Error("Failed to subscribe to newsletter.");
   }
 };
-
