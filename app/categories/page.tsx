@@ -3,7 +3,10 @@ import { Box, CircularProgress, IconButton } from "@mui/material";
 import "../../styles/HomePage.scss";
 import { useEffect, useState } from "react";
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
-import { getRandomProducts, processApiResponse } from "@/api/helper/dataFilter";
+import {
+  getFilteredProductsByCountry,
+  processApiResponse,
+} from "@/api/helper/dataFilter";
 import VariableWidth from "../components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Link from "next/link";
@@ -12,16 +15,30 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 export default function Categories({}) {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   const { data: marketData, isLoading } = useMarketData();
+
+  useEffect(() => {
+    const savedCountry = localStorage.getItem("selectedCountry");
+    if (savedCountry) {
+      setSelectedCountry(savedCountry);
+    }
+  }, [selectedCountry]);
 
   useEffect(() => {
     if (marketData) {
       const formated = processApiResponse(marketData);
       setCategories(formated);
-      setFeaturedProducts(getRandomProducts(formated, 100));
+      setFeaturedProducts(
+        getFilteredProductsByCountry(formated, 100, selectedCountry)
+      );
     }
-  }, [marketData]);
+  }, [marketData, selectedCountry]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main>

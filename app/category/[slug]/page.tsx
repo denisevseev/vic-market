@@ -1,25 +1,28 @@
 "use client";
-import { Box } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import "../../../styles/HomePage.scss";
-import DataJson from "../../components/data.json";
 import { useEffect, useState } from "react";
 import FeaturedProducts from "../../components/FeaturedProducts/FeaturedProducts";
 import {
-  getFilteredProducts,
-  getFilteredProductsByCategory,
-  getProductsSortedById,
-  getRandomProducts,
-  getRandomTopCategoriesWithItems,
+  getFilteredProductsByCategoryAndCountry,
   processApiResponse,
 } from "@/api/helper/dataFilter";
-import VariableWidth from "../../components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
 
 export default function Category({ params }: any) {
   const slug = params && params.slug ? params.slug : null;
   const [categoryName, setCategoryName] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
+  const [selectedCountry, setSelectedCountry] = useState<string>("");
+
   const { data: marketData, isLoading } = useMarketData();
+
+  useEffect(() => {
+    const savedCountry = localStorage.getItem("selectedCountry");
+    if (savedCountry) {
+      setSelectedCountry(savedCountry);
+    }
+  }, [selectedCountry]);
 
   useEffect(() => {
     if (marketData) {
@@ -34,10 +37,16 @@ export default function Category({ params }: any) {
         }
       }
       setFeaturedProducts(
-        getFilteredProductsByCategory(formated, 100, [], slug)
+        getFilteredProductsByCategoryAndCountry(
+          formated,
+          100,
+          [],
+          slug,
+          selectedCountry
+        )
       );
     }
-  }, [marketData, slug]);
+  }, [marketData, slug, selectedCountry]);
 
   return (
     <main>
@@ -50,16 +59,40 @@ export default function Category({ params }: any) {
             marginTop: "4rem",
           }}
         >
-          <div
-            className="other-page-wrap-start"
-            style={{ marginBottom: "2rem" }}
-          >
-            <FeaturedProducts
-              backAction={true}
-              title={categoryName ?? ""}
-              data={featuredProducts}
-            />
-          </div>
+          {isLoading ? (
+            <Box
+              className="loaderBox"
+              sx={{
+                width: "max-content",
+                margin: "0 auto 4rem auto",
+              }}
+            >
+              <CircularProgress sx={{ color: "rgb(38, 92, 129)" }} />
+            </Box>
+          ) : (
+            <div
+              className="other-page-wrap-start"
+              style={{ marginBottom: "2rem" }}
+            >
+              {featuredProducts.length > 0 ? (
+                <FeaturedProducts
+                  backAction={true}
+                  title={categoryName ?? ""}
+                  data={featuredProducts}
+                />
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography>No products available!</Typography>
+                </Box>
+              )}
+            </div>
+          )}
         </div>
       </Box>
     </main>

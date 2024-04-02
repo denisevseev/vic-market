@@ -1,13 +1,12 @@
 "use client";
 import "./SelectCity.scss";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
   FormControl,
   Select,
   MenuItem,
-  InputLabel,
   ListSubheader,
   TextField,
   InputAdornment,
@@ -20,7 +19,6 @@ const containsText = (text: any, searchText: any) =>
 
 export default function SelectCity({ selectedOption, setSelectedOption }: any) {
   const { data: countryData }: any = useCountryData();
-  const [isUserSelected, setIsUserSelected] = useState(false);
 
   const [searchText, setSearchText] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(countryData || []);
@@ -44,43 +42,17 @@ export default function SelectCity({ selectedOption, setSelectedOption }: any) {
   }, [searchText, countryData]);
 
   useEffect(() => {
-    const hashValue = decodeURIComponent(window.location.hash.replace("#", ""));
-    // List of valid country hashes
-    const validHashes = [
-      "India",
-      "Russian Federation",
-      "Belarus",
-      "China",
-      "Hong Kong",
-      "Kazakhstan",
-      "Turkey",
-      "Nigeria",
-      "Namibia",
-      "Brazil",
-    ];
-
-    if (validHashes.includes(hashValue)) {
-      setSelectedOption(hashValue);
+    const savedCountry = localStorage.getItem("selectedCountry");
+    if (savedCountry) {
+      setSelectedOption(savedCountry);
     }
   }, []);
-
-  useEffect(() => {
-    if (isUserSelected) {
-      // Logic to update URL based on selectedOption, but only if it's user-selected
-      if (selectedOption === "All Regions") {
-        window.history.pushState({}, "", "/");
-      } else {
-        const hashValue = encodeURIComponent(selectedOption);
-        window.history.pushState({}, "", `/#${hashValue}`);
-      }
-      setIsUserSelected(false); // Reset the flag after handling
-    }
-  }, [selectedOption, isUserSelected]);
 
   const handleSelectionChange = (event: any) => {
     const { value } = event.target;
     setSelectedOption(value);
-    setIsUserSelected(true); // Indicate that this change was triggered by user interaction
+    localStorage.setItem("selectedCountry", value);
+    window.location.reload();
   };
 
   return (
