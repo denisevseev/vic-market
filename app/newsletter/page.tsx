@@ -35,8 +35,7 @@ export default function Newsletter() {
       setEmail("");
       toast.success("Subscribed successfully!");
     } else {
-      console.log("error");
-      toast.error("Something went wrong. Please try again.");
+      toast.error("Email already subscribed!");
     }
   };
 

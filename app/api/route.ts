@@ -12,7 +12,6 @@ export async function POST(request: NextRequest) {
     const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
     const API_KEY = process.env.MAILCHIMP_API_KEY;
     const DATACENTER = process.env.MAILCHIMP_API_SERVER;
-    
 
     const data = {
       email_address: email,
@@ -30,18 +29,19 @@ export async function POST(request: NextRequest) {
         method: "POST",
       }
     );
-
+    const responseData = await response.json();
     if (!response.ok) {
-      throw new Error(`${response.statusText} (${response.status})`);
+      throw new Error(responseData || "Error subscribing to newsletter");
     }
 
-    return new NextResponse(JSON.stringify({ answer: email }), {
+    return new NextResponse(JSON.stringify({ email: email }), {
       status: 200,
     });
   } catch (error) {
+    console.error("Error during subscription process:", error);
     return new NextResponse(
       JSON.stringify({
-        error: "error" || "An error occurred during subscription.",
+        error: error || "An error occurred during subscription.",
       }),
       { status: 500 }
     );
