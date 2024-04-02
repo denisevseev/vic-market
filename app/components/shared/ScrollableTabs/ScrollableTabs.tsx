@@ -132,7 +132,8 @@ const SlideBigger = (item: any) => {
         <div className="text-part">
           {/* Optional information */}
           {data.productPrice && (
-            <p className="productInfoText">${data.productPrice.toFixed(2)}</p>
+            <p className="productInfoText">${parseFloat(data?.productPrice)?.toFixed(2)}</p>
+
           )}
           {data.quantity && (
             <p className="productInfoText">{data.quantity} QTY</p>
