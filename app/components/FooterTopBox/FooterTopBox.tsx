@@ -42,19 +42,6 @@ export default function FooterTopBox() {
               priority
             />
           </a>
-          <a
-            href="https://www.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/g-partner.svg"
-              alt="Logo"
-              width={logoWidth}
-              height={gPartnerHeight}
-              priority
-            />
-          </a>
           {/* </a> */}
         </div>
 

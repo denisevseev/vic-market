@@ -288,13 +288,14 @@ const Footer = () => {
               <React.Fragment key={country.id}>
                 {/* Use an anchor tag for the full page reload */}
                 <a
-                  href={`#${country.fallback_name}`}
+                  href={`#`}
                   onClick={(e) => {
                     // Prevent the default anchor link behavior
                     e.preventDefault();
-                    // Change the location hash manually
-                    window.location.hash = country.fallback_name;
-                    // Reload the window
+                    localStorage.setItem(
+                      "selectedCountry",
+                      country.fallback_name
+                    );
                     window.location.reload();
                   }}
                 >
