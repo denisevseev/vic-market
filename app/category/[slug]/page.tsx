@@ -8,6 +8,8 @@ import {
   processApiResponse,
 } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
+import Image from "next/image";
+import './style.scss'
 
 export default function Category({ params }: any) {
   const slug = params && params.slug ? params.slug : null;
@@ -86,9 +88,43 @@ export default function Category({ params }: any) {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    flexDirection: "column",
+                    marginBottom: "6rem",
+                    height: "30vh",
                   }}
                 >
-                  <Typography>No products available!</Typography>
+                  <div
+                    className="imageContainer-big"
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      position: "relative", // Parent must be positioned to use 'fill' layout
+                      height: "200px", // Default height
+                      width: "300px",
+                   
+                    }}
+                  >
+                    <Image
+                      src="/no-product-found.png"
+                      alt="No product found"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    className="send-inquiry"
+                    sx={{
+                      color: "rgb(38, 92, 129);",
+                      fontSize: "24px",
+                      fontWeight: "600",
+                      fontFamily: "Poppins, sans-serif",
+                    }}
+                  >
+                    No products available!
+                  </Typography>
                 </Box>
               )}
             </div>
