@@ -6,33 +6,38 @@ import Image from "next/image";
 import OurCoreValue from "../../public/sub1.jpeg";
 import OurCoreValue2 from "../../public/unsub1.webp";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function Newsletter() {
   const formRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const theme = useTheme();
 
   // email start
   const [email, setEmail] = useState("");
-  const [isEmailValid, setEmailValid] = useState(true);
+  const [isEmailValid, setEmailValid] = useState(false);
   const emailValidationRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  const subscribeUser = async (e:any) => {
-    // e.preventDefault();
-
-    // this is where your mailchimp request is made
-
-    const res = await fetch('/api', {
+  const subscribeUser = async (e: any) => {
+    const res = await fetch("/api", {
       body: JSON.stringify({
         email: email,
       }),
 
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
 
-      method: 'POST',
+      method: "POST",
     });
+    if (res.ok) {
+      setEmail("");
+      toast.success("Subscribed successfully!");
+    } else {
+      console.log("error");
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   const handleEmailChange = (event: any) => {
@@ -45,7 +50,8 @@ export default function Newsletter() {
     event.preventDefault();
     if (isEmailValid) {
       subscribeUser(email);
-      setEmail("");
+    } else {
+      toast.error("Please enter a valid email address.");
     }
   };
   // email end
@@ -217,7 +223,7 @@ export default function Newsletter() {
               type="email"
               label="Your email"
               variant="outlined"
-              inputRef={inputRef}
+              value={email}
               onChange={handleEmailChange}
               InputProps={{
                 sx: {
@@ -251,9 +257,9 @@ export default function Newsletter() {
             >
               <div className="button-text">
                 <p className="font-size-16">Subscribe</p>
-                {/* <ArrowForwardIcon /> */}
               </div>
             </Button>
+            <ToastContainer />
           </Box>
         </Box>
       </Box>

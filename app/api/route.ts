@@ -1,40 +1,49 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const { email } = await request.json();
+  try {
+    const { email } = await request.json();
+    if (!email) {
+      return new NextResponse(JSON.stringify({ error: "Email is required" }), {
+        status: 400,
+      });
+    }
 
-  const AUDIENCE_ID = 'b3e3b368c0';
-    const API_KEY = '904d5a73c4d491249a11db388f931e87-us22';
-    const DATACENTER = 'us22';
+    const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+    const API_KEY = process.env.MAILCHIMP_API_KEY;
+    const DATACENTER = process.env.MAILCHIMP_API_SERVER;
+    
 
     const data = {
-        email_address: email,
-        status: 'subscribed',
-      };
+      email_address: email,
+      status: "subscribed",
+    };
 
-      const response = await fetch(
-        `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
-  
-        {
-          body: JSON.stringify(data),
-          headers: {
-            Authorization: `apikey ${API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-        }
-      );
+    const response = await fetch(
+      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
+      {
+        body: JSON.stringify(data),
+        headers: {
+          Authorization: `apikey ${API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      }
+    );
 
+    if (!response.ok) {
+      throw new Error(`${response.statusText} (${response.status})`);
+    }
 
-
-  if (!email) {
+    return new NextResponse(JSON.stringify({ answer: email }), {
+      status: 200,
+    });
+  } catch (error) {
     return new NextResponse(
-      JSON.stringify({ name: response }),
-      { status: 400 }
+      JSON.stringify({
+        error: "error" || "An error occurred during subscription.",
+      }),
+      { status: 500 }
     );
   }
-
-  return new NextResponse(JSON.stringify({ answer: email }), {
-    status: 200,
-  });
 }
