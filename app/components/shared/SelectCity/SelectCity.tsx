@@ -1,13 +1,12 @@
 "use client";
 import "./SelectCity.scss";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
   FormControl,
   Select,
   MenuItem,
-  InputLabel,
   ListSubheader,
   TextField,
   InputAdornment,
@@ -24,6 +23,17 @@ export default function SelectCity({ selectedOption, setSelectedOption }: any) {
 
   const [searchText, setSearchText] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(countryData || []);
+
+  useEffect(() => {
+    const savedCountry = localStorage.getItem("selectedCountry");
+    if (savedCountry) {
+      setSelectedOption(savedCountry);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("selectedCountry", selectedOption);
+  }, [selectedOption]);
 
   useEffect(() => {
     if (searchText) {
