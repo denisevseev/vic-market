@@ -45,7 +45,7 @@ export default function HomepageImagesCarousel() {
         }}
         activeIndicatorIconButtonProps={{
           style: {
-            color: "rgb(225, 119, 26)",
+            color: "rgb(51, 85, 127)",
           },
         }}
         IndicatorIcon={<RemoveIcon />}

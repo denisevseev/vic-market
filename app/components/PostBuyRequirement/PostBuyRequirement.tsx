@@ -40,7 +40,7 @@ const PostBuyRequirement = () => {
     <div className="container-banner">
       <div className="image-section">
         <Image
-          src="/pbr-banner.webp"
+          src="/postbuybg.png"
           alt="Background"
           height={isMobile ? 200 : 324}
           width={isMobile ? 300 : 400}

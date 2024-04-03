@@ -321,7 +321,7 @@ const Footer = () => {
 
       <div className="footerBottom">
         <div className="all-rights-reserved ml-small-screen">
-          © 1999-2024 Victorum Capital Private Limited. All rights reserved.
+          © 2024 Victorum Holding LtD. All rights reserved.
         </div>
       </div>
     </footer>
