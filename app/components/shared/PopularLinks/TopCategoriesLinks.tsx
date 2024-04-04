@@ -29,7 +29,7 @@ const TopCategoriesLinks: React.FC<TopCategoriesLinksProps> = ({ data }) => {
                 className="linksButton"
                 onClick={() => handleLinkClick(link.categorySlug)}
               >
-                {link.categoryName}
+                {link.fallback_name}
               </Button>
             ))}
         </Box>

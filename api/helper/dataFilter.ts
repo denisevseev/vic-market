@@ -1,4 +1,5 @@
 import axios from "axios";
+import { MarketRead } from "../types/types";
 
 export const getRandomTopCategoriesWithItems = (
   categoriesWithProducts: any,
@@ -292,6 +293,14 @@ export const processApiResponse = (apiResponse: any) => {
   );
 
   return categoriesWithProducts;
+};
+export const getCategories = async () => {
+  const response = await axios.get("/api/market/categories");
+  const categories = response.data.map((category: MarketRead) => ({
+    ...category,
+    categorySlug: getCategorySlug(category.fallback_name),
+  }));
+  return categories;
 };
 export const getProductBySlug = (categoriesWithProducts: any, slug: string) => {
   for (const category of categoriesWithProducts) {

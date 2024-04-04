@@ -11,6 +11,7 @@ export interface MarketRead {
   productName: string;
   productSlug?: string;
   manufacturerName: string;
+  fallback_name: string;
   categoryId: number;
   categoryName: string;
   categorySlug?: string;
