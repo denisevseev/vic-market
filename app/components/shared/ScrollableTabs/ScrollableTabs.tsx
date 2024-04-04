@@ -359,7 +359,7 @@ function VariableWidth({
                           href={`/category/${category.categorySlug}`}
                         >
                           <p className="productNameText">
-                            {category.categoryName}
+                            {category.fallback_name}
                           </p>
                         </Link>
                       </div>

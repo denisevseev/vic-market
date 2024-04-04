@@ -4,6 +4,7 @@ import "../../styles/HomePage.scss";
 import { useEffect, useState } from "react";
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
 import {
+  getCategories,
   getFilteredProductsByCountry,
   processApiResponse,
 } from "@/api/helper/dataFilter";
@@ -27,13 +28,18 @@ export default function Categories({}) {
   }, [selectedCountry]);
 
   useEffect(() => {
-    if (marketData) {
-      const formated = processApiResponse(marketData);
-      setCategories(formated);
-      setFeaturedProducts(
-        getFilteredProductsByCountry(formated, 100, selectedCountry)
-      );
-    }
+    const fetchData = async () => {
+      if (marketData) {
+        const formated = processApiResponse(marketData);
+        const categoriesData = await getCategories();
+        setCategories(categoriesData);
+        setFeaturedProducts(
+          getFilteredProductsByCountry(formated, 100, selectedCountry)
+        );
+      }
+    };
+
+    fetchData();
   }, [marketData, selectedCountry]);
 
   useEffect(() => {

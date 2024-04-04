@@ -29,7 +29,9 @@ const TopCategoriesSlider: React.FC<TopCategoritesProps> = ({ data }) => {
       <Box>
         <Box className="topCategoriesAndViewAll">
           <Box>
-            <Typography className="topCategoryText">Product Categories</Typography>
+            <Typography className="topCategoryText">
+              Product Categories
+            </Typography>
           </Box>
           {/* <Box>
             <Typography className="viewAllCategoriesLink">View all</Typography>
@@ -48,19 +50,19 @@ const TopCategoriesSlider: React.FC<TopCategoritesProps> = ({ data }) => {
                     href={"/category/" + dataItem.categorySlug}
                   >
                     <Box className="imageSliderBackground">
-                      {dataItem.categoryIcon && (
+                      {/* {dataItem.categoryIcon && (
                         <Image
                           src={dataItem.categoryIcon}
                           alt="Health & Beauty Icon"
                           width={64}
                           height={64}
                         />
-                      )}
+                      )} */}
+                      <Typography className="topCategoriesItemSlider">
+                        {dataItem.fallback_name}
+                      </Typography>
                     </Box>
                   </Link>
-                  <Typography className="topCategoriesItemSlider">
-                    {dataItem.categoryName}
-                  </Typography>
                 </Box>
               );
             })}

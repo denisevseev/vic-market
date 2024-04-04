@@ -69,15 +69,18 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
                   //onMouseEnter={() => handleMouseEnter(dataItem.categoryName)}
                   //onMouseLeave={handleMouseLeave}
                 >
-                  {dataItem.categoryIcon && (
-                    <Image src={HealthBeautyIcon} alt={dataItem.categoryName} />
-                  )}
+                  {/* {dataItem.categoryIcon && (
+                    <Image
+                      src={HealthBeautyIcon}
+                      alt={dataItem.fallback_name}
+                    />
+                  )} */}
                   <Link
                     className="topCategoriesItem"
                     href={"/category/" + dataItem.categorySlug}
                   >
                     <Typography className="topCategoriesItem">
-                      {dataItem.categoryName}
+                      {dataItem.fallback_name}
                     </Typography>
                   </Link>
                 </Box>

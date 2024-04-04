@@ -17,6 +17,7 @@ import { useMarketData } from "./hooks/useMarketData";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import {
+  getCategories,
   getFilteredProducts,
   getProductsSortedById,
   getRandomProducts,
@@ -78,22 +79,27 @@ export default function Home() {
   // scroll ends
 
   useEffect(() => {
-    if (marketData) {
-      const formated = processApiResponse(marketData);
-      setCategories(formated);
-      setFeaturedProducts(getRandomProducts(formated, 10));
-      setNewArrivals(getProductsSortedById(formated, 10));
-      setLatestTrands(getFilteredProducts(formated, 10, ["description"]));
-      setTradingTrusted(
-        getFilteredProducts(formated, 10, [
-          "description",
-          "quantity",
-          "manufacturerName",
-          "currency",
-          "productPrice",
-        ])
-      );
-    }
+    const fetchData = async () => {
+      if (marketData) {
+        const formated = processApiResponse(marketData);
+        const categoriesData = await getCategories();
+        setCategories(categoriesData);
+        setFeaturedProducts(getRandomProducts(formated, 10));
+        setNewArrivals(getProductsSortedById(formated, 10));
+        setLatestTrands(getFilteredProducts(formated, 10, ["description"]));
+        setTradingTrusted(
+          getFilteredProducts(formated, 10, [
+            "description",
+            "quantity",
+            "manufacturerName",
+            "currency",
+            "productPrice",
+          ])
+        );
+      }
+    };
+
+    fetchData();
   }, [marketData]);
 
   useEffect(() => {
