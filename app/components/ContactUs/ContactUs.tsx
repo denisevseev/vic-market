@@ -16,6 +16,7 @@ import "./ContactUs.scss";
 import { useCountryData } from "@/app/hooks/useCountryData";
 import axios from "axios";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import HeadData from "../../components/head";
 
 const style = {
   position: "absolute",
@@ -114,7 +115,8 @@ const ContactUs = ({ open, setOpen }: any) => {
   };
 
   return (
-    <div>
+    <>
+    <HeadData title={"Contact Us | ds"} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -311,7 +313,7 @@ const ContactUs = ({ open, setOpen }: any) => {
           {/* end */}
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
 

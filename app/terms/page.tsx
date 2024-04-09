@@ -4,6 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import "./terms.scss";
+import HeadData from "../components/head";
 
 export default function TermsPage() {
   const [value, setValue] = React.useState(0);
@@ -12,6 +13,9 @@ export default function TermsPage() {
     setValue(newValue);
   };
   return (
+    <>
+    <HeadData title={"Terms and Conditions | Victorum Marketplace"} />
+    
     <Box className="container mt-6rem mb-3-rem ta-center">
       <h1 className="terms-title">Terms and Conditions</h1>
       <h3 className="terms-subtitle">
@@ -388,6 +392,7 @@ export default function TermsPage() {
         </p>
       </TabPanel>
     </Box>
+    </>
   );
 }
 
