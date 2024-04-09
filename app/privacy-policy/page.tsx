@@ -14,7 +14,11 @@ export default function PrivacyPolicyPage() {
   };
   return (
     <>
-    <HeadData title={"Privacy Policy | Victorum Marketplace"} />
+      <HeadData
+        title="Privacy Policy | Victorum Marketplace"
+        description="Read our Privacy Policy to understand how Victorum Marketplace collects, uses, and protects your personal information."
+        keywords="Privacy Policy, Victorum Marketplace, personal information, data protection"
+      />
       <Box className="container mt-6rem mb-3-rem ta-center">
         <h3 className="terms-subtitle">Victorum Terms & Conditions</h3>
 
