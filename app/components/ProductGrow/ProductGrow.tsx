@@ -10,30 +10,32 @@ export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
 
   const handleOpenModal = () => setModalOpen(true);
 
-
   return (
     <Box className="lookingForProductWantToGrowYourBusinessMain">
       <Box className="lookingForProductWantToGrowYourBusinessMainBox">
         <Box className="lookingForProducMainBox">
           <Typography className="lookingForProductText">
-            You are looking <br />
-            for a Product?
+            Can't find <br />
+            the right product?
           </Typography>
           <Button
             variant="outlined"
             className="lookingForProBtn"
             onClick={scrollToPostBuyRequirement}
           >
-            <Typography className="postByText">Create request</Typography>
+            <Typography className="postByText">Post Requirements</Typography>
             <Typography className="requirementText"></Typography>
           </Button>
         </Box>
         <Box className="wantToGrowYourBusinessMainBox">
           <Typography className="wantToGrowYourBusinessText">
-            You offer products or goods and <br />
-            want to extend your business?
+            You offer products and<br />want to extend your business?
           </Typography>
-          <Button variant="outlined" className="wantToGrowBtn" onClick={handleOpenModal}>
+          <Button
+            variant="outlined"
+            className="wantToGrowBtn"
+            onClick={handleOpenModal}
+          >
             <Typography className="wantToGrowText">Get new clients!</Typography>
             <Typography className="trandeIndiaText"></Typography>
           </Button>

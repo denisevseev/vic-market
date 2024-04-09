@@ -150,7 +150,7 @@ const Footer = () => {
                 Contact Sellers´ Desk
               </Link>
               <Link href="/categories">Browse Our Categories</Link>
-              <Link href="/help">Whitepaper</Link>
+              <Link href="/help">Successful Seller</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -178,7 +178,7 @@ const Footer = () => {
               <a>Market Research</a>
               <a>Contact Buyers´ Desk</a>
               <Link href="/categories">Browse Our Categories</Link>
-              <Link href="/help">Buyer´s Guide to Success</Link>
+              <Link href="/help">Buyers´ Book of Profit</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -205,6 +205,7 @@ const Footer = () => {
               {/* <a>Terms of Use</a> */}
               <a href="/terms">T&Cs</a>
               <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/terms">Terms of Use</a>
               <Link
                 href={{
                   pathname: "/contact-us",
@@ -253,7 +254,7 @@ const Footer = () => {
             </Link>
 
             <Link href="/categories">Browse Our Categories</Link>
-            <Link href="/help">Whitepaper</Link>
+            <Link href="/help">Successful Seller</Link>
           </div>
           <div className="footerSection">
             <h3>For Buyers</h3>
@@ -261,7 +262,7 @@ const Footer = () => {
             <a>Market Research</a>
             <a>Contact Buyers´ Desk</a>
             <Link href="/categories">Browse Our Categories</Link>
-            <Link href="/help">Buyer´s Guide to Success</Link>
+            <Link href="/help">Buyers´ Book of Profit</Link>
           </div>
           <div className="footerSection">
             <h3>Legal</h3>
