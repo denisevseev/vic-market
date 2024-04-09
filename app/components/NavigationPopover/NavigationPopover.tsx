@@ -71,12 +71,14 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/Ti-Landing.svg"
           text="Post Sell Order"
-          // redirectUrl="https://www.google.com"
+          sameWindow={true}
+          redirectUrl="/#post-sell-request"
         />
         <SmallPopoverBox
           imgSrc="/Ti-Pay.svg"
           text="Post Buy Order"
-          // redirectUrl="https://www.google.com"
+          sameWindow={true}
+          redirectUrl="/#post-buy-request"
         />
         <SmallPopoverBox
           imgSrc="/g-bus-listing.svg"
