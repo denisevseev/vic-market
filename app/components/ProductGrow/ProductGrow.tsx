@@ -15,7 +15,7 @@ export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
       <Box className="lookingForProductWantToGrowYourBusinessMainBox">
         <Box className="lookingForProducMainBox">
           <Typography className="lookingForProductText">
-            Can't find <br />
+            Can&apos;t find <br />
             the right product?
           </Typography>
           <Button
