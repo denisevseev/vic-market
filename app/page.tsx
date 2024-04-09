@@ -111,15 +111,11 @@ export default function Home() {
 
   return (
     <main>
-      <HeadData title={"Home | Victorum Marketplace"} />
-      <Head>
-        <title>Victorum Trade</title>
-        <meta
-          name="description"
-          content="Discover amazing products and services on Victorum Trade. Explore now!"
-        />
-        {/* Other SEO tags */}
-      </Head>
+      <HeadData
+        title="Home | Victorum Marketplace"
+        description="Discover and purchase a wide range of products across multiple categories at Victorum Marketplace."
+        keywords="trade, products, food and drink, buildingmaterials, pet supplies, electronics, fashion, home, garden, clothes, sports and hobbies, pet suppliesmachines vehicles, drugstore"
+      />
       <Box className="container">
         <Box className="firstSection">
           <TopCategories data={categories} />

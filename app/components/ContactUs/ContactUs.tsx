@@ -16,20 +16,6 @@ import "./ContactUs.scss";
 import { useCountryData } from "@/app/hooks/useCountryData";
 import axios from "axios";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import HeadData from "../../components/head";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  //   border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  borderRadius: "28px", // Add border-radius here
-};
 
 const ContactUs = ({ open, setOpen }: any) => {
   const [email, setEmail] = useState("");
@@ -116,7 +102,6 @@ const ContactUs = ({ open, setOpen }: any) => {
 
   return (
     <>
-    <HeadData title={"Contact Us | ds"} />
       <Modal
         open={open}
         onClose={handleClose}

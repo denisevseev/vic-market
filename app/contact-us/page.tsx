@@ -6,6 +6,7 @@ import Image from "next/image";
 import OurCoreValue from "../../public/service-num.jpeg";
 import OurCoreValue2 from "../../public/email-logo-2.png";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import HeadData from "../components/head";
 
 export default function ContactUs() {
   const formRef = useRef<HTMLDivElement>(null);
@@ -119,6 +120,11 @@ export default function ContactUs() {
 
   return (
     <main>
+      <HeadData
+        title="Contact Us | Victorum Marketplace"
+        description="Get in touch with the Victorum Marketplace team for support, service inquiries, or feedback. We are here to help you with any questions you may have."
+        keywords="contact, support, customer service, inquiries, feedback, Victorum Marketplace"
+      />
       <Box>
         {/* FIRST SECTION */}
         <Box className="aboutUsMainBox">
@@ -132,7 +138,7 @@ export default function ContactUs() {
                 {subTitle}
               </Typography>
 
-              {/* {from !== "seller-details" && (
+              {from !== "seller-details" && (
                 <Box className="digitallySakshamTextsBox">
                   <Typography
                     className="mainHeadingAboutUsText"
@@ -147,7 +153,7 @@ export default function ContactUs() {
                     to Help!
                   </Typography>
                 </Box>
-              )} */}
+              )}
             </Box>
 
             <Box className="mainHeadingContent"></Box>
