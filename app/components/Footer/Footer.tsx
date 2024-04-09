@@ -306,18 +306,6 @@ const Footer = () => {
               </React.Fragment>
             ))}
         </div>
-
-        <div className="terms">
-          <span
-            className="cp ml-8"
-            onClick={() => handleNavigate("/privacy-policy")}
-          >
-            Privacy Policy
-          </span>
-          <span className="cp" onClick={() => handleNavigate("/terms")}>
-            Terms & Conditions
-          </span>
-        </div>
       </div>
 
       <div className="footerBottom">
