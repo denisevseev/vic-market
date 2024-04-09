@@ -24,7 +24,7 @@ export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
             className="lookingForProBtn"
             onClick={scrollToPostBuyRequirement}
           >
-            <Typography className="postByText">Post the Product!</Typography>
+            <Typography className="postByText">Create request</Typography>
             <Typography className="requirementText"></Typography>
           </Button>
         </Box>

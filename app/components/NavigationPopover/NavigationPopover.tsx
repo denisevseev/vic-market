@@ -70,17 +70,17 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
       <div className="boxes-container" style={{ marginBottom: "24px" }}>
         <SmallPopoverBox
           imgSrc="/Ti-Landing.svg"
-          text="Buy Leads"
+          text="Post Sell Order"
           // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/Ti-Pay.svg"
-          text="Subscription Plans"
+          text="Post Buy Order"
           // redirectUrl="https://www.google.com"
         />
         <SmallPopoverBox
           imgSrc="/g-bus-listing.svg"
-          text="Google Business Listing"
+          text="Company Profile"
           // redirectUrl="https://www.google.com"
         />
       </div>
