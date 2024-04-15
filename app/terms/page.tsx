@@ -9,9 +9,6 @@ import HeadData from "../components/head";
 export default function TermsPage() {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
   return (
     <>
       <HeadData
