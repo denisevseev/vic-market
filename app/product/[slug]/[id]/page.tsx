@@ -25,6 +25,8 @@ import InquiryModal from "@/app/components/FeaturedProducts/InquiryModal/Inquiry
 import { SellerDetails } from "@/app/components/SellerDetails/SellerDetails";
 import FeaturedProducts from "@/app/components/FeaturedProducts/FeaturedProducts";
 import CircularProgress from "@mui/material/CircularProgress";
+import HeadData from "@/app/components/head";
+import CustomHeadData from "@/app/components/customHead";
 
 export default function Product({ params }: any) {
   const { data: marketData, isLoading } = useMarketData();
@@ -128,8 +130,20 @@ export default function Product({ params }: any) {
     address:
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
+
+  const productTitle = productFromBE?.productName || "Product";
+  const productDescription =
+    productFromBE?.description || "Product description";
+  const seoKeywords = `${productTitle}, related keywords here`;
+
   return (
     <main>
+      <CustomHeadData
+        title={`${productTitle} | Victorum Marketplace`}
+        description={productDescription}
+        keywords={seoKeywords}
+        image={productFromBE?.files[0].link}
+      />
       <Box className="container">
         <Box
           style={{

@@ -176,7 +176,15 @@ const Footer = () => {
             <AccordionDetails>
               <Link href="/#post-buy-request">Post Buy Request</Link>
               <a>Market Research</a>
-              <a>Contact Buyers´ Desk</a>
+              {/* <a>Contact Buyers´ Desk</a> */}
+              <Link
+                href={{
+                  pathname: "/contact-us",
+                  query: { from: "buyer-details" },
+                }}
+              >
+                Contact Buyers´ Desk
+              </Link>
               <Link href="/categories">Browse Our Categories</Link>
               <Link href="/help">Buyers´ Book of Profit</Link>
             </AccordionDetails>
@@ -209,7 +217,7 @@ const Footer = () => {
               <Link
                 href={{
                   pathname: "/contact-us",
-                  query: { from: "seller-details" },
+                  query: { from: "legal" },
                 }}
               >
                 Contact
@@ -260,7 +268,15 @@ const Footer = () => {
             <h3>For Buyers</h3>
             <Link href="/#post-buy-request">Post Buy Request</Link>
             <a>Market Research</a>
-            <a>Contact Buyers´ Desk</a>
+            {/* <a>Contact Buyers´ Desk</a> */}
+            <Link
+              href={{
+                pathname: "/contact-us",
+                query: { from: "buyer-details" },
+              }}
+            >
+              Contact Buyers´ Desk
+            </Link>
             <Link href="/categories">Browse Our Categories</Link>
             <Link href="/help">Buyers´ Book of Profit</Link>
           </div>
@@ -272,7 +288,7 @@ const Footer = () => {
             <Link
               href={{
                 pathname: "/contact-us",
-                query: { from: "seller-details" },
+                query: { from: "legal" },
               }}
             >
               Contact

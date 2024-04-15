@@ -9,7 +9,9 @@ import {
 } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Image from "next/image";
-import './style.scss'
+import "./style.scss";
+import HeadData from "@/app/components/head";
+import CustomHeadData from "../../components/customHead";
 
 export default function Category({ params }: any) {
   const slug = params && params.slug ? params.slug : null;
@@ -52,6 +54,11 @@ export default function Category({ params }: any) {
 
   return (
     <main>
+      <HeadData
+        title={`${categoryName} Category | Victorum Marketplace`}
+        description={`Explore a wide range of products in the ${categoryName} category at Victorum Marketplace. Find the best deals on quality products from trusted sellers.`}
+        keywords={`${categoryName}, marketplace, shopping, online store, Victorum`}
+      />
       <Box className="container">
         <div
           style={{
@@ -101,7 +108,6 @@ export default function Category({ params }: any) {
                       position: "relative", // Parent must be positioned to use 'fill' layout
                       height: "200px", // Default height
                       width: "300px",
-                   
                     }}
                   >
                     <Image

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import "./globals.css";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import FooterTopBox from "./components/FooterTopBox/FooterTopBox";
@@ -6,10 +6,10 @@ import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import { ProvidersReactQuery } from "./providersReactQuery";
 
-export const metadata: Metadata = {
-  title: "Victorum marketplace",
-  description: "Viktorum marketplace",
-};
+// export const metadata: Metadata = {
+//   title: "Victorum marketplace",
+//   description: "Viktorum marketplace",
+// };
 
 export default function RootLayout({
   children,

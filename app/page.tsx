@@ -15,6 +15,8 @@ import ProductGrow from "./components/ProductGrow/ProductGrow";
 import MoreValueAdds from "./components/MoreValueAdds/MoreValueAdds";
 import { useMarketData } from "./hooks/useMarketData";
 import CircularProgress from "@mui/material/CircularProgress";
+import Head from "next/head";
+import HeadData from "./components/head";
 
 import {
   getCategories,
@@ -109,6 +111,11 @@ export default function Home() {
 
   return (
     <main>
+      <HeadData
+        title="Home | Victorum Marketplace"
+        description="Discover and purchase a wide range of products across multiple categories at Victorum Marketplace."
+        keywords="trade, products, food and drink, buildingmaterials, pet supplies, electronics, fashion, home, garden, clothes, sports and hobbies, pet suppliesmachines vehicles, drugstore"
+      />
       <Box className="container">
         <Box className="firstSection">
           <TopCategories data={categories} />
