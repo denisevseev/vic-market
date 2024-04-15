@@ -8,7 +8,7 @@ export default function MoreValueAdds() {
   return (
     <Box className="moreValueAddsMainBox">
       <Box>
-        <Typography className="moreValueAddsText">More Value Adds</Typography>
+        <Typography className="moreValueAddsText">Victorum on a glance</Typography>
       </Box>
       <MoreValueAddsItem />
     </Box>
