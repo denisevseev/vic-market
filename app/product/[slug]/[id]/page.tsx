@@ -129,19 +129,21 @@ export default function Product({ params }: any) {
     address:
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
-
-  const productTitle = productFromBE?.productName || "Product";
-  const productDescription =
-    productFromBE?.description || "Product description";
-  const seoKeywords = `${productTitle}, related keywords here`;
+  const imageMime =
+    productFromBE && productFromBE.files && productFromBE.files.length > 0
+      ? productFromBE.files[0].link.split(".").pop()
+      : null;
 
   return (
     <main>
       <CustomHeadData
-        title={`${productTitle} | Victorum Marketplace`}
-        description={productDescription}
-        keywords={seoKeywords}
+        title={productFromBE?.productName ?? "Product"}
+        description={productFromBE?.description ?? "Product description"}
+        keywords={productFromBE?.productName}
+        price={productFromBE?.productPrice + " " + productFromBE?.currency}
         image={productFromBE?.files[0].link}
+        imageMime={imageMime}
+        id={productFromBE?.id}
       />
       <Box className="container">
         <Box
