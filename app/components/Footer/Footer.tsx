@@ -138,8 +138,8 @@ const Footer = () => {
               <h4 className="title-color">For Sellers</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/#post-sell-request">Post Sell Request</Link>
-              <a>Market Research</a>
+              {/* <Link href="/#post-sell-request">Post Sell Request</Link> */}
+              {/* <a>Market Research</a> */}
               {/* <Link href="/#contact-us">Contact Sellers´ Desk</Link> */}
               <Link
                 href={{
@@ -149,8 +149,8 @@ const Footer = () => {
               >
                 Contact Sellers´ Desk
               </Link>
-              <Link href="/categories">Browse Our Categories</Link>
-              <Link href="/help">Successful Seller</Link>
+              {/* <Link href="/categories">Browse Our Categories</Link> */}
+              <Link href="/help">Are you a Successful Seller?</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -175,8 +175,6 @@ const Footer = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Link href="/#post-buy-request">Post Buy Request</Link>
-              <a>Market Research</a>
-              {/* <a>Contact Buyers´ Desk</a> */}
               <Link
                 href={{
                   pathname: "/contact-us",
@@ -186,6 +184,8 @@ const Footer = () => {
                 Contact Buyers´ Desk
               </Link>
               <Link href="/categories">Browse Our Categories</Link>
+              <a>Our company</a>
+              {/* <a>Contact Buyers´ Desk</a> */}
               <Link href="/help">Buyers´ Book of Profit</Link>
             </AccordionDetails>
           </Accordion>
@@ -210,10 +210,6 @@ const Footer = () => {
               <h4 className="title-color">Legal</h4>
             </AccordionSummary>
             <AccordionDetails>
-              {/* <a>Terms of Use</a> */}
-              <a href="/terms">T&Cs</a>
-              <a href="/privacy-policy">Privacy Policy</a>
-              <a href="/terms">Terms of Use</a>
               <Link
                 href={{
                   pathname: "/contact-us",
@@ -222,6 +218,10 @@ const Footer = () => {
               >
                 Contact
               </Link>
+              {/* <a>Terms of Use</a> */}
+              <a href="/terms-of-use">Terms of Use</a>
+              <a href="/terms">T&Cs</a>
+              <a href="/privacy-policy">Privacy Policy</a>
               <Link href="/help">Sitemap</Link>
             </AccordionDetails>
           </Accordion>
@@ -250,8 +250,8 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>For Sellers</h3>
-            <Link href="/#post-sell-request">Post Sell Request</Link>
-            <a>Market Research</a>
+            {/* <Link href="/#post-sell-request">Post Sell Request</Link> */}
+            {/* <a>Market Research</a> */}
             <Link
               href={{
                 pathname: "/contact-us",
@@ -261,14 +261,12 @@ const Footer = () => {
               Contact Sellers´ Desk
             </Link>
 
-            <Link href="/categories">Browse Our Categories</Link>
-            <Link href="/help">Successful Seller</Link>
+            {/* <Link href="/categories">Browse Our Categories</Link> */}
+            <Link href="/help">Are you a Successful Seller?</Link>
           </div>
           <div className="footerSection">
             <h3>For Buyers</h3>
             <Link href="/#post-buy-request">Post Buy Request</Link>
-            <a>Market Research</a>
-            {/* <a>Contact Buyers´ Desk</a> */}
             <Link
               href={{
                 pathname: "/contact-us",
@@ -278,13 +276,13 @@ const Footer = () => {
               Contact Buyers´ Desk
             </Link>
             <Link href="/categories">Browse Our Categories</Link>
+            <a>Our company</a>
+            {/* <a>Contact Buyers´ Desk</a> */}
             <Link href="/help">Buyers´ Book of Profit</Link>
           </div>
           <div className="footerSection">
             <h3>Legal</h3>
             {/* <a>Terms of Use</a> */}
-            <a href="/terms">T&Cs</a>
-            <a href="/privacy-policy">Privacy Policy</a>
             <Link
               href={{
                 pathname: "/contact-us",
@@ -293,6 +291,9 @@ const Footer = () => {
             >
               Contact
             </Link>
+            <a href="/terms-of-use">Terms of Use</a>
+            <a href="/terms">T&Cs</a>
+            <a href="/privacy-policy">Privacy Policy</a>
             <Link href="/help">Sitemap</Link>
           </div>
         </>

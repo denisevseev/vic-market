@@ -11,12 +11,12 @@ export default function MoreValueAddsItem() {
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
-              Victorum Trading
+            Get the latest
             </Typography>
-            <Typography className="victorumCapitalText">Catalogs</Typography>
+            <Typography className="victorumCapitalText">news!</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
-            <Typography className="learnMoreLink">Learn more </Typography>
+            <Typography className="learnMoreLink">Subscribe!</Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
             </Box>
@@ -28,9 +28,9 @@ export default function MoreValueAddsItem() {
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
-              Victorum Trading
+            Discover your
             </Typography>
-            <Typography className="victorumCapitalText">Buy Leads</Typography>
+            <Typography className="victorumCapitalText">potential!</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
@@ -45,14 +45,14 @@ export default function MoreValueAddsItem() {
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
-              Victorum Trading
+            You got
             </Typography>
             <Typography className="victorumCapitalText">
-              Membership Plans
+            questions?
             </Typography>
           </Box>
           <Box className="learnMoreAndIcon">
-            <Typography className="learnMoreLink">Learn more </Typography>
+            <Typography className="learnMoreLink">Get in touch! </Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
             </Box>
@@ -64,9 +64,9 @@ export default function MoreValueAddsItem() {
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
-              Victorum Trading
+            Cheap online
             </Typography>
-            <Typography className="victorumCapitalText">Book Domain</Typography>
+            <Typography className="victorumCapitalText">transactions!</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
