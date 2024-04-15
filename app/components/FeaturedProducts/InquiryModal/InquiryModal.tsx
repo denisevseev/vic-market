@@ -52,6 +52,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
   const [isLoading, setIsLoading] = useState(false); // Replace this with your actual loading state
+  console.log(productName);
+  
 
   // country start
   const { data: countryData } = useCountryData();
@@ -247,6 +249,10 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   ) => {
     setInquiryMessage(event.target.value);
   };
+
+  useEffect(() => {
+    setInquiryMessage(`Hi, I am interested in ${productName}.`);
+  }, [productName]);
 
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
