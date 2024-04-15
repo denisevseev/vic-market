@@ -19,14 +19,13 @@ const PostBuyRequirement = () => {
   const textFieldRef = useRef<HTMLDivElement>(null);
   const [resetAudioKey, setResetAudioKey] = useState(0); // New state for controlling the reset
 
-
   const handleCloseModal = () => {
     setModalOpen(false);
     setProductName("");
     setAudioData(null);
-    setResetAudioKey(prevKey => prevKey + 1); // Increment key to force remount
+    setResetAudioKey((prevKey) => prevKey + 1); // Increment key to force remount
   };
-  
+
   const handleOpenModal = () => setModalOpen(true);
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -49,9 +48,9 @@ const PostBuyRequirement = () => {
       <div className="form-section">
         <div className="text-logo">
           <div>
-            <h1>Post Buy Requirement</h1>
+            <h1>Post buy requirement</h1>
             <p style={{ marginBottom: "2rem" }}>
-              Get the Best Deals and Exclusive Offers with Victorum Trading
+              Get the best deals and exclusive offers with Victorum Trading
             </p>
           </div>
           <div style={{ marginTop: "16px" }} className="logo-banner">
@@ -66,10 +65,10 @@ const PostBuyRequirement = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "-25px" }}>
-            <p style={{ fontSize: "14px" }}>Tell us about your requirement*</p>
+            <p style={{ fontSize: "14px" }}>Tell us more about your needst*</p>
           </div>
           <TextField
-            placeholder="Enter the product you are looking for..."
+            placeholder="Enter the product you are searching for..."
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             variant="outlined"
@@ -89,17 +88,14 @@ const PostBuyRequirement = () => {
             }}
           />
           <div>
-            <p className="font-size-14">Personalise your inquiry</p>
+            <p className="font-size-14">Make it easy - drop us a voice!</p>
             <p className="font-size-12">
-              Now, record your requirement to communicate clearly & faster with{" "}
-              <br /> sellers than ever before.
+              Make it easy and fast - send us a voice message to get things{" "}
+              <br /> streamlined quickly!
             </p>
           </div>
           <div className="record-section">
-            <AudioRecorder
-             key={resetAudioKey}
-              onAudioRecorded={testna}
-            />
+            <AudioRecorder key={resetAudioKey} onAudioRecorded={testna} />
             <Image
               src="/background.png"
               alt="Logo"
