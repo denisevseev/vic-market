@@ -46,7 +46,6 @@ export default function Product({ params }: any) {
 
   // related
   const [categoryName, setCategoryName] = useState<any>(null);
-  console.log(categoryName, "categoryname:");
 
   const [categorySlug, setCategorySlug] = useState<any>(null);
 
