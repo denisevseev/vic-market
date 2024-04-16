@@ -83,7 +83,8 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/g-bus-listing.svg"
           text="Company Profile"
-          // redirectUrl="https://www.google.com"
+          sameWindow={true}
+          redirectUrl="/our-company"
         />
       </div>
 

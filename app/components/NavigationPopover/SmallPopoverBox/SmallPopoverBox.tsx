@@ -4,12 +4,13 @@ import "./SmallPopoverBox.scss";
 import Image from "next/image";
 import { Box } from "@mui/material";
 
-const openNewTab = (url: any, sameWindow: any) => {
-  let newWindow;
-  if (sameWindow) newWindow = window.open(url);
-  else newWindow = window.open(url, "_blank");
-  if (newWindow) {
-    newWindow.opener = null;
+const openNewTab = (url: any, sameWindow: boolean = false) => {
+  if (sameWindow) {
+    console.log("sameWindow", url);
+    window.location.href = url; // Opens the link in the same window
+  } else {
+    const newWindow = window.open(url, "_blank"); // Opens the link in a new tab
+    if (newWindow) newWindow.opener = null; // Ensures security by disowning the new window
   }
 };
 
