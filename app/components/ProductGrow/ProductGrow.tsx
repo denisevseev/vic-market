@@ -29,7 +29,9 @@ export default function ProductGrow({ scrollToPostBuyRequirement }: any) {
         </Box>
         <Box className="wantToGrowYourBusinessMainBox">
           <Typography className="wantToGrowYourBusinessText">
-            You offer products and<br />want to extend your business?
+            You offer products and
+            <br />
+            want to extend your business?
           </Typography>
           <Button
             variant="outlined"
