@@ -5,6 +5,30 @@ import { Box, Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import HeadData from "../components/head";
 
+const globalDetails = {
+  name: "Victorum Group",
+  phone: "+00000",
+  email: "support@victorum-group.com",
+};
+const contactDetails = [
+  {
+    name: "Belarus",
+    phone: "+375 173 881565",
+    email: "belarus@victorum-group.com",
+  },
+  {
+    name: "Brasil",
+    phone: null,
+    email: "brazil@victorum-group.com",
+  },
+];
+
+function findContactByName(name: any) {
+  return contactDetails.find(
+    (contact: any) => contact.name.toLowerCase() === name.toLowerCase()
+  );
+}
+
 export default function ContactUs() {
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -17,6 +41,9 @@ export default function ContactUs() {
   const [sectiontitle, setSectionTitle] = useState<string>(
     "Our Contact Information"
   );
+
+  const [pageContactDetails, setPageContactDetails] =
+    useState<any>(globalDetails);
 
   const [contentTitle1, setContentTitle1] =
     useState<string>("Customer Service");
@@ -45,6 +72,15 @@ export default function ContactUs() {
     if (typeof window !== "undefined") {
       const searchParams = new URLSearchParams(window.location.search);
       const fromParam = searchParams.get("from");
+      const branchParam = searchParams.get("branch");
+
+      if (branchParam) {
+        const findData = findContactByName(branchParam);
+        if (findData) {
+          setPageContactDetails(findData);
+        }
+      }
+
       if (
         fromParam === "top-box" ||
         fromParam === "seller-details" ||
@@ -203,7 +239,7 @@ export default function ContactUs() {
                   If you have any questions about products and services relating
                   to everything to do with purchasing processes at Victorum, you
                   have come to the right place! Our helpdesk is available around
-                  the clock, 7 days a week. Call us on 123 XXX XXX.
+                  the clock, 7 days a week. Call us on {pageContactDetails.phone}.
                 </Typography>
               </Box>
             )}
