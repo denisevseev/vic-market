@@ -2,8 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./style.scss";
 import { Box, Typography } from "@mui/material";
-import OurCoreValue from "../../public/service-num.jpeg";
-import OurCoreValue2 from "../../public/email-logo-2.png";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import HeadData from "../components/head";
 
@@ -34,6 +32,10 @@ export default function ContactUs() {
   // Contact Sellers´ Desk {from: seller-details}
   // Contact Buyers´ Desk {from: buyer-details}
   // Contact (Legal) { from: "legal" }
+
+  const handleContact = () => {
+    window.location.href = "mailto:sellers-desk@ghhjjhg";
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -165,19 +167,19 @@ export default function ContactUs() {
         <Box className="contactUsTextContainerPadding">
           <Box className="contactUstextContainer">
             <Box>
-              <Typography className="contactUsSubtitle">
+              <Typography className="contactUsSubtitle3">
                 {sectiontitle}
               </Typography>
             </Box>
             <Box>
-              <Typography className="ourCoreValueContentHeading">
+              <Typography className="contactUsSubtitle2">
                 {contentTitle1}
               </Typography>
             </Box>
             {from === "top-box" ? (
               <Box>
                 <Typography
-                  className="ourCoreValueContentDesc"
+                  className="contactUsSubtitle"
                   sx={{
                     marginBottom: "16px",
                   }}
@@ -189,7 +191,7 @@ export default function ContactUs() {
             ) : (
               <Box>
                 <Typography
-                  className="ourCoreValueContentDesc"
+                  className="contactUsSubtitle"
                   sx={{
                     marginBottom: "16px",
                   }}
@@ -197,58 +199,60 @@ export default function ContactUs() {
                   If you have any questions about products and services relating
                   to everything to do with purchasing processes at Victorum, you
                   have come to the right place! Our helpdesk is available around
-                  the clock, 7 days a week. Call us on
-                  <b style={{ marginLeft: "3px" }}> 123 XXX XXX.</b>
+                  the clock, 7 days a week. Call us on 123 XXX XXX.
                 </Typography>
               </Box>
             )}
 
             {from === "top-box" ? (
               <Box>
-                <Typography className="ourCoreValueContentDesc">
+                <Typography className="contactUsSubtitle">
                   If you are not a client yet, you can dial 00000000 in order to
                   reach our support desk.
                 </Typography>
               </Box>
             ) : null}
             <Box>
-              <Typography className="contactUsSubtitle">
-                {from === "top-box" ? (
-                  <>
-                    <Typography className="ourCoreValueContentHeading">
-                      Email and Working Hours
-                    </Typography>
-                    <Typography className="ourCoreValueContentDesc">
-                      You can also write us a message to support@xxxxx or use
-                      the
-                      <span
-                        className="contactFormBelowText"
-                        onClick={scrollToForm}
-                      >
-                        contact form below
-                      </span>
-                      {" - our support desk is available "}
-                      <b>Monday to Friday from 08h till 18h.</b>
-                    </Typography>
-                  </>
-                ) : (
-                  <>
-                    <Typography className="ourCoreValueContentHeading">
-                      Contact Email
-                    </Typography>
-                    <Typography className="ourCoreValueContentDesc">
-                      You can also write us a message to{" "}
-                      <b>sellers-desk@ghhjjhg </b>or use the
-                      <span
-                        className="contactFormBelowText"
-                        onClick={scrollToForm}
-                      >
-                        contact form below.
-                      </span>
-                    </Typography>
-                  </>
-                )}
-              </Typography>
+              {from === "top-box" ? (
+                <>
+                  <Typography className="contactUsSubtitle2">
+                    Email and Working Hours
+                  </Typography>
+                  <Typography className="contactUsSubtitle">
+                    You can also write us a message to support@xxxxx or use the
+                    <span
+                      className="contactFormBelowText"
+                      onClick={scrollToForm}
+                    >
+                      contact form below
+                    </span>
+                    {" - our support desk is available "}
+                    <b>Monday to Friday from 08h till 18h.</b>
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  <Typography className="contactUsSubtitle2">
+                    Contact Email
+                  </Typography>
+                  <Typography className="contactUsSubtitle">
+                    You can also write us a message to{" "}
+                    <span
+                      className="contactFormBelowText"
+                      onClick={handleContact}
+                    >
+                      sellers-desk@ghhjjhg
+                    </span>{" "}
+                    or use the
+                    <span
+                      className="contactFormBelowText"
+                      onClick={scrollToForm}
+                    >
+                      contact form below.
+                    </span>
+                  </Typography>
+                </>
+              )}
             </Box>
           </Box>
         </Box>
