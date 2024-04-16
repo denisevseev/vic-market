@@ -6,10 +6,10 @@ import { Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import Link from "next/link";
 import Image from "next/image";
-
+import { globalDetails } from "../utils/constants";
 export default function PressPage() {
   const handleContact = () => {
-    window.location.href = "mailto:press@xxcx";
+    window.location.href = "mailto:" + globalDetails.email;
   };
 
   return (

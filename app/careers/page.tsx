@@ -4,11 +4,14 @@ import Box from "@mui/material/Box";
 import "./Careers.scss";
 import { Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import { globalDetails } from "../utils/constants";
 
 export default function CareersPage() {
   const handleContact = () => {
     window.location.href =
-      "mailto:jobs@xxxcc?subject=Inquiry&body=Hello, I am interested in...";
+      "mailto:" +
+      globalDetails.email +
+      "?subject=Inquiry&body=Hello, I am interested in...";
   };
 
   return (
@@ -73,7 +76,7 @@ export default function CareersPage() {
             No matter how good your career is now, we’ll help you get to the
             next level - send us message to{" "}
             <span className="mailToText" onClick={handleContact}>
-              jobs@xxxcc
+              {globalDetails.email}
             </span>{" "}
             or use the contact form below!
           </Typography>

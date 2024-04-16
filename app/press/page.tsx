@@ -4,10 +4,11 @@ import Box from "@mui/material/Box";
 import "./Press.scss";
 import { Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import { globalDetails } from "../utils/constants";
 
 export default function PressPage() {
   const handleContact = () => {
-    window.location.href = "mailto:press@xxcx";
+    window.location.href = "mailto:" + globalDetails.email;
   };
 
   return (
@@ -57,7 +58,7 @@ export default function PressPage() {
             {" "}
             Send us a message to{" "}
             <span className="mailToText" onClick={handleContact}>
-              press@xxcx
+              {globalDetails.email}
             </span>{" "}
             - our press desk will be happy to help you!
           </Typography>

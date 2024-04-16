@@ -4,10 +4,11 @@ import Box from "@mui/material/Box";
 import "./News.scss";
 import { Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
+import { globalDetails } from "../utils/constants";
 
 export default function NewsPage() {
   const handleContact = () => {
-    window.location.href = "mailto:news@xxcx";
+    window.location.href = "mailto:" + globalDetails.email;
   };
 
   return (
@@ -54,9 +55,9 @@ export default function NewsPage() {
             {" "}
             Send us a message to{" "}
             <span className="mailToText" onClick={handleContact}>
-              news@xxcx
+            {globalDetails.email}
             </span>{" "}
-            or dial 133567788 - we are glad to assist you!
+            or dial {globalDetails.phone} - we are glad to assist you!
           </Typography>
         </Box>
       </Box>
