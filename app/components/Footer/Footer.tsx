@@ -78,7 +78,7 @@ const Footer = () => {
               <h4 className="title-color">About us</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <p>Our Company</p>
+            <a href="/our-company">Our Company</a>
               <a href="https://www.victorum-group.com/" target="_blank">
                 Victorum Group
               </a>
@@ -230,7 +230,7 @@ const Footer = () => {
         <>
           <div className="footerSection">
             <h3>About us</h3>
-            <a>Our Company</a>
+            <a href="/our-company">Our Company</a>
             <a href="https://www.victorum-group.com/" target="_blank">
               Victorum Group
             </a>
@@ -327,7 +327,7 @@ const Footer = () => {
 
       <div className="footerBottom">
         <div className="all-rights-reserved ml-small-screen">
-          © 2024 Victorum Holding LtD. All rights reserved.
+          © 2024 Victorum Holding Ltd. All rights reserved.
         </div>
       </div>
     </footer>
