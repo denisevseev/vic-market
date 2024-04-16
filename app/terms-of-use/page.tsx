@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import "./terms.scss";
 import HeadData from "../components/head";
+import { globalDetails } from "../utils/constants";
 
 export default function TermsOfUsePage() {
   const [value, setValue] = React.useState(0);
@@ -271,7 +272,7 @@ export default function TermsOfUsePage() {
               intellectual property rights and has established internal
               guidelines to handle such cases. In cases of questions related to
               infringement of intellectual property rights, please send us a
-              message to ipr@victorumXXXXX or call us on 098098098098089.
+              message to {globalDetails.email} or call us on {globalDetails.phone}.
             </p>
 
             <h2 className="section-title">9. Limited Liability and Warranty</h2>
@@ -284,8 +285,8 @@ export default function TermsOfUsePage() {
 
             <p className="terms-description">
               In case of any questions related the use of our Online Platforms
-              and Services, please send us a message to
-              backoffice@victorumouiiouio or call us on 098098089089089!
+              and Services, please send us a message to {" "}
+              {globalDetails.email} or call us on {globalDetails.phone}!
             </p>
 
             {/* end */}

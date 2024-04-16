@@ -80,7 +80,7 @@ export default function PressPage() {
           </Typography>
 
           <Typography className="pressSubtitle">
-            Benefit from more than ()/()/()/()/ registered users and{" "}
+            Benefit from more than 350.000 registered users and{" "}
             <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
               click here
             </a>{" "}
