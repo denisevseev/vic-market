@@ -5,6 +5,15 @@ import { Box, Typography } from "@mui/material";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import HeadData from "../components/head";
 
+import { globalDetails, contactDetails } from "../utils/constants";
+
+function findContactByName(name: any) {
+  name = name.replace("%20", " ");
+  return contactDetails.find(
+    (contact: any) => contact.search.toLowerCase() === name.toLowerCase()
+  );
+}
+
 export default function ContactUs() {
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -18,33 +27,42 @@ export default function ContactUs() {
     "Our Contact Information"
   );
 
+  const [pageContactDetails, setPageContactDetails] = useState<any>({});
+
   const [contentTitle1, setContentTitle1] =
     useState<string>("Customer Service");
-  const [contentDesc1, setContentDesc1] = useState<string>(
-    "If you have a customer service question, please select your local Victorum Service Number from the list below."
-  );
-
-  const [contentTitle2, setContentTitle2] = useState<string>("Contact Email");
-  const [contentDesc2, setContentDesc2] = useState<string>(
-    "You can also write us a message to sellers-desk@ghhjjhg or use the contact form below."
-  );
-
-  // Contact Sellers´ Desk {from: seller-details}
-  // Contact Buyers´ Desk {from: buyer-details}
-  // Contact (Legal) { from: "legal" }
 
   const handleContactSellers = () => {
-    window.location.href = "mailto:sellers-desk@ghhjjhg";
+    const email = pageContactDetails.email
+      ? pageContactDetails.email
+      : globalDetails.email;
+    window.location.href = "mailto:" + email;
   };
 
   const handleContactSupport = () => {
-    window.location.href = "mailto:support@xxxxx";
+    const email = pageContactDetails.email
+      ? pageContactDetails.email
+      : globalDetails.email;
+    window.location.href = "mailto:" + email;
   };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const searchParams = new URLSearchParams(window.location.search);
       const fromParam = searchParams.get("from");
+      const branchParam = searchParams.get("branch");
+
+      if (branchParam) {
+        const findData = findContactByName(branchParam);
+        if (findData) {
+          setPageContactDetails(findData);
+        } else {
+          setPageContactDetails(globalDetails);
+        }
+      } else {
+        setPageContactDetails(globalDetails);
+      }
+
       if (
         fromParam === "top-box" ||
         fromParam === "seller-details" ||
@@ -59,31 +77,20 @@ export default function ContactUs() {
   }, []);
 
   useEffect(() => {
+    const phone = pageContactDetails.phone
+      ? pageContactDetails.phone
+      : globalDetails.phone;
     if (from === "top-box") {
       setMainTitle("Don't miss it!");
       setSubTitle("We are Here");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
-      setContentDesc1(
-        "If you have a customer service question, please select your local Victorum Service Number from the list below."
-      );
-      setContentTitle2("Email and Working Hours");
-      setContentDesc2(
-        "You can also write us a message to support@xxxxx or use the contact form below - our support desk is available Monday to Friday from 08h till 18h."
-      );
     }
     if (from === "seller-details") {
       setMainTitle("Contact Us");
       setSubTitle("Don't miss it!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
-      setContentDesc1(
-        "If you have any questions about products and services relating to everything to do with purchasing processes at Victorum, you have come to the right place! Our helpdesk is available around the clock, 7 days a week. Call us on 123 XXX XXX."
-      );
-      setContentTitle2("Contact Email");
-      setContentDesc2(
-        "You can also write us a message to sellers-desk@ghhjjhg or use the contact form below."
-      );
     }
 
     if (from === "buyer-details") {
@@ -91,13 +98,6 @@ export default function ContactUs() {
       setSubTitle("Don't miss it!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
-      setContentDesc1(
-        "If you have any questions about products and services relating to everything to do with purchasing processes at Victorum, you have come to the right place! Our helpdesk is available around the clock, 7 days a week. Call us on 123 XXX XXX."
-      );
-      setContentTitle2("Contact Email");
-      setContentDesc2(
-        "You can also write us a message to sellers-desk@ghhjjhg or use the contact form below."
-      );
     }
 
     if (from === "legal") {
@@ -105,13 +105,6 @@ export default function ContactUs() {
       setSubTitle("Don't miss it!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
-      setContentDesc1(
-        "If you have any questions about products and services relating to everything to do with purchasing processes at Victorum, you have come to the right place! Our helpdesk is available around the clock, 7 days a week. Call us on 123 XXX XXX."
-      );
-      setContentTitle2("Contact Email");
-      setContentDesc2(
-        "You can also write us a message to sellers-desk@ghhjjhg or use the contact form below."
-      );
     }
   }, [from]);
 
@@ -203,19 +196,42 @@ export default function ContactUs() {
                   If you have any questions about products and services relating
                   to everything to do with purchasing processes at Victorum, you
                   have come to the right place! Our helpdesk is available around
-                  the clock, 7 days a week. Call us on 123 XXX XXX.
+                  the clock, 7 days a week. Call us on{" "}
+                  <a
+                    href={
+                      "tel:" + pageContactDetails.phone
+                        ? pageContactDetails.phone
+                        : globalDetails.phone
+                    }
+                  >
+                    {pageContactDetails.phone
+                      ? pageContactDetails.phone
+                      : globalDetails.phone}
+                  </a>
+                  .
                 </Typography>
               </Box>
             )}
 
-            {from === "top-box" ? (
+            {from === "top-box" && pageContactDetails && (
               <Box>
                 <Typography className="contactUsSubtitle">
-                  If you are not a client yet, you can dial 00000000 in order to
-                  reach our support desk.
+                  If you are not a client yet, you can dial{" "}
+                  <a
+                    href={
+                      "tel:" + pageContactDetails.phone
+                        ? pageContactDetails.phone
+                        : globalDetails.phone
+                    }
+                  >
+                    {pageContactDetails.phone
+                      ? pageContactDetails.phone
+                      : globalDetails.phone}
+                  </a>{" "}
+                  in order to reach our support desk.
                 </Typography>
               </Box>
-            ) : null}
+            )}
             <Box>
               {from === "top-box" ? (
                 <>
@@ -228,7 +244,7 @@ export default function ContactUs() {
                       className="contactFormBelowText"
                       onClick={handleContactSupport}
                     >
-                      support@xxxxx
+                      {pageContactDetails.email}
                     </span>{" "}
                     or use the
                     <span
@@ -253,7 +269,7 @@ export default function ContactUs() {
                       className="contactFormBelowText"
                       onClick={handleContactSellers}
                     >
-                      sellers-desk@ghhjjhg
+                      {pageContactDetails?.email}
                     </span>{" "}
                     or use the
                     <span

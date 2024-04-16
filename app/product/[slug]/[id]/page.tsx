@@ -225,7 +225,7 @@ export default function Product({ params }: any) {
                           <Box className="productPriceBox">
                             {" "}
                             <Typography className="productPrice">
-                              Price: {singleProduct[0]?.productPrice}
+                              Price: {singleProduct[0]?.productPrice}{" "}
                               {singleProduct[0]?.currency}
                             </Typography>
                           </Box>

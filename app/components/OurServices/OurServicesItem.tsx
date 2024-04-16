@@ -183,7 +183,7 @@ export default function OurServicesItem() {
 
           <Box
             className="ourServicesLearnMoreAndIcon"
-            onClick={() => handleRedirect("https://vicpayments.com/login")}
+            onClick={() => handleRedirect("https://vicpayments.com/")}
           >
             <Typography className="ourServiceslearnMoreLink">
               Learn more{" "}

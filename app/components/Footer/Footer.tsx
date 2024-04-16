@@ -30,34 +30,6 @@ const Footer = () => {
     <footer className="footerContainer">
       {isMobile ? (
         <div>
-          {/* <Accordion
-            sx={{
-              boxShadow: "none",
-            }}
-            expanded={expanded === "panel1"}
-            onChange={handleChange("panel1")}
-          >
-            <AccordionSummary
-              sx={{
-                "& .MuiAccordionSummary-content": {
-                  margin: "0 !important", // Override margin
-                },
-              }}
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "rgb(255, 255, 255);" }} />
-              }
-            >
-              <h4 className="title-color">Customer Support</h4>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Link href="/help">Help Center</Link>
-              <Link href="/help">User Guide</Link>
-              <Link href="/help">Return & Cancellation</Link>
-              <Link href="/help">Policy</Link>
-              <Link href="/help">Shipping & Delivery Policy</Link>
-            </AccordionDetails>
-          </Accordion> */}
-
           <Accordion
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
@@ -142,13 +114,13 @@ const Footer = () => {
               <Link
                 href={{
                   pathname: "/contact-us",
-                  query: { from: "seller-details" },
+                  query: { from: "seller-details", branch: "Main" },
                 }}
               >
                 Contact Sellers´ Desk
               </Link>
               {/* <Link href="/categories">Browse Our Categories</Link> */}
-              <Link href="/help">Are you a Successful Seller?</Link>
+              <Link href="/contact-us">Are you a Successful Seller?</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -176,7 +148,7 @@ const Footer = () => {
               <Link
                 href={{
                   pathname: "/contact-us",
-                  query: { from: "buyer-details" },
+                  query: { from: "buyer-details", branch: "Main" },
                 }}
               >
                 Contact Buyers´ Desk
@@ -184,7 +156,7 @@ const Footer = () => {
               <Link href="/categories">Browse Our Categories</Link>
               <a>Our company</a>
               {/* <a>Contact Buyers´ Desk</a> */}
-              <Link href="/help">Buyers´ Book of Profit</Link>
+              <Link href="/our-company">Buyers´ Book of Profit</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -211,7 +183,7 @@ const Footer = () => {
               <Link
                 href={{
                   pathname: "/contact-us",
-                  query: { from: "legal" },
+                  query: { from: "legal", branch: "Main" },
                 }}
               >
                 Contact
@@ -220,7 +192,7 @@ const Footer = () => {
               <a href="/terms-of-use">Terms of Use</a>
               <a href="/terms">T&Cs</a>
               <a href="/privacy-policy">Privacy Policy</a>
-              <Link href="/help">Sitemap</Link>
+              <Link href="/sitemap.xml">Sitemap</Link>
             </AccordionDetails>
           </Accordion>
         </div>
@@ -251,14 +223,14 @@ const Footer = () => {
             <Link
               href={{
                 pathname: "/contact-us",
-                query: { from: "seller-details" },
+                query: { from: "seller-details", branch: "Main" },
               }}
             >
               Contact Sellers´ Desk
             </Link>
 
             {/* <Link href="/categories">Browse Our Categories</Link> */}
-            <Link href="/help">Are you a Successful Seller?</Link>
+            <Link href="/contact-us">Are you a Successful Seller?</Link>
           </div>
           <div className="footerSection">
             <h3>For Buyers</h3>
@@ -266,7 +238,7 @@ const Footer = () => {
             <Link
               href={{
                 pathname: "/contact-us",
-                query: { from: "buyer-details" },
+                query: { from: "buyer-details", branch: "Main" },
               }}
             >
               Contact Buyers´ Desk
@@ -274,7 +246,7 @@ const Footer = () => {
             <Link href="/categories">Browse Our Categories</Link>
             <a>Our company</a>
             {/* <a>Contact Buyers´ Desk</a> */}
-            <Link href="/help">Buyers´ Book of Profit</Link>
+            <Link href="/our-company">Buyers´ Book of Profit</Link>
           </div>
           <div className="footerSection">
             <h3>Legal</h3>
@@ -282,7 +254,7 @@ const Footer = () => {
             <Link
               href={{
                 pathname: "/contact-us",
-                query: { from: "legal" },
+                query: { from: "legal", branch: "Main" },
               }}
             >
               Contact
@@ -290,7 +262,7 @@ const Footer = () => {
             <a href="/terms-of-use">Terms of Use</a>
             <a href="/terms">T&Cs</a>
             <a href="/privacy-policy">Privacy Policy</a>
-            <Link href="/help">Sitemap</Link>
+            <Link href="/sitemap.xml">Sitemap</Link>
           </div>
         </>
       )}
@@ -302,16 +274,7 @@ const Footer = () => {
               <React.Fragment key={country.id}>
                 {/* Use an anchor tag for the full page reload */}
                 <a
-                  href={`#`}
-                  onClick={(e) => {
-                    // Prevent the default anchor link behavior
-                    e.preventDefault();
-                    localStorage.setItem(
-                      "selectedCountry",
-                      country.fallback_name
-                    );
-                    window.location.reload();
-                  }}
+                  href={`/contact-us?from=legal&branch=` + country.fallback_name}
                 >
                   {country.fallback_name}
                 </a>
