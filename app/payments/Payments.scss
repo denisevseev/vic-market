@@ -1,0 +1,175 @@
+.paymentsMainContainer {
+  margin: auto;
+  padding: 30px 0px;
+}
+.mailToText {
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #2a5182;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.paymentsBg {
+  background-image: url("../../public/paymentsVicpay.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 400px;
+}
+.titleHeadlineImgBg {
+  padding: 50px 0px;
+  background: #f9f2ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+.paymentsTitleHeadlineMW {
+  max-width: 1180px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0px 20px;
+}
+.paymentsTitleBg {
+  display: inline-flex;
+  background: #d2dae0;
+  border-radius: 37px;
+  -moz-border-radius: 37px;
+  -webkit-border-radius: 37px;
+  padding: 10px 25px;
+  margin-bottom: 30px;
+  width: fit-content;
+}
+.paymentsTitleBgText {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.paymentsTitle {
+  color: #082f4a;
+  font-weight: 600 !important;
+  font-size: 38px !important;
+  max-width: 590px;
+  line-height: 60px !important;
+}
+.paymentsTextContainerPadding {
+  padding: 0px 30px;
+}
+.paymentstextContainer {
+  margin-top: 30px !important;
+  max-width: 1180px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
+  padding: 20px;
+}
+.paymentsSubtitle {
+  margin-top: 15px !important;
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.paymentsSubtitle2 {
+  margin-top: 15px !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.paymentsContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1020px) {
+  .paymentsMainContainer {
+    padding: 60px 0px 20px 0px;
+  }
+  .titleHeadlineImgBg {
+    padding: 30px 0px;
+  }
+  .paymentsTextContainerPadding {
+    padding: 0px 20px;
+  }
+  .paymentsTitleHeadlineMW {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .paymentsBg {
+    width: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .paymentsSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .paymentsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .paymentsTitle {
+    font-size: 28px !important;
+    line-height: 42px !important;
+    max-width: 430px;
+  }
+  .paymentsTitleBgText {
+    font-size: 18px !important;
+  }
+  .paymentsTitleBg {
+    margin-bottom: 15px;
+    padding: 8px 25px;
+  }
+  .paymentsTitleHeadlineMW {
+    gap: 15px;
+  }
+}
+@media (max-width: 630px) {
+  .paymentsMainContainer {
+    padding: 100px 0px 20px 0px;
+  }
+  .paymentsBg {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .paymentsSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .paymentsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .paymentsTitle {
+    font-size: 22px !important;
+    line-height: 32px !important;
+    max-width: 330px;
+  }
+  .paymentsTitleBgText {
+    font-size: 16px !important;
+  }
+  .paymentsTitleBg {
+    margin-bottom: 15px;
+    padding: 5px 25px;
+  }
+  .paymentsBg {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .paymentsBg {
+    height: 100px;
+  }
+}
