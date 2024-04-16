@@ -33,8 +33,12 @@ export default function ContactUs() {
   // Contact Buyers´ Desk {from: buyer-details}
   // Contact (Legal) { from: "legal" }
 
-  const handleContact = () => {
+  const handleContactSellers = () => {
     window.location.href = "mailto:sellers-desk@ghhjjhg";
+  };
+
+  const handleContactSupport = () => {
+    window.location.href = "mailto:support@xxxxx";
   };
 
   useEffect(() => {
@@ -219,15 +223,23 @@ export default function ContactUs() {
                     Email and Working Hours
                   </Typography>
                   <Typography className="contactUsSubtitle">
-                    You can also write us a message to support@xxxxx or use the
+                    You can also write us a message to{" "}
                     <span
+                      className="contactFormBelowText"
+                      onClick={handleContactSupport}
+                    >
+                      support@xxxxx
+                    </span>{" "}
+                    or use the
+                    <span
+                      style={{ marginLeft: "5px" }}
                       className="contactFormBelowText"
                       onClick={scrollToForm}
                     >
                       contact form below
                     </span>
                     {" - our support desk is available "}
-                    <b>Monday to Friday from 08h till 18h.</b>
+                    Monday to Friday from 08h till 18h.
                   </Typography>
                 </>
               ) : (
@@ -239,7 +251,7 @@ export default function ContactUs() {
                     You can also write us a message to{" "}
                     <span
                       className="contactFormBelowText"
-                      onClick={handleContact}
+                      onClick={handleContactSellers}
                     >
                       sellers-desk@ghhjjhg
                     </span>{" "}
