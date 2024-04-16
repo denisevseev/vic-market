@@ -874,7 +874,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 style={{ marginBottom: "6px" }}
                 id="demo-simple-select-label"
               >
-                Select Country
+                Your Country
               </InputLabel>
               <Select
                 labelId="demo-simple-select-label"

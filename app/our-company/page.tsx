@@ -75,7 +75,7 @@ export default function PressPage() {
 
           <Typography className="pressSubtitle">
             Connecting more than 350.000 buyers and sellers with more than 2.1
-            million requests each year throughout more than =)(=)(=)(=)(=)(=()
+            million requests each year throughout more than 11
             product categories.
           </Typography>
 
