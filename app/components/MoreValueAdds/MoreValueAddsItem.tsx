@@ -16,7 +16,10 @@ export default function MoreValueAddsItem() {
 
   return (
     <Box className="addsItemMain">
-      <Box className="addItemSingelMain">
+      <Box
+        className="addItemSingelMain"
+        onClick={() => handleNavigate("/newsletter")}
+      >
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
@@ -24,10 +27,7 @@ export default function MoreValueAddsItem() {
             </Typography>
             <Typography className="victorumCapitalText">news!</Typography>
           </Box>
-          <Box
-            className="learnMoreAndIcon"
-            onClick={() => handleNavigate("/newsletter")}
-          >
+          <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Subscribe!</Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
@@ -36,7 +36,10 @@ export default function MoreValueAddsItem() {
         </Box>
         <Box className="catlogsImage"></Box>
       </Box>
-      <Box className="addItemSingelMain">
+      <Box
+        className="addItemSingelMain"
+        onClick={() => handleNavigate("/categories")}
+      >
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
@@ -44,7 +47,7 @@ export default function MoreValueAddsItem() {
             </Typography>
             <Typography className="victorumCapitalText">potential!</Typography>
           </Box>
-          <Box className="learnMoreAndIcon" onClick={() => handleNavigate("/categories")}>
+          <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
@@ -53,16 +56,16 @@ export default function MoreValueAddsItem() {
         </Box>
         <Box className="buyLeadsImage"></Box>
       </Box>
-      <Box className="addItemSingelMain">
+      <Box
+        className="addItemSingelMain"
+        onClick={() => handleNavigate("/contact-us?from=legal")}
+      >
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">You got</Typography>
             <Typography className="victorumCapitalText">questions?</Typography>
           </Box>
-          <Box
-            className="learnMoreAndIcon"
-            onClick={() => handleNavigate("/contact-us?from=legal")}
-          >
+          <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Get in touch! </Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
@@ -71,7 +74,10 @@ export default function MoreValueAddsItem() {
         </Box>
         <Box className="membershipImage"></Box>
       </Box>
-      <Box className="addItemSingelMain">
+      <Box
+        className="addItemSingelMain"
+        onClick={() => handleUrl("https://www.vicpayments.com")}
+      >
         <Box className="victorumCapitalAndLearnMore">
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
@@ -81,10 +87,7 @@ export default function MoreValueAddsItem() {
               transactions!
             </Typography>
           </Box>
-          <Box
-            className="learnMoreAndIcon"
-            onClick={() => handleUrl("https://www.vicpayments.com")}
-          >
+          <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>
             <Box className="arrowIconBox">
               <ArrowForwardIcon className="arrowRightIcon" />
