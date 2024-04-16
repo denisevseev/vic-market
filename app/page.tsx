@@ -43,7 +43,6 @@ export default function Home() {
   const serivesRef = useRef<HTMLDivElement>(null);
 
   const scrollToPostBuyRequirement = () => {
-    console.log("scrollToPostBuyRequirement");
     if (postBuyRequirementRef.current) {
       postBuyRequirementRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -63,14 +62,12 @@ export default function Home() {
 
   // scroll starts
   useEffect(() => {
-    console.log("window.location.hash", window.location.hash);
     if (window.location.hash === "#post-buy-request") {
       scrollToPostBuyRequirement();
     }
   }, []);
 
   useEffect(() => {
-    console.log("window.location.hash", window.location.hash);
     if (window.location.hash === "#post-sell-request") {
       scrollToPostSellRequirement();
     }
