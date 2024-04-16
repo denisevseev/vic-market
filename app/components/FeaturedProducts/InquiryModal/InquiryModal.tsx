@@ -136,7 +136,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
     }
 
     try {
-      const response = await axios.post("api/market/buy", payload, {
+      const response = await axios.post("/api/market/buy", payload, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setIsLoading(false);
@@ -145,6 +145,24 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       console.error("Error sending data to the backend: ", error);
       setIsLoading(false);
     }
+  };
+
+  const resetStates = () => {
+    // Reset all states to their initial values
+    setFrequency("One-Time");
+    setIsLoading(false);
+    setUserCountry("");
+    setName("");
+    setEmail("");
+    setIsValidEmail(true);
+    setCompanyName("");
+    setCity("");
+    setGstChecked(false);
+    setTermsChecked(true);
+    setMobileNumber("");
+    setInputValue("");
+    setCountry(countries[0]); // Assuming you want to reset to the first country in the list
+    setInquiryMessage(`Hi, I am interested in ${productName}.`); // Resetting with dynamic initial value
   };
 
   const handleBackStep = () => {
@@ -234,6 +252,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   const handleCloseModal = () => {
     setStep(1);
     onClose();
+    resetStates();
   };
 
   // useEffect(() => {
@@ -241,6 +260,12 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   //     setStep(2);
   //   }
   // }, [isAudio]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      resetStates();
+    }
+  }, [isOpen]);
 
   const handleInquiryMessageChange = (
     event: React.ChangeEvent<HTMLInputElement>
