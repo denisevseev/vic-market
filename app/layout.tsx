@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeRegistry>
         <body>
+          <link rel="icon" href="/favicon.png" sizes="any" />
           <ProvidersReactQuery>
             <Navigation />
             {children}
