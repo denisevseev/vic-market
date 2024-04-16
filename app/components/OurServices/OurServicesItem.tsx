@@ -165,16 +165,16 @@ export default function OurServicesItem() {
               }}
             >
               <div
-                className="imageContainer-last"
                 style={{
                   display: "flex",
                   justifyContent: "flex-end",
                 }}
               >
                 <Image
-                  src="/cardd.png"
+                  width={75}
+                  height={40}
+                  src="/vicpayServiceLogo.png"
                   alt="Victorum Capital"
-                  layout="fill"
                   objectFit="contain"
                 />
               </div>

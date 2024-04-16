@@ -245,6 +245,7 @@ export default function ContactUs() {
                     </span>{" "}
                     or use the
                     <span
+                      style={{ marginLeft: "5px" }}
                       className="contactFormBelowText"
                       onClick={scrollToForm}
                     >
