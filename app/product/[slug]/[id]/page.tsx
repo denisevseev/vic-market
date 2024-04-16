@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import "../../../../styles/SingleProduct.scss";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getFilteredProductsByCategory,
   getProductByID,
@@ -30,12 +30,10 @@ import CustomHeadData from "@/app/components/customHead";
 
 export default function Product({ params }: any) {
   const { data: marketData, isLoading } = useMarketData();
-  const [productFromBE, setProductFromBE] = useState<any | null>(null);
+  const [productName, setProductName] = useState<any>(null);
+  const [singleProduct, setSingleProduct] = useState<any | null>([]);
 
   const slug = params && params.slug ? params.slug : null;
-
-  const [productName, setProductName] = useState<any>(null);
-  const [singleProduct, setSingleProduct] = useState<any>([]);
 
   const [relatedProducts, setRelatedProducts] = useState<any>([]);
   const [breadcrumbs, setBreadcrumbs] = useState<any[]>([]);
@@ -104,20 +102,22 @@ export default function Product({ params }: any) {
   }, [marketData, slug, productName]);
 
   // fetchprod start
-  const fetchProduct = async (slug: string) => {
-    try {
-      const response = await getProductByID(params.id);
-      setProductFromBE(response);
-    } catch (error) {
-      console.error("Failed to fetch product", error);
-      // Handle errors appropriately
-    }
-  };
-
   useEffect(() => {
-    fetchProduct(slug);
-  }, []);
-
+    const fetchProduct = async (id: any) => {
+      try {
+        const response = await fetch(`/api/market/product/${id}`);
+        if (response.ok) {
+          const productData = await response.json();
+          setSingleProduct([productData]);
+        } else {
+          console.error("Failed to fetch product data");
+        }
+      } catch (error) {
+        console.error("Failed to fetch product", error);
+      }
+    };
+    fetchProduct(params.id);
+  }, [params.id]);
   // fetchprod end
 
   const sellerInfo = {
@@ -130,20 +130,25 @@ export default function Product({ params }: any) {
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
   const imageMime =
-    productFromBE && productFromBE.files && productFromBE.files.length > 0
-      ? productFromBE.files[0].link.split(".").pop()
+    singleProduct[0] && singleProduct[0].files && singleProduct[0].files.length > 0
+      ? singleProduct[0].files[0].link.split(".").pop()
       : null;
 
   return (
     <main>
       <CustomHeadData
-        title={productFromBE?.productName ?? "Product"}
-        description={productFromBE?.description ?? "Product description"}
-        keywords={productFromBE?.productName}
-        price={productFromBE?.productPrice + " " + productFromBE?.currency}
-        image={productFromBE?.files[0].link}
+        title={singleProduct[0]?.productName ?? "Product"}
+        description={singleProduct[0]?.description ?? "Product description"}
+        keywords={singleProduct[0]?.productName}
+        price={singleProduct[0]?.productPrice + " " + singleProduct[0]?.currency}
+        image={
+          singleProduct[0] &&
+          singleProduct[0].files &&
+          singleProduct[0].files[0] &&
+          singleProduct[0].files[0].link
+        }
         imageMime={imageMime}
-        id={productFromBE?.id}
+        id={singleProduct[0]?.id}
       />
       <Box className="container">
         <Box
@@ -182,16 +187,22 @@ export default function Product({ params }: any) {
                 </Breadcrumbs>
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-                {singleProduct.map((product: any) => (
+                {singleProduct && singleProduct.length > 0 && (
                   <>
                     <Box
-                      key={"Single product" + productFromBE?.id}
+                      key={"Single product" + singleProduct[0]?.id}
                       className="productInfoMainSellerDetailsMain"
                     >
                       <Box className="productInfoMainBox">
                         <Box className="productImagesContainer">
                           <Image
-                            src={productFromBE?.files[0].link || Default}
+                            src={
+                              (singleProduct[0] &&
+                                singleProduct[0].files &&
+                                singleProduct[0].files[0] &&
+                                singleProduct[0].files[0].link) ||
+                              Default
+                            }
                             width={100}
                             height={100}
                             alt="Product Image"
@@ -207,15 +218,15 @@ export default function Product({ params }: any) {
                           </Box>
                           <Box className="productTitleBox">
                             <Typography className="productTitle">
-                              {productFromBE?.productName}
+                              {singleProduct[0]?.productName}
                             </Typography>
                           </Box>
                           <Divider sx={{ color: "rgb(238, 240, 243);" }} />
                           <Box className="productPriceBox">
                             {" "}
                             <Typography className="productPrice">
-                              Price: {productFromBE?.productPrice}{" "}
-                              {productFromBE?.currency}
+                              Price: {singleProduct[0]?.productPrice}
+                              {singleProduct[0]?.currency}
                             </Typography>
                           </Box>
                           <Divider sx={{ color: "rgb(238, 240, 243);" }} />
@@ -227,7 +238,7 @@ export default function Product({ params }: any) {
                                 </Typography>
                                 <Typography className="subInfo">
                                   {/* {product.manufacturerName}{" "} */}
-                                  Victorum {productFromBE?.countryName}
+                                  Victorum {singleProduct[0]?.countryName}
                                 </Typography>
                               </Box>
                             </Box>
@@ -241,26 +252,26 @@ export default function Product({ params }: any) {
                                 </Typography>
                               </Box>
                             </Box>
-                            {productFromBE?.incoterms && (
+                            {singleProduct[0]?.incoterms && (
                               <Box>
                                 <Box className="subInfoBox">
                                   <Typography className="subInfoHead">
                                     Income Terms:{" "}
                                   </Typography>
                                   <Typography className="subInfo">
-                                    {productFromBE?.incoterms}
+                                    {singleProduct[0]?.incoterms}
                                   </Typography>
                                 </Box>
                               </Box>
                             )}
-                            {productFromBE?.minimal_quantity && (
+                            {singleProduct[0]?.minimal_quantity && (
                               <Box>
                                 <Box className="subInfoBox">
                                   <Typography className="subInfoHead">
                                     Minimal Parity:
                                   </Typography>
                                   <Typography className="subInfo">
-                                    {productFromBE.minimal_quantity}
+                                    {singleProduct[0].minimal_quantity}
                                   </Typography>
                                 </Box>
                               </Box>
@@ -283,15 +294,15 @@ export default function Product({ params }: any) {
                           name={sellerInfo.name}
                           gst={sellerInfo.gst}
                           rating={sellerInfo.rating}
-                          proprietor={productFromBE?.createdBy}
+                          proprietor={singleProduct[0]?.createdBy}
                           memberSince={sellerInfo.memberSince}
-                          address={productFromBE?.Address}
-                          country={productFromBE?.countryName}
-                          tnvedCode={productFromBE?.tnvedCode}
+                          address={singleProduct[0]?.Address}
+                          country={singleProduct[0]?.countryName}
+                          tnvedCode={singleProduct[0]?.tnvedCode}
                         />
                       </Box>
                     </Box>
-                    {product.description && (
+                    {singleProduct[0].description && (
                       <Box className="productDescMainBox">
                         <Box>
                           <Typography className="productDescHeadText">
@@ -300,7 +311,7 @@ export default function Product({ params }: any) {
                         </Box>
                         <Box>
                           <Typography className="productDescText">
-                            {productFromBE?.description}
+                            {singleProduct[0]?.description}
                           </Typography>
                         </Box>
                       </Box>
@@ -312,23 +323,27 @@ export default function Product({ params }: any) {
                         rating={sellerInfo.rating}
                         proprietor={sellerInfo.proprietor}
                         memberSince={sellerInfo.memberSince}
-                        address={productFromBE?.Address}
-                        country={productFromBE?.countryName}
-                        tnvedCode={productFromBE?.tnvedCode}
+                        address={singleProduct[0]?.Address}
+                        country={singleProduct[0]?.countryName}
+                        tnvedCode={singleProduct[0]?.tnvedCode}
                       />
                     </Box>
                     <InquiryModal
                       isOpen={isModalOpen}
                       onClose={handleCloseModal}
-                      productName={productFromBE?.productName}
-                      company={productFromBE?.manufacturerName}
+                      productName={singleProduct[0]?.productName}
+                      company={singleProduct[0]?.manufacturerName}
                       imgSrc={
-                        productFromBE?.files[0]?.link ?? "/get-distributers.svg"
+                        (singleProduct[0] &&
+                          singleProduct[0].files &&
+                          singleProduct[0].files[0] &&
+                          singleProduct[0].files[0].link) ??
+                        "/get-distributers.svg"
                       }
-                      id={productFromBE?.id}
+                      id={singleProduct[0]?.id}
                     />
                   </>
-                ))}
+                )}
                 {relatedProducts && relatedProducts.length > 0 && (
                   <FeaturedProducts
                     backAction={false}
