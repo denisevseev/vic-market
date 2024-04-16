@@ -120,12 +120,14 @@ export default function Home() {
         <Box className="firstSection">
           <TopCategories data={categories} />
           <Box className="carouselLookingForAndMoreValue">
-            <Box className="homepageCarouselAndLookingForMainBox">
+            <Box
+              className="homepageCarouselAndLookingForMainBox"
+              ref={postSellRequirementRef}
+              id="post-sell-request"
+            >
               <HomepageImagesCarousel />
               <ProductGrow
                 scrollToPostBuyRequirement={scrollToPostBuyRequirement}
-                ref={postSellRequirementRef}
-                id="post-sell-request"
               />
             </Box>
             <MoreValueAdds />
