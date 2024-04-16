@@ -1,4 +1,4 @@
-.newsLetterMainContainer {
+.paymentsMainContainer {
   margin: auto;
   padding: 30px 0px;
 }
@@ -11,15 +11,13 @@
     text-decoration: underline;
   }
 }
-.newsLetterBg {
-  background-image: url("../../public/sub1.jpeg");
+.paymentsBg {
+  background-image: url("../../public/paymentsVicpay.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 250px;
   width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
 }
 .titleHeadlineImgBg {
   padding: 50px 0px;
@@ -30,7 +28,7 @@
   margin: auto;
   justify-content: space-between;
 }
-.newsLetterTitleHeadlineMW {
+.paymentsTitleHeadlineMW {
   max-width: 1180px;
   width: 100%;
   display: flex;
@@ -38,7 +36,7 @@
   margin: auto;
   padding: 0px 20px;
 }
-.newsLetterTitleBg {
+.paymentsTitleBg {
   display: inline-flex;
   background: #d2dae0;
   border-radius: 37px;
@@ -48,23 +46,23 @@
   margin-bottom: 30px;
   width: fit-content;
 }
-.newsLetterTitleBgText {
+.paymentsTitleBgText {
   font-weight: 600 !important;
   font-size: 20px !important;
   line-height: 30px !important;
   color: #2d3840 !important;
 }
-.newsLetterTitle {
+.paymentsTitle {
   color: #082f4a;
   font-weight: 600 !important;
   font-size: 38px !important;
   max-width: 590px;
   line-height: 60px !important;
 }
-.newsLetterTextContainerPadding {
+.paymentsTextContainerPadding {
   padding: 0px 30px;
 }
-.newsLettertextContainer {
+.paymentstextContainer {
   margin-top: 30px !important;
   max-width: 1180px;
   margin: auto;
@@ -73,21 +71,21 @@
   box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
   padding: 20px;
 }
-.newsLetterSubtitle {
+.paymentsSubtitle {
   margin-top: 15px !important;
   font-weight: 300 !important;
   font-size: 18px !important;
   line-height: 30px !important;
   color: #2d3840 !important;
 }
-.contactUsSubtitle2 {
+.paymentsSubtitle2 {
   margin-top: 15px !important;
   font-weight: 400 !important;
   font-size: 20px !important;
   line-height: 30px !important;
   color: #2d3840 !important;
 }
-.contactUsContainer {
+.paymentsContainer {
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -95,83 +93,83 @@
 }
 
 @media (max-width: 1020px) {
-  .newsLetterMainContainer {
+  .paymentsMainContainer {
     padding: 60px 0px 20px 0px;
   }
   .titleHeadlineImgBg {
     padding: 30px 0px;
   }
-  .newsLetterTextContainerPadding {
+  .paymentsTextContainerPadding {
     padding: 0px 20px;
   }
-  .newsLetterTitleHeadlineMW {
+  .paymentsTitleHeadlineMW {
     flex-direction: column;
     gap: 30px;
   }
-  .newsLetterBg {
+  .paymentsBg {
     width: auto;
   }
 }
 @media screen and (max-width: 768px) {
-  .newsLetterSubtitle {
+  .paymentsSubtitle {
     font-size: 16px !important;
     line-height: 26px !important;
   }
-  .contactUsSubtitle2 {
+  .paymentsSubtitle2 {
     font-size: 18px !important;
     line-height: 26px !important;
   }
-  .newsLetterTitle {
+  .paymentsTitle {
     font-size: 28px !important;
     line-height: 42px !important;
     max-width: 430px;
   }
-  .newsLetterTitleBgText {
+  .paymentsTitleBgText {
     font-size: 18px !important;
   }
-  .newsLetterTitleBg {
+  .paymentsTitleBg {
     margin-bottom: 15px;
     padding: 8px 25px;
   }
-  .newsLetterTitleHeadlineMW {
+  .paymentsTitleHeadlineMW {
     gap: 15px;
   }
 }
 @media (max-width: 630px) {
-  .newsLetterMainContainer {
+  .paymentsMainContainer {
     padding: 100px 0px 20px 0px;
   }
-  .newsLetterBg {
+  .paymentsBg {
     height: 200px;
   }
 }
 @media screen and (max-width: 500px) {
-  .newsLetterSubtitle {
+  .paymentsSubtitle {
     font-size: 16px !important;
     line-height: 26px !important;
   }
-  .contactUsSubtitle2 {
+  .paymentsSubtitle2 {
     font-size: 18px !important;
     line-height: 26px !important;
   }
-  .newsLetterTitle {
+  .paymentsTitle {
     font-size: 22px !important;
     line-height: 32px !important;
     max-width: 330px;
   }
-  .newsLetterTitleBgText {
+  .paymentsTitleBgText {
     font-size: 16px !important;
   }
-  .newsLetterTitleBg {
+  .paymentsTitleBg {
     margin-bottom: 15px;
     padding: 5px 25px;
   }
-  .newsLetterBg {
+  .paymentsBg {
     height: 150px;
   }
 }
 @media screen and (max-width: 400px) {
-  .newsLetterBg {
+  .paymentsBg {
     height: 100px;
   }
 }

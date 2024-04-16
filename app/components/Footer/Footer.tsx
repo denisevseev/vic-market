@@ -78,7 +78,7 @@ const Footer = () => {
               <h4 className="title-color">About us</h4>
             </AccordionSummary>
             <AccordionDetails>
-            <a href="/our-company">Our Company</a>
+              <a href="/our-company">Our Company</a>
               <a href="https://www.victorum-group.com/" target="_blank">
                 Victorum Group
               </a>
@@ -110,11 +110,9 @@ const Footer = () => {
             <AccordionDetails>
               <Link href="/#post-buy-request">Post Buy Request</Link>
               <Link href="/#post-sell-request">Post Sell Request</Link>
-              <a>Market Research</a>
+              <a href="/market-research">Market Research</a>
               <a href="/newsletter">Get Our Newsletter</a>
-              <a href="http://vicpayments.com/" target="_blank">
-                Payments? VicPay!
-              </a>
+              <a href="/payments">Payments? VicPay!</a>
             </AccordionDetails>
           </Accordion>
 
@@ -242,11 +240,9 @@ const Footer = () => {
             <h3>Our Services</h3>
             <Link href="/#post-buy-request">Post Buy Request</Link>
             <Link href="/#post-sell-request">Post Sell Request</Link>
-            <a>Market Research</a>
+            <a href="/market-research">Market Research</a>
             <a href="/newsletter">Get Our Newsletter</a>
-            <a href="http://vicpayments.com/" target="_blank">
-              Payments? VicPay!
-            </a>
+            <a href="/payments">Payments? VicPay!</a>
           </div>
           <div className="footerSection">
             <h3>For Sellers</h3>
