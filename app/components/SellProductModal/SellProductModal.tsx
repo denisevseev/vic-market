@@ -30,7 +30,7 @@ import {
   Select,
 } from "@mui/material";
 import { useCountryData } from "@/app/hooks/useCountryData";
-import { processApiResponse } from "@/api/helper/dataFilter";
+import { getCategories, processApiResponse } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 
 type InquiryModalProps = {
@@ -89,11 +89,15 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const [categories, setCategories] = useState<any>(null);
 
   useEffect(() => {
-    const formated = processApiResponse(marketData);
-    if (formated) {
-      setCategories(formated);
-    }
-  }, [marketData]); // Add marketData as a dependency
+    const fetchData = async () => {
+      if (marketData) {
+        const categoriesData = await getCategories();
+        setCategories(categoriesData);
+      }
+    };
+
+    fetchData();
+  }, [marketData]);
   // categories end
 
   //   step 3 start
@@ -632,10 +636,10 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 </MenuItem>
                 {categories?.map((categoryItem: any) => (
                   <MenuItem
-                    key={categoryItem.categoryName}
-                    value={categoryItem.categoryName}
+                    key={categoryItem.fallback_name}
+                    value={categoryItem.fallback_name}
                   >
-                    {categoryItem.categoryName}
+                    {categoryItem.fallback_name}
                   </MenuItem>
                 ))}
               </Select>
