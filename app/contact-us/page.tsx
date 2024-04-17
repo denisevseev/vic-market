@@ -199,13 +199,14 @@ export default function ContactUs() {
                   the clock, 7 days a week. Call us on{" "}
                   <a
                     href={
-                      "tel:" + pageContactDetails.phone
-                        ? pageContactDetails.phone
-                        : globalDetails.phone
+                      "tel:" +
+                      (pageContactDetails.phone
+                        ? decodeURIComponent(pageContactDetails.phone)
+                        : globalDetails.phone)
                     }
                   >
                     {pageContactDetails.phone
-                      ? pageContactDetails.phone
+                      ? decodeURIComponent(pageContactDetails.phone)
                       : globalDetails.phone}
                   </a>
                   .
@@ -219,15 +220,16 @@ export default function ContactUs() {
                   If you are not a client yet, you can dial{" "}
                   <a
                     href={
-                      "tel:" + pageContactDetails.phone
-                        ? pageContactDetails.phone
-                        : globalDetails.phone
+                      "tel:" +
+                      (pageContactDetails.phone
+                        ? decodeURIComponent(pageContactDetails.phone)
+                        : globalDetails.phone)
                     }
                   >
                     {pageContactDetails.phone
-                      ? pageContactDetails.phone
+                      ? decodeURIComponent(pageContactDetails.phone)
                       : globalDetails.phone}
-                  </a>{" "}
+                  </a>
                   in order to reach our support desk.
                 </Typography>
               </Box>
