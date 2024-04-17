@@ -1,5 +1,5 @@
 "use client";
-import { Box, CircularProgress, IconButton } from "@mui/material";
+import { Box, CircularProgress, IconButton, Typography } from "@mui/material";
 import "../../styles/HomePage.scss";
 import { useEffect, useState } from "react";
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
@@ -12,11 +12,19 @@ import VariableWidth from "../components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useRouter } from 'next/navigation';
+
 
 export default function Categories({}) {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [categories, setCategories] = useState<any>(null);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
+  const router = useRouter();
+
+  const navigateHome = () => {
+    router.push('/');
+  };
+
 
   const { data: marketData, isLoading } = useMarketData();
 
@@ -58,22 +66,52 @@ export default function Categories({}) {
           }}
         >
           <Box
+          onClick={navigateHome}
             sx={{
               marginBottom: "17px",
+              marginTop: {
+                xs: "6rem",
+                sm: "5rem",
+                md: "1rem",
+              },
             }}
           >
-            <Link
-              href="/"
-              style={{
+            <Box
+              sx={{
                 color: "#000",
+                display: "flex",
+                alignItems: "center",
+                borderRadius: "4px",
                 textDecoration: "none",
+                width: "max-content",
+                "&:hover": {
+                  backgroundColor: "#d3d3d3",
+                  cursor: "pointer",
+                },
               }}
             >
-              <IconButton aria-label="go back">
+              <IconButton
+                aria-label="go back"
+                sx={{
+                  marginRight: "8px",
+                  display: "flex",
+                  "& svg": {
+                    fontSize: "2.1rem",
+                  },
+                }}
+              >
                 <ArrowBackIcon />
               </IconButton>
-              Back
-            </Link>
+              <Typography
+                sx={{
+                  // You can add additional styles here for the text
+                  fontSize: "20px", // Adjust font size
+                  marginRight: "16px",
+                }}
+              >
+                Back
+              </Typography>
+            </Box>
           </Box>
           {isLoading ? (
             <Box

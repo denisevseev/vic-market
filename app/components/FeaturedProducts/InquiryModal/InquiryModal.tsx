@@ -412,7 +412,16 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
               <div className="d-flex ai-center gap-8">
-                <IconButton onClick={handleBackStep} aria-label="go back">
+                <IconButton
+                  onClick={handleBackStep}
+                  aria-label="go back"
+                  sx={{
+                    fontSize: "2rem",
+                    "& .MuiSvgIcon-root": {
+                      fontSize: "2rem",
+                    },
+                  }}
+                >
                   <ArrowBackIcon />
                 </IconButton>
 
@@ -543,7 +552,16 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
               <div className="d-flex ai-center gap-8">
-                <IconButton onClick={handleBackStep} aria-label="go back">
+              <IconButton
+                  onClick={handleBackStep}
+                  aria-label="go back"
+                  sx={{
+                    fontSize: "2rem",
+                    "& .MuiSvgIcon-root": {
+                      fontSize: "2rem",
+                    },
+                  }}
+                >
                   <ArrowBackIcon />
                 </IconButton>
 
@@ -717,7 +735,16 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 justify-space-between">
               <div className="d-flex ai-center gap-8">
-                <IconButton onClick={handleBackStep} aria-label="go back">
+              <IconButton
+                  onClick={handleBackStep}
+                  aria-label="go back"
+                  sx={{
+                    fontSize: "2rem",
+                    "& .MuiSvgIcon-root": {
+                      fontSize: "2rem",
+                    },
+                  }}
+                >
                   <ArrowBackIcon />
                 </IconButton>
                 <Typography
