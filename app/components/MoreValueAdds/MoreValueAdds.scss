@@ -39,16 +39,16 @@
       color: #fff !important;
     }
     .catlogsImage {
-      background-image: url("../../../public/catlogs-hover.svg");
+      background-image: url("../../../public/latesNewsIconHover.svg");
     }
     .buyLeadsImage {
-      background-image: url("../../../public/buy-leads-hover.svg");
+      background-image: url("../../../public/discoverYourPotentialHover.png");
     }
     .membershipImage {
-      background-image: url("../../../public/membership-hover.svg");
+      background-image: url("../../../public/gotAnyQuestionsHover.png");
     }
     .bookDomainImage {
-      background-image: url("../../../public/book-domain-hover.svg");
+      background-image: url("../../../public/cheapOnlineTransactionHover.png");
     }
     .arrowIconBox {
       background-color: #fff !important;
@@ -78,48 +78,48 @@
   height: 100%;
 }
 .catlogsImage {
-  background-image: url("../../../public/catlogs.svg");
+  background-image: url("../../../public/latesNewsIcon.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 117px;
-  height: 94px;
+  width: 100px;
+  height: 100px;
   transition: background-image 0.2s ease;
   position: absolute;
   bottom: 0;
   right: 0;
 }
 .buyLeadsImage {
-  background-image: url("../../../public/buy-leads.svg");
+  background-image: url("../../../public/discoverYourPotential.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 101px;
-  height: 92px;
+  width: 100px;
+  height: 100px;
   transition: background-image 0.2s ease;
   position: absolute;
   bottom: 0;
   right: 0;
 }
 .membershipImage {
-  background-image: url("../../../public/membership.svg");
+  background-image: url("../../../public/gotAnyQuestions.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 117px;
-  height: 94px;
+  width: 100px;
+  height: 100px;
   transition: background-image 0.2s ease;
   position: absolute;
   bottom: 0;
   right: 0;
 }
 .bookDomainImage {
-  background-image: url("../../../public/book-domain.svg");
+  background-image: url("../../../public/cheapOnlineTransaction.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 116px;
-  height: 92px;
+  width: 100px;
+  height: 100px;
   transition: background-image 0.2s ease;
   position: absolute;
   bottom: 0;
