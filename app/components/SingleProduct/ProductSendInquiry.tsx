@@ -28,11 +28,12 @@ export default function ProductSendInquiry({ singleProduct }: any) {
         productName={singleProduct?.productName}
         company={singleProduct?.manufacturerName}
         imgSrc={
-          (singleProduct &&
-            singleProduct.files &&
-            singleProduct.files[0] &&
-            singleProduct.files[0].link) ??
-          "/get-distributers.svg"
+          singleProduct &&
+          singleProduct.files &&
+          singleProduct.files[0] &&
+          /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(singleProduct.files[0].link)
+            ? singleProduct.files[0].link
+            : "/get-distributers.svg"
         }
         id={singleProduct?.id}
       />

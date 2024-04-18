@@ -1,5 +1,6 @@
 export default function CustomHeadData({
   title,
+  productSlug,
   description,
   keywords,
   image,
@@ -19,7 +20,7 @@ export default function CustomHeadData({
       <meta
         property="og:url"
         content={
-          process.env.NEXT_PUBLIC_FRONT_LINK + "/product/" + title + "/" + id
+          process.env.NEXT_PUBLIC_FRONT_LINK + "/product/" + productSlug + "/" + id
         }
       />
       <meta property="og:title" content={title} />
