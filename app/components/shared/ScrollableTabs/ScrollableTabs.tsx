@@ -11,7 +11,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
 import Link from "next/link";
-import Default from "../../../../public/get-distributers.svg"
+import Default from "../../../../public/get-distributers.svg";
 import { useRouter } from "next/navigation";
 
 const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
@@ -83,7 +83,8 @@ const SlideBigger = (item: any) => {
           padding: "16px",
         }}
       >
-        {data.productImage && (
+        {data.productImage &&
+        /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(data.productImage) ? (
           <div
             style={{
               marginBottom: "16px",
@@ -107,6 +108,36 @@ const SlideBigger = (item: any) => {
                 height: "auto",
                 maxWidth: "110px",
                 maxHeight: "80px",
+                marginLeft: "auto",
+                marginRight: "auto",
+                cursor: "pointer",
+              }}
+            />
+          </div>
+        ) : (
+          <div
+            style={{
+              marginBottom: "16px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "90px",
+              height: "100px",
+            }}
+          >
+            <Image
+              onClick={() =>
+                router.push(`/product/${data.productSlug}/${data.id}`)
+              }
+              src={Default}
+              alt={data.productName}
+              width={110}
+              height={80}
+              style={{
+                width: "auto",
+                height: "auto",
+                minWidth: "110px",
+                minHeight: "80px",
                 marginLeft: "auto",
                 marginRight: "auto",
                 cursor: "pointer",
@@ -167,7 +198,14 @@ const SlideBigger = (item: any) => {
         onClose={handleCloseModal}
         productName={data.productName}
         company={data.categoryName}
-        imgSrc={data.productImage ?? "/get-distributers.svg"}
+        imgSrc={
+          data &&
+          data.productImage &&
+          data.productImage &&
+          /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(data.productImage)
+            ? data.productImage
+            : "/get-distributers.svg"
+        }
         id={data.id}
       />
     </div>

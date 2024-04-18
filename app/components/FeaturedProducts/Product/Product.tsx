@@ -79,7 +79,14 @@ const ProductCard: React.FC<MarketRead> = (product) => {
         onClose={handleCloseModal}
         productName={product.productName}
         company={product.manufacturerName}
-        imgSrc={product.productImage ?? "/get-distributers.svg"}
+        imgSrc={
+          product &&
+          product.productImage &&
+          product.productImage &&
+          /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(product.productImage)
+            ? product.productImage
+            : "/get-distributers.svg"
+        }
         id={product.id}
       />
     </div>
