@@ -150,6 +150,15 @@
   height: 32px !important;
   color: #2a5182;
 }
+.noImageSingleProduct {
+  background-image: url("../public/get-distributers.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  max-height: 390px;
+  width: 100%;
+}
 
 @media screen and (max-width: 1200px) {
   .productInfoMainBox {

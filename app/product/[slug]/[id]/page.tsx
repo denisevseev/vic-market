@@ -30,6 +30,14 @@ export default async function Product({ params }: any) {
 
   const singleProduct = await getSingleProduct(id);
 
+  const getProductSlug = (name: string) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+  };
+
   const sellerInfo = {
     name: "nanda fluorine corporation",
     gst: "24ATGPM8483N1ZY",
@@ -40,6 +48,8 @@ export default async function Product({ params }: any) {
       "Plot no 407/13, Near Fire Station, GIDC Panoli, Dist. Bharuch, Ankleshwar, Gujarat, 394115, India",
   };
 
+  const productSlug = getProductSlug(singleProduct?.productName || "");
+
   const imageMime =
     singleProduct && singleProduct.files && singleProduct.files.length > 0
       ? singleProduct.files[0].link.split(".").pop()
@@ -49,6 +59,7 @@ export default async function Product({ params }: any) {
     <main>
       <CustomHeadData
         title={singleProduct?.productName ?? "Product"}
+        productSlug={productSlug ?? "Product slug"}
         description={singleProduct?.description ?? "Product description"}
         keywords={singleProduct?.productName}
         price={singleProduct?.productPrice + " " + singleProduct?.currency}
@@ -70,11 +81,6 @@ export default async function Product({ params }: any) {
             marginTop: "4rem",
           }}
         >
-          {/* {isLoading ? (
-            <Box className="loaderBox">
-              <CircularProgress sx={{ color: "rgb(38, 92, 129)" }} />
-            </Box>
-          ) : ( */}
           <Box
             className="other-page-wrap-start"
             style={{ marginBottom: "6rem" }}
@@ -90,20 +96,29 @@ export default async function Product({ params }: any) {
                   >
                     <Box className="productInfoMainBox">
                       <Box className="productImagesContainer">
-                        <Image
-                          src={
-                            (singleProduct &&
+                        {singleProduct &&
+                        singleProduct.files &&
+                        singleProduct.files[0] &&
+                        singleProduct.files[0].link &&
+                        /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(
+                          singleProduct.files[0].link
+                        ) ? (
+                          <Image
+                            src={
+                              singleProduct &&
                               singleProduct.files &&
                               singleProduct.files &&
-                              singleProduct.files[0].link) ||
-                            Default
-                          }
-                          width={100}
-                          height={100}
-                          alt="Product Image"
-                          className="imageSingleProduct"
-                          priority
-                        />
+                              singleProduct.files[0].link
+                            }
+                            width={100}
+                            height={100}
+                            alt="Product Image"
+                            className="imageSingleProduct"
+                            priority
+                          />
+                        ) : (
+                          <Box className="imageSingleProduct noImageSingleProduct"></Box>
+                        )}
                       </Box>
                       <Box className="singleProductInfo">
                         <Box className="shareIconBox">
@@ -223,7 +238,6 @@ export default async function Product({ params }: any) {
               <RelatedProducts slug={slug} singleProduct={singleProduct} />
             </Box>
           </Box>
-          {/* )} */}
         </Box>
       </Box>
     </main>

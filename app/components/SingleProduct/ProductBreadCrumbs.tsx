@@ -2,7 +2,6 @@
 import { Box, Breadcrumbs, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useMarketData } from "@/app/hooks/useMarketData";
-import { processApiResponse } from "@/api/helper/dataFilter";
 import Link from "next/link";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 

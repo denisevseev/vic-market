@@ -14,26 +14,47 @@ const ProductCard: React.FC<MarketRead> = (product) => {
   const handleCloseModal = () => setModalOpen(false);
 
   const router = useRouter();
-
   return (
     <div className="productCard">
-      <Image
-        src={product.productImage ?? "/get-distributers.svg"}
-        alt={product.productName}
-        width={100}
-        height={110}
-        onClick={() =>
-          router.push(`/product/${product.productSlug}/${product.id}`)
-        }
-        style={{
-          cursor: "pointer",
-          margin: "auto",
-          maxHeight: "110px",
-          maxWidth: "100px",
-          width: "auto",
-          height: "auto",
-        }}
-      />
+      {product &&
+      product.productImage &&
+      /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(product.productImage) ? (
+        <Image
+          src={product.productImage}
+          alt={product.productName}
+          width={100}
+          height={110}
+          onClick={() =>
+            router.push(`/product/${product.productSlug}/${product.id}`)
+          }
+          style={{
+            cursor: "pointer",
+            margin: "auto",
+            maxHeight: "110px",
+            maxWidth: "100px",
+            width: "auto",
+            height: "auto",
+          }}
+        />
+      ) : (
+        <Image
+          src={"/get-distributers.svg"}
+          alt={product.productName}
+          width={100}
+          height={110}
+          onClick={() =>
+            router.push(`/product/${product.productSlug}/${product.id}`)
+          }
+          style={{
+            cursor: "pointer",
+            margin: "auto",
+            minHeight: "110px",
+            minWidth: "100px",
+            width: "auto",
+            height: "auto",
+          }}
+        />
+      )}
       <Link
         className="titleLink"
         href={`/product/${product.productSlug}/${product.id}`}
