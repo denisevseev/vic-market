@@ -196,7 +196,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
     formData.append("city", city);
     formData.append("product_name", productName);
     formData.append("requirement_frequency", frequency);
-    formData.append("comment", productDetails);
+    //formData.append("comment", productDetails);
     formData.append("price", productPrice);
     formData.append("category", category);
     formData.append("description", productDetails);
@@ -686,7 +686,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
               <div className="d-flex ai-center gap-8">
-              <IconButton
+                <IconButton
                   onClick={handleBackStep}
                   aria-label="go back"
                   sx={{
@@ -826,7 +826,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
               <div className="d-flex ai-center gap-8">
-              <IconButton
+                <IconButton
                   onClick={handleBackStep}
                   aria-label="go back"
                   sx={{
@@ -1007,7 +1007,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 justify-space-between">
               <div className="d-flex ai-center gap-8">
-              <IconButton
+                <IconButton
                   onClick={handleBackStep}
                   aria-label="go back"
                   sx={{
