@@ -20,18 +20,15 @@ export default function CustomHeadData({
       <meta
         property="og:url"
         content={
-          process.env.NEXT_PUBLIC_FRONT_LINK + "/product/" + productSlug + "/" + id
+          process.env.NEXT_PUBLIC_FRONT_LINK +
+          "/product/" +
+          productSlug +
+          "/" +
+          id
         }
       />
       <meta property="og:title" content={title} />
-      <meta
-        property="og:description"
-        content={
-          title + " " + price
-            ? price
-            : "Price on request" + " victorum-marketplace"
-        }
-      />
+      <meta property="og:description" content={price} />
       {image && <meta property="og:image" content={image} />}
       {imageMime && (
         <meta property="og:image:type" content={`image/${imageMime}`} />

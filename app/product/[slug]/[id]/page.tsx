@@ -62,7 +62,14 @@ export default async function Product({ params }: any) {
         productSlug={productSlug ?? "Product slug"}
         description={singleProduct?.description ?? "Product description"}
         keywords={singleProduct?.productName}
-        price={singleProduct?.productPrice + " " + singleProduct?.currency}
+        price={
+          singleProduct?.description ??
+          singleProduct.productName +
+            " " +
+            singleProduct?.productPrice +
+            " " +
+            singleProduct?.currency
+        }
         image={
           singleProduct &&
           singleProduct.files &&
