@@ -330,7 +330,15 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             {/* hide this section if audioData is present */}
             {!audioData && imgSrc && (
               <div className="product-description">
-                <Image src={imgSrc} alt={productName} width={60} height={70} />
+                <Image
+                  src={imgSrc}
+                  alt={productName}
+                  width={60}
+                  height={70}
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />
                 <div>
                   <Typography sx={{ fontWeight: "bold", mt: 1 }}>
                     {productName}
@@ -552,7 +560,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 mb-2rem justify-space-between">
               <div className="d-flex ai-center gap-8">
-              <IconButton
+                <IconButton
                   onClick={handleBackStep}
                   aria-label="go back"
                   sx={{
@@ -735,7 +743,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           <>
             <div className="d-flex ai-center gap-8 justify-space-between">
               <div className="d-flex ai-center gap-8">
-              <IconButton
+                <IconButton
                   onClick={handleBackStep}
                   aria-label="go back"
                   sx={{
