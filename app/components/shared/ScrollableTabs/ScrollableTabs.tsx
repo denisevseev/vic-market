@@ -11,6 +11,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
 import Link from "next/link";
+import Default from "../../../../public/get-distributers.svg"
 import { useRouter } from "next/navigation";
 
 const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
@@ -132,8 +133,9 @@ const SlideBigger = (item: any) => {
         <div className="text-part">
           {/* Optional information */}
           {data.productPrice && (
-            <p className="productInfoText">${parseFloat(data?.productPrice)?.toFixed(2)}</p>
-
+            <p className="productInfoText">
+              ${parseFloat(data?.productPrice)?.toFixed(2)}
+            </p>
           )}
           {data.quantity && (
             <p className="productInfoText">{data.quantity} QTY</p>
@@ -191,7 +193,8 @@ const SlideSmaller = (item: any) => {
           justifyContent: "center",
         }}
       >
-        {data.productImage && (
+        {data.productImage &&
+        /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(data.productImage) ? (
           <Box
             style={{
               maxHeight: "50%",
@@ -215,6 +218,33 @@ const SlideSmaller = (item: any) => {
                 height: "auto",
                 maxWidth: "100px",
                 maxHeight: "100px",
+              }}
+            />
+          </Box>
+        ) : (
+          <Box
+            style={{
+              maxHeight: "50%",
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              onClick={() =>
+                router.push(`/product/${data.productSlug}/${data.id}`)
+              }
+              src={Default}
+              alt={data.productName}
+              width={100}
+              height={100}
+              style={{
+                cursor: "pointer",
+                width: "auto",
+                height: "auto",
+                minWidth: "100px",
+                minHeight: "100px",
               }}
             />
           </Box>
