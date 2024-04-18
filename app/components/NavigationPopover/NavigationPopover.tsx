@@ -69,19 +69,19 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
 
       <div className="boxes-container" style={{ marginBottom: "24px" }}>
         <SmallPopoverBox
-          imgSrc="/Ti-Landing.svg"
+          imgSrc="/sellIcon.png"
           text="Post Sell Order"
           sameWindow={true}
           redirectUrl="/#post-sell-request"
         />
         <SmallPopoverBox
-          imgSrc="/Ti-Pay.svg"
+          imgSrc="/buyIcon.png"
           text="Post Buy Order"
           sameWindow={true}
           redirectUrl="/#post-buy-request"
         />
         <SmallPopoverBox
-          imgSrc="/g-bus-listing.svg"
+          imgSrc="/companyProfileIcon.png"
           text="Company Profile"
           sameWindow={true}
           redirectUrl="/our-company"
@@ -105,34 +105,32 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
 
       <div className="boxes-container" style={{ marginBottom: "8px" }}>
         <SmallPopoverBox
-          imgSrc="/Ti-Landing.svg"
+          imgSrc="/victorumCapitalIconMenu.png"
           text="Victorum Capital"
           redirectUrl="https://www.victorum-capital.com/"
+          height={24}
+          width={104}
         />
         <SmallPopoverBox
-          imgSrc="/Ti-Pay.svg"
+          imgSrc="/vicPayIconMenu.png"
           text="VicPay"
           redirectUrl="https://vicpayments.com/"
+          height={28}
+          width={52}
         />
-        {/* <SmallPopoverBox
-          imgSrc="/Tradekhata.svg"
-          text="Tradekhata"
-          // redirectUrl="https://www.google.com"
-        /> */}
       </div>
       <div className="boxes-container">
-        {/* <SmallPopoverBox
-          imgSrc="/make-payment.svg"
-          text="Make Payment"
-          // redirectUrl="https://www.google.com"
-        /> */}
         <SmallPopoverBox
-          imgSrc="/trade-shows.svg"
+          imgSrc="/tradeFairMenuIcon.png"
           text="Trade Fairs & Exhibitions"
           // redirectUrl="https://www.google.com"
+          height={28}
+          width={38}
         />
         <SmallPopoverBox
-          imgSrc="/get-distributers.svg"
+          imgSrc="/victorumTradeIconMenu.png"
+          height={28}
+          width={104}
           text="Victorum Trading"
           sameWindow={true}
           redirectUrl="/our-company"

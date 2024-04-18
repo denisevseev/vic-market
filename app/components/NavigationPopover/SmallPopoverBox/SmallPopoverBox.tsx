@@ -19,12 +19,16 @@ interface SmallPopoverBoxProps {
   text: string;
   redirectUrl?: string;
   sameWindow?: boolean;
+  width?: number;
+  height?: number;
 }
 const SmallPopoverBox: React.FC<SmallPopoverBoxProps> = ({
   imgSrc,
   text,
   redirectUrl,
   sameWindow,
+  width = 26,
+  height = 26,
 }) => {
   const handleClick = () => {
     openNewTab(redirectUrl, sameWindow);
@@ -32,7 +36,15 @@ const SmallPopoverBox: React.FC<SmallPopoverBoxProps> = ({
   return (
     <Box onClick={handleClick} sx={{ width: "100%" }}>
       <p className="box-container" rel="noopener noreferrer">
-        {imgSrc && <Image src={imgSrc} alt={text} width={28} height={28} />}
+        {imgSrc && (
+          <Image
+            src={imgSrc}
+            alt={text}
+            width={width}
+            height={height}
+            style={{ objectFit: "cover" }}
+          />
+        )}
         <div className="box-title">{text}</div>
       </p>
     </Box>
