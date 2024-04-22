@@ -2,11 +2,10 @@
 import React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 import "./NavigationPopover.scss";
-import Image from "next/image";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SmallPopoverBox from "./SmallPopoverBox/SmallPopoverBox";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
   return (
@@ -55,7 +54,9 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         </div>
       </Button> */}
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
-        <Image src={"/crown.svg"} alt={"crown"} width={16} height={12} />
+        <Box className="arrowBottomHeaderMenuBox">
+          <ArrowDownwardIcon className="arrowBottomHeaderMenu" />
+        </Box>
         <Typography
           sx={{
             fontFamily: "Helvetica, Arial, sans-serif",
@@ -90,8 +91,9 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
 
       {/* second block start */}
       <div className="plan-text-line" style={{ marginTop: "4px" }}>
-        {/* <NextPlanIcon /> */}
-        <Image src={"/crown.svg"} alt={"crown"} width={16} height={12} />
+        <Box className="arrowBottomHeaderMenuBox">
+          <ArrowDownwardIcon className="arrowBottomHeaderMenu" />
+        </Box>
         <Typography
           sx={{
             fontFamily: "Helvetica, Arial, sans-serif",
@@ -123,7 +125,6 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/tradeFairMenuIcon.png"
           text="Trade Fairs & Exhibitions"
-          // redirectUrl="https://www.google.com"
           height={28}
           width={38}
         />
@@ -134,7 +135,6 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
           text="Victorum Trading"
           sameWindow={true}
           redirectUrl="/our-company"
-          // redirectUrl="https://www.google.com"
         />
       </div>
       {/* second block end */}
