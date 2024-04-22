@@ -4,19 +4,31 @@
   gap: 8px;
   margin-bottom: 16px;
 }
-
 .boxes-container {
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  height: 83px;;
+  height: 83px;
   gap: 9px;
 }
-
 .button-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.arrowBottomHeaderMenuBox {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(51, 85, 127) !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrowBottomHeaderMenu {
+  width: 12px !important;
+  height: 12px !important;
+  color: #fff;
 }
