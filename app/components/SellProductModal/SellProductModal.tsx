@@ -32,6 +32,7 @@ import {
 import { useCountryData } from "@/app/hooks/useCountryData";
 import { getCategories, processApiResponse } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
+import OtpVerification from "../FeaturedProducts/InquiryModal/OtpVerification/OtpVerification";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -172,12 +173,29 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   };
   // step 3 end
 
-  const handleNextStep = () => {
-    if (step < 3) {
+  const handleNextStep = async () => {
+    if (step === 2) {
+      let payload: any = {
+        country_code: `${inputValue.replace("+", "")}`,
+        phone_number: mobileNumber,
+      };
+      try {
+        const response = await axios.post(
+          "/api/market/verify-number",
+          payload,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
+      } catch (error) {
+        console.error("Error sending data to the backend: ", error);
+      }
       setStep(step + 1);
       return;
     }
-    if (step === 3) {
+    if (step < 5) {
+      setStep(step + 1);
+    } else {
       sell();
     }
   };
@@ -190,13 +208,14 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
     const formData = new FormData();
     formData.append("country_id", userCountry);
     formData.append("phone", `${inputValue}${mobileNumber}`);
+    // formData.append("phone", '79153458765');
     formData.append("client_name", name);
     formData.append("email", email);
     formData.append("company_name", companyName);
     formData.append("city", city);
     formData.append("product_name", productName);
-    formData.append("requirement_frequency", frequency);
-    //formData.append("comment", productDetails);
+    // formData.append("requirement_frequency", frequency);
+    formData.append("comment", productDetails);
     formData.append("price", productPrice);
     formData.append("category", category);
     formData.append("description", productDetails);
@@ -211,7 +230,6 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
     if (video) {
       formData.append(`file${fileIndex}`, video);
     }
-
     try {
       const response = await axios.post("api/market/sell", formData, {
         headers: {
@@ -992,17 +1010,6 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
           </>
         )}
         {/* end 3 */}
-        {/*step === 4 && (
-          <OtpVerification
-            onSubmit={(otp: any) => {
-              handleNextStep();
-            }}
-            onCancel={() => {
-              setStep(step - 1);
-            }}
-            phone={countryCode + mobileNumber}
-          />
-        )*/}
         {step === 4 && (
           <>
             <div className="d-flex ai-center gap-8 justify-space-between">
@@ -1147,6 +1154,19 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               </Button>
             </div>
           </>
+        )}
+
+        {step === 5 && (
+          <OtpVerification
+            onSubmit={(otp: any) => {
+              handleNextStep();
+            }}
+            onCancel={() => {
+              setStep(step - 1);
+            }}
+            country_code={inputValue}
+            phone={mobileNumber}
+          />
         )}
 
         {/* step 6 start */}

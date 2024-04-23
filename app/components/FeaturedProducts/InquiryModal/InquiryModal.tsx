@@ -28,6 +28,7 @@ import {
   Select,
 } from "@mui/material";
 import { useCountryData } from "@/app/hooks/useCountryData";
+import OtpVerification from "./OtpVerification/OtpVerification";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -51,12 +52,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   id,
 }) => {
   const [frequency, setFrequency] = useState("One-Time");
-  const [isLoading, setIsLoading] = useState(false); // Replace this with your actual loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   // country start
   const { data: countryData } = useCountryData();
   const [userCountry, setUserCountry] = useState("");
-
   const handleChangeCountry = (event: any) => {
     setUserCountry(event.target.value);
   };
@@ -100,12 +100,37 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   };
   // step 3 end
 
-  const handleNextStep = () => {
-    if (isAudio && step === 3) {
+  const handleNextStep = async () => {
+    if (step === 2) {
+      // This	endpoint	is	used	to	send	a	verification	SMS	to	a	user's	phone	number.
+      //same step is used ofr buy and send requirement
+      let payload: any = {
+        country_code: `${inputValue.replace("+", "")}`,
+        phone_number: mobileNumber,
+      };
+
+      try {
+        const response = await axios.post(
+          "/api/market/verify-number",
+          payload,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
+        setIsLoading(false);
+        // handleCloseModal();
+      } catch (error) {
+        console.error("Error sending data to the backend: ", error);
+        setIsLoading(false);
+      }
       setStep(step + 1);
       return;
     }
-    if (step < 3) {
+    if (isAudio && step === 4) {
+      setStep(step + 1);
+      return;
+    }
+    if (step < 4) {
       setStep(step + 1);
     } else {
       buy();
@@ -129,6 +154,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       payload.append("product_id", id);
     }
     payload.append("client_requirements", productName);
+    payload.append("comment", productName);
 
     if (audioData) {
       const file = await fetch(audioData).then((r) => r.blob());
@@ -176,6 +202,24 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   };
 
   const countries: any[] = [
+    // {
+    //   code: "+79",
+    //   label: "Russia2",
+    //   phone: "79",
+    //   icon: "flag",
+    // },
+    // {
+    //   code: "+387",
+    //   label: "Bosnia",
+    //   phone: "387",
+    //   icon: "flag",
+    // },
+    // {
+    //   code: "+49",
+    //   label: "Germany",
+    //   phone: "49",
+    //   icon: "flag",
+    // },
     {
       code: "+375",
       label: "Belarus",
@@ -728,7 +772,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
           </>
         )}
         {/* end 3 */}
-        {/*step === 4 && (
+        {step === 4 && (
           <OtpVerification
             onSubmit={(otp: any) => {
               handleNextStep();
@@ -736,10 +780,11 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             onCancel={() => {
               setStep(step - 1);
             }}
-            phone={countryCode + mobileNumber}
+            country_code={inputValue}
+            phone={mobileNumber}
           />
-        )*/}
-        {step === 4 && (
+        )}
+        {step === 5 && (
           <>
             <div className="d-flex ai-center gap-8 justify-space-between">
               <div className="d-flex ai-center gap-8">

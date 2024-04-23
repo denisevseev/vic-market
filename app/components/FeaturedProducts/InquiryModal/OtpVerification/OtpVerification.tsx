@@ -9,16 +9,19 @@ import LockIcon from "../../../../../public/otpLock.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import IconButton from "@mui/material/IconButton";
 import "./OtpVerification.scss";
+import axios from "axios";
 
 type OtpVerificationProps = {
   onSubmit: (otp: string) => void;
   onCancel: () => void;
+  country_code: string;
   phone: string;
 };
 
 const OtpVerification: React.FC<OtpVerificationProps> = ({
   onSubmit,
   onCancel,
+  country_code,
   phone,
 }) => {
   const [otp, setOtp] = useState("");
@@ -42,9 +45,27 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
     };
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (otp.length === 4) {
-      onSubmit(otp);
+      try {
+        let payload = {
+          country_code: country_code.replace("+", ""),
+          phone_number: phone,
+          code: otp,
+        };
+
+        const response = await axios.post("/api/market/verify-check", payload, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        if (response.status === 200) {
+          onSubmit(otp);
+        } else {
+          setError(true);
+        }
+      } catch (error) {
+        console.error("Error sending data to the backend: ", error);
+        setError(true);
+      }
     } else {
       setError(true);
     }
@@ -121,6 +142,7 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
             textTransform: "none",
           },
         }}
+        onClick={handleSubmit} // Set the onClick here to call handleSubmit
       >
         <div className="button-text">
           <p>Verify And Proceed</p>
