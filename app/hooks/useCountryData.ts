@@ -19,6 +19,7 @@ export const useCountryData = (): UseQueryResult<
       const filteredData = response.data.filter(
         (country: any) => country.code !== "HK"
       );
+      console.log("filteredData", filteredData);
       return filteredData;
     },
   });
