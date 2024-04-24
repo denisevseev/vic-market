@@ -231,7 +231,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
       formData.append(`file${fileIndex}`, video);
     }
     try {
-      const response = await axios.post("api/market/sell", formData, {
+      const response = await axios.post("/api/market/sell", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
