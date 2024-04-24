@@ -43,15 +43,10 @@ const carouselItems = [
 ];
 
 export default function HomepageImagesCarousel() {
-
-
-// modal start
-const [isModalOpen, setModalOpen] = useState(false);
+  // modal start
+  const [isModalOpen, setModalOpen] = useState(false);
   const handleCloseModal = () => setModalOpen(false);
-  const handleOpenModal = () => setModalOpen(true);
-// modal end
-
-
+  // modal end
 
   const smallScreen = useMediaQuery("(max-width: 768px)");
 
@@ -59,7 +54,7 @@ const [isModalOpen, setModalOpen] = useState(false);
     if (linkTo === "") return;
 
     if (linkTo === "post sell order") {
-      setModalOpen(true)
+      setModalOpen(true);
     } else if (
       linkTo === " https://victorum-marketplace.vercel.app/categories"
     ) {
@@ -77,13 +72,13 @@ const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <Box className="carouselMainBox">
-       {isModalOpen && (
-            <SellProductModal
-              isOpen={isModalOpen}
-              onClose={handleCloseModal}
-              isAudio={true}
-            />
-          )}
+      {isModalOpen && (
+        <SellProductModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          isAudio={true}
+        />
+      )}
       <Carousel
         fullHeightHover={false}
         navButtonsAlwaysVisible={false}
