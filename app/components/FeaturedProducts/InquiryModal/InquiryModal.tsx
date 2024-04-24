@@ -541,6 +541,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   }}
                   renderInput={(params) => (
                     <TextField
+                    autoComplete="off"
                       {...params}
                       label="Country"
                       InputProps={{
@@ -564,6 +565,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               <TextField
                 fullWidth
                 type="number"
+                autoComplete="off" 
                 sx={{
                   flex: 0.6,
                   "& .MuiOutlinedInput-root": {},
