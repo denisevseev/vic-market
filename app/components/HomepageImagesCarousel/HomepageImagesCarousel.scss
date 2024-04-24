@@ -46,3 +46,14 @@
     width: 100%;
   }
 }
+
+.text-btn-container {
+  position: relative;
+  margin-left: 50px;  // Adjust as needed to fit the design
+  text-align: left;
+
+  @media screen and (max-width: 900px) {
+    margin-left: 40px;
+   
+  }
+}
