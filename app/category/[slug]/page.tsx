@@ -11,15 +11,28 @@ import { useMarketData } from "@/app/hooks/useMarketData";
 import Image from "next/image";
 import "./style.scss";
 import HeadData from "@/app/components/head";
-import CustomHeadData from "../../components/customHead";
 
 export default function Category({ params }: any) {
   const slug = params && params.slug ? params.slug : null;
+
   const [categoryName, setCategoryName] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   const { data: marketData, isLoading } = useMarketData();
+
+  const convertCategorySlugToName = (slug: string) => {
+    const words = slug.split("-");
+
+    return words
+      .map((word) => {
+        if (word.toLowerCase() === "and") {
+          return word;
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+  };
 
   useEffect(() => {
     const savedCountry = localStorage.getItem("selectedCountry");
@@ -36,7 +49,10 @@ export default function Category({ params }: any) {
           (cat: any) => cat.categorySlug === slug
         );
 
-        if (category && category.categoryName) {
+        if (!category) {
+          const categoryNameFromSlug = convertCategorySlugToName(slug);
+          setCategoryName(categoryNameFromSlug);
+        } else {
           setCategoryName(category.categoryName);
         }
       }
@@ -55,9 +71,21 @@ export default function Category({ params }: any) {
   return (
     <main>
       <HeadData
-        title={`${categoryName} Category | Victorum Marketplace`}
-        description={`Explore a wide range of products in the ${categoryName} category at Victorum Marketplace. Find the best deals on quality products from trusted sellers.`}
-        keywords={`${categoryName}, marketplace, shopping, online store, Victorum`}
+        title={`${
+          categoryName
+            ? categoryName + " Category"
+            : convertCategorySlugToName(slug) + " Category"
+        } Category | Victorum Trade`}
+        description={`Explore a wide range of products in the ${
+          categoryName
+            ? categoryName + " Category"
+            : convertCategorySlugToName(slug) + " Category"
+        } category at Victorum Trade. Find the best deals on quality products from trusted sellers.`}
+        keywords={`${
+          categoryName
+            ? categoryName + " Category"
+            : convertCategorySlugToName(slug) + " Category"
+        }, marketplace, shopping, online store, Victorum`}
       />
       <Box className="container">
         <div
