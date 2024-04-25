@@ -25,6 +25,7 @@ import {
   FormControl,
   FormHelperText,
   IconButton,
+  InputAdornment,
   InputLabel,
   MenuItem,
   Select,
@@ -105,6 +106,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const [name, setName] = useState("");
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
+  const [productUnitNumber, setProductUnitNumber] = useState("");
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [companyName, setCompanyName] = useState("");
@@ -502,7 +504,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  Click to upload product images
+                  * Click to upload product images
                 </Typography>
               </div>
               <input
@@ -577,7 +579,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                       fontFamily: "Poppins, sans-serif",
                     }}
                   >
-                    Click to upload video
+                    * Click to upload video
                   </Typography>
                 </div>
               )}
@@ -595,11 +597,33 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               <TextField
                 fullWidth
                 margin="normal"
-                label="Product Price"
+                label="How many units you want to sell"
+                variant="outlined"
+                type="number"
+                value={productUnitNumber}
+                onChange={(e) => setProductUnitNumber(e.target.value)}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "10px",
+                  },
+                }}
+              />
+            </div>
+
+            <div style={{ marginTop: "6px" }}>
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Product Price Per Unit"
                 variant="outlined"
                 type="number"
                 value={productPrice}
                 onChange={(e) => setProductPrice(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">$</InputAdornment>
+                  ),
+                }}
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "10px",
@@ -666,10 +690,27 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
             <div
               style={{
                 display: "flex",
-                justifyContent: "flex-end",
-                marginTop: "auto",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "24px",
+                marginBottom: "24px",
+                marginTop: "24px",
               }}
             >
+              <Typography
+                  variant="h6"
+                  component="h2"
+                  className="send-inquiry"
+                  sx={{
+                    color: "red;",
+                    fontSize: "12px",
+                    fontWeight: "400",
+                    fontFamily: "Poppins, sans-serif",
+                    maxWidth: "70%",
+                  }}
+                >
+                  *Please add the information to the mandatory fields and upload a video and a photo of your items. Consider longer upload times in case of transmission of huge files!
+                </Typography>
               <Button
                 variant="contained"
                 onClick={handleNextStep}
@@ -677,11 +718,13 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   !productDetails ||
                   !productName ||
                   !images.length ||
-                  !productPrice
+                  !productPrice ||
+                  !productUnitNumber ||
+                  !video
                 }
                 sx={{
-                  mt: 6,
-                  mb: 3,
+                  // mt: 6,
+                  // mb: 3,
                   height: "48px",
                   borderRadius: "8px",
                   backgroundColor: "#2A5182",
@@ -948,7 +991,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
             <div>
               <div>
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={
                     <Checkbox
                       checked={gstChecked}
@@ -958,7 +1001,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     />
                   }
                   label="GST Available"
-                />
+                /> */}
               </div>
               <div>
                 <FormControlLabel

@@ -712,7 +712,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 
             <div>
               <div>
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={
                     <Checkbox
                       checked={gstChecked}
@@ -722,7 +722,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                     />
                   }
                   label="GST Available"
-                />
+                /> */}
               </div>
               <div>
                 <FormControlLabel
