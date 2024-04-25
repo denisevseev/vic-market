@@ -14,19 +14,17 @@ function findContactByName(name: any) {
   );
 }
 
-export default function ContactUs() {
+export default function ContactSellerDesk() {
   const formRef = useRef<HTMLDivElement>(null);
 
   const [from, setFrom] = useState<
     "top-box" | "seller-details" | "buyer-details" | "legal" | null
   >(null);
 
-  const [mainTitle, setMainTitle] = useState<string>("Contact Us");
-  const [subTitle, setSubTitle] = useState<string>(
-    "We are glad to help you - visit us or give us a call!!"
-  );
+  const [mainTitle, setMainTitle] = useState<string>("Contact Sellers´ Desk");
+  const [subTitle, setSubTitle] = useState<string>("Contact Sellers Desk");
   const [sectiontitle, setSectionTitle] = useState<string>(
-    "Our Contact Information"
+    "Our dedicated Sellers´ Desk is glad to help you!"
   );
 
   const [pageContactDetails, setPageContactDetails] = useState<any>({});
@@ -83,29 +81,29 @@ export default function ContactUs() {
       ? pageContactDetails.phone
       : globalDetails.phone;
     if (from === "top-box") {
-      setMainTitle("We are glad to help you - visit us or give us a call!!");
+      setMainTitle("Contact Sellers Desk");
       setSubTitle("We are Here");
-      setSectionTitle("Our Contact Information");
+      setSectionTitle("Our dedicated Sellers´ Desk is glad to help you!");
       setContentTitle1("Customer Service");
     }
     if (from === "seller-details") {
-      setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
+      setMainTitle("Contact Sellers´ Desk");
+      setSubTitle("Contact Sellers Desk");
+      setSectionTitle("Our dedicated Sellers´ Desk is glad to help you!");
       setContentTitle1("Customer Service");
     }
 
     if (from === "buyer-details") {
-      setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
+      setMainTitle("Contact Sellers´ Desk");
+      setSubTitle("Contact Sellers Desk");
+      setSectionTitle("Our dedicated Sellers´ Desk is glad to help you!");
       setContentTitle1("Customer Service");
     }
 
     if (from === "legal") {
-      setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
+      setMainTitle("Contact Sellers´ Desk");
+      setSubTitle("Contact Sellers Desk");
+      setSectionTitle("Our dedicated Sellers´ Desk is glad to help you!");
       setContentTitle1("Customer Service");
     }
   }, [from]);
@@ -119,7 +117,7 @@ export default function ContactUs() {
   return (
     <main>
       <HeadData
-        title="Contact us | Victorum Trade"
+        title="Contact Sellers´ Desk | Victorum Trade"
         description="Get in touch with the Victorum Trade team for support, service inquiries, or feedback. We are here to help you with any questions you may have."
         keywords="contact, support, customer service, inquiries, feedback, Victorum Trade"
       />
@@ -135,22 +133,22 @@ export default function ContactUs() {
               }}
             >
               {/* TITLE */}
-              <Box className="contactUsTitleBg">
+              {/* <Box className="contactUsTitleBg">
                 <Typography className="contactUsTitleBgText">
                   {mainTitle}
                 </Typography>
-              </Box>
+              </Box> */}
               {/* HEADLINE */}
               <Box>
                 <Typography className="contactUsTitle">{subTitle}</Typography>
               </Box>
-              {/* {from !== "seller-details" && (
+              {from !== "seller-details" && (
                 <Box sx={{ maxWidth: "400px" }}>
                   <Typography className="contactUsTitle">
                     We are here to help!
                   </Typography>
                 </Box>
-              )} */}
+              )}
             </Box>
             <Box
               sx={{
@@ -170,23 +168,13 @@ export default function ContactUs() {
                 {sectiontitle}
               </Typography>
             </Box>
-            <Box>
+            {/* <Box>
               <Typography className="contactUsSubtitle2">
-                No matter what, no matter when - we are there for you!
+                {contentTitle1}
               </Typography>
-            </Box>
+            </Box> */}
             {from === "top-box" ? (
-              <Box>
-                <Typography
-                  className="contactUsSubtitle"
-                  sx={{
-                    marginBottom: "16px",
-                  }}
-                >
-                  If you have any questions about products and services related
-                  to our company or our services, we are there to help you.
-                </Typography>
-              </Box>
+              <Box></Box>
             ) : (
               <Box>
                 <Typography
@@ -195,13 +183,14 @@ export default function ContactUs() {
                     marginBottom: "16px",
                   }}
                 >
-                  If you have any questions about products and services related
-                  to our company or our services, we are there to help you. Our
-                  dedicated team supports you in English, Chinese, Hindu,
-                  Russian, Spanish and French and is available around the clock,
-                  7 days a week! Just call us on 00852 4610 4890. You want to
-                  drop us a line? You can also reach out to us writing a message
-                  support@victorum-group.com or use the contact form below.
+                  Experts help you selling your products and goods You want to
+                  sell quickly and succesfully? Our sales experts are located in
+                  12 international branches and know the major markets like the
+                  back of their hands! We are not just another execution-only
+                  sales platform - our Sellers´ Desk employees have excellent
+                  contacts and are there to find a buyer for your good, products
+                  and services. This is the future of global trading, this is
+                  dealing through our Victorum Marketplace!
                 </Typography>
               </Box>
             )}
@@ -226,7 +215,50 @@ export default function ContactUs() {
                 </Typography>
               </Box>
             )}
-         
+            <Box>
+              {from === "top-box" ? (
+                <>
+                  <Typography className="contactUsSubtitle2">
+                    Email and Working Hours
+                  </Typography>
+                  <Typography className="contactUsSubtitle">
+                    You can also write us a message to{" "}
+                    <span
+                      className="contactFormBelowText"
+                      onClick={handleContactSupport}
+                    >
+                      {pageContactDetails.email}
+                    </span>{" "}
+                    or use the
+                    <span
+                      style={{ marginLeft: "5px" }}
+                      className="contactFormBelowText"
+                      onClick={scrollToForm}
+                    >
+                      contact form below
+                    </span>
+                    {" - our support desk is available "}
+                    Monday to Friday from 08h till 18h.
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  {/* <Typography className="contactUsSubtitle2">
+                    Contact Email
+                  </Typography> */}
+                  <Typography className="contactUsSubtitle">
+                    Call us on 00852 4610 4890 and let us together find your
+                    perfect clients! Just send everything over to us! We know
+                    how many supporting documents, descriptions, manuals and
+                    freight documents are needed for a successfull sales
+                    process. Send us a message to
+                    sellers-desk@victorum-group.com and add as many documents as
+                    you want or use the contact form below - we will get back to
+                    you as soon as possible!
+                  </Typography>
+                </>
+              )}
+            </Box>
           </Box>
         </Box>
         <div ref={formRef}>
