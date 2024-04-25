@@ -1,0 +1,204 @@
+.contactMainContainer {
+  margin: auto;
+  padding: 30px 0px;
+}
+.contactFormBelowText {
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #2a5182;
+  font-size: 18px;
+  margin-left: 0px;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.contactUsBg {
+  background-image: url("../../public/email-logo-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
+}
+.titleHeadlineImgBg {
+  padding: 50px 0px;
+  background: #f9f2ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+.contactUsTitleHeadlineMW {
+  max-width: 1180px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0px 20px;
+}
+.contactUsTitleBg {
+  display: inline-flex;
+  background: #d2dae0;
+  border-radius: 37px;
+  -moz-border-radius: 37px;
+  -webkit-border-radius: 37px;
+  padding: 10px 25px;
+  margin-bottom: 30px;
+  width: fit-content;
+}
+.contactUsTitleBgText {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.contactUsTitle {
+  color: #082f4a;
+  font-weight: 600 !important;
+  font-size: 38px !important;
+  max-width: 590px;
+  line-height: 60px !important;
+}
+.contactUsTextContainerPadding {
+  padding: 0px 30px;
+}
+.contactUstextContainer {
+  margin-top: 30px !important;
+  max-width: 1180px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
+  padding: 20px;
+}
+.contactUsSubtitle {
+  margin-top: 0px !important;
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.contactUsSubtitle2 {
+  margin-top: 15px !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.contactUsSubtitle3 {
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactUsContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1020px) {
+  .contactMainContainer {
+    padding: 60px 0px 20px 0px;
+  }
+  .titleHeadlineImgBg {
+    padding: 30px 0px;
+  }
+  .contactUsTextContainerPadding {
+    padding: 0px 20px;
+  }
+  .contactUsTitleHeadlineMW {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .contactUsBg {
+    width: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contactUsSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle3 {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .contactFormBelowText {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsTitle {
+    font-size: 28px !important;
+    line-height: 42px !important;
+    max-width: 430px;
+  }
+  .contactUsTitleBgText {
+    font-size: 18px !important;
+  }
+  .contactUsTitleBg {
+    margin-bottom: 15px;
+    padding: 8px 25px;
+  }
+  .contactUsTitleHeadlineMW {
+    gap: 15px;
+  }
+}
+@media (max-width: 630px) {
+  .contactMainContainer {
+    padding: 100px 0px 20px 0px;
+  }
+  .contactUsBg {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contactUsSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle3 {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .contactFormBelowText {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsTitle {
+    font-size: 22px !important;
+    line-height: 32px !important;
+    max-width: 330px;
+  }
+  .contactUsTitleBgText {
+    font-size: 16px !important;
+  }
+  .contactUsTitleBg {
+    margin-bottom: 15px;
+    padding: 5px 25px;
+  }
+  .contactUsBg {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .contactUsBg {
+    height: 100px;
+  }
+}

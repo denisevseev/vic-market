@@ -113,7 +113,7 @@ const Footer = () => {
               {/* <Link href="/#contact-us">Contact Sellers´ Desk</Link> */}
               <Link
                 href={{
-                  pathname: "/contact-us",
+                  pathname: "/contact-seller-desk",
                   query: { from: "seller-details", branch: "Main" },
                 }}
               >
@@ -147,7 +147,7 @@ const Footer = () => {
               <Link href="/#post-buy-request">Post Buy Request</Link>
               <Link
                 href={{
-                  pathname: "/contact-us",
+                  pathname: "/contact-buyers-desk",
                   query: { from: "buyer-details", branch: "Main" },
                 }}
               >
@@ -222,7 +222,7 @@ const Footer = () => {
             {/* <a>Market Research</a> */}
             <Link
               href={{
-                pathname: "/contact-us",
+                pathname: "/contact-seller-desk",
                 query: { from: "seller-details", branch: "Main" },
               }}
             >
@@ -237,7 +237,7 @@ const Footer = () => {
             <Link href="/#post-buy-request">Post Buy Request</Link>
             <Link
               href={{
-                pathname: "/contact-us",
+                pathname: "/contact-buyers-desk",
                 query: { from: "buyer-details", branch: "Main" },
               }}
             >

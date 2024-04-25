@@ -22,17 +22,16 @@ export default function ContactUs() {
   >(null);
 
   const [mainTitle, setMainTitle] = useState<string>("Contact Us");
-  const [subTitle, setSubTitle] = useState<string>(
-    "We are glad to help you - visit us or give us a call!!"
-  );
+  const [subTitle, setSubTitle] = useState<string>("Contact Buyers´ Desks!");
   const [sectiontitle, setSectionTitle] = useState<string>(
-    "Our Contact Information"
+    "Passionated purchasing experts"
   );
 
   const [pageContactDetails, setPageContactDetails] = useState<any>({});
 
-  const [contentTitle1, setContentTitle1] =
-    useState<string>("Customer Service");
+  const [contentTitle1, setContentTitle1] = useState<string>(
+    "Passionated purchasing experts"
+  );
 
   const handleContactSellers = () => {
     const email = pageContactDetails.email
@@ -83,30 +82,30 @@ export default function ContactUs() {
       ? pageContactDetails.phone
       : globalDetails.phone;
     if (from === "top-box") {
-      setMainTitle("We are glad to help you - visit us or give us a call!!");
+      setMainTitle("Contact Buyers´ Desks!");
       setSubTitle("We are Here");
-      setSectionTitle("Our Contact Information");
-      setContentTitle1("Customer Service");
+      setSectionTitle("Passionated purchasing experts");
+      setContentTitle1("Passionated purchasing experts");
     }
     if (from === "seller-details") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
-      setContentTitle1("Customer Service");
+      setSubTitle("Contact Buyers´ Desks!");
+      setSectionTitle("Passionated purchasing experts");
+      setContentTitle1("Passionated purchasing experts");
     }
 
     if (from === "buyer-details") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
-      setContentTitle1("Customer Service");
+      setSubTitle("Contact Buyers´ Desks!");
+      setSectionTitle("Passionated purchasing experts");
+      setContentTitle1("Passionated purchasing experts");
     }
 
     if (from === "legal") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
-      setSectionTitle("Our Contact Information");
-      setContentTitle1("Customer Service");
+      setSubTitle("Contact Buyers´ Desks!");
+      setSectionTitle("Passionated purchasing experts");
+      setContentTitle1("Passionated purchasing experts");
     }
   }, [from]);
 
@@ -135,22 +134,22 @@ export default function ContactUs() {
               }}
             >
               {/* TITLE */}
-              <Box className="contactUsTitleBg">
+              {/* <Box className="contactUsTitleBg">
                 <Typography className="contactUsTitleBgText">
                   {mainTitle}
                 </Typography>
-              </Box>
+              </Box> */}
               {/* HEADLINE */}
               <Box>
                 <Typography className="contactUsTitle">{subTitle}</Typography>
               </Box>
-              {/* {from !== "seller-details" && (
+              {from !== "seller-details" && (
                 <Box sx={{ maxWidth: "400px" }}>
-                  <Typography className="contactUsTitle">
+                  {/* <Typography className="contactUsTitle">
                     We are here to help!
-                  </Typography>
+                  </Typography> */}
                 </Box>
-              )} */}
+              )}
             </Box>
             <Box
               sx={{
@@ -172,7 +171,7 @@ export default function ContactUs() {
             </Box>
             <Box>
               <Typography className="contactUsSubtitle2">
-                No matter what, no matter when - we are there for you!
+                {contentTitle1}
               </Typography>
             </Box>
             {from === "top-box" ? (
@@ -183,8 +182,8 @@ export default function ContactUs() {
                     marginBottom: "16px",
                   }}
                 >
-                  If you have any questions about products and services related
-                  to our company or our services, we are there to help you.
+                  If you have a customer service question, please select your
+                  local Victorum Service Number from the list below.
                 </Typography>
               </Box>
             ) : (
@@ -195,13 +194,15 @@ export default function ContactUs() {
                     marginBottom: "16px",
                   }}
                 >
-                  If you have any questions about products and services related
-                  to our company or our services, we are there to help you. Our
-                  dedicated team supports you in English, Chinese, Hindu,
-                  Russian, Spanish and French and is available around the clock,
-                  7 days a week! Just call us on 00852 4610 4890. You want to
-                  drop us a line? You can also reach out to us writing a message
-                  support@victorum-group.com or use the contact form below.
+                  Let us find the best price for the products you want to buy
+                  How this is possible? Keep in my mind, that is exactly the
+                  huge difference between average execution-only sales platforms
+                  and marketplaces and us! Our purchasing managers have
+                  excellent contacts to producers and fabrics all over the world
+                  and due to our high volumes we can very often negotiate much
+                  better prices, then others. We are sure, that through our
+                  worldwide rapidly growing network we are able to save your
+                  money and to extend your product portfolio!
                 </Typography>
               </Box>
             )}
@@ -226,7 +227,50 @@ export default function ContactUs() {
                 </Typography>
               </Box>
             )}
-         
+            <Box>
+              {from === "top-box" ? (
+                <>
+                  <Typography className="contactUsSubtitle2">
+                    Email and Working Hours
+                  </Typography>
+                  <Typography className="contactUsSubtitle">
+                    You can also write us a message to{" "}
+                    <span
+                      className="contactFormBelowText"
+                      onClick={handleContactSupport}
+                    >
+                      {pageContactDetails.email}
+                    </span>{" "}
+                    or use the
+                    <span
+                      style={{ marginLeft: "5px" }}
+                      className="contactFormBelowText"
+                      onClick={scrollToForm}
+                    >
+                      contact form below
+                    </span>
+                    {" - our support desk is available "}
+                    Monday to Friday from 08h till 18h.
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  {/* <Typography className="contactUsSubtitle2">
+                    Contact Email
+                  </Typography> */}
+                  <Typography className="contactUsSubtitle">
+                  Call us on 00852
+                  4610 4890 and let us find together the best price for the
+                  products and goods you need! Drop us a line! No language
+                  barriers - our native speakers will handle your request and
+                  communicate with you in English, Chinese, Hindu, Russian,
+                  Spanish and French. Just send us a message to
+                  buyers-desk@victorum-group.com - we will reply to you as soon
+                  as possible!
+                  </Typography>
+                </>
+              )}
+            </Box>
           </Box>
         </Box>
         <div ref={formRef}>
