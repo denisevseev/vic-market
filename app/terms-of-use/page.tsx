@@ -13,9 +13,9 @@ export default function TermsOfUsePage() {
   return (
     <>
       <HeadData
-        title="Terms and Conditions | Victorum Marketplace"
-        description="Read the terms and conditions of using the Victorum Marketplace. Understand your rights and obligations as a user of our platform."
-        keywords="terms, conditions, user agreement, policies, Victorum Marketplace"
+        title="Terms and Conditions | Victorum Trade"
+        description="Read the terms and conditions of using the Victorum Trade. Understand your rights and obligations as a user of our platform."
+        keywords="terms, conditions, user agreement, policies, Victorum Trade"
       />
 
       <Box className="container mt-6rem mb-3-rem ta-center">

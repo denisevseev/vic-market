@@ -12,8 +12,8 @@ import VariableWidth from "../components/shared/ScrollableTabs/ScrollableTabs";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from "next/navigation";
+import HeadData from "../components/head";
 
 export default function Categories({}) {
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
@@ -22,9 +22,8 @@ export default function Categories({}) {
   const router = useRouter();
 
   const navigateHome = () => {
-    router.push('/');
+    router.push("/");
   };
-
 
   const { data: marketData, isLoading } = useMarketData();
 
@@ -56,6 +55,11 @@ export default function Categories({}) {
 
   return (
     <main>
+      <HeadData
+        title="Categories | Victorum Trade"
+        description="Browse diverse product categories on Victorum Trade's marketplace. Discover an extensive selection of items ranging from electronics and fashion to home goods and more. Find the perfect products to meet your needs and interests."
+        keywords="product categories, marketplace, selling products, online shopping, electronics, fashion, home goods, appliances, accessories, Victorum Trade"
+      />
       <Box className="container">
         <div
           style={{
@@ -66,7 +70,7 @@ export default function Categories({}) {
           }}
         >
           <Box
-          onClick={navigateHome}
+            onClick={navigateHome}
             sx={{
               marginBottom: "17px",
               marginTop: {
