@@ -117,9 +117,9 @@ export default function ContactUs() {
   return (
     <main>
       <HeadData
-        title="Contact Us | Victorum Marketplace"
-        description="Get in touch with the Victorum Marketplace team for support, service inquiries, or feedback. We are here to help you with any questions you may have."
-        keywords="contact, support, customer service, inquiries, feedback, Victorum Marketplace"
+        title="Contact us | Victorum Trade"
+        description="Get in touch with the Victorum Trade team for support, service inquiries, or feedback. We are here to help you with any questions you may have."
+        keywords="contact, support, customer service, inquiries, feedback, Victorum Trade"
       />
       {/* FIRST SECTION */}
       <Box className="contactMainContainer">

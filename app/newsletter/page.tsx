@@ -5,6 +5,7 @@ import { Box, Button, TextField, Typography, useTheme } from "@mui/material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import HeadData from "../components/head";
 
 export default function Newsletter() {
   const formRef = useRef<HTMLDivElement>(null);
@@ -59,6 +60,11 @@ export default function Newsletter() {
 
   return (
     <main>
+      <HeadData
+        title="Newsletter | Victorum Trade"
+        description="Subscribe to the Victorum Trade newsletter and stay updated with the latest trends, insights, and news in the B2B e-commerce industry. Get valuable market research insights, industry analysis, and business intelligence delivered straight to your inbox."
+        keywords="newsletter subscription, B2B e-commerce, Victorum Trade, industry trends, market insights, business news, e-commerce updates, market intelligence, industry analysis, business decisions, subscription service"
+      />
       <Box className="newsLetterMainContainer">
         <Box className="titleHeadlineImgBg">
           <Box className="newsLetterTitleHeadlineMW">

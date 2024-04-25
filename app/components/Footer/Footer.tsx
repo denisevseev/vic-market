@@ -244,7 +244,7 @@ const Footer = () => {
               Contact Buyers´ Desk
             </Link>
             <Link href="/categories">Browse Our Categories</Link>
-            <a>Our company</a>
+            <a href="/our-company">Our company</a>
             {/* <a>Contact Buyers´ Desk</a> */}
             <Link href="/our-company">Buyers´ Book of Profit</Link>
           </div>
@@ -274,7 +274,9 @@ const Footer = () => {
               <React.Fragment key={country.id}>
                 {/* Use an anchor tag for the full page reload */}
                 <a
-                  href={`/contact-us?from=legal&branch=` + country.fallback_name}
+                  href={
+                    `/contact-us?from=legal&branch=` + country.fallback_name
+                  }
                 >
                   {country.fallback_name}
                 </a>

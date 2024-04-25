@@ -3,6 +3,7 @@ import React from "react";
 import "./Payments.scss";
 import { Box, Typography } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
+import HeadData from "../components/head";
 
 export default function PaymentsPage() {
   const openVicPay = () => {
@@ -10,6 +11,11 @@ export default function PaymentsPage() {
   };
   return (
     <main>
+      <HeadData
+        title="Payments | Victorum Trade"
+        description="Discover VicPay, Victorum Trade's versatile payment platform for seamless transactions. Send and receive fiat and crypto payments, manage spending in real-time, and enjoy instant payments worldwide. Benefit from convenient funding options and 24/7 multilingual support."
+        keywords="VicPay, payment platform, transactions, fiat, crypto, spending management, instant payments, funding options, multilingual support"
+      />
       <Box className="paymentsMainContainer">
         <Box className="titleHeadlineImgBg">
           <Box className="paymentsTitleHeadlineMW">

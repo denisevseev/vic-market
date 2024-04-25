@@ -112,8 +112,8 @@ export default function Home() {
   return (
     <main>
       <HeadData
-        title="Home | Victorum Marketplace"
-        description="Discover and purchase a wide range of products across multiple categories at Victorum Marketplace."
+        title="Home | Victorum Trade"
+        description="Discover and purchase a wide range of products across multiple categories at Victorum Trade."
         keywords="trade, products, food and drink, buildingmaterials, pet supplies, electronics, fashion, home, garden, clothes, sports and hobbies, pet suppliesmachines vehicles, drugstore"
       />
       <Box className="container">
