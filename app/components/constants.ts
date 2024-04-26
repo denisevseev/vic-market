@@ -215,7 +215,6 @@ export const COUNTRIES: readonly any[] = [
     { code: "KR", label: "Korea, Republic of", phone: "82" },
     { code: "KW", label: "Kuwait", phone: "965" },
     { code: "KY", label: "Cayman Islands", phone: "1-345" },
-    { code: "KZ", label: "Kazakhstan", phone: "7" },
     {
       code: "LA",
       label: "Lao People's Democratic Republic",

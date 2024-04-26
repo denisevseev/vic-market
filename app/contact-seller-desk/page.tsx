@@ -164,7 +164,10 @@ export default function ContactSellerDesk() {
         <Box className="contactUsTextContainerPadding">
           <Box className="contactUstextContainer">
             <Box>
-              <Typography className="contactUsSubtitle3">
+              <Typography
+                className="contactUsSubtitle3"
+                sx={{ marginBottom: "24px" }}
+              >
                 {sectiontitle}
               </Typography>
             </Box>
@@ -183,14 +186,39 @@ export default function ContactSellerDesk() {
                     marginBottom: "16px",
                   }}
                 >
-                  Experts help you selling your products and goods You want to
-                  sell quickly and succesfully? Our sales experts are located in
-                  12 international branches and know the major markets like the
-                  back of their hands! We are not just another execution-only
-                  sales platform - our Sellers´ Desk employees have excellent
-                  contacts and are there to find a buyer for your good, products
-                  and services. This is the future of global trading, this is
-                  dealing through our Victorum Marketplace!
+                  Experts help you selling your products and goods.
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  You want to sell quickly and succesfully? Our sales experts
+                  are located in 12 international branches and know the major
+                  markets like the back of their hands!
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  We are not just another execution-only sales platform - our
+                  Sellers´ Desk employees have excellent contacts and are there
+                  to find a buyer for your good, products and services.
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  This is the future of global trading, this is dealing through
+                  our Victorum Marketplace!
                 </Typography>
               </Box>
             )}
@@ -246,15 +274,40 @@ export default function ContactSellerDesk() {
                   {/* <Typography className="contactUsSubtitle2">
                     Contact Email
                   </Typography> */}
-                  <Typography className="contactUsSubtitle">
+                  <Typography
+                    className="contactUsSubtitle"
+                    sx={{
+                      marginBottom: "16px",
+                    }}
+                  >
                     Call us on 00852 4610 4890 and let us together find your
-                    perfect clients! Just send everything over to us! We know
-                    how many supporting documents, descriptions, manuals and
-                    freight documents are needed for a successfull sales
-                    process. Send us a message to
-                    sellers-desk@victorum-group.com and add as many documents as
-                    you want or use the contact form below - we will get back to
-                    you as soon as possible!
+                    perfect clients!
+                  </Typography>
+
+                  <Typography
+                    className="contactUsSubtitle"
+                    sx={{
+                      marginBottom: "16px",
+                    }}
+                  >
+                    Just send everything over to us!
+                  </Typography>
+
+                  <Typography
+                    className="contactUsSubtitle"
+                    sx={{
+                      marginBottom: "16px",
+                    }}
+                  >
+                    We know how many supporting documents, descriptions, manuals
+                    and freight documents are needed for a successfull sales
+                    process.
+                  </Typography>
+
+                  <Typography className="contactUsSubtitle">
+                    Send us a message to sellers-desk@victorum-group.com and add
+                    as many documents as you want or use the contact form below
+                    - we will get back to you as soon as possible!
                   </Typography>
                 </>
               )}

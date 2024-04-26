@@ -31,10 +31,12 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { useCountryData } from "@/app/hooks/useCountryData";
-import { getCategories, processApiResponse } from "@/api/helper/dataFilter";
+import { getCategories } from "@/api/helper/dataFilter";
 import { useMarketData } from "@/app/hooks/useMarketData";
 import OtpVerification from "../FeaturedProducts/InquiryModal/OtpVerification/OtpVerification";
+import PhoneCountrySelect from "../PhoneCountrySelect/PhoneCountrySelect";
+import FloatLabelInputFiled from "../FloatLabelInputFiled";
+import CountrySelect from "../CountrySelect/CountrySelect";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -59,6 +61,28 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
   const [isLoadingSell, setIsLoadingSell] = useState(false);
 
+  // just country select start
+  const [justCountry, setJustCountry] = useState("");
+  const handleCountrySelect = (value: any) => {
+    console.log(value);
+    setJustCountry(value);
+  };
+  // just country select end
+
+  // new country selecet start
+  const [countryCodeNew, setCountryCodeNew] = useState("");
+  const handlePhoneCountryCodeSelect = (value: any) => {
+    setCountryCodeNew(value);
+  };
+
+  const [mobileNumberNew, setMobileNumberNew] = useState("");
+  const handleMobileNumberChangeNew = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setMobileNumberNew(event.target.value);
+  };
+  // new country select end
+
   const validateEmail = (email: any) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
@@ -71,21 +95,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   };
 
   const [step, setStep] = useState(1);
-  const [contact, setContact] = useState("");
-
-  const [countryCode, setCountryCode] = useState("+91");
   const [mobileNumber, setMobileNumber] = useState("");
 
-  const [inputValue, setInputValue] = useState("");
-
-  // country start
-  const { data: countryData } = useCountryData();
-  const [userCountry, setUserCountry] = useState("");
-
-  const handleChangeCountry = (event: any) => {
-    setUserCountry(event.target.value);
-  };
-  // country end
 
   // categories start
   const { data: marketData, isLoading } = useMarketData();
@@ -98,7 +109,6 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
         setCategories(categoriesData);
       }
     };
-
     fetchData();
   }, [marketData]);
   // categories end
@@ -179,8 +189,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
   const handleNextStep = async () => {
     if (step === 2) {
       let payload: any = {
-        country_code: `${inputValue.replace("+", "")}`,
-        phone_number: mobileNumber,
+        country_code: `${countryCodeNew.replace("+", "")}`,
+        phone_number: mobileNumberNew,
       };
       try {
         const response = await axios.post(
@@ -209,8 +219,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
 
     // Create a FormData instance to hold the files
     const formData = new FormData();
-    formData.append("country_id", userCountry);
-    formData.append("phone", `${inputValue}${mobileNumber}`);
+    formData.append("country_code", justCountry);
+    formData.append("phone", `${countryCodeNew}${mobileNumberNew}`);
     // formData.append("phone", '79153458765');
     formData.append("client_name", name);
     formData.append("email", email);
@@ -699,19 +709,21 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               }}
             >
               <Typography
-                  variant="h6"
-                  component="h2"
-                  className="send-inquiry"
-                  sx={{
-                    color: "red;",
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    fontFamily: "Poppins, sans-serif",
-                    maxWidth: "70%",
-                  }}
-                >
-                  *Please add the information to the mandatory fields and upload a video and a photo of your items. Consider longer upload times in case of transmission of huge files!
-                </Typography>
+                variant="h6"
+                component="h2"
+                className="send-inquiry"
+                sx={{
+                  color: "red;",
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  fontFamily: "Poppins, sans-serif",
+                  maxWidth: "70%",
+                }}
+              >
+                *Please add the information to the mandatory fields and upload a
+                video and a photo of your items. Consider longer upload times in
+                case of transmission of huge files!
+              </Typography>
               <Button
                 variant="contained"
                 onClick={handleNextStep}
@@ -796,7 +808,29 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 width: "100%",
               }}
             >
-              <FormControl fullWidth sx={{ flex: 0.4 }}>
+              <div className="w-100 d-flex flex-row jusifyContentSpaceBetween">
+                {/* new country select start */}
+                <div className="mt-16 w-30">
+                  <PhoneCountrySelect
+                    value={countryCodeNew}
+                    onSelect={handlePhoneCountryCodeSelect}
+                  />
+                </div>
+
+                <div className="mt-16 w-70">
+                  <FloatLabelInputFiled
+                    required={true}
+                    isTouched={true}
+                    errors={""}
+                    value={mobileNumberNew}
+                    onChange={handleMobileNumberChangeNew}
+                    label="Phone number"
+                    type="number"
+                  />
+                </div>
+                {/* new country select end */}
+              </div>
+              {/* <FormControl fullWidth sx={{ flex: 0.4 }}>
                 <Autocomplete
                   sx={{
                     borderRadius: "10px",
@@ -805,7 +839,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     },
                   }}
                   id="country-code-select"
-                  // countries sell mobile number
+                  // countries buy mobile number
                   options={COUNTRIES}
                   getOptionLabel={(option) => option.label}
                   renderOption={(props, option) => (
@@ -826,6 +860,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   }}
                   renderInput={(params) => (
                     <TextField
+                      autoComplete="off"
                       {...params}
                       label="Country"
                       InputProps={{
@@ -844,11 +879,12 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     />
                   )}
                 />
-              </FormControl>
+              </FormControl> */}
 
-              <TextField
+              {/* <TextField
                 fullWidth
                 type="number"
+                autoComplete="off"
                 sx={{
                   flex: 0.6,
                   "& .MuiOutlinedInput-root": {},
@@ -858,7 +894,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 variant="outlined"
                 value={mobileNumber}
                 onChange={handleMobileNumberChange}
-              />
+              /> */}
             </Box>
             <Button
               variant="contained"
@@ -875,7 +911,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   textTransform: "none",
                 },
               }}
-              disabled={!mobileNumber || !country}
+              disabled={!mobileNumberNew || !countryCodeNew}
             >
               <div className="button-text">
                 <p>Continue</p>
@@ -954,8 +990,15 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
             />
-            <div style={{ marginTop: "8px" }}>
-              <InputLabel
+            <div style={{ marginTop: "8px", width: "100%" }}>
+              <CountrySelect
+                value={justCountry}
+                isTouched={false}
+                errors={false}
+                onSelect={handleCountrySelect}
+              />
+
+              {/* <InputLabel
                 style={{ marginBottom: "6px" }}
                 id="demo-simple-select-label"
               >
@@ -975,13 +1018,14 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   },
                 }}
               >
-                {/* countryData sell normal country critical */}
                 {COUNTRIES?.map((country) => (
-                  <MenuItem key={country.code} value={country.code}>
+                  <MenuItem key={country.code} value={country.phone}>
                     {country.label}
                   </MenuItem>
                 ))}
-              </Select>
+              </Select> */}
+
+              {/* countryData buy normal country critical */}
             </div>
             <TextField
               fullWidth
@@ -1007,36 +1051,36 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 /> */}
               </div>
               <div>
-              <p style={{ marginTop: "12px" }}>
-                <a
-                  href="/terms"
-                  target="_blank"
-                  style={{
-                    textDecoration: "underline",
-                    color: "rgb(38, 92, 129)",
-                  }}
-                >
-                  Read terms and conditions
-                </a>
-              </p>
-              <div style={{marginTop: "-4px"}}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={termsChecked}
-                      onChange={handleTermsChange}
-                      name="terms"
-                      color="primary"
-                    />
-                  }
-                  label="I agree to terms and conditions"
-                />
-                {!termsChecked && (
-                  <FormHelperText error={true} style={{ fontSize: "12px" }}>
-                    Please accept the terms and conditions.
-                  </FormHelperText>
-                )}
-              </div>
+                <p style={{ marginTop: "12px" }}>
+                  <a
+                    href="/terms"
+                    target="_blank"
+                    style={{
+                      textDecoration: "underline",
+                      color: "rgb(38, 92, 129)",
+                    }}
+                  >
+                    Read terms and conditions
+                  </a>
+                </p>
+                <div style={{ marginTop: "-4px" }}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={termsChecked}
+                        onChange={handleTermsChange}
+                        name="terms"
+                        color="primary"
+                      />
+                    }
+                    label="I agree to terms and conditions"
+                  />
+                  {!termsChecked && (
+                    <FormHelperText error={true} style={{ fontSize: "12px" }}>
+                      Please accept the terms and conditions.
+                    </FormHelperText>
+                  )}
+                </div>
               </div>
             </div>
             <Button
@@ -1134,7 +1178,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
             <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
               Phone Number:{" "}
               <b className="blue-color">
-                ({inputValue}) {mobileNumber}
+                ({countryCodeNew}) {mobileNumberNew}
               </b>
             </Typography>
             <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
@@ -1187,7 +1231,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 onClick={handleNextStep}
                 disabled={
                   !productDetails ||
-                  !mobileNumber ||
+                  !mobileNumberNew ||
                   !name ||
                   !email ||
                   !companyName ||
@@ -1224,8 +1268,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
             onCancel={() => {
               setStep(step - 1);
             }}
-            country_code={inputValue}
-            phone={mobileNumber}
+            country_code={countryCodeNew}
+            phone={mobileNumberNew}
           />
         )}
 
@@ -1281,19 +1325,34 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                         color: "green",
                       }}
                     />
-                    <Typography
-                      variant="h6"
-                      component="h2"
-                      className="send-inquiry"
-                      sx={{
-                        color: "green",
-                        fontSize: "28px",
-                        fontWeight: "600",
-                        fontFamily: "Poppins, sans-serif",
-                      }}
-                    >
-                      Successfully Submitted
-                    </Typography>
+                    <div>
+                      <Typography
+                        variant="h6"
+                        component="h2"
+                        className="send-inquiry"
+                        sx={{
+                          color: "green",
+                          fontSize: "28px",
+                          fontWeight: "600",
+                          fontFamily: "Poppins, sans-serif",
+                        }}
+                      >
+                        Successfully Submitted
+                      </Typography>
+                    </div>
+                    <div>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: "green",
+                          fontSize: "22px",
+                          fontWeight: "400",
+                          fontFamily: "Poppins, sans-serif",
+                        }}
+                      >
+                        You will receive an email shortly.
+                      </Typography>
+                    </div>
                   </div>
                 )}
               </Box>
