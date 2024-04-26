@@ -1007,6 +1007,19 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                 /> */}
               </div>
               <div>
+              <p style={{ marginTop: "12px" }}>
+                <a
+                  href="/terms"
+                  target="_blank"
+                  style={{
+                    textDecoration: "underline",
+                    color: "rgb(38, 92, 129)",
+                  }}
+                >
+                  Read terms and conditions
+                </a>
+              </p>
+              <div style={{marginTop: "-4px"}}>
                 <FormControlLabel
                   control={
                     <Checkbox
@@ -1023,6 +1036,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     Please accept the terms and conditions.
                   </FormHelperText>
                 )}
+              </div>
               </div>
             </div>
             <Button
