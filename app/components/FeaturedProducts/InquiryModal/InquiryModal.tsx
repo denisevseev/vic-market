@@ -29,6 +29,7 @@ import {
 } from "@mui/material";
 import { useCountryData } from "@/app/hooks/useCountryData";
 import OtpVerification from "./OtpVerification/OtpVerification";
+import { COUNTRIES } from "../../constants";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -521,18 +522,19 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                     },
                   }}
                   id="country-code-select"
-                  options={countries}
+                  // countries buy mobile number
+                  options={COUNTRIES}
                   getOptionLabel={(option) => option.label}
                   renderOption={(props, option) => (
                     <li {...props}>
-                      {option.code} {option.label}
+                      {option.phone} {option.label}
                     </li>
                   )}
                   value={country}
                   onChange={(event, newValue) => {
                     setCountry(newValue);
                     if (newValue) {
-                      setInputValue(newValue.code);
+                      setInputValue(newValue.phone);
                     }
                   }}
                   inputValue={inputValue}
@@ -692,9 +694,10 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   },
                 }}
               >
-                {countryData?.map((country) => (
-                  <MenuItem key={country.id} value={country.id}>
-                    {country.fallback_name}
+                {/* countryData buy normal country critical */}
+                {COUNTRIES?.map((country) => (
+                  <MenuItem key={country.code} value={country.code}>
+                    {country.label}
                   </MenuItem>
                 ))}
               </Select>
@@ -711,8 +714,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </div>
 
             <div>
-              <div>
-                {/* <FormControlLabel
+              {/* <div>
+                <FormControlLabel
                   control={
                     <Checkbox
                       checked={gstChecked}
@@ -722,8 +725,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                     />
                   }
                   label="GST Available"
-                /> */}
-              </div>
+                />
+              </div> */}
               <div>
                 <FormControlLabel
                   control={
