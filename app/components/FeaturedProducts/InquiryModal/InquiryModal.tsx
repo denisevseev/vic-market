@@ -543,7 +543,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   }}
                   renderInput={(params) => (
                     <TextField
-                    autoComplete="off"
+                      autoComplete="off"
                       {...params}
                       label="Country"
                       InputProps={{
@@ -567,7 +567,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               <TextField
                 fullWidth
                 type="number"
-                autoComplete="off" 
+                autoComplete="off"
                 sx={{
                   flex: 0.6,
                   "& .MuiOutlinedInput-root": {},
@@ -727,7 +727,19 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                   label="GST Available"
                 />
               </div> */}
-              <div>
+              <p style={{ marginTop: "12px" }}>
+                <a
+                  href="/terms"
+                  target="_blank"
+                  style={{
+                    textDecoration: "underline",
+                    color: "rgb(38, 92, 129)",
+                  }}
+                >
+                  Read terms and conditions
+                </a>
+              </p>
+              <div style={{marginTop: "-4px"}}>
                 <FormControlLabel
                   control={
                     <Checkbox
