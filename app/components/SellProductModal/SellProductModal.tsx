@@ -18,6 +18,7 @@ import "./SellProductModal.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CircularProgress from "@mui/material/CircularProgress";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { COUNTRIES } from "../constants";
 
 import {
   Autocomplete,
@@ -804,18 +805,19 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                     },
                   }}
                   id="country-code-select"
-                  options={countries}
+                  // countries sell mobile number
+                  options={COUNTRIES}
                   getOptionLabel={(option) => option.label}
                   renderOption={(props, option) => (
                     <li {...props}>
-                      {option.code} {option.label}
+                      {option.phone} {option.label}
                     </li>
                   )}
                   value={country}
                   onChange={(event, newValue) => {
                     setCountry(newValue);
                     if (newValue) {
-                      setInputValue(newValue.code);
+                      setInputValue(newValue.phone);
                     }
                   }}
                   inputValue={inputValue}
@@ -973,9 +975,10 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   },
                 }}
               >
-                {countryData?.map((country) => (
-                  <MenuItem key={country.id} value={country.id}>
-                    {country.fallback_name}
+                {/* countryData sell normal country critical */}
+                {COUNTRIES?.map((country) => (
+                  <MenuItem key={country.code} value={country.code}>
+                    {country.label}
                   </MenuItem>
                 ))}
               </Select>
