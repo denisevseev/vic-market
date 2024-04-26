@@ -166,12 +166,18 @@ export default function ContactUs() {
         <Box className="contactUsTextContainerPadding">
           <Box className="contactUstextContainer">
             <Box>
-              <Typography className="contactUsSubtitle3">
+              <Typography
+                className="contactUsSubtitle3"
+                sx={{ marginBottom: "24px" }}
+              >
                 {sectiontitle}
               </Typography>
             </Box>
             <Box>
-              <Typography className="contactUsSubtitle2">
+              <Typography
+                className="contactUsSubtitle2"
+                sx={{ marginBottom: "16px" }}
+              >
                 No matter what, no matter when - we are there for you!
               </Typography>
             </Box>
@@ -196,11 +202,29 @@ export default function ContactUs() {
                   }}
                 >
                   If you have any questions about products and services related
-                  to our company or our services, we are there to help you. Our
+                  to our company or our services, we are there to help you. 
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                 Our
                   dedicated team supports you in English, Chinese, Hindu,
                   Russian, Spanish and French and is available around the clock,
-                  7 days a week! Just call us on 00852 4610 4890. You want to
-                  drop us a line? You can also reach out to us writing a message
+                  7 days a week!
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  Just call us on 00852 4610 4890. You want to drop us a line?
+                  You can also reach out to us writing a message
                   support@victorum-group.com or use the contact form below.
                 </Typography>
               </Box>
@@ -226,7 +250,6 @@ export default function ContactUs() {
                 </Typography>
               </Box>
             )}
-         
           </Box>
         </Box>
         <div ref={formRef}>

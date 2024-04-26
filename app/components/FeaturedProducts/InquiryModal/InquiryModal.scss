@@ -39,7 +39,7 @@
 .summary-section {
   display: flex;
   justify-content: end;
-  margin-Top: "auto";
+  margin-top: "auto";
 }
 
 .icon-and-text {
@@ -48,3 +48,18 @@
   gap: 8px;
 }
 
+.w-70 {
+  width: 55%;
+}
+
+.w-30 {
+  width: 43%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.jusifyContentSpaceBetween {
+  justify-content: space-between;
+}

@@ -165,13 +165,27 @@ export default function ContactUs() {
         <Box className="contactUsTextContainerPadding">
           <Box className="contactUstextContainer">
             <Box>
-              <Typography className="contactUsSubtitle3">
+              <Typography
+                className="contactUsSubtitle3"
+                sx={{ marginBottom: "24px" }}
+              >
                 {sectiontitle}
               </Typography>
             </Box>
             <Box>
-              <Typography className="contactUsSubtitle2">
-                {contentTitle1}
+              <Typography
+                className="contactUsSubtitle2"
+                sx={{ marginBottom: "16px" }}
+              >
+                Let us find the best price for the products you want to buy
+              </Typography>
+              <Typography
+                className="contactUsSubtitle"
+                sx={{ marginBottom: "16px" }}
+              >
+                How this is possible? Keep in my mind, that is exactly the huge
+                difference between average execution-only sales platforms and
+                marketplaces and us!
               </Typography>
             </Box>
             {from === "top-box" ? (
@@ -182,8 +196,9 @@ export default function ContactUs() {
                     marginBottom: "16px",
                   }}
                 >
-                  If you have a customer service question, please select your
-                  local Victorum Service Number from the list below.
+                  Our purchasing managers have excellent contacts to producers
+                  and fabrics all over the world and due to our high volumes we
+                  can very often negotiate much better prices, then others.
                 </Typography>
               </Box>
             ) : (
@@ -194,15 +209,41 @@ export default function ContactUs() {
                     marginBottom: "16px",
                   }}
                 >
-                  Let us find the best price for the products you want to buy
-                  How this is possible? Keep in my mind, that is exactly the
-                  huge difference between average execution-only sales platforms
-                  and marketplaces and us! Our purchasing managers have
-                  excellent contacts to producers and fabrics all over the world
-                  and due to our high volumes we can very often negotiate much
-                  better prices, then others. We are sure, that through our
-                  worldwide rapidly growing network we are able to save your
-                  money and to extend your product portfolio!
+                  We are sure, that through our worldwide rapidly growing
+                  network we are able to save your money and to extend your
+                  product portfolio!
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  Call us on 00852 4610 4890 and let us find together the best
+                  price for the products and goods you need!
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  Drop us a line!
+                </Typography>
+
+                <Typography
+                  className="contactUsSubtitle"
+                  sx={{
+                    marginBottom: "16px",
+                  }}
+                >
+                  No language barriers - our native speakers will handle your
+                  request and communicate with you in English, Chinese, Hindu,
+                  Russian, Spanish and French. Just send us a message to
+                  buyers-desk@victorum-group.com - we will reply to you as soon
+                  as possible!
                 </Typography>
               </Box>
             )}
@@ -254,21 +295,7 @@ export default function ContactUs() {
                   </Typography>
                 </>
               ) : (
-                <>
-                  {/* <Typography className="contactUsSubtitle2">
-                    Contact Email
-                  </Typography> */}
-                  <Typography className="contactUsSubtitle">
-                  Call us on 00852
-                  4610 4890 and let us find together the best price for the
-                  products and goods you need! Drop us a line! No language
-                  barriers - our native speakers will handle your request and
-                  communicate with you in English, Chinese, Hindu, Russian,
-                  Spanish and French. Just send us a message to
-                  buyers-desk@victorum-group.com - we will reply to you as soon
-                  as possible!
-                  </Typography>
-                </>
+                <></>
               )}
             </Box>
           </Box>
