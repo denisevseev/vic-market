@@ -38,7 +38,8 @@ export default function CareersPage() {
               </Box>
               {/* HEADLINE */}
               <Typography className="careerTitle">
-                We are connecting the business worldwide - join us!
+                Using market knowledge to connect business worldwide - this is
+                what we do.
               </Typography>
             </Box>
             <Box
@@ -55,11 +56,6 @@ export default function CareersPage() {
         <Box className="careersTextContainerPadding">
           <Box className="careerstextContainer">
             <Typography className="careersSubtitle">
-              Using market knowledge to connect business worldwide is what we
-              do.
-            </Typography>
-
-            <Typography className="careersSubtitle">
               At Victorum we are working towards a more sustainable world that’s
               better for all.
             </Typography>
@@ -73,6 +69,54 @@ export default function CareersPage() {
 
             <Typography className="careersSubtitle">
               You are interested in new challenges?
+            </Typography>
+
+            <Typography className="careersSubtitle">Job 1:</Typography>
+            <Typography className="careersSubtitle">
+              Desciption: IT Operations Manager (all genders)
+              <br />
+              Location: Hong Kong
+              <br />
+              Contract: Full time
+              <br />
+              Department: IT Operations & Security
+              <br />
+            </Typography>
+
+            <Typography className="careersSubtitle">Job 2:</Typography>
+            <Typography className="careersSubtitle">
+              Desciption: CSIRT Analyst (all genders)
+              <br />
+              Location: Hong Kong
+              <br />
+              Contract: Full time
+              <br />
+              Department: IT Operations & Security
+              <br />
+            </Typography>
+
+            <Typography className="careersSubtitle">Job 3:</Typography>
+            <Typography className="careersSubtitle">
+              Desciption: PR Junior Manager (all genders)
+              <br />
+              Location: Hong Kong
+              <br />
+              Contract: Part time
+              <br />
+              Department: Marketing & PR
+              <br />
+            </Typography>
+
+            <Typography className="careersSubtitle">Job 4:</Typography>
+            <Typography className="careersSubtitle">
+              Desciption: Client Liaison Manager (all genders)
+              <br />
+              Location: Hong Kong
+              <br />
+              Contract: Full time
+              <br />
+              Department: Sales & Client Liaison
+              <br />
             </Typography>
 
             <Typography className="careersSubtitle">
