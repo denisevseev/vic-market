@@ -65,7 +65,7 @@ const PostBuyRequirement = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "-25px" }}>
-            <p style={{ fontSize: "14px" }}>Tell us more about your needst*</p>
+            <p style={{ fontSize: "14px" }}>Tell us more about your needs*</p>
           </div>
           <TextField
             placeholder="Enter the product you are searching for..."

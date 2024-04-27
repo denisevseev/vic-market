@@ -939,7 +939,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
               Phone Number:{" "}
               <b className="blue-color">
-                ({inputValue}) {mobileNumber}
+                ({countryCodeNew}) {mobileNumberNew}
               </b>
             </Typography>
             <Typography className="blue-color" sx={{ mt: 2, mb: 1 }}>
@@ -992,7 +992,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
                 onClick={handleNextStep}
                 disabled={
                   !inquiryMessage ||
-                  !mobileNumber ||
+                  !mobileNumberNew ||
                   !name ||
                   !email ||
                   !companyName ||
