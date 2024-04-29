@@ -43,13 +43,15 @@ function PhoneCountrySelect({ onSelect, value }: Props) {
         <TextField
           {...params}
           label="Choose a country"
-          name="country"
-          autoComplete='off'
+          autoComplete="ViewCrunch"
           value={selectedCountry}
           inputProps={{
             ...params.inputProps,
-            autoComplete: "new-password",
+            autoComplete: "off",
             borderRadius: "4px",
+            form: {
+              autocomplete: "off",
+            },
           }}
           sx={{
             "& .MuiAutocomplete-inputRoot": {
