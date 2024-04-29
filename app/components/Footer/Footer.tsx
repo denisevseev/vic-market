@@ -80,10 +80,10 @@ const Footer = () => {
               <h4 className="title-color">Our Services</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Link href="/#post-buy-request">Post Buy Request</Link>
               <Link href="/#post-sell-request">Post Sell Request</Link>
-              <a href="/market-research">Market Research</a>
               <a href="/newsletter">Get Our Newsletter</a>
+              <a href="/market-research">Market Research</a>
+              <Link href="/#post-buy-request">Corporate Finance</Link>
               <a href="/payments">Payments? VicPay!</a>
             </AccordionDetails>
           </Accordion>
@@ -212,10 +212,10 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>Our Services</h3>
-            <Link href="/#post-buy-request">Post Buy Request</Link>
             <Link href="/#post-sell-request">Post Sell Request</Link>
-            <a href="/market-research">Market Research</a>
             <a href="/newsletter">Get Our Newsletter</a>
+            <a href="/market-research">Market Research</a>
+            <Link href="/#post-buy-request">Corporate Finance</Link>
             <a href="/payments">Payments? VicPay!</a>
           </div>
           <div className="footerSection">
