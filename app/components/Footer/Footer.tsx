@@ -120,7 +120,9 @@ const Footer = () => {
                 Contact Sellers´ Desk
               </Link>
               {/* <Link href="/categories">Browse Our Categories</Link> */}
-              <Link href="/contact-us">Are you a Successful Seller?</Link>
+              <Link href="/successfull-seller">
+                Are you a Successful Seller?
+              </Link>
             </AccordionDetails>
           </Accordion>
 
@@ -156,7 +158,7 @@ const Footer = () => {
               <Link href="/categories">Browse Our Categories</Link>
               <a>Our company</a>
               {/* <a>Contact Buyers´ Desk</a> */}
-              <Link href="/our-company">Buyers´ Book of Profit</Link>
+              <Link href="/book-of-profit">Buyers´ Book of Profit</Link>
             </AccordionDetails>
           </Accordion>
 
@@ -230,7 +232,7 @@ const Footer = () => {
             </Link>
 
             {/* <Link href="/categories">Browse Our Categories</Link> */}
-            <Link href="/contact-us">Are you a Successful Seller?</Link>
+            <Link href="/successfull-seller">Are you a Successful Seller?</Link>
           </div>
           <div className="footerSection">
             <h3>For Buyers</h3>
@@ -246,7 +248,7 @@ const Footer = () => {
             <Link href="/categories">Browse Our Categories</Link>
             <a href="/our-company">Our company</a>
             {/* <a>Contact Buyers´ Desk</a> */}
-            <Link href="/our-company">Buyers´ Book of Profit</Link>
+            <Link href="/book-of-profit">Buyers´ Book of Profit</Link>{" "}
           </div>
           <div className="footerSection">
             <h3>Legal</h3>
