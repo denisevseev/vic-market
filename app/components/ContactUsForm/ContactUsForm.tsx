@@ -187,7 +187,15 @@ const ContactUsForm = () => {
                   }}
                 >
                   <MenuItem value="" disabled>
-                    Your Country
+                    <span
+                      style={{
+                        color: error.userCountry
+                          ? "#d32f2f"
+                          : "rgba(0, 0, 0, 0.6)",
+                      }}
+                    >
+                      Your Country
+                    </span>
                   </MenuItem>
                   {countryData?.map((country) => (
                     <MenuItem key={country.id} value={country.id}>
