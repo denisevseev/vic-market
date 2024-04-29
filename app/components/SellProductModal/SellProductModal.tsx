@@ -228,7 +228,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
     formData.append("city", city);
     formData.append("product_name", productName);
     // formData.append("requirement_frequency", frequency);
-    formData.append("comment", productDetails);
+    //formData.append("comment", productDetails);
     formData.append("price", productPrice);
     formData.append("category", category);
     formData.append("description", productDetails);
