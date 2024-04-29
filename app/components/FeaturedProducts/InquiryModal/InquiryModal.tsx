@@ -120,7 +120,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   const [city, setCity] = useState("");
 
   const [gstChecked, setGstChecked] = React.useState(false);
-  const [termsChecked, setTermsChecked] = React.useState(true);
+  const [termsChecked, setTermsChecked] = React.useState(false);
 
   const handleGstChange = (event: any) => {
     setGstChecked(event.target.checked);
