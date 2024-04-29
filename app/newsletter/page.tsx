@@ -13,6 +13,7 @@ export default function Newsletter() {
 
   // email start
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [isEmailValid, setEmailValid] = useState(false);
   const emailValidationRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -20,6 +21,7 @@ export default function Newsletter() {
     const res = await fetch("/api", {
       body: JSON.stringify({
         email: email,
+        name: firstName,
       }),
 
       headers: {
@@ -30,6 +32,7 @@ export default function Newsletter() {
     });
     if (res.ok) {
       setEmail("");
+      setFirstName("");
       toast.success("Subscribed successfully!");
     } else {
       toast.error("Email already subscribed!");
@@ -42,9 +45,18 @@ export default function Newsletter() {
     setEmailValid(emailValidationRegex.test(emailValue));
   };
 
+  const handleNameChange = (event: any) => {
+    const nameValue = event.target.value;
+    setFirstName(nameValue);
+  };
+
   const handleSubscribe = (event: any) => {
     event.preventDefault();
-    if (isEmailValid) {
+    if (!firstName || !email) {
+      toast.error("Please enter your name and email address.");
+      return;
+    }
+    if (isEmailValid && email && firstName) {
       subscribeUser(email);
     } else {
       toast.error("Please enter a valid email address.");
@@ -132,59 +144,85 @@ export default function Newsletter() {
             justifyContent: "center",
             marginTop: "50px",
             marginBottom: "50px",
+            flexDirection: "column",
+            gap: "20px",
           }}
         >
-          <Box
+          <TextField
+            type="name"
+            label="Name"
+            variant="outlined"
+            value={firstName}
+            onChange={handleNameChange}
+            InputProps={{
+              sx: {
+                borderRadius: 2,
+                backgroundColor: "white",
+                width: "300px",
+                [theme.breakpoints.down("sm")]: {
+                  width: "190px", // On screens smaller than 'sm', width will be 200px
+                },
+              },
+            }}
+            required
+            autoComplete="email"
+            sx={{
+              marginRight: "8px",
+              ".MuiInputLabel-root": { color: "#333" },
+            }}
+          />
+
+          {/* <Box
             component="form"
             onSubmit={handleSubscribe}
             sx={{
               display: "flex",
               alignItems: "flex-end",
+            }} */}
+          {/* > */}
+          <TextField
+            type="email"
+            label="Your email"
+            variant="outlined"
+            value={email}
+            onChange={handleEmailChange}
+            InputProps={{
+              sx: {
+                borderRadius: 2,
+                backgroundColor: "white",
+                width: "300px",
+                [theme.breakpoints.down("sm")]: {
+                  width: "190px", // On screens smaller than 'sm', width will be 200px
+                },
+              },
+            }}
+            required
+            autoComplete="email"
+            sx={{
+              marginRight: "8px",
+              ".MuiInputLabel-root": { color: "#333" },
+            }}
+          />
+          <Button
+            variant="contained"
+            onClick={handleSubscribe}
+            sx={{
+              height: "52px",
+              borderRadius: "8px",
+              backgroundColor: "#2A5182",
+              width: "100px",
+              ".button-text p": {
+                textTransform: "none",
+              },
             }}
           >
-            <TextField
-              type="email"
-              label="Your email"
-              variant="outlined"
-              value={email}
-              onChange={handleEmailChange}
-              InputProps={{
-                sx: {
-                  borderRadius: 2,
-                  backgroundColor: "white",
-                  width: "300px",
-                  [theme.breakpoints.down("sm")]: {
-                    width: "190px", // On screens smaller than 'sm', width will be 200px
-                  },
-                },
-              }}
-              required
-              autoComplete="email"
-              sx={{
-                marginRight: "8px",
-                ".MuiInputLabel-root": { color: "#333" },
-              }}
-            />
-            <Button
-              variant="contained"
-              onClick={handleSubscribe}
-              sx={{
-                height: "52px",
-                borderRadius: "8px",
-                backgroundColor: "#2A5182",
-                width: "100px",
-                ".button-text p": {
-                  textTransform: "none",
-                },
-              }}
-            >
-              <div className="button-text">
-                <p className="font-size-16">Subscribe</p>
-              </div>
-            </Button>
-            <ToastContainer />
-          </Box>
+            <div className="button-text">
+              <p className="font-size-16">Subscribe</p>
+            </div>
+          </Button>
+          <ToastContainer />
         </Box>
+        {/* </Box> */}
       </Box>
     </main>
   );
