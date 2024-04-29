@@ -7,11 +7,12 @@ import Image from "next/image";
 import homepageImage1 from "../../../public/slider1.jpeg";
 import homepageImage2 from "../../../public/slider2.jpeg";
 // import homepageImage3 from "../../../public/slider3N.png";
- import homepageImage3 from "../../../public/victorumslider.jpg";
+import homepageImage3 from "../../../public/victorumslider.jpg";
 
 import homepageImage4 from "../../../public/slider4.jpeg";
 import RemoveIcon from "@mui/icons-material/Remove";
 import SellProductModal from "../SellProductModal/SellProductModal";
+import { useRouter } from "next/navigation";
 
 const carouselItems = [
   {
@@ -45,6 +46,8 @@ const carouselItems = [
 ];
 
 export default function HomepageImagesCarousel() {
+  const router = useRouter();
+
   // modal start
   const [isModalOpen, setModalOpen] = useState(false);
   const handleCloseModal = () => setModalOpen(false);
@@ -60,15 +63,13 @@ export default function HomepageImagesCarousel() {
     } else if (
       linkTo === " https://victorum-marketplace.vercel.app/categories"
     ) {
-      window.location.href =
-        "https://victorum-marketplace.vercel.app/categories";
+      router.push("/categories");
     } else if (
       linkTo === "https://victorum-marketplace.vercel.app/our-company"
     ) {
-      window.location.href =
-        "https://victorum-marketplace.vercel.app/our-company";
+      router.push("/our-company");
     } else if (linkTo === "https://www.victorum-group.com/") {
-      window.location.href = "https://www.victorum-group.com/";
+      window.open("https://www.victorum-group.com/", "_blank");
     }
   };
 
@@ -189,7 +190,13 @@ export default function HomepageImagesCarousel() {
                   borderWidth: "1px",
                   borderStyle: "solid",
                   textTransform: "none",
-                  width: {xs: 'fit-content', sm: '30%', md: '30%', lg: '30%', xl: '24%'},
+                  width: {
+                    xs: "fit-content",
+                    sm: "30%",
+                    md: "30%",
+                    lg: "30%",
+                    xl: "24%",
+                  },
                   "&:hover": {
                     borderColor: "#2a5182 !important",
                     backgroundColor:
