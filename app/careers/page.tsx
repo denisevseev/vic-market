@@ -3,9 +3,9 @@ import React from "react";
 import Box from "@mui/material/Box";
 import "./Careers.scss";
 import { Typography } from "@mui/material";
-import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import { globalDetails } from "../utils/constants";
 import HeadData from "../components/head";
+import JobApplication from "../components/OnlineJopApplication/JobApplication";
 
 export default function CareersPage() {
   const handleContact = () => {
@@ -135,7 +135,7 @@ export default function CareersPage() {
           </Box>
         </Box>
         <Box className="contactUsContainer">
-          <ContactUsForm />
+          <JobApplication />
         </Box>
       </Box>
     </>
