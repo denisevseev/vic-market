@@ -185,14 +185,14 @@ const JobApplication = () => {
     formData.append("selectedSubject", selectedSubject);
     if (selectedFiles && selectedFiles.length > 0) {
       for (let i = 0; i < selectedFiles.length; i++) {
-        formData.append(`attachments[${i}]`, selectedFiles[i]);
+        formData.append(`documents[${i}]`, selectedFiles[i]);
       }
     }
 
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/market/contact", formData, {
+      const response = await axios.post("/api/market/jobApply", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -273,10 +273,10 @@ const JobApplication = () => {
                       Choose a subject
                     </span>
                   </MenuItem>
-                  <MenuItem value={"First Job"}>First Job</MenuItem>
-                  <MenuItem value={"Second Job"}>Second Job</MenuItem>
-                  <MenuItem value={"Third Job"}>Third Job</MenuItem>
-                  <MenuItem value={"Fourth Job"}>Fourth Job</MenuItem>
+                  <MenuItem value={"firstJob"}>First Job</MenuItem>
+                  <MenuItem value={"secondJob"}>Second Job</MenuItem>
+                  <MenuItem value={"thirdJob"}>Third Job</MenuItem>
+                  <MenuItem value={"fourthJob"}>Fourth Job</MenuItem>
                 </Select>
                 {error.selectedSubject && (
                   <FormHelperText>Please select a subject.</FormHelperText>
