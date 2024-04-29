@@ -23,7 +23,7 @@ export default function ContactUs() {
 
   const [mainTitle, setMainTitle] = useState<string>("Contact Us");
   const [subTitle, setSubTitle] = useState<string>(
-    "We are glad to help you - visit us or give us a call!!"
+    "We are glad to help you - visit us or give us a call!"
   );
   const [sectiontitle, setSectionTitle] = useState<string>(
     "Our Contact Information"
@@ -83,28 +83,28 @@ export default function ContactUs() {
       ? pageContactDetails.phone
       : globalDetails.phone;
     if (from === "top-box") {
-      setMainTitle("We are glad to help you - visit us or give us a call!!");
+      setMainTitle("We are glad to help you - visit us or give us a call!");
       setSubTitle("We are Here");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
     }
     if (from === "seller-details") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
+      setSubTitle("We are glad to help you - visit us or give us a call!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
     }
 
     if (from === "buyer-details") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
+      setSubTitle("We are glad to help you - visit us or give us a call!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
     }
 
     if (from === "legal") {
       setMainTitle("Contact Us");
-      setSubTitle("We are glad to help you - visit us or give us a call!!");
+      setSubTitle("We are glad to help you - visit us or give us a call!");
       setSectionTitle("Our Contact Information");
       setContentTitle1("Customer Service");
     }

@@ -60,6 +60,25 @@ function PhoneCountrySelect({ onSelect, value }: Props) {
             },
           }}
         />
+        // <TextField
+        //   {...params}
+        //   label="Choose a country"
+        //   // name="country"
+        //   autoComplete='off'
+        //   value={selectedCountry}
+        //   inputProps={{
+        //     ...params.inputProps,
+        //     autoComplete: "new-password",
+        //     borderRadius: "4px",
+        //   }}
+        //   sx={{
+        //     "& .MuiAutocomplete-inputRoot": {
+        //       paddingLeft: "20px !important",
+        //       borderRadius: "10px",
+        //     },
+        //   }}
+        // />
+
       )}
     />
   );
