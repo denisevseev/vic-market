@@ -4,12 +4,15 @@ import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function OurServicesItem() {
   const isSmallScreen = useMediaQuery("(max-width:1200px)");
+  const router = useRouter();
 
   const handleRedirect = (href: string) => {
-    window.open(href, "_blank");
+    // window.open(href, "_blank");
+    router.push("/#post-sell-request");
   };
 
   return (
@@ -63,8 +66,8 @@ export default function OurServicesItem() {
       <Box className="ourServiceItemSingelMain">
         <Box>
           <Box className="ourServicesItemText">
-            <Typography className="tradeText">Victorum</Typography>
-            <Typography className="tradeTextBold">Trading</Typography>
+            <Typography className="tradeText">Corporate Financial</Typography>
+            <Typography className="tradeTextBold">Service</Typography>
           </Box>
 
           <Box className="ourServicesItemImage">

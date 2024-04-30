@@ -46,6 +46,11 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({
   }, []);
 
   const handleSubmit = async () => {
+    // ToDo remove this line start  (This is for testing purpose to bypass the OTP verification)
+    // onSubmit(otp);
+    // return;
+    // ToDo remove this line end
+
     if (otp.length === 4) {
       try {
         let payload = {

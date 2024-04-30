@@ -71,7 +71,7 @@ export default function CareersPage() {
               You are interested in new challenges?
             </Typography>
 
-            <Typography className="careersSubtitle">Job 1:</Typography>
+            {/* <Typography className="careersSubtitle">Job 1:</Typography> */}
             <Typography className="careersSubtitle">
               Desciption: IT Operations Manager (all genders)
               <br />
@@ -83,7 +83,7 @@ export default function CareersPage() {
               <br />
             </Typography>
 
-            <Typography className="careersSubtitle">Job 2:</Typography>
+            {/* <Typography className="careersSubtitle">Job 2:</Typography> */}
             <Typography className="careersSubtitle">
               Desciption: CSIRT Analyst (all genders)
               <br />
@@ -95,7 +95,7 @@ export default function CareersPage() {
               <br />
             </Typography>
 
-            <Typography className="careersSubtitle">Job 3:</Typography>
+            {/* <Typography className="careersSubtitle">Job 3:</Typography> */}
             <Typography className="careersSubtitle">
               Desciption: PR Junior Manager (all genders)
               <br />
@@ -107,7 +107,7 @@ export default function CareersPage() {
               <br />
             </Typography>
 
-            <Typography className="careersSubtitle">Job 4:</Typography>
+            {/* <Typography className="careersSubtitle">Job 4:</Typography> */}
             <Typography className="careersSubtitle">
               Desciption: Client Liaison Manager (all genders)
               <br />
