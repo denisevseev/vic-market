@@ -7,7 +7,7 @@ import Image from "next/image";
 import homepageImage1 from "../../../public/slider1.jpeg";
 import homepageImage2 from "../../../public/slider2.jpeg";
 // import homepageImage3 from "../../../public/slider3N.png";
-import homepageImage3 from "../../../public/victorumslider.jpg";
+import homepageImage3 from "../../../public/victorumslidergroup.jpg";
 
 import homepageImage4 from "../../../public/slider4.jpeg";
 import RemoveIcon from "@mui/icons-material/Remove";
