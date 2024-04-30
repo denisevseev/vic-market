@@ -90,7 +90,10 @@ export default function PressPage() {
 
             <Typography className="pressSubtitle">
               Benefit from more than 350.000 registered users and{" "}
-              <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
+              <a
+                href="/#post-sell-request"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 click here
               </a>{" "}
               to start selling your products!
@@ -128,7 +131,7 @@ export default function PressPage() {
               </a>{" "}
               in case you are searching to{" "}
               <a
-                href="/"
+                href="/#post-buy-request"
                 style={{
                   textDecoration: "none",
                   color: "inherit",
@@ -137,7 +140,18 @@ export default function PressPage() {
               >
                 buy
               </a>{" "}
-              products or subscribe to useful services!
+              products or{" "}
+              <a
+                href="/newsletter"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  marginLeft: "4px",
+                }}
+              >
+                subscribe
+              </a>{" "}
+              to useful services!
             </Typography>
           </Box>
         </Box>

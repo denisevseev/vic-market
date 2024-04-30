@@ -27,8 +27,8 @@ export default function CountrySelect({
   showLabel = true,
 }: Props) {
   // Function to find country by phone number
-  const findCountryByPhone = (phone: any) => {
-    return COUNTRIES.find((country) => country.phone === phone);
+  const findCountryByPhone = (code: any) => {
+    return COUNTRIES.find((country) => country.code === code);
   };
 
   // Initialize selectedCountry based on the value (phone number)
@@ -51,7 +51,7 @@ export default function CountrySelect({
       value={selectedCountry}
       onChange={(event, newValue) => {
         setSelectedCountry(newValue);
-        onSelect(newValue ? newValue.phone : ""); // Pass the phone number to the parent
+        onSelect(newValue ? newValue.code : ""); // Pass the phone number to the parent
       }}
       renderOption={(props, option) => (
         <Box

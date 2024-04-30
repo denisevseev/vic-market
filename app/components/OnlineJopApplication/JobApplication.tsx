@@ -273,10 +273,16 @@ const JobApplication = () => {
                       Choose a subject
                     </span>
                   </MenuItem>
-                  <MenuItem value={"firstJob"}>First Job</MenuItem>
-                  <MenuItem value={"secondJob"}>Second Job</MenuItem>
-                  <MenuItem value={"thirdJob"}>Third Job</MenuItem>
-                  <MenuItem value={"fourthJob"}>Fourth Job</MenuItem>
+                  <MenuItem value={"IT Operations Manager"}>
+                    IT Operations Manager
+                  </MenuItem>
+                  <MenuItem value={"CSIRT Analyst"}>CSIRT Analyst</MenuItem>
+                  <MenuItem value={"PR Junior Manager"}>
+                    PR Junior Manager
+                  </MenuItem>
+                  <MenuItem value={"Client Liaison Manager"}>
+                    Client Liaison Manager
+                  </MenuItem>
                 </Select>
                 {error.selectedSubject && (
                   <FormHelperText>Please select a subject.</FormHelperText>
