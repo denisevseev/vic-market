@@ -21,7 +21,7 @@ export default function Newsletter() {
     const res = await fetch("/api", {
       body: JSON.stringify({
         email: email,
-        name: firstName,
+        firstName: firstName,
       }),
 
       headers: {

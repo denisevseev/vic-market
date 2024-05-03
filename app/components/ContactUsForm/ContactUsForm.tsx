@@ -2,40 +2,21 @@
 import React, { useState } from "react";
 import {
   Button,
-  Modal,
   Box,
   TextField,
   Typography,
-  Alert,
-  InputLabel,
-  Select,
-  MenuItem,
   CircularProgress,
-  FormControl,
-  FormHelperText,
 } from "@mui/material";
 import "./ContactUsForm.scss";
-import { useCountryData } from "@/app/hooks/useCountryData";
 import axios from "axios";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-
-const style = {
-  // position: "absolute",
-  // top: "50%",
-  // left: "50%",
-  // transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  //   border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  borderRadius: "28px", // Add border-radius here
-};
+import CountrySelect from "../CountrySelect/CountrySelect";
 
 const ContactUsForm = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [isTouched, setIsTouched] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,24 +25,23 @@ const ContactUsForm = () => {
     email: false,
     subject: false,
     message: false,
-    userCountry: false,
+    justCountry: false,
   });
 
-  // country start
-  const { data: countryData } = useCountryData();
-  const [userCountry, setUserCountry] = useState("");
+  // just country select start
+  const [justCountry, setJustCountry] = useState("");
 
-  const handleChangeCountry = (event: any) => {
-    setUserCountry(event.target.value);
+  const handleCountrySelect = (value: any) => {
+    setJustCountry(value);
   };
-  // country end
+  // just country select end
 
   const validateForm = () => {
     const newError = {
       email: false,
       subject: false,
       message: false,
-      userCountry: false,
+      justCountry: false,
     };
     let isValid = true;
 
@@ -78,25 +58,29 @@ const ContactUsForm = () => {
       isValid = false;
     }
 
-    if (!userCountry) {
-      newError.userCountry = true;
+    if (!justCountry) {
+      newError.justCountry = true;
       isValid = false;
+    } else {
+      newError.justCountry = false;
     }
+
+    console.log(newError);
 
     setError(newError);
     return isValid;
   };
 
   const handleSubmit = async (e: any) => {
+    setIsTouched(true);
     e.preventDefault();
-
     if (!validateForm()) return;
 
     const formData = new FormData();
     formData.append("email", email);
     formData.append("subject", subject);
     formData.append("message", message);
-    formData.append("userCountry", userCountry);
+    formData.append("userCountry", justCountry);
     setIsLoading(true);
 
     try {
@@ -114,7 +98,8 @@ const ContactUsForm = () => {
       setEmail("");
       setSubject("");
       setMessage("");
-      setUserCountry("");
+      setIsTouched(false);
+      // setJustCountry("");
     }
   };
 
@@ -170,43 +155,13 @@ const ContactUsForm = () => {
                 },
               }}
             />
-
-            <div style={{ marginTop: "8px" }}>
-              <FormControl fullWidth error={error.userCountry}>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={userCountry}
-                  displayEmpty
-                  onChange={handleChangeCountry}
-                  sx={{
-                    height: "3.4rem",
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "10px",
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    <span
-                      style={{
-                        color: error.userCountry
-                          ? "#d32f2f"
-                          : "rgba(0, 0, 0, 0.6)",
-                      }}
-                    >
-                      Your Country
-                    </span>
-                  </MenuItem>
-                  {countryData?.map((country) => (
-                    <MenuItem key={country.id} value={country.id}>
-                      {country.fallback_name}
-                    </MenuItem>
-                  ))}
-                </Select>
-                {error.userCountry && (
-                  <FormHelperText>Please select a country.</FormHelperText>
-                )}
-              </FormControl>
+            <div style={{ marginTop: "8px", width: "100%" }}>
+              <CountrySelect
+                value={justCountry}
+                isTouched={isTouched}
+                errors={error.justCountry}
+                onSelect={handleCountrySelect}
+              />
             </div>
 
             <TextField
@@ -280,7 +235,11 @@ const ContactUsForm = () => {
               </div>
             )}
             <Button
-              onClick={() => setIsSubmitted(false)}
+              onClick={() => {
+                setIsSubmitted(false);
+                setIsTouched(false);
+                setJustCountry("");
+              }}
               variant="contained"
               sx={{
                 ".button-text p": {

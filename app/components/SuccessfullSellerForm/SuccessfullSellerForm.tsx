@@ -54,19 +54,13 @@ export const SuccessfllSellerForm = () => {
     formData.append("company", values.company);
     formData.append("website", values.website);
     formData.append("email", values.email);
-    formData.append(
-      "subject",
-      "I am interested in becoming a successful seller."
-    );
-    formData.append(
-      "message",
-      "I am interested in becoming a successful seller."
-    );
-    formData.append("userCountry", "46");
+    formData.append("message", intendedUse);
+    formData.append("subject", insureBuying);
+    formData.append("userCountry", "US");
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/market/contact", formData, {
+      const response = await axios.post("/api/market/fullSeller", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
