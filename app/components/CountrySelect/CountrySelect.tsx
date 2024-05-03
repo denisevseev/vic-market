@@ -26,12 +26,10 @@ export default function CountrySelect({
   showTitle = false,
   showLabel = true,
 }: Props) {
-  // Function to find country by phone number
   const findCountryByPhone = (code: any) => {
     return COUNTRIES.find((country) => country.code === code);
   };
 
-  // Initialize selectedCountry based on the value (phone number)
   const [selectedCountry, setSelectedCountry] = React.useState(
     findCountryByPhone(value)
   );
@@ -46,12 +44,12 @@ export default function CountrySelect({
       sx={{ width: "100%", borderRadius: "10px" }}
       options={COUNTRIES}
       autoHighlight
-      getOptionLabel={(option) => `${option.label}`} // Displaying both for clarity
+      getOptionLabel={(option) => `${option.label}`}
       disabled={disabled}
       value={selectedCountry}
       onChange={(event, newValue) => {
         setSelectedCountry(newValue);
-        onSelect(newValue ? newValue.code : ""); // Pass the phone number to the parent
+        onSelect(newValue ? newValue.code : "");
       }}
       renderOption={(props, option) => (
         <Box
@@ -76,11 +74,10 @@ export default function CountrySelect({
             label={showLabel ? "Choose a country" : null}
             inputProps={{
               ...params.inputProps,
-              autoComplete: "new-password", // disable autocomplete and autofill
+              autoComplete: "new-password",
               borderRadius: "10px",
             }}
-            error={isTouched && errors !== null && errors !== undefined}
-            helperText={isTouched && errors ? errors.toString() : ""}
+            error={isTouched && errors !== false && errors !== undefined}
             sx={{
               "& .MuiAutocomplete-inputRoot": {
                 paddingLeft: "20px !important",
