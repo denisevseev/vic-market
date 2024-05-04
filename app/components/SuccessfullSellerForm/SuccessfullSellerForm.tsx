@@ -51,12 +51,12 @@ export const SuccessfllSellerForm = () => {
     formData.append("intended_usage", intendedUse);
     formData.append("interested_in_buying", insureBuying);
     formData.append("first_name", values.name);
-    formData.append("company", values.company);
+    formData.append("company_name", values.company);
     formData.append("website", values.website);
     formData.append("email", values.email);
     formData.append("message", intendedUse);
     formData.append("subject", insureBuying);
-    formData.append("userCountry", "US");
+    formData.append("country_code", "US");
     setIsLoading(true);
 
     try {
