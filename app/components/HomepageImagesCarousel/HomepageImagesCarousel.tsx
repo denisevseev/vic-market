@@ -7,7 +7,8 @@ import Image from "next/image";
 import homepageImage1 from "../../../public/slider1.jpeg";
 import homepageImage2 from "../../../public/slider2.jpeg";
 // import homepageImage3 from "../../../public/slider3N.png";
-import homepageImage3 from "../../../public/victorumslidergroup.jpg";
+//import homepageImage3 from "../../../public/victorumslidergroup.jpg";
+import homepageImage3 from "../../../public/victorumgroupslider.jpg";
 
 import homepageImage4 from "../../../public/slider4.jpeg";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -139,7 +140,7 @@ export default function HomepageImagesCarousel() {
                     lg: "140px",
                     xl: "140px",
                   },
-                  color: item.caption === "Caption 3" ? "#2a5182" : "white",
+                  color: "white",
                   zIndex: 2,
                   textAlign: "left",
                   fontSize: {
@@ -184,9 +185,8 @@ export default function HomepageImagesCarousel() {
                   left: 0, // Ensures it starts from the same left alignment as the Typography
                   textAlign: "left",
                   zIndex: 2,
-                  color: item.caption === "Caption 3" ? "#2a5182" : "white",
-                  borderColor:
-                    item.caption === "Caption 3" ? "#2a5182" : "white",
+                  color: "white",
+                  borderColor: "white",
                   borderWidth: "1px",
                   borderStyle: "solid",
                   textTransform: "none",
@@ -199,10 +199,7 @@ export default function HomepageImagesCarousel() {
                   },
                   "&:hover": {
                     borderColor: "#2a5182 !important",
-                    backgroundColor:
-                      item.caption === "Caption 3"
-                        ? "rgb(253, 255, 219) !important"
-                        : "#2a5182",
+                    backgroundColor: "#2a5182",
                   },
                   fontSize: {
                     xs: "12px",
