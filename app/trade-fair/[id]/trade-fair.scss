@@ -1,0 +1,125 @@
+.tradeFairMainBox {
+  padding: 1rem 1rem 1rem 1rem !important;
+  margin: auto;
+}
+.tradeFairAboutBox {
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(103, 103, 103, 0.25) 0px 2px 6px;
+  border-radius: 4px;
+  padding: 36px 32px 48px;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+.aboutTradeFairText {
+  font-size: 20px !important;
+  line-height: 30px !important;
+  font-weight: 600 !important;
+  color: rgb(45, 56, 64) !important;
+  margin-bottom: 1rem !important;
+}
+.aboutTextContent {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  font-weight: 400 !important;
+  color: rgb(45, 56, 64) !important;
+  margin-bottom: 0.25rem;
+}
+.fairTradeImage {
+  width: 100px;
+  height: 105px;
+  object-fit: contain;
+}
+.eventNameText {
+  font-size: 24px !important;
+  line-height: 28px !important;
+  margin-bottom: 8px !important;
+  max-width: 422px !important;
+  white-space: break-spaces !important;
+  color: rgb(45, 56, 64) !important;
+  font-weight: 600 !important;
+}
+.tradeFairTime {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  word-break: break-word;
+  color: rgb(79, 95, 109);
+  font-weight: 500 !important;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.tradeFairLoc {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  word-break: break-word;
+  color: rgb(79, 95, 109);
+  font-weight: 500 !important;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.tradeFairImgTitleTimeLoc {
+  display: flex;
+  gap: 20px;
+}
+.tradeFairItemTextTop {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .tradeFairAboutBox {
+    margin-top: 1.5rem !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    padding: 0px !important;
+  }
+  .fairTradeImage {
+    width: 75px !important;
+    height: 75px !important;
+  }
+  .eventNameText {
+    height: auto;
+    white-space: break-spaces;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgb(45, 56, 64);
+  }
+}
+@media screen and (max-width: 630px) {
+  .tradeFairMain {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tradeFairImgTitleTimeLoc {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 566px) {
+  .aboutTradeFairText {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .aboutTextContent {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  .tradeFairTime {
+    color: rgb(79, 95, 109);
+    font-size: 14px !important;
+    line-height: 16px !important;
+    font-weight: 500;
+    word-break: break-word;
+  }
+  .tradeFairLoc {
+    color: rgb(79, 95, 109);
+    font-size: 14px !important;
+    line-height: 16px !important;
+    font-weight: 500;
+    word-break: break-word;
+  }
+}
