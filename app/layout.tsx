@@ -5,6 +5,7 @@ import FooterTopBox from "./components/FooterTopBox/FooterTopBox";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import { ProvidersReactQuery } from "./providersReactQuery";
+import ScrollToTop from "./components/ScrollToTop";
 
 // export const metadata: Metadata = {
 //   title: "Victorum marketplace",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <body>
           <link rel="icon" href="/favicon.png" sizes="any" />
           <ProvidersReactQuery>
+            <ScrollToTop />
             <Navigation />
             {children}
             <div className="footer-main">
