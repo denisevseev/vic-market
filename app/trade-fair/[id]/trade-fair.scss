@@ -65,6 +65,66 @@
   gap: 4px;
   align-items: center;
 }
+.tradeFairCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 292px;
+  width: 100%;
+  border: 1px solid #e1e6ef;
+  border-radius: 10px;
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
+  padding: 16px;
+  text-align: center;
+  margin: auto;
+}
+.upcomingElipsisTFItem {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: rgb(45, 56, 64) !important;
+  font-weight: 600 !important;
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  text-decoration: none !important;
+}
+.upcomingDateTFItem {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  color: rgb(79, 95, 109) !important;
+  margin: 0 !important;
+}
+.upcomingElipsisLocTFItem {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  color: rgb(79, 95, 109) !important;
+  margin: 0 !important;
+}
+.loaderBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 
 @media screen and (max-width: 767px) {
   .tradeFairAboutBox {
@@ -77,6 +137,19 @@
   .fairTradeImage {
     width: 75px !important;
     height: 75px !important;
+  }
+  .upcomingElipsisTFItem {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-bottom: 8px !important;
+  }
+  .upcomingDateTFItem {
+    font-size: 10px !important;
+    line-height: 12px !important;
+  }
+  .upcomingElipsisLocTFItem {
+    font-size: 10px !important;
+    line-height: 12px !important;
   }
   .eventNameText {
     height: auto;
