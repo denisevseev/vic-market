@@ -33,6 +33,7 @@ const TradeFairItem = () => {
       const fetchTradeFairItem = async () => {
         try {
           const foundEvent = tradeFairData.find((item: any) => item.id === id);
+
           if (foundEvent) {
             setTradeFair(foundEvent);
           } else {
@@ -129,7 +130,6 @@ const TradeFairItem = () => {
                   About {tradeFair.event_name}
                 </Typography>
                 <Typography className="aboutTextContent">
-                  {/* {tradeFair?.content} */}
                   {renderContent(tradeFair?.content || "")}
                 </Typography>
               </Box>
