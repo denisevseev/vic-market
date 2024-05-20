@@ -2,6 +2,7 @@
   {
     "id": "1",
     "date": "29. - 31. October 2025",
+    "start_date": "2025-10-29",
     "event_name": "Tubotech",
     "country": "Brazil",
     "category": "Tools",
@@ -12,6 +13,7 @@
   {
     "id": "2",
     "date": "09. - 12. September 2025",
+    "start_date": "2025-09-09",
     "event_name": "Febrava",
     "country": "Brazil",
     "category": "Air-conditioning Technology",
@@ -22,6 +24,7 @@
   {
     "id": "3",
     "date": "27. - 29. August 2024",
+    "start_date": "2024-08-27",
     "event_name": "Intersolar South America",
     "country": "Brazil",
     "category": "Solar Technology",
@@ -32,6 +35,7 @@
   {
     "id": "4",
     "date": "10. - 12. July 2024",
+    "start_date": "2024-07-10",
     "event_name": "Dye+Chem Brazil",
     "country": "Brazil",
     "category": "Surface Engineering",
@@ -42,6 +46,7 @@
   {
     "id": "5",
     "date": "1. - 14. June 2024",
+    "start_date": "2024-06-01",
     "event_name": "Fispal Food Service",
     "country": "Brazil",
     "category": "Trade fair for food services",
@@ -52,6 +57,7 @@
   {
     "id": "6",
     "date": "04. - 09. June 2024",
+    "start_date": "2024-06-04",
     "event_name": "BelFarm",
     "country": "Belarus",
     "category": "Cattle Breeding",
@@ -62,6 +68,7 @@
   {
     "id": "7",
     "date": "17. - 19. September 2024",
+    "start_date": "2024-09-17",
     "event_name": "Belcommuntech",
     "country": "Belarus",
     "category": "",
@@ -72,6 +79,7 @@
   {
     "id": "8",
     "date": "15. - 18. October 2024",
+    "start_date": "2024-10-15",
     "event_name": "Energy Expo",
     "country": "Belarus",
     "category": "Energy",
@@ -82,6 +90,7 @@
   {
     "id": "9",
     "date": "29 Oct. - 01 Nov. 2024",
+    "start_date": "2024-10-29",
     "event_name": "Woodworking",
     "country": "Belarus",
     "category": "Tools",
@@ -92,6 +101,7 @@
   {
     "id": "10",
     "date": "17. - 19. May 2024",
+    "start_date": "2024-05-17",
     "event_name": "Shanghai International Agricultural Products Expo",
     "country": "China",
     "category": "Agriculture",
@@ -102,6 +112,7 @@
   {
     "id": "11",
     "date": "05. - 07. June 2024",
+    "start_date": "2024-06-05",
     "event_name": "Rail + Metro China",
     "country": "China",
     "category": "Railway Technology",
@@ -112,6 +123,7 @@
   {
     "id": "12",
     "date": "03. - 05. July 2024",
+    "start_date": "2024-07-03",
     "event_name": "Aluminium China",
     "country": "China",
     "category": "Metal Casting",
@@ -122,6 +134,7 @@
   {
     "id": "13",
     "date": "21. - 23. August 2024",
+    "start_date": "2024-08-21",
     "event_name": "Medical Fair China",
     "country": "China",
     "category": "Medicals",
@@ -132,6 +145,7 @@
   {
     "id": "14",
     "date": "19. - 21. September 2024",
+    "start_date": "2024-09-19",
     "event_name": "SpeChem China",
     "country": "China",
     "category": "Chemistry",
@@ -142,6 +156,7 @@
   {
     "id": "15",
     "date": "21. - 23. October 2024",
+    "start_date": "2024-10-21",
     "event_name": "China International Auto Air-conditioning & Transport Refrigeration Exhibition (CIAAR)",
     "country": "China",
     "category": "Air-conditioning Technology",
@@ -152,6 +167,7 @@
   {
     "id": "16",
     "date": "18. - 20. November 2024",
+    "start_date": "2024-11-18",
     "event_name": "analytica China",
     "country": "China",
     "category": "Laboratory Technology",
@@ -162,6 +178,7 @@
   {
     "id": "17",
     "date": "18. - 20. December 2024",
+    "start_date": "2024-12-18",
     "event_name": "ARTS Advanced Rail Transit Technology Show",
     "country": "China",
     "category": "Railway Technology",
@@ -172,6 +189,7 @@
   {
     "id": "18",
     "date": "30 May. - 01 Jun. 2024",
+    "start_date": "2024-05-30",
     "event_name": "CENTRAL ASIA BEAUTY EXPO",
     "country": "Kazakhstan",
     "category": "Beauty",
@@ -182,6 +200,7 @@
   {
     "id": "19",
     "date": "18. - 20. August 2024",
+    "start_date": "2024-08-18",
     "event_name": "Central Asia Fashion",
     "country": "Kazakhstan",
     "category": "Fashion",
@@ -192,6 +211,7 @@
   {
     "id": "20",
     "date": "04. - 06. September 2024",
+    "start_date": "2024-09-04",
     "event_name": "AquaTherm",
     "country": "Kazakhstan",
     "category": "Plumbing",
@@ -202,6 +222,7 @@
   {
     "id": "21",
     "date": "02. - 04. October 2024",
+    "start_date": "2024-10-02",
     "event_name": "Kioge",
     "country": "Kazakhstan",
     "category": "Oil Exploration",
@@ -212,6 +233,7 @@
   {
     "id": "22",
     "date": "30 Oct. - 01 Nov. 2024",
+    "start_date": "2024-10-30",
     "event_name": "Powerexpo",
     "country": "Kazakhstan",
     "category": "Energy",
@@ -222,6 +244,7 @@
   {
     "id": "23",
     "date": "21. - 23. November 2024",
+    "start_date": "2024-11-21",
     "event_name": "Non-Food Asia Expo",
     "country": "Kazakhstan",
     "category": "Home Textiles",
@@ -232,6 +255,7 @@
   {
     "id": "24",
     "date": "04. - 07. June 2024",
+    "start_date": "2024-06-04",
     "event_name": "ELEKTRO",
     "country": "Russia",
     "category": "Electrical",
@@ -242,6 +266,7 @@
   {
     "id": "25",
     "date": "08. - 11. July 2024",
+    "start_date": "2024-07-08",
     "event_name": "Innoprom",
     "country": "Russia",
     "category": "Industry",
@@ -252,6 +277,7 @@
   {
     "id": "26",
     "date": "19. - 22. August 2024",
+    "start_date": "2024-08-19",
     "event_name": "MIMS Automobility",
     "country": "Russia",
     "category": "Automotive Engineering",
@@ -262,6 +288,7 @@
   {
     "id": "27",
     "date": "03. - 05. September 2024",
+    "start_date": "2024-09-03",
     "event_name": "technotextil",
     "country": "Russia",
     "category": "Textiles",
@@ -272,6 +299,7 @@
   {
     "id": "28",
     "date": "01. - 02. October 2024",
+    "start_date": "2024-10-01",
     "event_name": "Translogistika",
     "country": "Russia",
     "category": "Transportation",
@@ -282,6 +310,7 @@
   {
     "id": "29",
     "date": "05. - 08. November 2024",
+    "start_date": "2024-11-05",
     "event_name": "MITEX",
     "country": "Russia",
     "category": "Tools",
@@ -292,6 +321,7 @@
   {
     "id": "30",
     "date": "10. - 13. December 2024",
+    "start_date": "2024-12-10",
     "event_name": "Comtrans",
     "country": "Russia",
     "category": "Transportation",
@@ -302,6 +332,7 @@
   {
     "id": "31",
     "date": "04. - 08. June 2024",
+    "start_date": "2024-06-04",
     "event_name": "ITM TEXPO EURASIA",
     "country": "Turkey",
     "category": "Textiles",
@@ -312,6 +343,7 @@
   {
     "id": "32",
     "date": "10. - 13. July 2024",
+    "start_date": "2024-07-10",
     "event_name": "F Istanbul",
     "country": "Turkey",
     "category": "Food",
@@ -322,6 +354,7 @@
   {
     "id": "33",
     "date": "03. - 06. September 2024",
+    "start_date": "2024-09-03",
     "event_name": "WorldFood",
     "country": "Turkey",
     "category": "Food",
@@ -332,6 +365,7 @@
   {
     "id": "34",
     "date": "08. - 12. October 2024",
+    "start_date": "2024-10-08",
     "event_name": "Bursa Agriculture",
     "country": "Turkey",
     "category": "Agriculture",
@@ -342,6 +376,7 @@
   {
     "id": "35",
     "date": "04. - 08. November 2024",
+    "start_date": "2024-11-04",
     "event_name": "Unicera",
     "country": "Turkey",
     "category": "Plumbing",
@@ -352,6 +387,7 @@
   {
     "id": "36",
     "date": "04. - 07. December 2024",
+    "start_date": "2024-12-04",
     "event_name": "Plast Eurasia",
     "country": "Turkey",
     "category": "Plastics",
@@ -362,6 +398,7 @@
   {
     "id": "37",
     "date": "06. - 08. June 2024",
+    "start_date": "2024-06-06",
     "event_name": "INDIA BIG 7",
     "country": "India",
     "category": "Stationery",
@@ -372,6 +409,7 @@
   {
     "id": "38",
     "date": "02. - 05. July 2024",
+    "start_date": "2024-07-02",
     "event_name": "HGH India",
     "country": "India",
     "category": "Home Textiles",
@@ -382,6 +420,7 @@
   {
     "id": "39",
     "date": "01. - 03. August 2024",
+    "start_date": "2024-08-01",
     "event_name": "TOPACK",
     "country": "India",
     "category": "Machine Construction",
@@ -392,6 +431,7 @@
   {
     "id": "40",
     "date": "12. - 14. September 2024",
+    "start_date": "2024-09-12",
     "event_name": "TexIndia",
     "country": "India",
     "category": "Textiles",
@@ -402,6 +442,7 @@
   {
     "id": "41",
     "date": "03. - 05. October 2024",
+    "start_date": "2024-10-03",
     "event_name": "The Battery Show India",
     "country": "India",
     "category": "Batteries",
@@ -412,6 +453,7 @@
   {
     "id": "42",
     "date": "14. - 17. November 2024",
+    "start_date": "2024-11-14",
     "event_name": "Labelexpo India",
     "country": "India",
     "category": "Labeling",
@@ -422,6 +464,7 @@
   {
     "id": "43",
     "date": "05. - 07. December 2024",
+    "start_date": "2024-12-05",
     "event_name": "WOFX World Furniture Expo",
     "country": "India",
     "category": "Furniture",
@@ -432,6 +475,7 @@
   {
     "id": "44",
     "date": "04. - 07. June 2024",
+    "start_date": "2024-06-04",
     "event_name": "Lagos Motor Fair",
     "country": "Nigeria",
     "category": "Auto",
@@ -442,6 +486,7 @@
   {
     "id": "45",
     "date": "03. - 05. September 2024",
+    "start_date": "2024-09-03",
     "event_name": "FEWA Furniture Expo West Africa",
     "country": "Nigeria",
     "category": "Furniture",
@@ -452,6 +497,7 @@
   {
     "id": "46",
     "date": "17. - 19. September 2024",
+    "start_date": "2024-09-17",
     "event_name": "Nigeria Energy",
     "country": "Nigeria",
     "category": "Energy",
@@ -462,6 +508,7 @@
   {
     "id": "47",
     "date": "08. - 09. October 2024",
+    "start_date": "2024-10-08",
     "event_name": "WACEE",
     "country": "Nigeria",
     "category": "Wind Energy",

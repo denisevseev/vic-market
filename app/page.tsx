@@ -26,6 +26,10 @@ import {
 import TopCategoriesLinks from "./components/shared/PopularLinks/TopCategoriesLinks";
 import PopularProductsLink from "./components/shared/PopularLinks/PopularProductsLinks";
 
+const countryNameMapping: { [key: string]: string } = {
+  "Russian Federation": "Russia",
+};
+
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const [featuredProducts, setFeaturedProducts] = useState<any>([]);
@@ -38,6 +42,23 @@ export default function Home() {
   const postBuyRequirementRef = useRef<HTMLDivElement>(null);
   const postSellRequirementRef = useRef<HTMLDivElement>(null);
   const serivesRef = useRef<HTMLDivElement>(null);
+  const [selectedCountry, setSelectedCountry] = useState("All Regions");
+
+  const getMappedCountryName = (country: any) => {
+    return countryNameMapping[country] || country;
+  };
+
+  const filteredTradeFairs = tradFairs
+    .filter((fair: any) => {
+      const fairCountry = getMappedCountryName(fair.country);
+      const selected = getMappedCountryName(selectedCountry);
+      return selected === "All Regions" || fairCountry === selected;
+    })
+    .sort((a: any, b: any) => {
+      return (
+        new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+      );
+    });
 
   const scrollToPostBuyRequirement = () => {
     if (postBuyRequirementRef.current) {
@@ -69,6 +90,10 @@ export default function Home() {
     }
     setData(DataJson);
     setTradeFairs(TradeFairsJson);
+    const savedCountry = localStorage.getItem("selectedCountry");
+    if (savedCountry) {
+      setSelectedCountry(savedCountry);
+    }
   }, []);
 
   useEffect(() => {
@@ -154,13 +179,15 @@ export default function Home() {
           <div ref={postBuyRequirementRef} id="post-buy-request">
             <PostBuyRequirement />
           </div>
-          <div className="mb-2rem">
-            <VariableWidth
-              data={tradFairs}
-              title="Trade Fair"
-              isUpcomingTradeshows="true"
-            />
-          </div>
+          {filteredTradeFairs && filteredTradeFairs.length > 0 && (
+            <div className="mb-2rem">
+              <VariableWidth
+                data={filteredTradeFairs}
+                title="Trade Fair"
+                isUpcomingTradeshows="true"
+              />
+            </div>
+          )}
         </div>
         <div ref={serivesRef} id="services">
           <OurServices />
