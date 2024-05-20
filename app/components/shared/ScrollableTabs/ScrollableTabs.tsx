@@ -5,8 +5,8 @@ import "./ScrollableTabs.scss";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import DateRangeIcon from "@mui/icons-material/DateRange";
-import EditLocationIcon from "@mui/icons-material/EditLocation";
+import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
+import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import InquiryModal from "../../FeaturedProducts/InquiryModal/InquiryModal";
@@ -14,22 +14,27 @@ import Link from "next/link";
 import Default from "../../../../public/get-distributers.svg";
 import { useRouter } from "next/navigation";
 
-const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
+const SlideUpComing = ({ title, imgSrc, date, location, item }: any) => {
+  const data = item ?? null;
+
+  const router = useRouter();
   return (
-    <div style={{ padding: "0 8px" }}>
+    <div style={{ padding: "0 8px", maxHeight: "206px" }}>
       <div className="slideUpcoming">
         {imgSrc && (
           <div className="imageUpcoming">
             <Image
+              onClick={() => router.push(`/trade-fair/${data?.id}`)}
               src={imgSrc}
               alt={title}
-              width={110}
+              width={80}
               height={80}
               style={{
-                maxWidth: "110px",
+                maxWidth: "80px",
                 maxHeight: "80px",
                 height: "auto",
                 width: "auto",
+                cursor: "pointer",
               }}
               className="ml-mr-auto"
             />
@@ -37,19 +42,23 @@ const SlideUpComing = ({ title, imgSrc, date, location }: any) => {
         )}
 
         <div className="text-part-upcoming">
-          <p className="upcomingElipsis">{title}</p>
+          <Link className="upcomingElipsis" href={`/trade-fair/${data?.id}`}>
+            <p className="upcomingElipsis">{title}</p>
+          </Link>
 
           {date && (
             <div className="d-flex ai-center gap-4">
-              <DateRangeIcon style={{ color: "grey" }} />
+              <DateRangeOutlinedIcon
+                style={{ color: "#404D57", width: "16px", height: "17px" }}
+              />
               <p className="upcomingDate">{date}</p>
             </div>
           )}
           {location && (
             <div className="d-flex ai-center gap-4">
-              <div className="hide-sm">
-                <EditLocationIcon style={{ color: "grey" }} />
-              </div>
+              <FmdGoodOutlinedIcon
+                style={{ color: "#404D57", width: "16px", height: "17px" }}
+              />
               <p className="upcomingElipsisLoc">{location}</p>
             </div>
           )}
@@ -445,10 +454,11 @@ function VariableWidth({
                 ) : isUpcomingTradeshows ? (
                   <SlideUpComing
                     key={index}
-                    imgSrc={slide.productImage}
-                    title={slide.productName}
-                    date={null}
-                    location={null}
+                    imgSrc={slide?.image}
+                    title={slide?.event_name}
+                    date={slide?.date}
+                    location={`${slide?.event_name}, ${slide?.city}, ${slide?.country}`}
+                    item={slide}
                   />
                 ) : (
                   <SlideSmaller key={index} data={slide} />

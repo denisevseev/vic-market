@@ -125,10 +125,10 @@
 
 .slideUpcoming {
   width: 100%;
-  height: 270px;
+  height: 206px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(225, 230, 239);
-  border-radius: 8px;
+  border-radius: 16px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -147,45 +147,54 @@
 }
 
 .imageUpcoming {
-  margin-bottom: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90px;
-  height: 100px;
+  max-width: 80px;
+  width: auto;
+  max-height: 80px;
+  height: auto;
 }
 
 .upcomingElipsis {
-  color: rgb(45, 56, 64);
-  font-weight: 600;
-  z-index: 2;
-  position: relative;
-  font-size: 16px;
-  margin-bottom: 8px;
-  height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  line-height: 20px;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: rgb(45, 56, 64);
+  font-weight: 600;
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  text-decoration: none !important;
 }
 
 .upcomingElipsisLoc {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.5);
-  height: 40px; /* Ensure this height constrains the text to overflow */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical; /* Correct value is 'vertical' */
-  width: 100%;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: rgb(79, 95, 109);
+  margin: 0;
 }
 
 .upcomingDate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.5);
+  line-height: 20px;
+  font-weight: 500;
+  color: rgb(79, 95, 109);
+  margin: 0;
 }
 
 .ml-mr-auto {
@@ -236,4 +245,23 @@
   display: inline-block;
   max-width: 100%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .upcomingElipsisLoc {
+    font-size: 10px !important;
+    line-height: 12px !important;
+  }
+  .upcomingDate {
+    font-size: 10px !important;
+    line-height: 12px !important;
+  }
+  .upcomingElipsis {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-bottom: 8px !important;
+  }
+  .slideUpcoming {
+    height: 180px !important;
+  }
 }
