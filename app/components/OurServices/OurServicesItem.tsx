@@ -7,12 +7,19 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function OurServicesItem() {
-  const isSmallScreen = useMediaQuery("(max-width:1200px)");
   const router = useRouter();
 
-  const handleRedirect = (href: string) => {
-    // window.open(href, "_blank");
-    router.push("/#post-sell-request");
+  const handleRedirect = (route: string) => {
+    const newTab = window.open("", "_blank");
+    if (newTab) {
+      newTab.opener = null;
+      newTab.location.href = route;
+    } else {
+      router.push(route);
+    }
+  };
+  const handleRedirectPage = (route: string) => {
+    router.push(route);
   };
 
   return (
@@ -95,7 +102,7 @@ export default function OurServicesItem() {
           </Box>
           <Box
             className="ourServicesLearnMoreAndIcon"
-            onClick={() => handleRedirect("")}
+            // onClick={() => handleRedirect("")}
           >
             <Typography className="ourServiceslearnMoreLink">
               Learn more{" "}
@@ -140,7 +147,7 @@ export default function OurServicesItem() {
           </Box>
           <Box
             className="ourServicesLearnMoreAndIcon"
-            onClick={() => handleRedirect("")}
+            onClick={() => handleRedirectPage("/trade-fairs")}
           >
             <Typography className="ourServiceslearnMoreLink">
               Learn more{" "}

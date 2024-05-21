@@ -125,6 +125,8 @@ const NavigationPopover = ({ id, open, anchorEl, onClose }: any) => {
         <SmallPopoverBox
           imgSrc="/tradeFairMenuIcon.png"
           text="Trade Fairs & Exhibitions"
+          redirectUrl="/trade-fairs"
+          sameWindow={true}
           height={28}
           width={38}
         />

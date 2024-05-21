@@ -10,7 +10,7 @@ import AppStoreImage from "../../../public/appStoreImage.svg";
 import Link from "next/link";
 
 export default function DownloadOurApp() {
-  const financeLink = "https://victorum-finance.com/";
+  const financeLink = "https://vicpayments.com/";
   return (
     <Box>
       <Box className="downloadOurAppMainBox">
