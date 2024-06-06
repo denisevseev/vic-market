@@ -33,9 +33,13 @@ const TopCategoriesSlider: React.FC<TopCategoritesProps> = ({ data }) => {
               Product Categories
             </Typography>
           </Box>
-          {/* <Box>
-            <Typography className="viewAllCategoriesLink">View all</Typography>
-          </Box> */}
+          <Box>
+            <Link href="/categories">
+              <Typography className="viewAllCategoriesLink">
+                View all
+              </Typography>
+            </Link>
+          </Box>
         </Box>
         <Box className="itemsSliderMainBox">
           {data &&

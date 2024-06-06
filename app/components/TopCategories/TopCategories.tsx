@@ -87,11 +87,13 @@ const TopCategories: React.FC<TopCategoritesProps> = ({ data }) => {
               );
             })}
         </Box>
-        {/* <Box>
-          <Typography className="viewAllCategoriesLink">
-            View all Categories
-          </Typography>
-        </Box> */}
+        <Box>
+          <Link href="/categories">
+            <Typography className="viewAllCategoriesLink">
+              View all Categories
+            </Typography>
+          </Link>
+        </Box>
       </Box>
       <PopoverTopCategories
         popupVisible={popupVisible}
