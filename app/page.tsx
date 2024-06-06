@@ -129,7 +129,7 @@ export default function Home() {
       />
       <Box className="container">
         <Box className="firstSection">
-          <TopCategories data={categories} />
+          <TopCategories data={categories && categories.slice(0, 10)} />
           <Box className="carouselLookingForAndMoreValue">
             <Box
               className="homepageCarouselAndLookingForMainBox"
@@ -142,7 +142,7 @@ export default function Home() {
               />
             </Box>
             <MoreValueAdds />
-            <TopCategoriesSlider data={categories} />
+            <TopCategoriesSlider data={categories && categories.slice(0, 10)} />
           </Box>
         </Box>
         <div
