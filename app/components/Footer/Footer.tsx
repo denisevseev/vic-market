@@ -212,7 +212,10 @@ const Footer = () => {
           </div>
           <div className="footerSection">
             <h3>Our Services</h3>
-            <Link href="/#post-sell-request">Post Sell Request</Link>
+            {/*<Link href="/#post-sell-request">Post Sell Request</Link>*/}
+            <a href="https://crm.victorum-group.com" target="_blank" rel="noopener noreferrer">
+              Partner with Victorum
+            </a>
             <a href="/newsletter">Get Our Newsletter</a>
             <a href="/market-research">Market Research</a>
             <Link href="/#post-buy-request">Corporate Finance</Link>

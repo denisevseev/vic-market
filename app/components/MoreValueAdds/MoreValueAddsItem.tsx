@@ -37,15 +37,20 @@ export default function MoreValueAddsItem() {
         <Box className="catlogsImage"></Box>
       </Box>
       <Box
-        className="addItemSingelMain"
-        onClick={() => handleNavigate("/categories")}
+          className="addItemSingelMain"
+          onClick={() => handleNavigate("/categories")}
       >
-        <Box className="victorumCapitalAndLearnMore">
+        <Box className="victorumCapitalAndLearnMore"
+             onClick={(e) => {
+               e.stopPropagation();
+               handleUrl("https://crm.victorum-group.com");
+             }}
+        >
           <Box sx={{ zIndex: 9 }}>
             <Typography className="victorumCapitalText">
-              Discover your
+              Partner with
             </Typography>
-            <Typography className="victorumCapitalText">potential!</Typography>
+            <Typography className="victorumCapitalText">Victorum!</Typography>
           </Box>
           <Box className="learnMoreAndIcon">
             <Typography className="learnMoreLink">Learn more </Typography>

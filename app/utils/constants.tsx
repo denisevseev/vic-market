@@ -47,7 +47,7 @@ export const contactDetails = [
       search: "Namibia",
       phone: null,
       email: "namibia@victorum-group.com",
-      address: "16 Joseph Wood Street PO Box 1948, Swakopmund, Namibia",
+      address: "13 Luederitz Street PO Box 1948, Swakopmund, Namibia",
     },
     {
       name: "Nigeria",

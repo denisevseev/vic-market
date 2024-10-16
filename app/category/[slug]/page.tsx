@@ -59,7 +59,7 @@ export default function Category({ params }: any) {
       setFeaturedProducts(
         getFilteredProductsByCategoryAndCountry(
           formated,
-          100,
+          1000,
           [],
           slug,
           selectedCountry
