@@ -1,0 +1,177 @@
+.newsLetterMainContainer {
+  margin: auto;
+  padding: 30px 0px;
+}
+.mailToText {
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #2a5182;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.newsLetterBg {
+  background-image: url("../../public/handleShake.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
+}
+.titleHeadlineImgBg {
+  padding: 50px 0px;
+  background: #f9f2ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+.newsLetterTitleHeadlineMW {
+  max-width: 1180px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0px 20px;
+}
+.newsLetterTitleBg {
+  display: inline-flex;
+  background: #d2dae0;
+  border-radius: 37px;
+  -moz-border-radius: 37px;
+  -webkit-border-radius: 37px;
+  padding: 10px 25px;
+  margin-bottom: 30px;
+  width: fit-content;
+}
+.newsLetterTitleBgText {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.newsLetterTitle {
+  color: #082f4a;
+  font-weight: 600 !important;
+  font-size: 38px !important;
+  max-width: 590px;
+  line-height: 60px !important;
+}
+.newsLetterTextContainerPadding {
+  padding: 0px 30px;
+}
+.newsLettertextContainer {
+  margin-top: 30px !important;
+  max-width: 1180px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px 0 rgba(46, 61, 73, 0.1);
+  padding: 20px;
+}
+.newsLetterSubtitle {
+  margin-top: 15px !important;
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.contactUsSubtitle2 {
+  margin-top: 15px !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  color: #2d3840 !important;
+}
+.contactUsContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1020px) {
+  .newsLetterMainContainer {
+    padding: 60px 0px 20px 0px;
+  }
+  .titleHeadlineImgBg {
+    padding: 30px 0px;
+  }
+  .newsLetterTextContainerPadding {
+    padding: 0px 20px;
+  }
+  .newsLetterTitleHeadlineMW {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .newsLetterBg {
+    width: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .newsLetterSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .newsLetterTitle {
+    font-size: 28px !important;
+    line-height: 42px !important;
+    max-width: 430px;
+  }
+  .newsLetterTitleBgText {
+    font-size: 18px !important;
+  }
+  .newsLetterTitleBg {
+    margin-bottom: 15px;
+    padding: 8px 25px;
+  }
+  .newsLetterTitleHeadlineMW {
+    gap: 15px;
+  }
+}
+@media (max-width: 630px) {
+  .newsLetterMainContainer {
+    padding: 100px 0px 20px 0px;
+  }
+  .newsLetterBg {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .newsLetterSubtitle {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+  .contactUsSubtitle2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .newsLetterTitle {
+    font-size: 22px !important;
+    line-height: 32px !important;
+    max-width: 330px;
+  }
+  .newsLetterTitleBgText {
+    font-size: 16px !important;
+  }
+  .newsLetterTitleBg {
+    margin-bottom: 15px;
+    padding: 5px 25px;
+  }
+  .newsLetterBg {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .newsLetterBg {
+    height: 100px;
+  }
+}
