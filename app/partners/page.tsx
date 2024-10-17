@@ -1,18 +1,12 @@
 "use client";
 import React, { useRef } from "react";
 import "./style.scss";
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import "react-toastify/dist/ReactToastify.css";
 import HeadData from "../components/head";
 
 export default function BecomePartner() {
     const formRef = useRef<HTMLDivElement>(null);
-    const theme = useTheme();
-
-    const scrollToForm = () => {
-        if (formRef.current) {
-            formRef.current.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
     return (
         <main>
@@ -61,7 +55,7 @@ export default function BecomePartner() {
                         </Typography>
 
                         <Typography className="newsLetterSubtitle">
-                            Join Victorum  as a valued partner and unlock endless opportunities! Together, we create success, innovate, and drive growth. Whether you're looking to expand your network or earn more, with us, your potential is limitless. Let's build a prosperous future hand in hand!
+                            Join Victorum as a valued partner and unlock endless opportunities! Together, we create success, innovate, and drive growth. Whether you&apos;re looking to expand your network or earn more, with us, your potential is limitless. Let&apos;s build a prosperous future hand in hand!
                         </Typography>
 
                         <Box ref={formRef}></Box>
@@ -102,3 +96,4 @@ export default function BecomePartner() {
         </main>
     );
 }
+
