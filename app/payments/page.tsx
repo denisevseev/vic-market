@@ -35,13 +35,18 @@ export default function PaymentsPage() {
               {/* HEADLINE */}
               <Typography className="paymentsTitle"> VicPay!</Typography>
             </Box>
+
             <Box
-              sx={{
-                borderRadius: "12px",
-              }}
+                sx={{
+                  border: 'solid',
+                  borderColor: 'gray',
+                  borderRadius: '20px',
+                  padding: '7px',
+                }}
             >
               <Box className="paymentsBg"></Box>
             </Box>
+
           </Box>
         </Box>
         {/* SECOND SECTION */}

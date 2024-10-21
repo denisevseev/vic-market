@@ -169,31 +169,31 @@ export default function OurServicesItem() {
           </Box>
           <Box className="ourServicesItemImageEasy">
             <Box
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-              }}
-            >
-              <div
                 style={{
                   display: "flex",
                   justifyContent: "flex-end",
                 }}
+            >
+              <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
               >
                 <Image
-                  width={75}
-                  height={40}
-                  src="/vicpayServiceLogo.png"
-                  alt="Victorum Capital"
-                  objectFit="contain"
+                    width={75}
+                    height={40}
+                    src="/vicpayServiceLogo.png"
+                    alt="Victorum Capital"
+                    objectFit="contain"
                 />
               </div>
             </Box>
           </Box>
 
           <Box
-            className="ourServicesLearnMoreAndIcon"
-            onClick={() => handleRedirect("https://vicpayments.com/")}
+              className="ourServicesLearnMoreAndIcon"
+              onClick={() => handleRedirect("https://vicpayments.com/")}
           >
             <Typography className="ourServiceslearnMoreLink">
               Learn more{" "}
@@ -208,3 +208,5 @@ export default function OurServicesItem() {
     </Box>
   );
 }
+
+

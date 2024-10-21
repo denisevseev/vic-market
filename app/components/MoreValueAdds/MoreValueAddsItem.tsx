@@ -82,7 +82,10 @@ export default function MoreValueAddsItem() {
         </Box>
         <Box
             className="addItemSingelMain"
-            onClick={() => handleUrl("https://www.vicpayments.com")}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNavigate("/payments");
+            }}
         >
           <Box className="victorumCapitalAndLearnMore">
             <Box sx={{ zIndex: 9 }}>
