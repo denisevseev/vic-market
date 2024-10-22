@@ -590,7 +590,7 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                       fontFamily: "Poppins, sans-serif",
                     }}
                   >
-                    * Click to upload video
+                     Click to upload video
                   </Typography>
                 </div>
               )}
@@ -732,8 +732,8 @@ const SellProductModal: React.FC<InquiryModalProps> = ({
                   !productName ||
                   !images.length ||
                   !productPrice ||
-                  !productUnitNumber ||
-                  !video
+                  !productUnitNumber
+                  // !video
                 }
                 sx={{
                   // mt: 6,
